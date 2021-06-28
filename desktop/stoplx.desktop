@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=stoplx
-Terminal=false
-Type=Application
-Exec=/home/fr1511b/stoplx
-Icon=/home/fr1511b/stop.png
-StartupNotify=true
-Categories=Development;
-

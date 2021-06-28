@@ -1,8 +1,0 @@
-{"schema": [
-    {"数据库导出指令":
-   "mysql:mysqldump -uroot -p dispacher >/home/lanxin/java-service/dispacher.sql"
-    },
-    {"查询配置所在指令":"sudo find / -name nginx.conf"
-    }, 
-    {"开机自启":"gnome-session-properties"}
-]}
