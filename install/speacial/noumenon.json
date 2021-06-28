@@ -1,0 +1,1895 @@
+{
+    "common": {
+        "aaa": true
+    },
+
+    "serial_module": [{
+            "串口底座": "双舵轮底座",
+            "instance": "all_base",
+            "串口底座协议": "串口端口，串口波特率，超时时间，通信频率，pid控制频率频率，是否为调试模式",
+            "port": "ttyS1",
+            "baudrate": 115200,
+            "timeout": 1.0,
+            "loop_rate": 20,
+            "pid_rate": 20,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距，轮垂直距离, 轮布局结构（1. 右前左后，2 左前右后），",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 1.17,
+            "wheel_vertical_distance": 0.3,
+            "wheel_layout": 1,
+            "电机参数": "行走电机脉冲数，旋转电机脉冲数，行走电机减速比，旋转电机的减速比",
+            "encoder_resolution": 1000,
+            "rotate_resolution": 1000,
+            "gear_reduction": 20,
+            "rotate_reduction": 25,
+            "运动控制参数": "imu脉冲数，里程计配置参数，串口调试，打印编码，横向加速限制，左轮角度调整，右轮角度调整",
+            "imu_vth_resolution": 0.01,
+            "odom_calib_factor": 1.0,
+            "debug_serial": false,
+            "print_encoder": false,
+            "accel_y_limit": 5.0,
+            "l_angle_adjust": 0,
+            "r_angle_adjust": 0,
+            "模式开关": "是否为fr1511底座，",
+            "is_fr1511_base": true,
+            "串口限速开关": "stop_mode是否为急刹开关，use_clip是否使用串口平滑，accel_limit加速限制",
+            "stop_mode": false,
+            "use_clip": false,
+            "accel_limit": 1.5,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+            "协议名称": "串口协议",
+            "protocol_name": "serial_protocol"
+        },
+        {
+            "串口底座": "标准老底座",
+            "instance": "lx_base",
+            "串口电机参数": "串口端口，超时时间，通信频率，pid控制频率频率，是否为调试模式",
+            "port": "ttyS1",
+            "timeout": 1.0,
+            "loop_rate": 50,
+            "pid_rate": 20,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距, 电机脉冲数，电机减速比",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 0.547,
+            "encoder_resolution": 1000,
+            "gear_reduction": 20,
+            "底盘参数": "底盘配置，获取硬件版本号次数",
+            "is_fr1511_base": true,
+            "get_version_count": 3,
+            "串口限速开关": "stop_mode是否为急刹开关，use_clip是否使用串口平滑，accel_limit加速限制",
+            "stop_mode": false,
+            "use_clip": false,
+            "accel_limit": 1.5,
+            "运动控制参数": "imu脉冲数，里程计配置参数，串口调试，打印编码",
+            "imu_vth_resolution": 0.01,
+            "odom_calib_factor": 1.0,
+            "debug_serial": false,
+            "print_encoder": false,
+            "未使用参数": "功能未知",
+            "is_release_mode": false,
+            "is_inspect_mode": false,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20"
+        },
+        {
+            "串口底座协议": "标准旋转顶升底座",
+            "instance": "lx_elev_base",
+            "串口电机参数": "串口端口，超时时间，通信频率，pid控制频率频率，是否为调试模式",
+            "port": "ttyS1",
+            "timeout": 1.0,
+            "loop_rate": 50,
+            "pid_rate": 20,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距, 电机脉冲数，电机减速比,旋转顶升减速比",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 0.547,
+            "encoder_resolution": 1000,
+            "gear_reduction": 20,
+            "elev_gear_reduction": 112.8205,
+            "底盘参数": "底盘配置，获取硬件版本号次数",
+            "is_fr1511_base": true,
+            "get_version_count": 3,
+            "串口限速开关": "stop_mode是否为急刹开关，use_clip是否使用串口平滑，is_reset开启是否进行重置，重置时是否为底座旋转，accel_limit加速限制",
+            "stop_mode": false,
+            "use_clip": false,
+            "is_reset": false,
+            "is_base_turn": true,
+            "accel_limit": 1.5,
+            "运动控制参数": "imu脉冲数，里程计配置参数，串口调试，打印编码",
+            "imu_vth_resolution": 0.01,
+            "odom_calib_factor": 1.0,
+            "debug_serial": false,
+            "print_encoder": false,
+            "未使用参数": "功能未知",
+            "is_release_mode": false,
+            "is_inspect_mode": false,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20"
+        },
+        {
+            "串口底座": "新版底座（包括改进底盘与小底盘）",
+            "instance": "common_base",
+            "串口电机参数": "串口端口，串口波特率, 超时时间，通信频率，pid控制频率频率，是否为调试模式",
+            "port": "ttyS1",
+            "baudrate": 115200,
+            "timeout": 1.0,
+            "loop_rate": 50,
+            "pid_rate": 20,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距(标准底盘0.547，小底盘0.463）, 电机脉冲数，电机减速比",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 0.547,
+            "encoder_resolution": 1000,
+            "gear_reduction": 32,
+            "底盘参数": "底盘配置，获取硬件版本号次数",
+            "is_fr1511_base": true,
+            "get_version_count": 3,
+            "串口限速开关": "stop_mode是否为急刹开关，use_clip是否使用串口平滑，accel_limit加速限制",
+            "stop_mode": false,
+            "use_clip": false,
+            "accel_limit": 1.5,
+            "运动控制参数": "imu脉冲数，里程计配置参数，串口调试，打印编码",
+            "imu_vth_resolution": 0.01,
+            "odom_calib_factor": 1.0,
+            "debug_serial": false,
+            "print_encoder": false,
+            "未使用参数": "功能未知",
+            "is_inspect_mode": false,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20"
+        },
+        {
+            "单独旋转顶升模块": "一般与common_base配合使用",
+            "instance": "common_elev",
+            "顶升串口个模块": "端口，波特率，通信频率",
+            "port": "ttyS3",
+            "baudrate": 115200,
+            "loop_rate": 50,
+            "运动控制参数": "imu脉冲数，串口调试",
+            "imu_vth_resolution": 0.01,
+            "debug_serial": false,
+            "电机参数": "电机脉冲数，减速比_小底盘为210，标准底盘(包括改进底盘)为112.8205，顶升倾斜报警开关，重置时是否是底座旋转",
+            "encoder_resolution": 1000,
+            "gear_reduction": 210,
+            "report_elev_titl": true,
+            "is_base_turn": true,
+            "is_fr1511_base": true,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+            "protocol_name": "serial_protocol"
+
+        },
+        {
+            "辊筒串口":"辊筒串口通信配置",
+            "instance": "lx_roller",
+            "port": "ttyS3",
+            "baud_bate": 115200,
+            "unload_time_out": 10,
+            "unload_retry_times": 3
+        },
+        {
+            "电池串口":"电池串口通信配置",
+            "instance": "liao_batt",
+            "顶升串口个模块": "端口，波特率，告警百分比",
+            "port": "ttyS2",
+            "baudrate": 115200,
+            "alarm_thres_percent": 30,
+            "配置参数": "电池跳变，满电功能，SOH检测最低值，通讯过程中读取失败多少次上报异常",
+            "batt_jump_limit": 5,
+            "full_battery": 90,
+            "SOH_limit": 60,
+            "connect_limit_times": 3
+        }
+    ],
+
+  "pcl_module": [
+    {
+      "点云合成模块": "use_front_tof是否使用深度相机停障，use_back_laser是否对开启后激光数据合成",
+      "instance": "cloud_agg",
+      "use_front_tof": true,
+      "use_back_laser": false,
+      "滤波参数": "空车及辊筒车滤波参数配置：[前，后，左，右]小底盘辊筒车,滤波尺寸和底盘大小一致,停障尺寸和辊筒大小一致",
+      "filter_shape": [ 0.365, 0.365, 0.275, 0.275 ],
+      "激光点云合成范围": "front_min_theta，front_max_theta，back_min_theta，back_max_theta为激光角度范围",
+      "front_min_theta": -120,
+      "front_max_theta": 120,
+      "back_min_theta": -120,
+      "back_max_theta": 120,
+      "激光步长": "标准底盘设置为0.05，小底盘设置为0.33",
+      "min_laser_range": 0.01,
+      "激光过滤参数": "前激光过滤参数，后激光过滤参数",
+      "front_laser_filter": 3.0,
+      "back_laser_filter": 3.0,
+      "激光倒装参数": "front_laser_inv前激光倒装参数，back_laser_inv后激光倒装参数",
+      "front_laser_inv": false,
+      "back_laser_inv": false,
+      "激光坐标角度": "front_laser_pose前激光位置，back_laser_pose后激光位置",
+      "front_laser_pose": [ 0.3, -0.18, -45 ],
+      "back_laser_pose": [ -0.3, 0.18, 135 ],
+      "tof过滤参数": "ignore_path_id不使用tof相机路径id，ignore_back_laser_path_id不适用后激光路径id,use_tof_mode平行背负货架不使用tof设置为1，背负货架不使用tof设置为2",
+      "ignore_path_id": [ 1, 2, 3 ],
+      "ignore_back_laser_path_id": [ 3, 4, 5 ],
+      "use_tof_mode": 1,
+      "看门狗参数": "odom_wait_time里程记 qr_wait_time二维码等待时间 laser_wait_time激光超时时间 shelf_wait_time货架等待时间 前tof等待时间 后tof等待时间",
+      "odom_wait_time": 500,
+      "qr_wait_time": 500,
+      "laser_wait_time": 500,
+      "shelf_wait_time": 500,
+      "front_tof_wait_time": 200,
+      "back_tof_wait_time": 200,
+      "智昌项目定制": "智昌项目定制开关",
+      "zhichang_mode": false
+    }
+  ],
+
+    "pritask_module": [{
+            "common": {
+                "主任务通用参数": "roller_blindmove_dist滚筒对接完成后盲走距离，roller_blindmove_dist_short辊筒对接盲走最小距离,1代表顶升车0代表辊筒车（和自兴项目使用）",
+                "roller_blindmove_dist": 1.5,
+              "roller_blindmove_dist_short": 1.0,
+              "vehicle_mode": 1
+            }
+        },
+        {
+            "instance": "nav_task",
+            "导航任务主参数": "enable_square_rot是否开启直角转弯，use_seamless_align是否开启无缝对接，qr_check是否开启二维码识别，need_jiaoguan",
+            "enable_square_rot": true,
+            "use_seamless_align": true,
+            "qr_check": false,
+            "need_jiaoguan": false,
+            "导航角度配置参数": "直角转弯出发阈值 绕障超时时间 二维码检测频率 二维码等待时间 二维码差分距离 二维码差分角度",
+            "sqrot_angle": 0,
+            "oa_timeout": 60,
+            "qr_rate": 60,
+            "qr_wait_time": 20,
+            "check_dist": 0.015,
+            "check_theta": 0.0349066
+        },
+        {
+            "导航主任务": "新版本修改——使用新导航",
+            "instance": "new_nav_task",
+            "导航任务主参数": "enable_square_rot是否开启直角转弯，use_seamless_align是否开启无缝对接，qr_check是否开启二维码导航",
+            "enable_square_rot": true,
+            "use_seamless_align": true,
+            "qr_check": false,
+            "导航角度配置参数": "直角转弯出发阈值 绕障超时时间 二维码检测频率 二维码等待时间 二维码检测开关 二维码差分距离 二维码差分角度",
+            "sqrot_angle": 60,
+            "oa_timeout": 60,
+            "qr_rate": 60,
+          "qr_wait_time": 20,
+          "check_shape_mode": 1,
+            "check_dist": 0.015,
+            "check_theta": 0.0349066,
+            "新导航参数": "只拆导航的第一段盲走开关 读取地图朝向属性开关 第一段盲走距离",
+            "blind_move_mode": true,
+            "point_turn_mode": false,
+          "first_node_dist": 0.4
+        },
+        {
+            "潜入式对接主任务": "包括对接顶升、下料、货架调整和空车回收",
+            "instance": "elev_task",
+            "对接方式": "1:货架腿进入二维码对接，2:激光货架腿对接，3：导航盲走扫描二维码对接",
+            "custom_task_type": 1,
+            "新版本增加下料前货架调整": "小底盘配置为2-无头顶升，旋转顶升车配1，普通顶升车配0",
+            "rot_task_type": 2,
+            "qr_stack_type":1,
+            "顶升对接参数开关": "use_forbidden开启非强制上料点，skip_mode小跳过为0大跳过1",
+            "use_forbidden": true,
+            "skip_mode": 0,
+            "stack_arrive_mode":1,"test_mode":false,"qr_check":true,
+            "导航盲走参数开关": "add_nav未匹配货架腿盲走开关，blind_move_dist盲走距离,check_shelf_before_algin对接前检查顶板角度",
+            "add_nav": true,
+            "blind_move_dist": 0.7,
+            "check_shelf_before_algin": true,
+            "对接参数":"货架腿对接尝试次数，二维码货架对接尝试次数，查找二维码时最大行驶速度，对接盲走距离，匹配模型盲走距离",
+            "laserdock_try_counts":5,"qrdock_try_counts":3,"find_speed_speed":0.2,"align_blind_move":0.2,
+            "findshape_blind_move":0,
+            "速度控制":"盲走线速度，检测差别距离，检查差别角度，原地对接判断距离,最大二维码对接等待时间,",
+            "blind_move_vx":0.4,"check_dist":0.015,"check_theta":30,"situ_dist":0.3,"max_qr_code_wait_time":600,
+            "pub_chain":false,"check_qr_before_elev_up":true,"use_qr_arrive": true,"change_model_dist":1.2,
+            "paixun_short_model_num":3,
+            "task_chain":[]
+        },
+        {
+            "二维码标定":"二维码标定任务",
+            "instance":"calib_task"
+        },
+        {
+            "instance": "charge_task",
+            "充电对接模式": "0 为老版本充电对接子任务， 1 为新版本充电对接子任务",
+            "charge_mode": 0,
+            "配置开关": " 是否跳过充电环节， 仅进行充电对接子任务， 现场对接稳定后要配置成false， 或者不配置（ 默认为false）",
+            "test_mode_skip_charge": false,
+            "充电配置参数": "充电等待时间 充电失败重试次数 充电完成后盲走距离 充电完成后盲走最短距离",
+            "charge_wait_sec": 10,
+            "charge_max_fail_count": 3,
+            "charge_blindmove_dist": -1.0,
+            "charge_blindmove_dist_short": -0.7
+        },
+        {
+            "instance":"vlasercharge_task",
+            "充电行走参数（充电对接上后仍继续行走）":0.25 ,//参数值越小行走越多
+            "dist_chres":0.25
+
+        },
+        {
+            "新增实例": "二维码标定实例",
+            "instance": "aruco_extenal_task",
+            "二维码相机": "去掉下划线就默认为是向下相机",
+            "_QR_DOWN": false
+        },
+        {
+            "辊筒主任务":"侧向辊筒对接",
+            "instance": "bsroller_task",
+            "lightdet_timeout": 7.0,
+            "wait_timeout": 15.0,
+            "load_timeout": 999999.0,
+            "align_retry_count": 3
+        },
+        {
+            "instance": "tmp_task"
+        },
+        {
+            "配置信息": "map_name配置地图名称，confirm_timeout用户确认任务自动确认时长,elev_init_reset_type重置模式：0不进行重置",
+            "instance": "other_task",
+            "map_name": "newdiaoyu",
+            "confirm_timeout": 10,
+            "elev_init_reset_type": 0
+
+        }
+    ],
+
+    "subtask_module": [{
+            "common": {
+                "小车尺寸": "车宽，车中心到前方距离，车中心到后方距离，倒角(差速车,目前未使用)",
+                "robot_width": 0.54,
+                "robot_front_dist": 0.36,
+                "robot_back_dist": 0.36,
+                "robot_rotate_r": 0.45
+            }
+        },
+      {
+        "instance": "localplan_task",
+        "调试参数": "暂不修改",
+        "debug": false,
+        "obs_avoid_enable": false,
+        "enable_oa": true,
+        "enable_safety_controller": true,
+        "use_no_head": false,
+        "map_obs_enb": false,
+        "运动速度参数": "最大速度(m/s)，最大角速度(deg/s)，最大加速度(m/s^2),最大角加速度(deg/s^2)",
+        "max_vel_x": 1.0,
+        "max_vel_th": 30,
+        "acc_lim_x": 0.5,
+        "acc_lim_th": 57,
+        "速度平滑参数": "smooth_acc_vx线速度平滑，smooth_acc_w角速度平滑",
+        "smooth_acc_vx": 1.0,
+        "smooth_acc_w": 20,
+        "负载运动参数": "边走变旋转最大速度(m/s)，最大转弯半径(m)",
+        "turn_vel": 0.3,
+        "max_load_vel": 0.8,
+        "近处停障参数": "",
+        "stop_dist": 0.2,
+        "是否闭环控制": "true为闭环控制，false关闭",
+        "actual_speed_control": false,
+        "货架尺寸": "前，后，左，右，倒角，减速圈，支持多个货架，可以配置成[0.7, 0.7, 0.7, 0.7, 1.0, 0.0] ,[0.7,0.7,0.5,0.5,0.8,0.5]形式",
+        "cargo_dim_list": [
+          [ 0.7, 0.7, 0.45, 0.45, 0.8, 0.4 ],
+          [ 0.7, 0.7, 0.45, 0.45, 0.8, 0.4 ],
+          [ 0.7, 0.7, 0.45, 0.45, 0.8, 0.4 ]
+        ],
+        "circle_filter_list": [
+          {
+            "type": 3,
+            "size": 0.1,
+            "center": [
+              [ -0.81, 0.33 ],
+              [ -0.81, -0.33 ],
+              [ -0.52, -0.33 ],
+              [ -0.52, 0.33 ]
+            ]
+          },
+          {
+            "type": 2,
+            "size": 0.1,
+            "center": [
+              [ -0.58, -0.3 ],
+              [ -0.58, 0.3 ]
+            ]
+          }
+        ]
+      },
+      {
+        "instance": "laserdock_task",
+        "是否开启激光货架腿对接视频生成": "0关闭 1开启",
+        "laserdock_savevideo": 0,
+        "dock_shape": [
+          {
+            "type": "1",
+            "size": 0.06,
+            "模式": "0方形腿 1圆形腿",
+            "mode": 0,
+            "center": [
+              [ 0.38, 0.565 ],
+              [ 0.38, -0.565 ],
+              [ -0.38, 0.565 ],
+              [ -0.38, -0.565 ]
+            ]
+          },
+          {
+            "type": "2",
+            "size": 0.06,
+            "mode": 0,
+            "center": [
+              [ 0.397, -0.53 ],
+              [ 0.397, 0.4 ],
+              [ -0.397, -0.53 ],
+              [ -0.397, 0.4 ]
+            ]
+          },
+          {
+            "instance": "sdlmove_task",
+            "控制参数": "到点校验精度，到点角度校验精度",
+            "delta_loc_dist": 0.03,
+            "delta_loc_theta": 3,
+            "速度控制参数": "最大速度，最大角速度",
+            "max_vx": 0.1,
+            "max_w": 20,
+            "加速控制参数": "最大加速度，最大角加速度",
+            "acc_vx": 0.1,
+            "acc_w": 8,
+            "调整控制参数": "缓慢调整速度，缓慢调整角速度",
+            "adj_vx": 0.01,
+            "adj_w": 2,
+            "近处停障参数": "",
+            "stop_dist": 0.2,
+            "save_img": false,
+            "停障参数": "停障扩增距离，停障加速度",
+            "adj_move_dist": 0.08,
+            "adj_move_theta": 8,
+            "硬件超时": "子任务超时时间，里程计超时时间，二维码超时时间，激光超时时间",
+            "limit_time": 120,
+            "odom_max_wait_time": 500,
+            "laser_max_wait_time": 500
+          },
+          {
+            "instance": "new_localplan_task",
+            "debug": false,
+            "enable_oa": true,
+            "oa_second": 3.0,
+            "enable_safety_controller": true,
+            "运动速度参数": "最大速度(m/s)，最大角速度(deg/s)，最大加速度(m/s^2),最大角加速度(deg/s^2)",
+            "max_vel_x": 1.0,
+            "max_vel_th": 30,
+            "acc_lim_x": 0.5,
+            "acc_lim_th": 57,
+            "速度平滑参数": "smooth_acc_vx线速度平滑，smooth_acc_w角速度平滑",
+            "smooth_acc_vx": 1.0,
+            "smooth_acc_w": 20,
+            "负载运动参数": "边走变旋转最大速度(m/s)，最大转弯半径(m)",
+            "turn_vel": 0.3,
+            "max_load_vel": 0.8,
+            "近处停障参数": "",
+            "point_filter_num": 0,
+            "point_filter_dist": 0,
+            "map_obs_enb": false,
+            "是否闭环控制": "true为闭环控制，false关闭",
+            "actual_speed_control": false,
+            "停障参数": "增加",
+            "save_image": false,
+            "stop_times": 10,
+            "obs_acc_vx": 1,
+            "obs_acc_w": 50,
+            "stop_dist": 0.2,
+            "stop_theta": 10,
+            "use_shapefilter": true,
+            "prediction_times": 100,
+            "arrive_change_dist": 0.1,
+            "路径参数": "路径限速变化时候的变速限制",
+            "add_clip": false,
+            "max_speed_acc": 0.1,
+            "路径停障": "前方路径停障距离",
+            "stop_front": 1.5,
+            "导航盲走参数": "导航切盲走的最大允许偏差角度",
+            "blind_limit_theta": 30,
+            "blind_limit_vx": 1.0,
+            "blind_limit_acc": 0.2,
+            "blind_limit_dist": 0.2,
+            "导航吃点": "强制吃点距离，专项上报敏感度",
+            "eat_point_dist": 0,
+            "cout_tun_counts": 5,
+            "导航限制": "原地旋转开关,无缝对接距离,点位间距离阈值，原地转弯限制角度，tof点云等待时间，",
+            "limit_local_turn_with_shape": false,
+            "seamless_align_dist": 0.3,
+            "limit_node_dist": 15,
+            "limit_point_turn_theta_with_shape": 20,
+            "point_tof_wait_time": 500,
+            "红外参数": "屏蔽红外路径id,背负货架红外开关列表0代表关闭1代表开启，普通状态下红外传感器开关0代表关闭1代表开启",
+            "close_infrare_route_list": [ 0, 1, 2, 3, 4, 5 ],
+            "open_infrare_index_with_shape": [ 0, 1, 1, 1, 1, 0 ],
+            "open_infrare_index_without_shape": [ 0, 0, 0, 0, 1, 0 ],
+            "滤波体积filter_shape_list设置": "front(前),back（后）,left（左）,right（右）",
+            "filter_shape_list": [
+              [ 0.68, 0.68, 0.48, 0.48 ],
+              [ 0.68, 0.68, 0.48, 0.48 ],
+              [ 0.68, 0.68, 0.48, 0.48 ]
+            ],
+            "导航原地旋转功能参数": "(x,y)为地图坐标，dist为到坐标的距离，theta为允许旋转的角度",
+            "limit_turn_list": [
+              [ 13.374, 3.7, 0.5, 200 ],
+              [ 13.4, 2.412, 0.5, 200 ],
+              [ 11.657, 2.412, 0.5, 200 ],
+              [ 11.657, 3.712, 0.5, 200 ]
+            ],
+            "货架尺寸": "前，后，左，右，半径，高度，支持多个货架，可以配置成[0.7, 0.7, 0.7, 0.7, 1.0, 0.0] ,[0.7,0.7,0.5,0.5,0.8,0.5]形式",
+            "cargo_dim_list": [
+              [ 0.7, 0.7, 0.45, 0.45, 0.8, 0.4 ],
+              [ 0.7, 0.7, 0.45, 0.45, 0.8, 0.4 ],
+              [ 0.7, 0.7, 0.45, 0.45, 0.8, 0.4 ]
+            ],
+            "circle_filter_list": [
+              {
+                "type": 3,
+                "size": 0.1,
+                "center": [
+                  [ -0.81, 0.33 ],
+                  [ -0.81, -0.33 ],
+                  [ -0.52, -0.33 ],
+                  [ -0.52, 0.33 ]
+                ]
+              },
+              {
+                "type": 2,
+                "size": 0.1,
+                "center": [
+                  [ -0.58, -0.3 ],
+                  [ -0.58, 0.3 ]
+                ]
+              }
+            ]
+          },
+          {
+            "instance": "misc_task"
+          },
+          {
+            "新增子任务": "支持顶板下降状态下旋转的车型 先把顶板降下，再回正。这样有助于提高车辆安全性。",
+            "instance": "localturn_task",
+            "超时时间": "模块超时时间",
+            "limit_time": 20,
+            "控制参数": "精度(deg)",
+            "limit_theta": 0.5,
+            "停障参数": "是否停障，停障半径",
+            "use_safe": true,
+            "radius_vel": 0.5
+          },
+          {
+            "模板匹配对接参数": "模板对接，侧向，前向都可以对接",
+            "instance": "dockctrl_task",
+            "limit_time": 600,
+            "max_vx": 0.07,
+            "匹配参数": "各个现场情况不同，基本需要张伟岳指导进行调参",
+            "vector_kp_theta1": [ 0.8, 0.8, 0.8 ],
+            "vector_kp_theta2": [ 0.8, 0.8, 0.8 ],
+            "vector_middle_dist": [ 0.2, 0.2, 0.2 ],
+            "vector_turn_theta_dist": [ 0.15, 0.15, 0.15 ],
+            "vector_delta_dist": [ 0.003, 0.001, 0.001 ],
+            "vector_kp1": [ 2, 1, 1 ],
+            "vector_kp2": [ 1.2, 0.01, 0.1 ],
+            "stop_dist": 0.01
+          },
+          {
+            "新增模板对接": "充电模板对接",
+            "instance": "dockloc_task",
+            "models": [
+              [
+                [ 1.23, 0.0 ],
+                [ 0.0, 0.0 ],
+                [ 0, -0.92 ]
+              ]
+            ],
+            "weight": 0.2,
+            "odom_mode": 1,
+            "filer_dist": 0.2,
+            "range": [ -2, 5, -2, 2 ],
+            "odom_check_theta": 80,
+            "odom_check_dist": 0.5
+          },
+          {
+            "子任务实例": "二维码到点任务",
+            "instance": "navarrive_task",
+            "到点阈值": "差分距离，差分角度，差分模式",
+            "check_delta_dist": 0.008,
+            "check_delta_theta": 0.6,
+            "check_delta_mod": 1
+          },
+          {
+            "instance": "navcalib_task",
+            "qr_dist": 1.5,
+            "com_param": 0.1,
+            "blind_move": 0.3,
+            "com_width": 0.5
+          },
+          {
+            "周博充电对接子任务": "v型版对接",
+            "instance": "vlasercharge_task",
+            "debug": false,
+            "充电对接参数": "充电行走距离",
+            "dist_thres": 0.46,
+            "laser_x": 0.3,
+            "laser_y": -0.18,
+            "laser_yaw": -0.785
+          },
+          {
+            "elev_task子任务": "货架调整子任务实例",
+            "instance": "shelfrotate_task",
+            "控制参数": "最大货架调整时间(s),加速度限幅(deg/s^2)",
+            "task_time": 20,
+            "acc_w": 40,
+            "limit_theta": 0.8,
+            "use_safe": false
+          },
+          {
+            "elev_task子任务": "二维码货架对接子任务",
+            "instance": "qrdock_task",
+            "角度控制参数": "x方向到点精度(m),y方向到点精度(m),角度方向到点精度(deg)",
+            "delta_x": 0.0025,
+            "delta_y": 0.0025,
+            "delta_theta": 0.5,
+            "check_delta_dist": 0.006,
+            "二维码控制参数": "qrdock_time最大二维码对接时间(s),const_v二维码对接调整速度,二维码安全检测差值",
+            "qrdock_time": 40,
+            "const_v": 0.1,
+            "diff_theta": 20,
+            "不使用定位参数开关": "0为关闭，1为开启",
+            "mode": 1,
+            "区块滤波参数": "滤波点坐标（x,y），滤波距离",
+            "circle_filter_array": [
+              [ 0.36, -0.41, 0.08 ],
+              [ 0.36, -0.41, 0.08 ]
+            ]
+          },
+          {
+            "侧向辊筒对接子任务": "侧向辊筒对接子任务",
+            "instance": "sroller_align_task",
+            "辊筒对接参数": "具体配置需要周博进行调试",
+            "delta_dis": 0.1,
+            "laser2carx": -0.345,
+            "laser_install_right": true,
+            "stop_thr": 0.405,
+            "langle_calib": 0,
+            "rangle_calib": 0,
+            "gap_lower": 0.135
+          },
+          {
+            "前后辊筒对接子任务": "前后向辊筒对接",
+            "instance": "broller_align_task",
+            "辊筒对接参数": "具体配置需要周博进行调试",
+            "dist_thres": 0.51,
+            "fdist_thres": 0.4,
+            "bbias": 0.01,
+            "fbias": 0.02,
+            "line_length": 0.27,
+            "max_line_length": 0.48,
+            "angle": 2.09,
+            "back_laser_to_car": 0.335,
+            "fangle_bias": 0.014,
+            "laser_yaw": -0.785
+          }
+        ],
+        "qrtask_module": [
+          {
+            "instance": "qr_task",
+            "相机备注": "单相机,无论上下相机,均使用不带down的配置项",
+            "相机配置": "是否是多相机,是否开启二维码校验,是否保存日志视频",
+            "multi_camera": true,
+            "verify": false,
+            "save_video": true,
+            "二维码的模式": "1.4x4, 2.其余二维码",
+            "qr_mode": 2,
+            "qr_mode_down": 2,
+            "上下相机": "二维码的个数",
+            "qr_count": 1,
+            "qr_count_down": 1,
+            "上下相机配置": "需要识别的二维码个数",
+            "qr_need": 1,
+            "qr_need_down": 1,
+            "上下相机边长": "二维码边长(mm)",
+            "qr_size": 24,
+            "qr_size_down": 24,
+            "上下相机间距": "二维码间距(mm)",
+            "qr_interval": 0,
+            "qr_interval_down": 0,
+            "相机垂直距离": "相机镜头到二维码的垂直距离(m)",
+            "point_height": 0.125,
+            "point_height_down": 0.105,
+            "二维码参数": "二维码长度",
+            "qr_length": 10,
+            "qr_length_down": 10,
+            "type_count": 6,
+            "type_count_down": 6,
+            "threshold_dist": 0.1,
+            "threshold_angle": 0.3,
+            "detect_time_out": 5,
+            "judge_count_out": 10,
+            "p_dot": 1,
+            "dist_min": 0.07,
+            "dist_max": 0.15,
+            "camera_rotate": -1.5708,
+            "edge_thresh": 20,
+            "qr_size_sub": 20.5,
+            "qr_interval_sub": 10,
+            "qr_need_sub": 4
+          }
+        ],
+        "movebase": {
+          "split_task_ids": [ 5, 100, 101, 102, 131, 200, 1120, 211 ],
+          "虚拟点拆分距离": "上料拆分距离，下料拆分距离",
+          "target_split_dist_load": 0,
+          "target_split_dist_unload": 0.6,
+          "点位查询": "离线模式下选择false，在线模式下使用true",
+          "route_find_name": false
+        }
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      {
+        "name": "warning_ceshi"
+      },
+      {
+        "common": {
+          "aaa": true
+        },
+        "serial_module": [
+          {
+            "instance": "common_base",
+            "串口底座协议": "串口端口，串口波特率，通信频率，是否为调试模式",
+            "port": "ttyS1",
+            "baudrate": 115200,
+            "loop_rate": 30,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距，编码率，减速比",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 0.468,
+            "encoder_resolution": 1000,
+            "gear_reduction": 25,
+            "模式开关": "是否为fr1511底座，是否使用串口平滑,unload_retry_times下料重试次数",
+            "is_fr1511_base": false,
+            "use_clip": false,
+            "unload_retry_times": 1,
+            "串口限速开关": "stop_mode是否为急刹开关，accel_limit加速限制",
+            "stop_mode": true,
+            "accel_limit": 1.0,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+            "协议名称": "串口协议",
+            "protocol_name": "serial_protocol"
+          },
+          {
+            "顶升串口个模块": "端口，波特率，通信频率",
+            "instance": "common_elev",
+            "port": "ttyS3",
+            "baudrate": 115200,
+            "loop_rate": 50,
+            "电机参数": "编码率，减速比",
+            "encoder_resolution": 1000,
+            "gear_reduction": 210,
+            "新参数": "顶升倾斜报警开关",
+            "report_elev_titl": true,
+            "is_fr1511_base": true,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+            "protocol_name": "serial_protocol",
+            "新参数": "顶升重置的顶板是否旋转,开启false",
+            "is_base_turn": true
+          },
+          {
+            "电池通信模块": "电池通信串口",
+            "instance": "liao_batt",
+            "顶升串口个模块": "端口，波特率，告警百分比",
+            "port": "ttyS2",
+            "baudrate": 115200,
+            "alarm_thres_percent": 30,
+            "配置参数": "电池跳变，满电功能，SOH检测最低值，通讯过程中读取失败多少次上报异常",
+            "batt_jump_limit": 5,
+            "full_battery": 90,
+            "SOH_limit": 60,
+            "connect_limit_times": 3
+
+          }
+        ],
+        "aruco_module": [
+          {
+            "instance": "aruco_dectector"
+          },
+          {
+            "instance": "aruco_calibrate"
+          },
+          {
+            "instance": "aruco_createBoard"
+          }
+        ],
+        "pcl_module": [
+          {
+            "点云合成模块": "use_front_tof是否使用深度上下相机停障，front_min_theta，front_max_theta，back_min_theta，back_max_theta为激光角度范围",
+            "instance": "cloud_agg",
+            "use_front_tof": false,
+            "front_min_theta": -100,
+            "front_max_theta": 100,
+            "back_min_theta": -100,
+            "back_max_theta": 100,
+            "激光过滤参数": "前激光过滤参数，后激光过滤参数",
+            "front_laser_filter": 3,
+            "back_laser_filter": 3,
+            "ignore_back_laser_path_id": [],
+            "激光倒装参数": "front_laser_inv前激光倒装参数，back_laser_inv后激光倒装参数",
+            "front_laser_inv": false,
+            "back_laser_inv": false,
+            "激光坐标角度": "front_laser_pose前激光位置，back_laser_pose后激光位置",
+            "front_laser_pose": [ 0.3, -0.18, -45 ],
+            "back_laser_pose": [ -0.3, 0.18, 135 ],
+            "tof过滤参数": "ignore_path_id不使用tof相机路径id，use_tof_mode平行背负货架不使用tof设置为1，背负货架不使用tof设置为2",
+            "ignore_path_id": [ -2 ],
+            "use_tof_mode": 0,
+            "激光过滤参数": "后激光按照路径关闭",
+            "ignore_back_laser_path_id": [ -2 ]
+          }
+        ],
+        "pritask_module": [
+          {
+            "common": {
+              "主任务通用参数": "charge_blindmove_dist充电完成后盲走距离，roller_blindmove_dist滚筒对接完成后盲走距离，roller_blindmove_dist_short辊筒对接盲走最小距离",
+              "charge_blindmove_dist": -0.2,
+              "roller_blindmove_dist": 0,
+              "roller_blindmove_dist_short": 0.6,
+              "主任务通用参数": "牵引配置0,顶升配置1",
+              "vehicle_mode": 1
+            }
+          },
+
+          {
+            "开启二维码带对接":"new_bs_roller",
+            "instance":"new_bs_roller",
+            "roller_mode": 2
+          },
+          {
+            "导航主任务": "新版本修改——使用新导航",
+            "instance": "new_nav_task",
+            "导航主任务": "二维码校验距离",
+            "check_dist": 0.025,
+            "导航任务主参数": "enable_square_rot是否开启直角转弯，use_seamless_align是否开启无缝对接，enable_qr_nav是否开启二维码导航，enable_stop_by_btn",
+            "enable_square_rot": true,
+            "use_seamless_align": true,
+            "enable_qr_nav": false,
+            "enable_stop_by_btn": false,
+            "新导航参数": "只拆导航的第一段盲走开关",
+            "first_node_dist": 5,
+            "check_shape_mode": 1,
+            "blind_move_mode": true,
+            "新导航参数": "导航特殊点",
+            "next_prec_goal_taskcmds": [ 200 ],
+            "相机校验二维码方向": "0-关闭,1-开启,2-蓝思贴码方式",
+            "check_shape_mode": 0,
+            "是否开启二维码方向校验":false,
+            "qr_check": false,
+            "导航任务主参数": "一次导航任务只验证一次，验证第一个点，-1关闭",
+            "first_node_dist": 0.4
+          },
+          {
+            "导航主任务": "新版本修改——使用新导航",
+            "instance": "nav_split_task",
+            "伟创项目配置":"允许原地旋转的点位名称",
+            "local_turn_limit":["veichi-1","veichi-2","veichi-3","veichi_3","veichi-4","veichi-5","veichi-6","veichi-out","charge","charge_trun"],
+            "到点需确认点位民名称":"需要确认点位名称",
+	    "arrive_check_node":["veichi-1","veichi-2","veichi-3","veichi_3","veichi-4","veichi-5","veichi-6"]
+           
+        },
+          {
+            "潜入式对接主任务": "包括对接顶升、下料、货架调整和空车回收",
+          "instance": "elev_task",
+            "对接方式": "1:货架腿进入二维码对接，2:激光货架腿对接，3：导航盲走扫描二维码对接, 5：原地对接",
+            "custom_task_type": 1,
+            "新版本增加下料前货架调整": "小底盘配置为2-无头顶升，旋转顶升车配1，普通顶升车配0,先降下顶板再回正模式配置３",
+            "rot_task_type": 3,
+            "通过判断小车和目标点位的距离": "situ_dist = 0.3m",
+            "situ_dist": 0.3,
+            "新版本增加参数开关": "use_forbidden开启非强制上料点，skip_mode小跳过为0大跳过1",
+            "use_forbidden": true,
+            "skip_mode": 1,
+            "新版本增加参数开关": "add_nav未匹配货架腿盲走开关，blind_move_dist盲走距离,check_shelf_before_algin对接前检查顶板角度",
+            "add_nav": true,
+            "blind_move_dist": 0.8,
+            "新版本增加参数开关": "对接前验证顶板角度",
+            "check_shelf_before_algin": false
+          },
+          {
+            "instance": "charge_task",
+            "充电对接模式": "0 为老版本充电对接子任务， 1 为新版本充电对接子任务",
+            "charge_mode": 1,
+            "配置开关": " 是否跳过充电环节， 仅进行充电对接子任务， 现场对接稳定后要配置成false， 或者不配置（ 默认为false）",
+            "test_mode_skip_charge": false,
+            "充电配置参数": "充电等待时间; 充电失败最多次数",
+            "charge_wait_sec": 10,
+            "charge_max_fail_count": 3
+          },
+          {
+            "instance": "aruco_extenal_task"
+          },
+          {
+            "instance": "tmp_task"
+          },
+          {
+            "配置信息": "配置地图名称，confirm_timeout用户确认任务自动确认时长,elev_init_reset_type重置模式：0不进行重置",
+            "instance": "other_task",
+            "confirm_timeout": 3.0,
+            "charge_wait_sec": 20,
+            "map_name": "newdiaoyu1",
+            "task_chain": [
+              {
+                "type": 1,
+                "chain": {
+                  "orderList": [
+                    {
+                      "action": 210,
+                      "endPoint": "RE-CYLE2",
+                      "info": [
+                        { "shelf_target_theta": "0" },
+                        { "loc_target": "0" }
+                      ]
+                    },
+                    {
+                      "action": 3,
+                      "endPoint": "F7N2060"
+                    },
+                    {
+                      "action": 210,
+                      "endPoint": "F7N2060",
+                      "info": [
+                        { "shelf_target_theta": "-90" },
+                        { "loc_target": "-90" }
+                      ]
+                    },
+                    {
+                      "action": 3,
+                      "endPoint": "F7N2061"
+                    },
+                    {
+                      "action": 210,
+                      "endPoint": "F7N2061",
+                      "info": [
+                        { "shelf_target_theta": "-180" },
+                        { "loc_target": "-180" }
+                      ]
+                    },
+                    {
+                      "action": 3,
+                      "endPoint": "F7N2064"
+                    },
+                    {
+                      "action": 210,
+                      "endPoint": "F7N2064",
+                      "info": [
+                        { "shelf_target_theta": "90" },
+                        { "loc_target": "90" }
+                      ]
+                    },
+                    {
+                      "action": 3,
+                      "endPoint": "F7N2073"
+                    },
+                    {
+                      "action": 210,
+                      "endPoint": "F7N2073",
+                      "info": [
+                        { "shelf_target_theta": "0" },
+                        { "loc_target": "0" }
+                      ]
+                    },
+                    {
+                      "action": 3,
+                      "endPoint": "RE-CYLE2",
+                      "orient": 0
+                    },
+                    {
+                      "action": 200,
+                      "endPoint": "RE-CYLE2",
+                      "layingOff": true,
+                      "orient": 1
+                    },
+                    {
+                      "action": 9,
+                      "endPoint": "RE-CYLE2"
+                    }
+                  ],
+                  "reAssginment": true
+                }
+              }
+            ],
+            "配置信息": "重置模式：0不进行重置,1重启程序和开机重置,2开机重置",
+            "elev_init_reset_type": 0,
+            "配置信息": "用户确认任务自动确认时长",
+            "confirm_timeout": 10
+          }
+        ],
+        "subtask_module": [
+          {
+            "common": {
+              "小车尺寸": "车宽，车中心到前方距离，车中心到后方距离，车原地旋转半径(差速车)",
+              "robot_width": 0.55,
+              "robot_front_dist": 0.365,
+              "robot_back_dist": 0.365,
+              "robot_rotate_r": 0.45,
+              "小车尺寸": "减速圈的厚度",
+              "robot_add_slow": 0.1
+            }
+          },
+          {
+            "导航子任务": "新版本修改——使用新导航",
+            "instance": "new_localplan_task",
+            "导航任务": "停障功能增加减速圈,调试模式",
+            "save_img": false,
+            "导航任务": "危险路径提示",
+            "danger_route_id": [ -2 ],
+            "导航任务": "最大点位间距",
+            "limit_node_dist": 30,
+            "stop_front": 0.4,
+            "use_shapefilter": true,
+            "导航原地旋转功能参数": "默认旋转限制角度",
+            "limit_point_turn_theta_with_shape": 20,
+            "导航原地旋转功能参数": "是否开启旋转限制角度",
+            "limit_local_turn_with_shape": false,
+            "导航原地旋转功能参数": "(x,y)为地图坐标，dist为到坐标的距离，theta为允许旋转的角度",
+            "limit_turn_list": [
+              [ 10.6, -2.75, 1, 250 ],
+              [ 12.58, -2.75, 1, 125 ],
+              [ -7.884, -13.808, 1, 250 ],
+              [ -11.6, 9.5, 1, 180 ]
+            ],
+            "调试参数": "暂不修改",
+            "debug": false,
+            "enable_oa": true,
+            "enable_safety_controller": true,
+            "use_no_head": false,
+            "map_obs_enb": false,
+            "odom_wait_time": 200,
+            "laser_wait_time": 500,
+            "cout_tun_counts": 5,
+            "rough_mode": false,
+            "stop_wait_time": 10,
+            "速度运动参数": "最大速度(m/s)，最大角速度(deg/s)，最大加速度(m/s^2),最大角加速度(deg/s^2)",
+            "max_vel_x": 1.5,
+            "max_vel_th": 30,
+            "acc_lim_x": 0.5,
+            "acc_lim_th": 57,
+            "旋转运动参数": "边走变旋转最大速度(m/s)，最大转弯半径(m)",
+            "turn_vel": 0.3,
+            "max_load_vel": 0.8,
+            "近处停障参数": "",
+            "stop_dist": 0.2,
+            "控制抖动功能开关": "false为开启抖动控制，true使用实际速度控制",
+            "actual_speed_control": false,
+            "速度平滑参数": "smooth_acc_vx线速度平滑，smooth_acc_w角速度平滑,add_clip导航加开环速度平滑-新版本增加",
+            "smooth_acc_vx": 1,
+            "smooth_acc_w": 20,
+            "add_clip": true,
+            "新导航停障参数": "stop_straight直行停障抱死距离，stop_turn转弯停障抱死距离，min_radius转弯半径小于此值时用stop_turn,max_radius转弯半径大于此值时用stop_straight",
+            "stop_straight": 0.3,
+            "stop_turn": 0.1,
+            "min_radius": 1,
+            "max_radius": 50,
+            "货架尺寸": "前，后，左，右，半径，高度，支持多个货架，可以配置成[0.7, 0.7, 0.7, 0.7, 1.0, 0.0] ,[0.7,0.7,0.5,0.5,0.8,0.5]形式",
+            "cargo_dim_list": [
+              [ 0.66, 0.66, 0.45, 0.45, 0.8, 0.4 ],
+              [ 0.66, 0.66, 0.45, 0.45, 0.8, 0.4 ],
+              [ 0.66, 0.66, 0.45, 0.45, 0.8, 0.4 ]
+            ],
+            "滤波的尺寸": "需要滤波的尺寸，可以配置多个",
+            "filter_shape_list": [
+              [ 0.66, 0.66, 0.45, 0.45 ],
+              [ 0.66, 0.66, 0.45, 0.45 ],
+              [ 0.66, 0.66, 0.45, 0.45 ]
+            ]
+          },
+
+          {
+            "instance": "localturn_task",
+            "超时时间": "模块超时时间",
+            "limit_time": 20,
+            "控制参数": "精度(deg)",
+            "limit_theta": 0.5,
+            "停障参数": "是否停障，停障半径",
+            "use_safe": true,
+            "radius_vel": 0.5
+          },
+          {
+            "instance": "misc_task"
+          },
+          {
+            "instance": "motion_task"
+          },
+          {
+            "新增二维码带对接":"qrline_task",     
+            "instance":"qrline_task",
+            "二维码相邻距离": 0.1,
+            "qr_dist":0.1,
+            "对接时最大线速度": 0.07,
+            "max_vx":0.07,
+            "对接完成后角度校验阈值": 0.02,
+            "check_delta_dist":0.02,
+            "对接时使用y轴距离做调整": true,
+            "local_adj":true
+             },
+          {
+            "新增模板对接": "充电模板对接",
+            "instance": "dockloc_task",
+            "models": [
+
+              [
+                [ -0.12, -0.235 ],
+                [ 0.0, 0.0 ],
+                [ -0.12, 0.235 ]
+              ]
+            ],
+            "odom_mode": 0,
+            "range": [ -2, 3, -2, 2 ],
+            "filer_dist": 0.2
+          },
+          {
+            "instance": "vlasercharge_task",
+            "debug": false,
+            "dist_thres": 0.44,
+            "laser_x": 0.3,
+            "laser_y": -0.18,
+            "laser_yaw": -0.785,
+            "_bias": -0.015,
+            "x_thre": 0.11,
+            "angle_thre": 0.2,
+            "turn_point": 0.73,
+            "safe_dis": 0.12
+          },
+          {
+            "instance": "laserdock_task",
+            "dock_shape": [
+              {
+                "type": "1",
+                "size": 0.06,
+                "mode": 0,
+                "center": [
+                  [ 0.38, 0.565 ],
+                  [ 0.38, -0.565 ],
+                  [ -0.38, 0.565 ],
+                  [ -0.38, -0.565 ]
+                ]
+              },
+              {
+                "type": "2",
+                "size": 0.06,
+                "mode": 0,
+                "center": [
+                  [ 0.397, -0.53 ],
+                  [ 0.397, 0.4 ],
+                  [ -0.397, -0.53 ],
+                  [ -0.397, 0.4 ]
+                ]
+              }
+            ],
+            "对接参数": "增加货架腿对接重算阈值可配置，定制功能",
+            "_reverse_weight_thres": 0.4,
+            "运动参数": "最大速度(m/s)，最大角速度(deg/s)",
+            "laserdock_maxv": 0.2,
+            "laserdock_maxw": 30,
+            "１控制参数": "角度调整精度(deg)，控制路径转折点(m),默认初始对接距离(m)——新版本修改(与地图预拆分保持一致)，初始位置由定位参数获取开关——新版本增加",
+            "laserdock_arriveangle": 0.8,
+            "laserdock_middledist": 0.4,
+            "laserdock_dockpre": 0.8,
+            "use_loc_mode": true,
+            "调试参数": "初始货架状态，激光位姿，最大对接时间(s),是否进行最后一次调整",
+            "test_side": 0,
+            "laserdock_laserpose": 0.335,
+            "laserdock_time": 40,
+            "begin_qrtask": 0.6,
+            "last_move": true,
+            "stop_dist": 0.1,
+            "reach_stop_dist": 0.01,
+            "laserdock_maxmovedist": 1,
+            "diff_theta": 20,
+            "2控制参数": "增益1，增益2，角度增益1，角度增益2，控制切换点",
+            "kp1": 3,
+            "kp2": 1,
+            "kp_theta1": 0.4,
+            "kp_theta2": 2,
+            "control_dist": 0.3,
+            "看门狗参数": "odom_wait_time里程记 qr_wait_time二维码等待时间 laser_wait_time激光超时时间 shelf_wait_time货架等待时间,max_qr_code_wait_time二维码最大等待时间",
+            "odom_wait_time": 500,
+            "qr_wait_time": 500,
+            "laser_wait_time": 500,
+            "shelf_wait_time": 500,
+            "max_qr_code_wait_time": 500
+          },
+          {
+            "instance": "navarrive_task",
+            "check_delta_dist": 0.01,
+            "check_delta_theta": 0.6,
+            "check_delta_mod": 0.3
+          },
+
+          {
+            "instance": "shelfrotate_task",
+            "1控制参数": "最大货架调整时间(s),加速度限幅(deg/s^2)",
+            "task_time": 20,
+            "acc_w": 40,
+            "limit_theta": 0.8,
+            "use_safe": false,
+            "2控制参数": "调整后角度校验,此功能删除,默认关闭",
+            "use_vel_check": false,
+            "limit_vel_diff_theta": 15,
+            "3控制参数": "调整之前验证小车坐标，false关闭",
+            "use_loc_pose_check": true,
+            "4控制参数": "小车与目标点的最大容许偏差距离",
+            "loc_pose_check_dist": 1
+          },
+          {
+            "instance": "dockloc_task",
+            "models": [
+              [
+                [ -0.12, -0.235 ],
+                [ 0.0, 0.0 ],
+                [ -0.12, 0.235 ]
+              ]
+            ],
+            "odom_mode": 0,
+            "range": [ -2, 3, -2, 2 ],
+            "filer_dist": 0.2
+          },
+          {
+            "模板匹配对接参数": "模板对接，侧向，前向都可以对接",
+            "instance": "dockctrl_task",
+            "limit_time": 600,
+            "max_vx": 0.07,
+            "匹配参数": "各个现场情况不同，基本需要张伟岳指导进行调参",
+            "vector_kp_theta2": [ 0.5, 0.7 ],
+            "vector_kp_theta1": [ 0.5, 0.8 ],
+            "vector_middle_dist": [ 0.6, 0.6 ],
+            "vector_delta_dist": [ 0.01, 0.01 ],
+            "vector_turn_theta_dist": [ 0.1, 0.1 ],
+            "vector_kp1": [ 2, 1 ],
+            "vector_kp2": [ 1, 1.5 ],
+            "stop_dist": 0.03,
+            "max_vx": 0.07
+          },
+          {
+            "新增模板对接": "充电模板对接",
+            "instance": "qrdock_task",
+            "控制参数": "x方向到点精度(m),y方向到点精度(m),角度方向到点精度(deg)",
+            "delta_x": 0.0025,
+            "delta_y": 0.0025,
+            "delta_theta": 0.5,
+            "check_delta_dist": 0.006,
+            "delta_theta": 0.6,
+            "控制参数": "qrdock_time最大二维码对接时间(s),const_v二维码对接调整速度,二维码安全检测差值",
+            "qrdock_time": 40,
+            "const_v": 0.1,
+            "diff_theta": 20,
+            "不使用定位参数开关": "0为关闭，1为开启",
+            "mode": 1,
+            "区块滤波参数": "滤波点坐标（x,y），滤波距离",
+            "circle_filter_array": [
+              [ 0.36, -0.41, 0.08 ],
+              [ 0.36, -0.41, 0.08 ]
+            ],
+            "二维码贴码方式": "true二维码type值平行货架短边贴，对应check_shape_mode蓝思贴码，false二维码type值平行货架长边贴",
+            "theta_change": false,
+            "check_theta": 30
+          },
+          {
+            "新增子任务": "支持顶板下降状态下旋转的车型 先把顶板降下，再回正。这样有助于提高车辆安全性。",
+            "instance": "localturn_task",
+            "超时时间": "模块超时时间",
+            "limit_time": 20,
+            "控制参数": "精度(deg)",
+            "limit_theta": 0.5,
+            "一般不进行修改配置": "如要修改，需要将下划线去掉",
+            "_kp_w": 1.2,
+            "_max_w_with_shape": 30,
+            "_max_w_without_shape": 50,
+            "_acc_w_with_shape": 30,
+            "_acc_w_without_shape": 50,
+            "停障参数": "是否停障，停障半径",
+            "use_safe": true,
+            "radius_vel": 0.5,
+            "radius_shape": 0.7,
+            "odom_wait_time": 500,
+            "laser_wait_time": 500,
+            "shelf_wait_time": 500
+          }
+        ],
+        "qrtask_module": [
+          {
+            "instance": "qr_task",
+            "相机——新版本增加，需要着重修改": "单相机,无论上下相机,均使用不带down的配置项",
+            "相机": "是否是多相机,是否开启二维码校验,是否保存日志视频",
+            "multi_camera": true,
+            "verify": false,
+            "save_video": true,
+            "二维码的模式": "1.4x4, 2.其余二维码",
+            "qr_mode": 2,
+            "qr_mode_down": 2,
+            "相机": "二维码的个数",
+            "qr_count": 1,
+            "qr_count_down": 1,
+            "相机": "需要识别的二维码个数",
+            "qr_need": 1,
+            "qr_need_down": 1,
+            "相机": "二维码边长(mm)",
+            "qr_size": 24,
+            "qr_size_down": 24,
+            "相机": "二维码间距(mm)",
+            "qr_interval": 0,
+            "qr_interval_down": 0,
+            "相机": "相机镜头到二维码的垂直距离(m)",
+            "point_height": 0.145,
+            "point_height_down": 0.105,
+            "point_height_monitor": 0.145,
+            "二维码参数": "二维码长度",
+            "qr_length": 10,
+            "qr_length_down": 10,
+            "type_count": 6,
+            "type_count_down": 6,
+            "threshold_dist": 0.1,
+            "threshold_angle": 0.3,
+            "detect_time_out": 5,
+            "judge_count_out": 10,
+            "p_dot": 1,
+            "dist_min": 0.07,
+            "dist_max": 0.15,
+            "camera_rotate": -1.5708,
+            "edge_thresh": 20,
+            "qr_size_sub": 20.5,
+            "qr_interval_sub": 10,
+            "qr_need_sub": 4
+          }
+        ],
+        "movebase": {
+          "虚拟点拆分距离": "target_split_dist_load上料拆分距离 target_split_dist_unload下料拆分距离",
+          "target_split_dist_load": 0,
+          "target_split_dist_unload": 0,
+          "点位查询": "离线模式下选择false，在线模式下使用true",
+          "route_find_name": true
+        }
+      }
+    ]
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "common": {
+        "aaa": true
+    },
+    "serial_module": [
+        {
+            "instance": "common_base",
+            "串口底座协议": "串口端口，串口波特率，通信频率，是否为调试模式",
+            "port": "ttyS1",
+            "baudrate": 115200,
+            "loop_rate": 30,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距，编码率，减速比",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 0.468,
+            "encoder_resolution": 1000,
+            "gear_reduction": 25,
+            "模式开关": "是否为fr1511底座，是否使用串口平滑,unload_retry_times下料重试次数",
+            "is_fr1511_base": false,
+            "use_clip": false,
+            "unload_retry_times": 1,
+            "串口限速开关": "stop_mode是否为急刹开关，accel_limit加速限制",
+            "stop_mode": true,
+            "accel_limit": 1.0,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+            "协议名称": "串口协议",
+            "protocol_name": "serial_protocol"
+        },
+        {
+            "顶升串口个模块": "端口，波特率，通信频率",
+            "instance": "common_elev",
+            "port": "ttyS3",
+            "baudrate": 115200,
+            "loop_rate": 50,
+            "电机参数": "编码率，减速比",
+            "encoder_resolution": 1000,
+            "gear_reduction": 210,
+            "新参数": "顶升倾斜报警开关",
+            "report_elev_titl": true,
+            "is_fr1511_base": true,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+            "protocol_name": "serial_protocol",
+ 	     "新参数":"顶升重置的顶板是否旋转,开启false",
+     	     "is_base_turn": true
+        },
+        {
+            "电池通信模块": "电池通信串口",
+            "instance": "liao_batt",
+            "顶升串口个模块": "端口，波特率，告警百分比",
+            "port": "ttyS2",
+  	    "baudrate": 115200,
+            "alarm_thres_percent": 30,
+             "配置参数": "电池跳变，满电功能，SOH检测最低值，通讯过程中读取失败多少次上报异常",
+             "batt_jump_limit": 5,
+             "full_battery": 90,
+             "SOH_limit": 60,
+             "connect_limit_times": 3
+          
+        }
+    ],
+    "aruco_module": [
+        {
+            "instance": "aruco_dectector"
+        },
+        {
+            "instance": "aruco_calibrate"
+        },
+        {
+            "instance": "aruco_createBoard"
+        }
+    ],
+    "pcl_module": [
+        {
+            "点云合成模块": "use_front_tof是否使用深度上下相机停障，front_min_theta，front_max_theta，back_min_theta，back_max_theta为激光角度范围",
+            "instance": "cloud_agg",
+            "use_front_tof":false,
+            "front_min_theta": -100,
+            "front_max_theta": 100,
+            "back_min_theta": -100,
+            "back_max_theta": 100,
+            "激光过滤参数": "前激光过滤参数，后激光过滤参数",
+            "front_laser_filter": 3,
+            "back_laser_filter": 3,
+            "ignore_back_laser_path_id":[],
+            "激光倒装参数": "front_laser_inv前激光倒装参数，back_laser_inv后激光倒装参数",
+            "front_laser_inv": false,
+            "back_laser_inv": false,
+            "激光坐标角度": "front_laser_pose前激光位置，back_laser_pose后激光位置",
+            "front_laser_pose": [0.3,-0.18,-45],
+            "back_laser_pose": [-0.3,0.18,135],
+            "tof过滤参数": "ignore_path_id不使用tof相机路径id，use_tof_mode平行背负货架不使用tof设置为1，背负货架不使用tof设置为2",
+         "ignore_path_id":[-2],
+         "use_tof_mode":0,
+         "激光过滤参数": "后激光按照路径关闭",
+        "ignore_back_laser_path_id":[-2]
+    }],
+    "pritask_module": [
+        {
+            "common": {
+                "主任务通用参数": "charge_blindmove_dist充电完成后盲走距离，roller_blindmove_dist滚筒对接完成后盲走距离，roller_blindmove_dist_short辊筒对接盲走最小距离",
+                "charge_blindmove_dist": -0.2,
+                "roller_blindmove_dist": 0,
+                "roller_blindmove_dist_short": 0.6,
+            	"主任务通用参数": "牵引配置0,顶升配置1",
+		"vehicle_mode": 1
+            }
+        },
+        {
+            "导航主任务": "新版本修改——使用新导航",
+            "instance": "new_nav_task",
+            "导航主任务": "二维码校验距离",
+             "check_dist":0.025,
+            "导航任务主参数": "enable_square_rot是否开启直角转弯，use_seamless_align是否开启无缝对接，enable_qr_nav是否开启二维码导航，enable_stop_by_btn",
+            "enable_square_rot": true,
+            "use_seamless_align": true,
+            "enable_qr_nav": false,
+            "enable_stop_by_btn": false,
+            "新导航参数": "只拆导航的第一段盲走开关",
+            "first_node_dist": 5,
+            "check_shape_mode":1,
+            "blind_move_mode": true,
+             "新导航参数": "导航特殊点",
+            "next_prec_goal_taskcmds": [200],
+            "相机校验二维码方向":"0-关闭,1-开启,2-蓝思贴码方式",
+            "check_shape_mode": 0,
+            "导航任务主参数":"一次导航任务只验证一次，验证第一个点，-1关闭",
+	    "first_node_dist":0.4
+        },
+        {
+            "潜入式对接主任务": "包括对接顶升、下料、货架调整和空车回收",
+            "instance": "elev_task",
+            "对接方式": "1:货架腿进入二维码对接，2:激光货架腿对接，3：导航盲走扫描二维码对接, 5：原地对接",
+            "custom_task_type": 1,
+            "新版本增加下料前货架调整": "小底盘配置为2-无头顶升，旋转顶升车配1，普通顶升车配0,先降下顶板再回正模式配置３",
+            "rot_task_type": 3,
+            "通过判断小车和目标点位的距离": "situ_dist = 0.3m",
+            "situ_dist": 0.3, 
+            "新版本增加参数开关": "use_forbidden开启非强制上料点，skip_mode小跳过为0大跳过1",
+            "use_forbidden": true,
+            "skip_mode": 1,
+            "新版本增加参数开关": "add_nav未匹配货架腿盲走开关，blind_move_dist盲走距离,check_shelf_before_algin对接前检查顶板角度",
+            "add_nav":true,
+            "blind_move_dist": 0.8,
+             "新版本增加参数开关": "对接前验证顶板角度",
+            "check_shelf_before_algin": false
+        },
+        {
+            "instance": "charge_task",
+            "充电对接模式": "0 为老版本充电对接子任务， 1 为新版本充电对接子任务",
+            "charge_mode":1,
+            "配置开关": " 是否跳过充电环节， 仅进行充电对接子任务， 现场对接稳定后要配置成false， 或者不配置（ 默认为false）",
+            "test_mode_skip_charge": false,
+            "充电配置参数": "充电等待时间; 充电失败最多次数",
+            "charge_wait_sec": 10,
+            "charge_max_fail_count": 3
+        },
+        {
+            "instance": "aruco_extenal_task"
+        },
+        {
+            "instance": "tmp_task"
+        },
+        {
+            "配置信息": "配置地图名称，confirm_timeout用户确认任务自动确认时长,elev_init_reset_type重置模式：0不进行重置",
+            "instance": "other_task","confirm_timeout":3.0,"charge_wait_sec":20,
+            "map_name":"newdiaoyu1",
+            "task_chain":[
+	{"type":1,"chain":{"orderList":[
+		{"action":210,"endPoint":"RE-CYLE2","info":[{"shelf_target_theta":"0"},{"loc_target":"0"}]},
+		{"action":3,"endPoint":"F7N2060"},{"action":210,"endPoint":"F7N2060","info":[{"shelf_target_theta":"-90"},{"loc_target":"-90"}]},
+		{"action":3,"endPoint":"F7N2061"},{"action":210,"endPoint":"F7N2061","info":[{"shelf_target_theta":"-180"},{"loc_target":"-180"}]},
+		{"action":3,"endPoint":"F7N2064"},{"action":210,"endPoint":"F7N2064","info":[{"shelf_target_theta":"90"},{"loc_target":"90"}]},
+		{"action":3,"endPoint":"F7N2073"},{"action":210,"endPoint":"F7N2073","info":[{"shelf_target_theta":"0"},{"loc_target":"0"}]},
+		{"action":3,"endPoint":"RE-CYLE2","orient":0},{"action":200,"endPoint":"RE-CYLE2","layingOff":true,"orient":1},
+		{"action":9,"endPoint":"RE-CYLE2"}],"reAssginment":true}}],
+            "配置信息": "重置模式：0不进行重置,1重启程序和开机重置,2开机重置",
+            "elev_init_reset_type": 0,
+            "配置信息": "用户确认任务自动确认时长",
+            "confirm_timeout": 10
+        }
+    ],
+    "subtask_module": [
+        {
+            "common": {
+                "小车尺寸": "车宽，车中心到前方距离，车中心到后方距离，车原地旋转半径(差速车)",
+                "robot_width": 0.55,
+                "robot_front_dist": 0.365,
+                "robot_back_dist": 0.365,
+                "robot_rotate_r": 0.45,
+                "小车尺寸": "减速圈的厚度",
+		"robot_add_slow":0.1
+            }
+        },
+        {
+            "导航子任务": "新版本修改——使用新导航",
+            "instance": "new_localplan_task",
+            "导航任务": "停障功能增加减速圈,调试模式",
+            "save_img":false,
+	    "导航任务": "危险路径提示",
+            "danger_route_id":[-2],
+            "导航任务": "最大点位间距",
+            "limit_node_dist": 30,
+   	    "stop_front":0.4,
+            "use_shapefilter":true,
+	    "导航原地旋转功能参数": "默认旋转限制角度",           
+            "limit_point_turn_theta_with_shape": 20,
+            "导航原地旋转功能参数": "是否开启旋转限制角度",           
+            "limit_local_turn_with_shape": false,
+            "导航原地旋转功能参数": "(x,y)为地图坐标，dist为到坐标的距离，theta为允许旋转的角度",           
+            "limit_turn_list": [
+                [10.6,-2.75,1,250],
+                [12.58,-2.75,1,125],
+                [-7.884,-13.808,1,250],
+                [-11.6,9.5,1,180]
+            ],
+            "调试参数": "暂不修改",
+            "debug": false,
+			"绕障": "是否开启绕障",
+            "enable_oa": true,
+            "enable_safety_controller": true,
+            "use_no_head": false,
+            "map_obs_enb": false,
+            "odom_wait_time":200,
+            "laser_wait_time": 500,
+            "cout_tun_counts": 5,
+            "rough_mode":false,
+	    "stop_wait_time":10,
+            "速度运动参数": "最大速度(m/s)，最大角速度(deg/s)，最大加速度(m/s^2),最大角加速度(deg/s^2)",
+            "max_vel_x": 1.5,
+            "max_vel_th": 30,
+            "acc_lim_x": 0.5,
+            "acc_lim_th": 57,
+            "旋转运动参数": "边走变旋转最大速度(m/s)，最大转弯半径(m)",
+            "turn_vel": 0.3,
+            "max_load_vel": 0.8,
+            "近处停障参数": "",
+            "stop_dist": 0.2,
+            "控制抖动功能开关": "false为开启抖动控制，true使用实际速度控制",
+            "actual_speed_control": false,
+            "速度平滑参数": "smooth_acc_vx线速度平滑，smooth_acc_w角速度平滑,add_clip导航加开环速度平滑-新版本增加",
+            "smooth_acc_vx": 1,
+            "smooth_acc_w": 20,
+            "add_clip": true,
+            "新导航停障参数": "stop_straight直行停障抱死距离，stop_turn转弯停障抱死距离，min_radius转弯半径小于此值时用stop_turn,max_radius转弯半径大于此值时用stop_straight",
+            "stop_straight": 0.3,
+            "stop_turn": 0.1,
+            "min_radius": 1,
+            "max_radius": 50,
+            "货架尺寸": "前，后，左，右，半径，高度，支持多个货架，可以配置成[0.7, 0.7, 0.7, 0.7, 1.0, 0.0] ,[0.7,0.7,0.5,0.5,0.8,0.5]形式",
+            "cargo_dim_list": [
+		[0.66, 0.66, 0.45, 0.45, 0.8, 0.4],
+                [0.66, 0.66, 0.45, 0.45, 0.8, 0.4],
+                [0.66, 0.66, 0.45, 0.45, 0.8, 0.4]
+               ],
+            "滤波的尺寸": "需要滤波的尺寸，可以配置多个",
+            "filter_shape_list": [
+                [0.66, 0.66, 0.45, 0.45],
+                [0.66, 0.66, 0.45, 0.45],
+                [0.66, 0.66, 0.45, 0.45]
+            ]
+        },
+        
+        {
+            "instance": "localturn_task",
+            "超时时间": "模块超时时间",
+            "limit_time": 20,
+            "控制参数": "精度(deg)",
+            "limit_theta": 0.5,
+            "停障参数": "是否停障，停障半径",
+            "use_safe": true,
+            "radius_vel": 0.5
+        },
+        {
+            "instance": "misc_task"
+        },
+        {
+            "instance": "motion_task"
+        },  
+        {
+            "新增模板对接": "充电模板对接",
+            "instance": "dockloc_task",
+          "models": [
+         
+                  [
+                     [-0.12,-0.235],
+                [0.0,0.0],
+                [-0.12,0.235]
+                  ]
+              ],
+            "odom_mode":0,
+            "range":[-2,3,-2,2],
+            "filer_dist":0.2
+          },
+        {
+            "instance": "vlasercharge_task",
+            "debug": false,
+            "dist_thres": 0.44,
+            "laser_x": 0.3,
+            "laser_y": -0.18,
+            "laser_yaw": -0.785,
+            "_bias": -0.015,
+	    "x_thre":0.11,
+	    "angle_thre": 0.2,
+	    "turn_point":0.73,
+	    "safe_dis":0.12
+        },
+       {
+             "instance":"laserdock_task",
+            "dock_shape":[				
+		{"type":"1",
+		"size":0.06,
+		"mode":0,
+		"center":[
+                    	[0.38,0.565],
+                        [0.38,-0.565],
+                        [-0.38,0.565],
+                        [-0.38,-0.565]
+            ]},
+               {"type":"2",
+		"size":0.06,
+		"mode":0,
+		"center":[
+                    [0.397, -0.53],
+                    [0.397, 0.4],
+                    [-0.397, -0.53],
+                    [-0.397, 0.4]
+            ]}
+            ],
+             "对接参数": "增加货架腿对接重算阈值可配置，定制功能",
+             "_reverse_weight_thres":0.4,
+            "运动参数": "最大速度(m/s)，最大角速度(deg/s)",
+            "laserdock_maxv": 0.2,
+            "laserdock_maxw": 30,
+            "１控制参数": "角度调整精度(deg)，控制路径转折点(m),默认初始对接距离(m)——新版本修改(与地图预拆分保持一致)，初始位置由定位参数获取开关——新版本增加",
+            "laserdock_arriveangle": 0.8,
+            "laserdock_middledist": 0.4,
+            "laserdock_dockpre": 0.8,
+            "use_loc_mode": true,
+            "调试参数": "初始货架状态，激光位姿，最大对接时间(s),是否进行最后一次调整",
+            "test_side": 0,
+            "laserdock_laserpose": 0.335,
+            "laserdock_time": 40,
+            "begin_qrtask": 0.6,
+            "last_move": true,
+            "stop_dist": 0.1,
+            "reach_stop_dist": 0.01,
+            "laserdock_maxmovedist": 1,
+            "diff_theta": 20,
+            "2控制参数": "增益1，增益2，角度增益1，角度增益2，控制切换点",
+            "kp1": 3,
+            "kp2": 1,
+            "kp_theta1": 0.4,
+            "kp_theta2": 2,
+            "control_dist": 0.3,
+            "看门狗参数": "odom_wait_time里程记 qr_wait_time二维码等待时间 laser_wait_time激光超时时间 shelf_wait_time货架等待时间,max_qr_code_wait_time二维码最大等待时间",
+            "odom_wait_time": 500,
+            "qr_wait_time": 500,
+            "laser_wait_time": 500,
+            "shelf_wait_time": 500,
+            "max_qr_code_wait_time": 500
+        },
+        {
+            "instance": "navarrive_task",
+            "check_delta_dist": 0.01,
+            "check_delta_theta": 0.6,
+            "check_delta_mod": 0.3
+        },
+
+        {
+            "instance": "shelfrotate_task",
+            "1控制参数": "最大货架调整时间(s),加速度限幅(deg/s^2)",
+            "task_time": 20,
+            "acc_w": 40,
+            "limit_theta": 0.8,
+            "use_safe": false,
+            "2控制参数": "调整后角度校验,此功能删除,默认关闭",
+            "use_vel_check": false,
+            "limit_vel_diff_theta": 15,
+            "3控制参数": "调整之前验证小车坐标，false关闭",
+            "use_loc_pose_check": true,
+            "4控制参数": "小车与目标点的最大容许偏差距离",
+            "loc_pose_check_dist": 1
+        },
+     	 {
+	      "instance": "dockloc_task",
+	    "models":
+       [
+                [
+                     [-0.12,-0.235],
+                [0.0,0.0],
+                [-0.12,0.235]
+                ]
+            ],
+	    "odom_mode":0,
+	    "range":[-2,3,-2,2],
+	    "filer_dist":0.2
+	      },
+	    	{
+            "模板匹配对接参数": "模板对接，侧向，前向都可以对接",
+	    "instance":"dockctrl_task",
+            "limit_time": 600,
+            "max_vx": 0.07,
+            "匹配参数":"各个现场情况不同，基本需要张伟岳指导进行调参",
+	    "vector_kp_theta2":[0.5,0.7],       
+	    "vector_kp_theta1":[0.5,0.8],
+	    "vector_middle_dist":[0.6,0.6],
+	    "vector_delta_dist":[0.01,0.01],
+	    "vector_turn_theta_dist":[0.1,0.1],
+	    "vector_kp1":[2,1],
+	    "vector_kp2":[1,1.5],
+	    "stop_dist":0.03,
+	    "max_vx":0.07       
+   	 },
+        {
+           "新增模板对接": "充电模板对接",
+            "instance": "qrdock_task",
+            "控制参数": "x方向到点精度(m),y方向到点精度(m),角度方向到点精度(deg)",
+            "delta_x": 0.0025,
+            "delta_y": 0.0025,
+            "delta_theta": 0.5,
+            "check_delta_dist": 0.006,
+            "delta_theta": 0.6,
+            "控制参数": "qrdock_time最大二维码对接时间(s),const_v二维码对接调整速度,二维码安全检测差值",
+            "qrdock_time": 40,
+            "const_v": 0.1,"diff_theta":20,
+            "不使用定位参数开关": "0为关闭，1为开启",
+            "mode": 1,
+ 	   "区块滤波参数":"滤波点坐标（x,y），滤波距离",
+           "circle_filter_array":[[0.36,-0.41,0.08],[0.36,-0.41,0.08]],
+            "二维码贴码方式":"true二维码type值平行货架短边贴，对应check_shape_mode蓝思贴码，false二维码type值平行货架长边贴",
+            "theta_change": false,
+            "check_theta": 30
+        },
+	{
+            "新增子任务": "支持顶板下降状态下旋转的车型 先把顶板降下，再回正。这样有助于提高车辆安全性。",
+            "instance": "localturn_task",
+            "超时时间": "模块超时时间",
+            "limit_time": 20,
+            "控制参数": "精度(deg)",
+            "limit_theta": 0.5,
+            "一般不进行修改配置":"如要修改，需要将下划线去掉",
+            "_kp_w":1.2,
+            "_max_w_with_shape":30,"_max_w_without_shape":50,
+            "_acc_w_with_shape":30,"_acc_w_without_shape":50,
+            "停障参数": "是否停障，停障半径",
+            "use_safe": true,"radius_vel": 0.5,"radius_shape":0.7,
+            "odom_wait_time": 500,
+            "laser_wait_time": 500,
+            "shelf_wait_time": 500
+        }
+    ],
+    "qrtask_module":[
+        {
+            "instance":"qr_task",
+            "相机——新版本增加，需要着重修改":"单相机,无论上下相机,均使用不带down的配置项",
+            "相机":"是否是多相机,是否开启二维码校验,是否保存日志视频",
+            "multi_camera" : true,"verify" : false,"save_video" : true,	
+            "二维码的模式":"1.4x4, 2.其余二维码",
+            "qr_mode" : 2,"qr_mode_down" : 2,
+            "相机":"二维码的个数",
+            "qr_count" : 1,"qr_count_down" : 1,
+            "相机":"需要识别的二维码个数",    
+            "qr_need" : 1,"qr_need_down" : 1,
+            "相机":"二维码边长(mm)",
+            "qr_size" : 24,"qr_size_down" : 24,
+            "相机":"二维码间距(mm)",
+            "qr_interval" : 0,"qr_interval_down" : 0,
+            "相机":"相机镜头到二维码的垂直距离(m)", 
+            "point_height": 0.145,"point_height_down" : 0.105, "point_height_monitor": 0.145,
+            "二维码参数":"二维码长度",
+            "qr_length" :10,"qr_length_down" : 10, 
+            "type_count" : 6,"type_count_down" : 6,
+            "threshold_dist" : 0.1,"threshold_angle" : 0.3,"detect_time_out" : 5,"judge_count_out" : 10,"p_dot" : 1,
+            "dist_min" : 0.07,"dist_max" : 0.15,"camera_rotate" : -1.5708,"edge_thresh" : 20,
+            "qr_size_sub" : 20.5, "qr_interval_sub" : 10, "qr_need_sub" : 4
+        }
+    ],
+    "movebase": {
+        "虚拟点拆分距离": "target_split_dist_load上料拆分距离 target_split_dist_unload下料拆分距离",
+        "target_split_dist_load": 0,
+        "target_split_dist_unload": 0,
+        "点位查询":"离线模式下选择false，在线模式下使用true",
+        "route_find_name": true
+    }
+}
