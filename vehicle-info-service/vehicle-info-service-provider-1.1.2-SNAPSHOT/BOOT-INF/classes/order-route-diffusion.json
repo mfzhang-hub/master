@@ -1,0 +1,6 @@
+{
+  "timeOut":0,
+  "diffusionFrequency":10,
+  "timeCoefficient":0.1,
+  "initMaxRouteLength":10
+}
