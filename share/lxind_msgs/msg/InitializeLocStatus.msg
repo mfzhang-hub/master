@@ -1,0 +1,3 @@
+bool isSuccess
+int32 weight
+InitializeLoc relocInfo

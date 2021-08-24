@@ -1,0 +1,9 @@
+<launch>
+
+<!-- calib -->
+  <include file="$(find pcl_oa_filter)/launch/includes/icpcalib.launch.xml" >
+    <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+    <!-- <arg name="depth_frame" default="lxtof_link" /> -->
+  </include>
+
+</launch>

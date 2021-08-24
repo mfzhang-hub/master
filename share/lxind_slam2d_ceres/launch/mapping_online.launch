@@ -1,0 +1,9 @@
+<launch>
+    <arg name="cfgPath" default="$(find lxind_slam2d_ceres)/cfg" />
+    <node  name="mapping" pkg="lxind_slam2d_ceres" type="lxind_slam2d_ceres_node" respawn="false" output="screen">
+        <param name="cfgFile" value="$(arg cfgPath)/slam2d_test_conf.yml" />
+        <param name="online" value="true" />
+
+                <param name="getposefromTF" value="true" />
+    </node>
+</launch>

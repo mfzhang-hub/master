@@ -1,0 +1,59 @@
+{
+    "task_id": -1,
+
+    "sub_task_cmd": 122, 
+
+    "__NAV__": "-----------------------",
+    "init_state": [-18.5, 5.1, 2.56], 
+    "target_state": [-25.23, 19.40, 0.84], 
+
+    "fixed_path": 0, 
+
+    "target_id": 1,
+    "target_name": "dummy target",  
+    "tol_dist": 0.2, 
+    "tol_angle": 0.2, 
+    "to_goal_mode": 0, 
+    "enable_oa": false, 
+
+    "max_speed": 1.0, 
+    "safe_dist": 2.0, 
+    "min_turn_radius": 1.0, 
+    "shape_transform": 0, 
+
+    "next_pritask_cmd": 0,
+
+    "load_mode": 0,         "__load_mode": "ONLOAD: 0, OFFLOAD: 1",
+    "direction": 3,         "__direction": "LEFT: 0, RIGHT: 1, FRONT: 2, BACK: 3",
+
+    "__SROLLER_ALIGN__": "-----------------",
+    "align_part": 1,      "__align_part": "FIRST: 1, SECOND: 2",
+    "align_dir": 2,       "__align_dir": "LEFT: 0, RIGHT: 1, FRONT: 2, BACK: 3",
+    
+    "__ROLLER__": "-----------------",
+    "roll_part": 0,         "__roll_part": "FRONT: 0, BACK: 1, BOTH: 2",
+
+    "__PRECLOC__": "-----------------",
+    "prec_dist": 1.0, 
+
+    "info": [
+        {"__PICKER__": "-----------------"},
+        {"shelf_type": 1},
+        {"floor_idx": 0},
+        {"curr_box_idx": 0},
+        {"box_code": 1},
+        {"box_type": 1},
+
+        {"__PICKER__": "-----------------"},
+        {"map_id": 115200},
+        {"map_name": "good"},
+
+        {"__DOCKER__": "-----------------"},
+        {"ip": "192.168.1.150"},
+        {"port": 7777},
+        {"reg_addr_rfront": 1050},
+        {"reg_addr_rback": 1070}
+    ],
+
+    "__COMMENTS__": "---------------------------------------------------------------------------"
+}

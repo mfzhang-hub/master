@@ -1,0 +1,103 @@
+{
+    "alarm_map": [
+        {
+            "agv_warning": {
+                "excption_name": "急停",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 7,
+                "minor_alarm_num": 7,
+                "dev_state_num": 0
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "碰撞",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 7,
+                "minor_alarm_num": 3,
+                "dev_state_num": 0
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "路径被挡",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 0,
+                "minor_alarm_num": 0,
+                "dev_state_num": 65
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "近处停障",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 0,
+                "minor_alarm_num": 0,
+                "dev_state_num": 65
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "显示屏没关好",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 7,
+                "minor_alarm_num": 26,
+                "dev_state_num": 0
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "货码不匹配",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 6,
+                "minor_alarm_num": 21,
+                "dev_state_num": 258
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "二维码未识别",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 6,
+                "minor_alarm_num": 20,
+                "dev_state_num": 257
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "举升货架错误",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 6,
+                "minor_alarm_num": 20,
+                "dev_state_num": 257
+            }
+        },
+        {
+            "agv_warning": {
+                "excption_name": "打滑",
+                "excption_id": 0
+            },
+            "hw_rcs_alarm": {
+                "major_alarm_num": 6,
+                "minor_alarm_num": 14,
+                "dev_state_num": 130
+            }
+        }
+    ]
+}

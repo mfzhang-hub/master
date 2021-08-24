@@ -1,0 +1,24 @@
+<launch>
+    <arg name="map_name" default="xizi1" />
+
+    <include file="$(find lxind_simul)/launch/includes/bringup.launch.xml" >
+        <arg name="map_name" value="$(arg map_name)" />
+
+        <arg name="init_x" value="13.1" />
+        <arg name="init_y" value="9.3" />
+        <arg name="init_th" value="2.56" />
+    </include>
+
+    <include file="$(find lxind_simul)/launch/includes/sim_movebase.launch.xml">
+        <!-- <arg name="robot_param_name" value="fr1511a_elev" /> -->
+        <arg name="robot_param_name" value="pr1100d" />
+        <!-- <arg name="robot_param_name" value="fr1511c_sroller" /> -->
+        <!-- <arg name="robot_param_name" value="fr1511d_droller" /> -->
+
+        <!-- <arg name="robot_param_name" value="chache" /> -->
+    
+    </include>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lxind_simul)/rviz/nav_SIM.rviz"/>
+
+</launch>

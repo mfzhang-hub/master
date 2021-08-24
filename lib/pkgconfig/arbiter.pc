@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: arbiter
+Description: Description of arbiter
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: 

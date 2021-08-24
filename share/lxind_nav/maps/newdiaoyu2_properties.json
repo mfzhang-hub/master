@@ -1,0 +1,57 @@
+[	
+	{"name" : "PT_SXL3",	
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name" : "PT_SXL4",	
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+        {"name":"XLGT2",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0.8,
+               "models_type":1,
+               "target_pose":[-0.72,-0.01,0.0],
+               "target_loc_pose":[9.27209 , -10.5633 , 1.54671],
+               "cali_pose":[0.0088557 , 0.000435413 , 1.58876]
+	                 }
+	},
+	{"name":"GTSL4",
+       "properties":{
+       "split_dist_load": 1.0,
+       "split_dist_unload": 1.0,
+       "right_dock_models_type": 1,
+       "right_dock_map_node_state": [
+                        0.32,
+                    0.65,
+                    0
+                ],
+       "right_dock_target_pose": [
+                        0.32,
+                    0.39,
+                    0.0
+                 ]
+            }
+    },
+	{"name":"on_charge4",
+        "properties":{
+        "split_dist_load": 0.3,
+        "front_dock_draw_charge_pile":2,
+        "front_dock_target_pose":[-0.6,0,0.0],
+        "front_dock_map_node_state":[-0.9,0,0.0]
+	                 }
+	},
+     {"name":"on_charge5",
+        "properties":{
+        "split_dist_load": 0.3,
+        "draw_charge_pile":1,
+        "target_pose":[-0.74,0,0.0],
+        "target_loc_pose":[6.73802 , -15.7598 , -1.56661]
+        }
+    	}
+]

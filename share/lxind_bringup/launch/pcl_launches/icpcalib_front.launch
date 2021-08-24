@@ -1,0 +1,15 @@
+<launch>
+  <include file="$(find pcl_oa_filter)/launch/includes/icpcalib.launch.xml" >
+    <arg name="calib_front_dist" value="true" />
+  </include>
+
+<!-- URDF -->
+  <include file="$(find lxind_description)/launch/includes/B1_robot_state.launch.xml" />
+
+<!-- realsense2 camera -->
+  <include file="$(find realsense2_camera)/launch/includes/camera.launch.xml" />
+
+<!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pcl_oa_filter)/rviz/icp_test.rviz"/>
+
+</launch>

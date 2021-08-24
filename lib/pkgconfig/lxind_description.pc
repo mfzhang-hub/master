@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: lxind_description
+Description: Description of lxind_description
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: 

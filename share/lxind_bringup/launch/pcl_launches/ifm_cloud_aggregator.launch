@@ -1,0 +1,29 @@
+<launch>
+
+<!-- URDF -->
+  <include file="$(find lxind_description)/launch/includes/S4_robot_state.launch.xml" />
+
+<!-- Base -->
+  <include file="$(find lxind_base)/launch/includes/S4_mobile_base_nodelet.launch.xml" />
+
+<!-- laser -->
+    <include file="$(find sicks300)/launch/includes/B1_sicks300_nodelet.launch.xml">
+        <arg name="nodelet_manager" value="mobile_base_nodelet_manager" />
+    </include>
+
+<!-- ifm -->
+  <include file="$(find ifm3d)/launch/includes/camera.launch.xml" />
+
+<!-- pcl filter -->
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+        <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+
+        <arg name="min_z" value="0.02" />
+
+        <arg name="min_front_dist" value="0.48" />
+        <arg name="max_front_dist" value="2.0" />
+        
+        <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/S4_calib_matrix.json" />
+  </include>
+
+</launch>

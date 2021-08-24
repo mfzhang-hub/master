@@ -1,0 +1,19 @@
+{ 
+"Status":[
+{ "id": 1,  "icon": 0, "text":"空闲",     "sound":"",  "func": -1 },
+{ "id": 2,  "icon": 1, "text":"任务等待", "sound":"",  "func": -1 },
+{ "id": 3,  "icon": 2, "text":"移动中",   "sound":"",  "func": -1 },
+{ "id": 4,  "icon": 2, "text":"绕障中",   "sound":"",  "func": -1 },
+{ "id": 5,  "icon": 3, "text":"充电中",   "sound":"",  "func": -1 },
+{ "id": 6,  "icon": 4, "text":"充电对接中",   "sound":"",  "func": -1 },
+{ "id": 7,  "icon": 4, "text":"充电确认中",   "sound":"",  "func": -1 },
+{ "id": 8,  "icon": 4, "text":"充电重试中",   "sound":"",  "func": -1 },
+{ "id": 9,  "icon": 5, "text":"辊筒对接中",   "sound":"",  "func": -1 },
+{ "id": 10,  "icon": 5, "text":"辊筒对接确认中",   "sound":"",  "func": -1 },
+{ "id": 11,  "icon": 5, "text":"辊筒上下料中",   "sound":"",  "func": -1 },
+{ "id": 20,  "icon": 6, "text":"用户确认中",   "sound":"",  "func": "userConfrim" },
+{ "id": 21,  "icon": 6, "text":"交管请求中",   "sound":"",  "func": -1},
+{ "id": 22,  "icon": 6, "text":"任务改派中",   "sound":"",  "func": "reassignTask" },
+{ "id": 30,  "icon": 6, "text":"异常告警中",   "sound":"",  "func": -1 }
+]
+}

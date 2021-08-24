@@ -1,0 +1,13 @@
+---
+int8 GOAL_NOT_REACHED=0
+int8 GOAL_REACHED=1
+int8 GOAL_APPROACHING=2
+
+int8 STATE_ADJUST=0
+int8 STATE_WAIT=1
+int8 STATE_FORWARD=2
+int8 STATE_FINISHED=3
+
+geometry_msgs/Pose2D curr_posi
+int8 reach_state
+int8 prec_state

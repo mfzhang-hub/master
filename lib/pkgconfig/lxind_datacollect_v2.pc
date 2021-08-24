@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: lxind_datacollect_v2
+Description: Description of lxind_datacollect_v2
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: 

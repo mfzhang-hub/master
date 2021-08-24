@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find hokuyo_node)/launch/includes/hokuyo_node.launch.xml">
+        <arg name="dev_name" value="back" />
+    </include>
+</launch>

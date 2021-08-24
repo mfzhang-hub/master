@@ -1,0 +1,14 @@
+<launch>
+   <arg name="device_port" default="ttyS2" />
+   <arg name="full_thres_percent" default="93" />
+
+   <node name="liao_battery_node" pkg="liao_battery" type="liao_battery_node" output="screen">
+        <param name="device_port" value="$(arg device_port)" />  <!-- COM3: ttyS5, but  ttyS2(smaller pc) -->
+        <!-- <param name="device_port" value="mock" /> -->
+        <param name="low_thres_percent" value="15" />
+        <param name="full_thres_percent" value="$(arg full_thres_percent)" />
+
+        <param name="log_file_path" value="$(find lxind_battery)/conf/log4cpp_battery.conf" />
+   </node>
+
+</launch>

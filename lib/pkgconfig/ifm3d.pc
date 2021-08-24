@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: ifm3d
+Description: Description of ifm3d
+Version: 0.5.0
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib -lifm3d_ros
+Requires: roscpp nodelet

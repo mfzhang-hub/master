@@ -1,0 +1,5 @@
+<launch>
+
+  <include file="$(find lxind_factory)/launch/includes/factory_node.launch.xml" />
+  
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+
+	<node name="map_saver" pkg="map_server" type="map_saver"  output="screen" args="-f testMap" >
+		<rosparam name="cropping" value="true" />
+		<rosparam name="cropp_margin" value="30" />
+	</node>
+
+</launch>

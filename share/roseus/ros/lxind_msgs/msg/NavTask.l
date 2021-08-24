@@ -1,0 +1,315 @@
+;; Auto-generated. Do not edit!
+
+
+(when (boundp 'lxind_msgs::NavTask)
+  (if (not (find-package "LXIND_MSGS"))
+    (make-package "LXIND_MSGS"))
+  (shadow 'NavTask (find-package "LXIND_MSGS")))
+(unless (find-package "LXIND_MSGS::NAVTASK")
+  (make-package "LXIND_MSGS::NAVTASK"))
+
+(in-package "ROS")
+;;//! \htmlinclude NavTask.msg.html
+
+
+(defclass lxind_msgs::NavTask
+  :super ros::object
+  :slots (_task_id _pri_task_cmd _init_state _target_state _target_id _target_name _tol_dist _tol_angle _to_goal_mode _enable_oa _max_speed _min_turn_radius _fixed_path _load_mode _direction _prec_dist _extra_info ))
+
+(defmethod lxind_msgs::NavTask
+  (:init
+   (&key
+    ((:task_id __task_id) 0)
+    ((:pri_task_cmd __pri_task_cmd) 0)
+    ((:init_state __init_state) (instance lxind_msgs::RobotPose :init))
+    ((:target_state __target_state) (instance lxind_msgs::RobotPose :init))
+    ((:target_id __target_id) 0)
+    ((:target_name __target_name) "")
+    ((:tol_dist __tol_dist) 0.0)
+    ((:tol_angle __tol_angle) 0.0)
+    ((:to_goal_mode __to_goal_mode) 0)
+    ((:enable_oa __enable_oa) nil)
+    ((:max_speed __max_speed) 0.0)
+    ((:min_turn_radius __min_turn_radius) 0.0)
+    ((:fixed_path __fixed_path) (let (r) (dotimes (i 0) (push (instance lxind_msgs::PathPoint :init) r)) r))
+    ((:load_mode __load_mode) 0)
+    ((:direction __direction) 0)
+    ((:prec_dist __prec_dist) 0.0)
+    ((:extra_info __extra_info) "")
+    )
+   (send-super :init)
+   (setq _task_id (round __task_id))
+   (setq _pri_task_cmd (round __pri_task_cmd))
+   (setq _init_state __init_state)
+   (setq _target_state __target_state)
+   (setq _target_id (round __target_id))
+   (setq _target_name (string __target_name))
+   (setq _tol_dist (float __tol_dist))
+   (setq _tol_angle (float __tol_angle))
+   (setq _to_goal_mode (round __to_goal_mode))
+   (setq _enable_oa __enable_oa)
+   (setq _max_speed (float __max_speed))
+   (setq _min_turn_radius (float __min_turn_radius))
+   (setq _fixed_path __fixed_path)
+   (setq _load_mode (round __load_mode))
+   (setq _direction (round __direction))
+   (setq _prec_dist (float __prec_dist))
+   (setq _extra_info (string __extra_info))
+   self)
+  (:task_id
+   (&optional __task_id)
+   (if __task_id (setq _task_id __task_id)) _task_id)
+  (:pri_task_cmd
+   (&optional __pri_task_cmd)
+   (if __pri_task_cmd (setq _pri_task_cmd __pri_task_cmd)) _pri_task_cmd)
+  (:init_state
+   (&rest __init_state)
+   (if (keywordp (car __init_state))
+       (send* _init_state __init_state)
+     (progn
+       (if __init_state (setq _init_state (car __init_state)))
+       _init_state)))
+  (:target_state
+   (&rest __target_state)
+   (if (keywordp (car __target_state))
+       (send* _target_state __target_state)
+     (progn
+       (if __target_state (setq _target_state (car __target_state)))
+       _target_state)))
+  (:target_id
+   (&optional __target_id)
+   (if __target_id (setq _target_id __target_id)) _target_id)
+  (:target_name
+   (&optional __target_name)
+   (if __target_name (setq _target_name __target_name)) _target_name)
+  (:tol_dist
+   (&optional __tol_dist)
+   (if __tol_dist (setq _tol_dist __tol_dist)) _tol_dist)
+  (:tol_angle
+   (&optional __tol_angle)
+   (if __tol_angle (setq _tol_angle __tol_angle)) _tol_angle)
+  (:to_goal_mode
+   (&optional __to_goal_mode)
+   (if __to_goal_mode (setq _to_goal_mode __to_goal_mode)) _to_goal_mode)
+  (:enable_oa
+   (&optional __enable_oa)
+   (if __enable_oa (setq _enable_oa __enable_oa)) _enable_oa)
+  (:max_speed
+   (&optional __max_speed)
+   (if __max_speed (setq _max_speed __max_speed)) _max_speed)
+  (:min_turn_radius
+   (&optional __min_turn_radius)
+   (if __min_turn_radius (setq _min_turn_radius __min_turn_radius)) _min_turn_radius)
+  (:fixed_path
+   (&rest __fixed_path)
+   (if (keywordp (car __fixed_path))
+       (send* _fixed_path __fixed_path)
+     (progn
+       (if __fixed_path (setq _fixed_path (car __fixed_path)))
+       _fixed_path)))
+  (:load_mode
+   (&optional __load_mode)
+   (if __load_mode (setq _load_mode __load_mode)) _load_mode)
+  (:direction
+   (&optional __direction)
+   (if __direction (setq _direction __direction)) _direction)
+  (:prec_dist
+   (&optional __prec_dist)
+   (if __prec_dist (setq _prec_dist __prec_dist)) _prec_dist)
+  (:extra_info
+   (&optional __extra_info)
+   (if __extra_info (setq _extra_info __extra_info)) _extra_info)
+  (:serialization-length
+   ()
+   (+
+    ;; int64 _task_id
+    8
+    ;; uint32 _pri_task_cmd
+    4
+    ;; lxind_msgs/RobotPose _init_state
+    (send _init_state :serialization-length)
+    ;; lxind_msgs/RobotPose _target_state
+    (send _target_state :serialization-length)
+    ;; int32 _target_id
+    4
+    ;; string _target_name
+    4 (length _target_name)
+    ;; float32 _tol_dist
+    4
+    ;; float32 _tol_angle
+    4
+    ;; uint8 _to_goal_mode
+    1
+    ;; bool _enable_oa
+    1
+    ;; float32 _max_speed
+    4
+    ;; float32 _min_turn_radius
+    4
+    ;; lxind_msgs/PathPoint[] _fixed_path
+    (apply #'+ (send-all _fixed_path :serialization-length)) 4
+    ;; uint8 _load_mode
+    1
+    ;; uint8 _direction
+    1
+    ;; float32 _prec_dist
+    4
+    ;; string _extra_info
+    4 (length _extra_info)
+    ))
+  (:serialize
+   (&optional strm)
+   (let ((s (if strm strm
+              (make-string-output-stream (send self :serialization-length)))))
+     ;; int64 _task_id
+#+(or :alpha :irix6 :x86_64)
+       (progn (sys::poke _task_id (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+#-(or :alpha :irix6 :x86_64)
+       (cond ((and (class _task_id) (= (length (_task_id . bv)) 2)) ;; bignum
+              (write-long (ash (elt (_task_id . bv) 0) 0) s)
+              (write-long (ash (elt (_task_id . bv) 1) -1) s))
+             ((and (class _task_id) (= (length (_task_id . bv)) 1)) ;; big1
+              (write-long (elt (_task_id . bv) 0) s)
+              (write-long (if (>= _task_id 0) 0 #xffffffff) s))
+             (t                                         ;; integer
+              (write-long _task_id s)(write-long (if (>= _task_id 0) 0 #xffffffff) s)))
+     ;; uint32 _pri_task_cmd
+       (write-long _pri_task_cmd s)
+     ;; lxind_msgs/RobotPose _init_state
+       (send _init_state :serialize s)
+     ;; lxind_msgs/RobotPose _target_state
+       (send _target_state :serialize s)
+     ;; int32 _target_id
+       (write-long _target_id s)
+     ;; string _target_name
+       (write-long (length _target_name) s) (princ _target_name s)
+     ;; float32 _tol_dist
+       (sys::poke _tol_dist (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _tol_angle
+       (sys::poke _tol_angle (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; uint8 _to_goal_mode
+       (write-byte _to_goal_mode s)
+     ;; bool _enable_oa
+       (if _enable_oa (write-byte -1 s) (write-byte 0 s))
+     ;; float32 _max_speed
+       (sys::poke _max_speed (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float32 _min_turn_radius
+       (sys::poke _min_turn_radius (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; lxind_msgs/PathPoint[] _fixed_path
+     (write-long (length _fixed_path) s)
+     (dolist (elem _fixed_path)
+       (send elem :serialize s)
+       )
+     ;; uint8 _load_mode
+       (write-byte _load_mode s)
+     ;; uint8 _direction
+       (write-byte _direction s)
+     ;; float32 _prec_dist
+       (sys::poke _prec_dist (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; string _extra_info
+       (write-long (length _extra_info) s) (princ _extra_info s)
+     ;;
+     (if (null strm) (get-output-stream-string s))))
+  (:deserialize
+   (buf &optional (ptr- 0))
+   ;; int64 _task_id
+#+(or :alpha :irix6 :x86_64)
+      (setf _task_id (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+#-(or :alpha :irix6 :x86_64)
+      (setf _task_id (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
+              (cond ((= b1 -1) b0)
+                     ((and (= b1  0)
+                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
+                      b0)
+                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
+                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; uint32 _pri_task_cmd
+     (setq _pri_task_cmd (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; lxind_msgs/RobotPose _init_state
+     (send _init_state :deserialize buf ptr-) (incf ptr- (send _init_state :serialization-length))
+   ;; lxind_msgs/RobotPose _target_state
+     (send _target_state :deserialize buf ptr-) (incf ptr- (send _target_state :serialization-length))
+   ;; int32 _target_id
+     (setq _target_id (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; string _target_name
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _target_name (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; float32 _tol_dist
+     (setq _tol_dist (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _tol_angle
+     (setq _tol_angle (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; uint8 _to_goal_mode
+     (setq _to_goal_mode (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; bool _enable_oa
+     (setq _enable_oa (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
+   ;; float32 _max_speed
+     (setq _max_speed (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float32 _min_turn_radius
+     (setq _min_turn_radius (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; lxind_msgs/PathPoint[] _fixed_path
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _fixed_path (let (r) (dotimes (i n) (push (instance lxind_msgs::PathPoint :init) r)) r))
+     (dolist (elem- _fixed_path)
+     (send elem- :deserialize buf ptr-) (incf ptr- (send elem- :serialization-length))
+     ))
+   ;; uint8 _load_mode
+     (setq _load_mode (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8 _direction
+     (setq _direction (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; float32 _prec_dist
+     (setq _prec_dist (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; string _extra_info
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _extra_info (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;;
+   self)
+  )
+
+(setf (get lxind_msgs::NavTask :md5sum-) "359a8a1089fad86835e44a3e3f00b84d")
+(setf (get lxind_msgs::NavTask :datatype-) "lxind_msgs/NavTask")
+(setf (get lxind_msgs::NavTask :definition-)
+      "int64 task_id
+uint32 pri_task_cmd
+
+lxind_msgs/RobotPose init_state
+lxind_msgs/RobotPose target_state
+
+int32 target_id
+string target_name
+float32 tol_dist
+float32 tol_angle
+uint8 to_goal_mode
+
+bool enable_oa
+float32 max_speed
+float32 min_turn_radius
+
+lxind_msgs/PathPoint[] fixed_path
+
+# Robot spec task
+uint8 load_mode
+uint8 direction
+
+# precloc
+float32 prec_dist
+
+string extra_info
+================================================================================
+MSG: lxind_msgs/RobotPose
+float32 x
+float32 y
+float32 th
+================================================================================
+MSG: lxind_msgs/PathPoint
+float32 x
+float32 y
+float32 th
+
+string node_name
+")
+
+
+
+(provide :lxind_msgs/NavTask "359a8a1089fad86835e44a3e3f00b84d")
+
+

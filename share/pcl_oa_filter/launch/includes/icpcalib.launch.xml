@@ -1,0 +1,15 @@
+<launch>
+    <arg name="calib_front_dist" default="false" />
+    <arg name="input_cloud_topic" default="/camera/depth/color/points" />
+    <arg name="depth_frame" default="camera_depth_optical_frame" />
+
+    <node pkg="pcl_oa_filter" type="icp_calib" name="icp_calib" output="screen" >
+        <param name="depth_frame" value="$(arg depth_frame)" />
+        <param name="matrix_file_path" value="$(find lxind_params)/param/pcl/calib/calib_matrix" />
+
+        <param name="calib_front_dist" value="$(arg calib_front_dist)" />
+
+        <!-- remap -->
+        <remap from="/input_cloud" to="$(arg input_cloud_topic)" />
+    </node>
+</launch>
