@@ -1,0 +1,17 @@
+<launch>
+
+<!-- ifm camera -->
+  <include file="$(find ifm3d)/launch/camera.launch" />
+  
+<!-- URDF -->
+  <include file="$(find lxind_description)/launch/includes/BK_robot_state.launch.xml" />
+
+<!-- filter -->
+  <include file="$(find pcl_oa_filter)/launch/includes/icpcalib.launch.xml" >
+    <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+  </include>
+
+<!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pcl_oa_filter)/rviz/icp_calib.rviz"/>
+
+</launch>

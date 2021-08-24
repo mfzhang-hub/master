@@ -1,0 +1,5 @@
+<launch>
+
+  <include file="$(find lxind_battery)/launch/includes/battery_node.launch.xml" />
+  
+</launch>

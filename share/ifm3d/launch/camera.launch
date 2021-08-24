@@ -1,0 +1,4 @@
+<launch>
+
+  <include file="$(find ifm3d)/launch/includes/camera.launch.xml" />
+</launch>

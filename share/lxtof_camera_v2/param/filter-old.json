@@ -1,0 +1,15 @@
+{"filter_func":[
+    {"is_enable":true,"func_name":"depth_calib","func_param":{} },
+    {"is_enable":true,"func_name":"merge","func_param":{} },
+    {"is_enable":true,"func_name":"median","func_param":{"r":1} },
+    {"is_enable":true,"func_name":"mode","func_param":{"interval":20,"threshold":10}},
+    {"is_enable":true,"func_name":"floodfill","func_param":{"distance":0.02,"threshold":10} },
+    {"is_enable":false,"func_name":"rmFlyPix","func_param":{"r":2,"k1":0,"k0":10} },
+    {"is_enable":true,"func_name":"scale","func_param":{} },
+    {"is_enable":true,"func_name":"ampfilter","func_param":{"minAmp":300,"maxAmp":1650} }
+],
+"rm_area":[
+    [0,0,1,1]
+] 
+
+}

@@ -1,0 +1,20 @@
+<package>
+	<name>lxind_nav</name>
+	<version>1.0.0</version>
+	<description>lx navigation for ros</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+	<build_depend>geometry_msgs</build_depend>
+	<build_depend>tf</build_depend>
+
+	<run_depend>roscpp</run_depend>
+	<run_depend>geometry_msgs</run_depend>
+	<run_depend>tf</run_depend>
+
+</package>

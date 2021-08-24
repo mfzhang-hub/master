@@ -1,0 +1,20 @@
+<package>
+	<name>qrtask_module</name>
+	<version>1.0.0</version>
+	<description>The qr localization module of lanxin robot</description>
+	<maintainer email="jren@robvision.cn">Renjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+        <build_depend>cv_bridge</build_depend>
+    <build_depend>module_keys</build_depend>
+    <build_depend>liblxtask</build_depend>
+
+	<run_depend>roscpp</run_depend>
+    <run_depend>module_keys</run_depend>
+    <run_depend>liblxtask</run_depend>
+
+</package>

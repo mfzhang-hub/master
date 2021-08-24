@@ -1,0 +1,6 @@
+为了对激光安装前进行检测
+判断激光是否可以正常的读取去数据信息
+如果正常可以在rviz中显示红色的激光点
+
+使用如下脚本启动:
+roslaunch initial laser_test.launch

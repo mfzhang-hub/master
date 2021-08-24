@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: rcs_communicate
+Description: Description of rcs_communicate
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: lxind_msgs module_keys actionlib

@@ -1,0 +1,11 @@
+<launch>
+
+  <include file="$(find lxind_simul)/launch/includes/sim_movebase.launch.xml">
+  <!-- <include file="$(find lxind_simul)/launch/includes/sim_movebase_DEBUG.launch.xml"> -->
+
+    <!-- <arg name="robot_param_name" value="fr1511a_elev" /> -->
+    <arg name="robot_param_name" value="new_fr1511c_sroller" />
+    
+  </include>
+
+</launch>

@@ -1,0 +1,37 @@
+int32 task_id
+uint32 sub_task_cmd
+
+int32 next_pritask_cmd
+
+lxind_msgs/RobotPose target_state
+int32 target_id
+string target_name
+float32 tol_dist
+float32 tol_angle
+uint8 to_goal_mode
+
+bool enable_oa
+float32 max_speed
+float32 safe_dist
+float32 min_turn_radius
+uint8 shape_transform
+
+lxind_msgs/RobotPose init_state
+lxind_msgs/PathPoint[] fixed_path
+
+# Robot spec task
+uint8 load_mode
+uint8 direction
+
+uint8 align_part
+uint8 align_dir
+
+# precloc
+float32 prec_dist
+
+# 
+string roll_part
+
+string extra_info
+---
+bool succeed

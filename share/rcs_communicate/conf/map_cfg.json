@@ -1,0 +1,16 @@
+{
+	"agv_config": 
+	{
+		"map_names": 
+		[
+			{
+			"mapCode": "xxx",
+			"mapName": "map1"
+			}, 
+			{
+			"mapCode": "yyy",
+			"mapName": "map2"
+			}
+		]
+	}
+}

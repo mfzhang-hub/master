@@ -1,0 +1,107 @@
+{
+    "serial_module":[
+        {
+            "instance":"lx_base", 
+                "port": "ttyS1" , "timeout": 1.0, "debug": false, "loop_rate": 50, "pid_rate": 20, 
+                "wheel_diameter": 0.2, "wheel_distance": 0.547, "encoder_resolution": 1000, "gear_reduction": 20,
+                "imu_vth_resolution": 0.01, "odom_calib_factor": 1.0, "accel_limit": 5, 
+                "publish_imu": false, "print_sentpkt": false, "debug_serial": false, "print_encoder": false,
+                "is_release_mode": false, "is_fr1511_base": true,
+                "_BASE_TYPE": "FR1511A",
+                "_comment": "same as fr1511a, gear_reduction: 20"
+        },
+        {
+            "instance":"liao_batt", 
+                "port": "ttyS2" , "alarm_thres_percent": 10
+        },
+        {
+            "instance":"lx_roller", 
+                "port":"ttyS3"
+        }
+    ],
+
+    "pritask_module":[ 
+        {
+            "instance":"new_nav_task", 
+                "enable_square_rot": false, "sqrot_angle": 60, "oa_timeout": 5.0, "enable_qr_nav": false,
+                "next_prec_goal_taskcmds": [5, 6, 100, 101, 102, 110, 170, 200],
+                "next_seamless_align_taskcmds": [100, 101, 102, 110, 200,131]
+        },
+        {
+            "instance":"charge_task", 
+                "charge_wait_sec": 20.0, "charge_max_fail_count": 3
+        },
+        {
+            "instance":"roller_task", 
+                "blind_move_dist": 1.5
+        },
+        {
+            "instance":"elev_task",
+                "custom_task_type": 0
+        },
+        {
+            "instance":"hw_align_front_unload_roller_task"
+        },
+        {
+            "instance":"tmp_task"
+        },
+        {
+            "instance":"other_task", "map_name":"outmzpick", "confirm_timeout": 0.0
+        }
+    ],
+
+    "subtask_module":[
+        {
+            "instance":"new_localplan_task", 
+                "debug": false , "enable_oa": true, "enable_safety_controller": true, 
+                "use_no_head": false,
+                "max_vel_x": 1.5, "max_vel_th": 50, "acc_lim_x": 0.5, "acc_lim_th": 57,
+                "turn_vel": 0.4, "max_load_vel": 0.8,
+                "map_obs_enb": false,
+                "_dimensions: ": "------------------",
+                "bot_width": 0.692, "bot_front_dist": 0.446, "bot_back_dist": 0.446,
+                "bot_front_pad": 0.15, "bot_side_pad": 0.05, "bot_rot_pad": 0.05,
+                "bot_rot_radius": 0.5
+        },
+        {
+            "instance":"misc_task" 
+        },
+        {
+            "instance":"sroller_align_task",
+                "delta_dis": 0.1, "laser2carx": -0.345, "laser_install_right": true, "stop_thr": 0.405,
+                "langle_calib": 0, "rangle_calib": 0
+        },
+        {
+            "instance":"vlasercharge_task", 
+                "debug": false , "dist_thres": 0.25
+        }
+    ], 
+
+    "qrtask_module":[
+        {
+            "instance":"qr_task", 
+                "fx": 1232.66 , "fy": 1233.04 , "cx": 976.6 , "cy":551.98 , "k1": -0.4454 , "k2": 0.2392 , "k3": 0 , "k4": 0.0007 , "k5": -0.0718,
+		        "width": 1920 , "height": 1080 , "camera_id": 0 , "exposure": 0.005 , "time_out": 30000 , "time_out1": 200000 , "qr_need" : 1,"threshold_dist" : 0.1,"detect_time_out" : 10,"judge_count_out" : 10
+        }
+    ],
+
+    "pcl_module":[
+        {
+            "instance":"cloud_agg", 
+                "use_laser": true, "use_back_laser": true, "min_laser_range": 0.05, "front_laser_filter": 4.0, "back_laser_filter": 4.0,
+                "depth_cloud_topics": ["/icpcalib/depth/points_ground_removed"]
+        }
+    ],
+
+    "movebase":{
+        "split_task_ids": [ 100, 101, 102, 131, 200, 1120,211],
+        "filter_carry_task_ids": [ 200, 205],
+        "target_split_dist_load": 0.8,
+        "target_split_dist_unload": 0,
+        "traffic_query_count": 4,
+        "adjust_angle_when_split_dist_too_short": true,
+        "log_dir": ["tof_module", "mock_module", "qrtask_module", "pcl_module", "node_module", "laserloc_module", "rcs_communicate"]
+    },
+
+    "_comment": "'common' is a keyword here and shoud be used as a custom parameter"
+}

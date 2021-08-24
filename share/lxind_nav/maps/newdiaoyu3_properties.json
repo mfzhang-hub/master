@@ -1,0 +1,23 @@
+[	
+	{	
+	"name" : "PT_SXL1",
+	"properties":{
+		"split_dist_load": 0.8
+		}
+	},
+		{"name":"PT_SXL2",
+	"properties":{
+		"split_dist_load": 0.8
+		}
+	},
+      {"name":"SLGT",
+	"properties":{
+		"split_dist_load": 0.8
+		}
+	},
+	{"name":"XLGT",
+	"properties":{
+		"split_dist_unload": 0.8
+		}
+	}
+]

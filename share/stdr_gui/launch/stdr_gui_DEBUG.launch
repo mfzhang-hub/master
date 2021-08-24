@@ -1,0 +1,5 @@
+<launch>
+
+	<include file="$(find stdr_gui)/launch/includes/stdr_gui_DEBUG.launch.xml" />
+		
+</launch>

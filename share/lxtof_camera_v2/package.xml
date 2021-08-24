@@ -1,0 +1,17 @@
+<package>
+	<name>lxtof_camera_v2</name>
+	<version>1.0.0</version>
+	<description>tof camera ros driver 2.0</description>
+	<maintainer email="ljzheng@robvision.cn">Lingjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+	<build_depend>sensor_msgs</build_depend>
+
+	<run_depend>roscpp</run_depend>
+	<run_depend>sensor_msgs</run_depend>
+
+</package>

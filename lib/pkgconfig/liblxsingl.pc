@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: liblxsingl
+Description: Description of liblxsingl
+Version: 1.0.0
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib -llxsingl
+Requires: 

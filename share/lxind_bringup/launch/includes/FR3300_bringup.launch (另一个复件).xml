@@ -1,0 +1,58 @@
+<launch>
+
+    <param name="/use_sim_time" value="false"/>
+
+    <arg name="enable_ifm" default="false" />
+    
+
+<!-- URDF   机器人描述文件，坐标信息 -->
+  <include file="$(find lxind_description)/launch/includes/FR3300_robot_state.launch.xml" />
+
+<!-- Web sock  用于网页终端控制 --> 
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+    <arg name="topic_vel" value="/mobile_base/cmd_vel" />
+  </include>
+
+<!-- laser 
+
+
+    <include file="$(find sick_tim)/launch/sick_front.launch" />
+    <include file="$(find sick_tim)/launch/sick_back.launch" />
+-->
+    <include file="$(find sick_scan)/launch/sick_tim_561_two.launch" />
+<!-- depth camera & filter -->
+
+  <include file="$(find lxtof_camera)/launch/includes/lxtof_camera.launch.xml" />
+
+<!-- pcl filter :lxtof -->
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+        <arg name="input_cloud_topic" value="/lxtof_node/FX3_cloud" />
+
+        <arg name="min_z" value="0.05" />
+	<arg name="max_z" value="0.6" />
+
+        <arg name="min_front_dist" value="0.48" />
+        <arg name="max_front_dist" value="2.0" />
+        
+        <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+  </include>
+
+
+<group if="$(arg enable_ifm)">
+  <!-- ifm -->
+    <include file="$(find ifm3d)/launch/includes/camera.launch.xml" />
+    
+  <!-- pcl filter: ifm -->
+    <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+      <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+
+      <arg name="min_z" value="0.06" />
+
+      <arg name="min_front_dist" value="0.48" />
+      <arg name="max_front_dist" value="1.5" />
+      
+      <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+    </include>
+</group>
+
+</launch>

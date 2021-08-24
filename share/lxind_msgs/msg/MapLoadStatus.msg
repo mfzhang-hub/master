@@ -1,0 +1,3 @@
+string module_name
+string map_name
+bool is_loaded

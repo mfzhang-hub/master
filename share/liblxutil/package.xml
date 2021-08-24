@@ -1,0 +1,21 @@
+<package>
+	<name>liblxutil</name>
+	<version>1.0.0</version>
+	<description>transform util</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+
+    <build_depend>roscpp</build_depend>
+    <build_depend>tf</build_depend>
+    <build_depend>lxind_msgs</build_depend>
+    <build_depend>nav_msgs</build_depend>
+
+	<run_depend>roscpp</run_depend>
+	<run_depend>tf</run_depend>
+	<run_depend>lxind_msgs</run_depend>
+	<run_depend>nav_msgs</run_depend>
+
+</package>

@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: camera
+Description: Description of camera
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib -lcamera
+Requires: roscpp rospy std_msgs tf message_runtime lxind_msgs sensor_msgs

@@ -1,0 +1,167 @@
+
+#test subcloud [)
+begin : -1
+end : -1
+# 运动补偿相关
+v_ : 0
+w : 0
+w_offset_2 : -1.4
+w_offset_1 : 1
+w_offset_2_back : -1.4
+w_offset_1_back : 0.8
+min_angle_ : -3
+max_angle_ : 3
+begin_interg : 0
+end_interg : 3
+# 协方差估计
+preprocess_filter_size_ : 0.0001
+scanmatch_ceres_resolution_ : 0.01
+scanmatch_correspon_dist_ : 0.2
+noise_x: 0.0
+noise_yaw : 0.0
+noise_y : 0.0
+enable_scaling_factor_ : true
+dist_test : 0.3
+estimateNormal_radius : 0.1
+ceres_icp_radius : 0.4
+getMatchConvariance_xy : 0.05
+#临时测试
+RobustMatch_alpha : 0.2
+RobustMatch_beta : 1
+RobustMatch_beta_inc : 1.1
+output : true
+#存图相关
+winSize : 5
+save_map_resolution : 0.01
+save_map_laser_range : 25 #8
+enable_autosave : false
+save_tolerance_count : 3
+save_prob_threshold : 100
+save_map_show_per_frame : false
+submap_resolution : 0.01
+#
+beta_start : 6
+beta_inc : 0.01
+beta_end : 7
+getInterestCloud_dist : 0.05
+local_line_dist : 0.2
+local_line_angle : 2
+enable_LineEstimate : true
+show_LineEstimate : false
+line_estimate_noise_threshold : 01000
+skip_line_adjust_cloudid : 1000000 
+angle_robust_angle : 0.015
+AwfulRobustKernelHuber_k : 0.001
+angle_robust_offset : -1
+loopclosure_weight : 1
+ddd : 1
+match_cloud_xy_weight : 1
+match_cloud_theta_weight : 1
+#local_scanmatch_xy 子图内部scanmatch的搜索范围 [5-10]
+local_scanmatch_xy : 10
+submap_threshold_ : 200
+vec_show_frame : []
+#是否倒置激光
+enable_optimize_when_refreshViewer : true
+CreatePseudoFixedSubMaps_remove_AllEdge : false
+CreatePseudoFixedSubMaps_SoftFixedPose : false
+CreatePseudoFixedSubMaps_SoftFixedPose_xy_weight : 0
+CreatePseudoFixedSubMaps_SoftFixedPose_angle_weight : 0.3
+globalLineOffsetOpimize_angle_threshold : 3
+globalLineOffsetOpimize_dist_threshold : 0.2
+lineOffsetWeight : 1
+lineOffset_robust_delta : 0.2
+fixed_origin : true
+lineRotateWeight : 0.01
+lineRotate_robust_delta : 0.01
+lineRotate_k_strict : 0.0
+enable_MatchGlobalLineRobust : true
+enable_globalLineOffsetOpimize : false
+enable_auto_ScanMatch : true
+MatchCloud_impl_scanMatch : true
+matchCloudImpl_skip_count : 3
+loopclosure_fullCloud : true
+auto_MatchCloudImpl_id : 0
+#是否由scanmatch生成信息矩阵，开启后跑的超慢
+enable_scanmatchInfo : true
+#激光使用范围
+start_deg : -180
+end_deg : 180
+laser_range : 26
+#使用数据包的起始帧
+startframe : 0
+endframe : -1
+showsubcloud : []
+skipall : false
+dataPath : "../30"
+endsubcloud : -1
+enable_match_huber_ : true
+startsubcloud : 0
+regeneratethreshold : -1
+enablelocallineadjust : false
+enablegloballineadjust : true
+globallineadjust_count : 10000000
+globallineadjust_angle : 5
+globallineadjust_dist : 5
+line_adjust_with_huge_error : true
+globalline_weight : 1
+global_line_adjust_with_offset : true
+extract_line_threshold : 1 # 100000
+min_split_point : 8
+dist_thres : 0.02
+max_neighbor_dist : 0.1
+min_keep_len : 0.2
+enablelocalg2o : false
+enableglobalodom : false
+scanmatchresolution  : 0.05
+collectData_dist : 2.5
+collectData_angle : 45
+skip_odom_dist : 0.3
+enable_laserdata_calibrate : true
+skip_odom_angle : 1
+enable_skip_odom : false
+subcloud_stroage : 10
+enable_localICP : false
+localICP_dist_threshold : 0.06
+enable_raycast : false
+matchcloudImpl_threshold : 6
+show_default : false
+show_period : -1
+enable_spin : false
+spin_all : true
+auto_LittleAdjust : false
+AddToGraph_with_offset : true 
+debug_view_isPointCloudAvaliable : false
+isScanMatchAvaliable_inlier_ratio : 0.1
+mutilthread : 8
+odom_correct : true
+hideEdge : false
+hideLine : false
+oldData : true
+fx : 712
+fy : 712
+cx : 618
+cy : 466
+k1 : -0.338
+k2 : 0.109
+#
+
+
+Topics: 
+  - &Topic "/scan"
+  -   "/scan_tim"
+T:
+  - &Front  [0.346,0,0]
+  -  [-0.4,0,3.14]
+Topic_front : *Topic
+Topic_back : ""
+# "/scan_tim"
+laser_reverse_ : false
+T_back_to_Front : [-0.809122,0.0120839,-3.13885]
+T_front_ : *Front
+T_back_ : [-0.4,0,3.14]
+Topic_main : *Topic
+
+
+
+

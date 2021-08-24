@@ -1,0 +1,15 @@
+debug: false
+
+frame: "laser_link"
+send_transform: false
+
+tf_x: 0.115
+tf_y: 0.0
+tf_z: 0.21
+
+# field_of_view: 270  (field of view: start from bot front middle, expanding left & right evenly, full: 270)
+field_of_view: 270 # CHANGE THIS  
+
+devicename: "/dev/ttyS0"
+
+baudrate: 115200

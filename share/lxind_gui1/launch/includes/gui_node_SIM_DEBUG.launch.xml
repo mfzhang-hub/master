@@ -1,0 +1,22 @@
+<launch>
+    <arg name="vel_topic" default="/mobile_base/cmd_vel" />
+    <arg name="odom_topic" default="/robot0/odom" />
+    <arg name="laser_topic" default="/scan" />
+
+    <arg name="sim_mode" default="false" />
+
+    <arg name="mapfile" default="outmzpick" />
+    <arg name="gui_param_file" default="robGui" />
+
+    <node launch-prefix="gdb -ex run --args" pkg="lxind_gui1" type="gui_node" respawn="false" name="gui_node" output="screen">
+        <param name="param_dir" value="$(find lxind_params)/param/gui/"/>
+        <param name="gui_param_name" value="$(arg gui_param_file).json"/>
+
+        <param name="load_map_path" value="$(find lxind_nav)/maps/$(arg mapfile).yaml.lxmap"/>
+        <param name="load_map_pgm" value="$(find lxind_nav)/maps/$(arg mapfile).pgm"/>
+        <remap from="cmd_vel" to="$(arg vel_topic)"/>
+        <remap from="scan" to="$(arg laser_topic)"/>
+        <remap from="odom" to="$(arg odom_topic)"/>
+    </node>
+
+</launch>

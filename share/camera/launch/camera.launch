@@ -1,0 +1,13 @@
+<launch>
+
+<!-- ### Run We Localization Management ### -->
+  <node pkg="camera" type="camera_node" name="camera_node" output="screen" >
+    
+    <param name="configFilePath" value="$(find camera)/config.yaml" />
+    <param name="logPath" value="$(find camera)/log4cpp_localization.conf" />
+
+  </node>
+	
+</launch>
+  
+  

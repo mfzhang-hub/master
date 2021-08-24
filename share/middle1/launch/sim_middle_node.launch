@@ -1,0 +1,3 @@
+<launch>
+    <include file="$(find middle1)/launch/includes/sim_middle_node.launch.xml" />
+</launch>
