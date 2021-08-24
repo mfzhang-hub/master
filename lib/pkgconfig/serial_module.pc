@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: serial_module
+Description: Description of serial_module
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: lxind_msgs module_keys liblxtask

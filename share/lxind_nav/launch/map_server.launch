@@ -1,0 +1,7 @@
+<launch>
+    
+    <include file="$(find lxind_nav)/launch/includes/map_server.launch.xml">
+        <arg name="map_file" value="office_test.yaml" />
+    </include>
+
+</launch>

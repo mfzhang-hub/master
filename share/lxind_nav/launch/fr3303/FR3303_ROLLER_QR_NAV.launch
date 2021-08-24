@@ -1,0 +1,53 @@
+<launch>
+    <arg name="map_file_prefix" value="newdiaoyu" />
+
+<!-- bringup -->
+    <include file="$(find lxind_bringup)/launch/includes/FR3300_bringup.launch.xml">
+        <arg name="enable_ifm" value="false" />
+    </include>
+
+<!-- 2dloc -->  
+  <arg name="initial_pose_x" default="0.0"/>
+  <arg name="initial_pose_y" default="0.0"/>
+  <arg name="initial_pose_a" default="0.0"/>
+  <arg name="enable_Arbiter" default="true"/>
+
+  <include file="$(find lxlocalization)/launch/includes/localization.launch.xml">
+    <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+    <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+    <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+    <arg name="enable_Arbiter" value="true"/>
+  </include>
+
+<!-- Move base -->
+    <include file="$(find lxind_movebase)/launch/includes/movebase.launch.xml" >
+        <arg name="robot_param_name" value="new_fr3303_roller" />
+    </include>     
+
+<!-- communi layer -->
+  <include file="$(find lxind_middle1)/launch/includes/middle_node.launch.xml">
+      <arg name="mapfile" value="$(arg map_file_prefix)" />
+  </include>
+
+
+<!-- new ui -->
+  <include file="$(find lxind_gui1)/launch/includes/gui_node.launch.xml">
+      <arg name="mapfile" value="$(arg map_file_prefix)" />
+  </include>
+
+
+<!-- camera -->
+  <include file="$(find camera)/launch/camera.launch">
+  </include>
+
+
+<!-- qr_loc -->
+  <include file="$(find qr_loc)/launch/qr_loc.launch">
+      <arg name="mapping" value="false" />
+  </include>
+
+<!-- arbiter -->
+  <include file="$(find arbiter)/launch/we_localization_management.launch">
+  </include>
+
+</launch>

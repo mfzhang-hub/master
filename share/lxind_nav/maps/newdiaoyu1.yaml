@@ -1,0 +1,7 @@
+%YAML:1.0
+image: newdiaoyu1.pgm
+resolution: 0.05
+origin: [-46.7366, -32.2575, 0]
+negate: 0
+occupied_thresh: 0.67
+free_thresh: 0.196

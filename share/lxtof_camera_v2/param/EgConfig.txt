@@ -1,0 +1,15 @@
+devicename = FFFF3708xxxx50FF
+color_camera = NONE
+hdr_mode = 0
+calibed = 0
+frame_size = QVGA
+#initial_buffer = 0f1c9000
+#integration_buffer = 80ffa102
+#frequency_buffer = 80ff8501
+#mode_buffer = 0f1c9000
+#minamp_buffer = 80ff9400
+#temperatureCoeff1_buffer = 8FF10B56
+#temperatureCoeff2_buffer = 8FF20E27
+#temperatureT0_buffer = 02ff09c4
+#loadSD_buffer = 4f011900
+#enablecalib_buffer = 5f018000

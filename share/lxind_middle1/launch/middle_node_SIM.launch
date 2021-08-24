@@ -1,0 +1,3 @@
+<launch>
+    <include file="$(find lxind_middle1)/launch/includes/middle_node_SIM.launch.xml" />
+</launch>

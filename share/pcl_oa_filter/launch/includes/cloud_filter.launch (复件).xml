@@ -1,0 +1,33 @@
+<launch>
+    <arg name="input_cloud_topic" default="/camera/depth/color/points" />
+    <arg name="min_z" default="0.02" />
+    <arg name="max_z" default="1.0" />
+    
+    <arg name="matrix_file_path" default="$(find lxind_params)/param/pcl/calib_matrix.json" />
+
+    <arg name="min_front_dist" default="0.0" />
+    <arg name="max_front_dist" default="1.3" />
+
+    <arg name="camera_id" default="" />
+
+    <node pkg="pcl_oa_filter" type="cloud_filter" name="cloud_filter$(arg camera_id)" output="screen" >
+        <param name="base_frame" value="base_footprint" />
+
+        <param name="min_z" value="$(arg min_z)" />
+        <param name="max_z" value="$(arg max_z)" />
+
+        <param name="voxel_size_xy" value="0.03" />
+        <param name="voxel_size_z" value="0.01" />
+        
+        <param name="min_front_dist" value="$(arg min_front_dist)" />
+        <param name="max_front_dist" value="$(arg max_front_dist)" />
+
+        <param name="matrix_file_path" value="$(arg matrix_file_path)" />
+        <param name="expected_rate" value="15" />
+
+        <param name="camera_id" type="str" value="$(arg camera_id)" />
+
+        <!-- remap -->
+        <remap from="/input_cloud" to="$(arg input_cloud_topic)" />
+    </node>
+</launch>

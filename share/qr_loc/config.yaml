@@ -1,0 +1,37 @@
+
+qr_need : 1
+
+dist_min : 0.07
+dist_max : 0.09
+
+qr_size : 24
+qr_interval : 10
+qr_initx : -0.012
+qr_inity : -0.012
+circle_size : 0.02125
+qr_mode : 2
+
+p_dot : 1
+rj_yaw : 0
+
+radius_min : 55
+radius_max : 85
+
+point_height : 0.11
+
+mapping : false
+save_video : false
+
+edge_min : 70
+edge_max : 100
+edge_thresh : 30
+
+camera_id : 0
+multi_camera : false
+
+exc_dist : 2.5
+
+exc_yaw : 90
+
+slip_value : 0.15 
+

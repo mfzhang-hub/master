@@ -1,0 +1,10 @@
+<launch>
+
+  <include file="$(find lxind_simul)/launch/includes/sim_movebase_DEBUG.launch.xml">
+
+    <arg name="mock_mode" value="true" />
+    <arg name="robot_param_name" value="new_fr1511a_elev" />
+    
+  </include>
+
+</launch>

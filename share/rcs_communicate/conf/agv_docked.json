@@ -1,0 +1,13 @@
+{
+    "docked_points":[
+        {
+            "point":{
+                "x":0,
+                "y":0
+            },
+            "left_right":0,
+            "front_dist":50,
+            "theta":0
+        }
+    ]
+}

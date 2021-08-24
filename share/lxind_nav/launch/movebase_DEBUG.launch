@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find lxind_movebase)/launch/includes/movebase_DEBUG.launch.xml" >
+        <arg name="robot_param_name" value="new_fr1511a_elev" />
+    </include>
+
+</launch>

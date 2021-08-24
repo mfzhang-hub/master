@@ -1,0 +1,11 @@
+<launch>
+
+    <node launch-prefix="gdb -ex run --args" pkg="middle1" type="sim_middle_node" respawn="false" name="sim_middle_node" output="screen"> 
+         <param name="load_warning_path" value="$(find middle1)/param/warning.json"/>
+         <param name="load_process_path" value="$(find middle1)/param/simProcess.json"/>
+         <param name="load_module_path" value="$(find middle1)/param/moduleCfg.json"/>
+         <param name = "load_sound_path" value="$(find middle1)/param/sound/"/>
+         <param name="log_path" value="$(find middle1)/conf/log4cpp_middle.conf"/>
+         <param name="load_map_path" value="$(find lxind_nav)/maps/fish2.yaml.lxmap"/>
+    </node>
+</launch>

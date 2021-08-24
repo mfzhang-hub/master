@@ -1,0 +1,9 @@
+
+<launch>
+
+    <node pkg="sicks300" type="sick300_driver" name="sick_driver" output="screen">
+        <rosparam file="$(find sicks300)/param/B1_sicks300.yaml" command="load" />
+        <remap from="laserscan" to="scan" />
+    </node>
+    
+</launch>

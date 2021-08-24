@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: lxtof_camera_v2
+Description: Description of lxtof_camera_v2
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: 

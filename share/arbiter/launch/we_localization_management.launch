@@ -1,0 +1,13 @@
+<launch>
+
+<!-- ### Run We Localization Management ### -->
+  <node pkg="arbiter" type="we_localization_management_node" name="we_localization_management_node" output="screen">
+    
+    <param name="configFilePath" value="$(find arbiter)/config.yaml" />
+     <param name="logPath" value="$(find arbiter)/log4cpp_localization.conf" />   
+
+  </node>
+
+</launch>
+  
+  

@@ -1,0 +1,8 @@
+<launch>
+
+    <node pkg="lxind_factory" type="factory_node" respawn="false" name="factory_node" output="screen"> 
+    <param name="image_dir" value="$(find lxind_factory)/"/>
+    </node>
+
+</launch>
+

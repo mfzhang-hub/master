@@ -1,0 +1,61 @@
+{
+    "task_id": 10,
+
+    "pri_task_cmd": 3, 
+
+    "force_clear": false,
+
+    "__NAV__": "-----------------------",
+    "init_state": [-0.096, 0.352, 3.14], 
+    "target_state": [-9.78, 1.51, -1.57], 
+
+    "fixed_path": 0, 
+
+    "target_id": 1,
+    "target_name": "mock target",  
+    "tol_dist": 0.2, 
+    "tol_angle": 0.2, 
+    "to_goal_mode": 1, 
+    "enable_oa": false, 
+
+    "max_speed": 1.0, 
+    "safe_dist": 2.0, 
+    "min_turn_radius": 0, 
+
+    "load_mode": 0,         "__load_mode": "ONLOAD: 0, OFFLOAD: 1",
+    "direction": 0,         "__direction": "L R F B: 0 1 2 3",
+
+    "__PRECLOC__": "-----------------",
+    "prec_dist": 1.0, 
+
+    "info": [
+        {"__PICKER__": "-----------------"},
+        {"shelf_type": 1},
+        {"floor_idx": 0},
+        {"curr_box_idx": 0},
+        {"box_code": 1},
+        {"box_type": 1},
+
+        {"__DOCKER__": "-----------------"},
+        {"ip": "192.168.1.150"},
+        {"port": 7777},
+        {"reg_addr_rfront": 1050},
+        {"reg_addr_rback": 1070},
+
+        {"__SWITCH_MAP__": "-----------------"},
+        {"map_id": 115200},
+        {"map_name": "good"}
+    ],
+
+
+    "__OTHER__": "---------------------------------------------------------------------------",
+    "locked_nodes": ["aa"],
+    
+
+    "__COMMENTS__": "---------------------------------------------------------------------------",
+    "__avail_state": "xizi: init[-13.9, -7.85, 0] target_square[-8.60, -4.77, 0.33], target_straight[-2.49, -8.19, 0.33]",
+    
+    "_pri_task_id1": "NO_TASK = 1, CANCEL_TASK = 2, NAV_TASK = 3, GO_OUT_TASK = 4, CHARGE_TASK = 5, ABUT_TASK = 6, CONFIRM_TASK = 7",
+    "_pri_task_id2": "CYCLE_TASK = 8,REASSIGN_TASK = 9,  ROLLER_TASK = 100, DCROLLER_TASK = 110, ELEV_TASK = 200, PICK_TASK = 300, ",
+    "_pri_task_id3": "PICKNAV_TASK = 301, QA_CONFIRM_TASK = 400"
+}

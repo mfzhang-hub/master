@@ -1,0 +1,52 @@
+<launch>
+    <arg name="map_file_prefix" value="outmzpick" />
+
+<!-- bringup -->
+    <include file="$(find lxind_simul)/launch/includes/bringup.launch.xml" >
+        <arg name="map_name" value="$(arg map_file_prefix)" />
+
+        <!-- good -->
+        <arg name="init_x" value="16" />
+        <arg name="init_y" value="27.6415" />
+        <arg name="init_th" value="-1.57" />
+
+        <arg name="enable_ui" value="false" />
+    </include>
+
+<!-- movebase -->
+    <include file="$(find lxind_simul)/launch/includes/sim_movebase.launch.xml">
+        <arg name="mock_mode" value="true" />
+        <!-- <arg name="robot_param_name" value="fr1511a_elev" /> -->
+        <!-- <arg name="robot_param_name" value="pr1100d" /> -->
+        <!-- <arg name="robot_param_name" value="fr1511c_sroller" /> -->
+        <arg name="robot_param_name" value="new_fr1511a_elev" />
+    </include>
+
+<!-- communi layer -->
+  <include file="$(find lxind_middle1)/launch/includes/middle_node_SIM.launch.xml">
+  </include>
+
+<!-- new ui -->
+  <include file="$(find lxind_gui1)/launch/includes/gui_node_SIM.launch.xml">
+  </include>
+
+<!-- 2dloc -->  
+  <include file="$(find lxlocalization)/launch/includes/localization.launch.xml">
+    <arg name="back_laser_link" value=""/>
+
+    <arg name="initial_pose_x" value="0.0"/>
+    <arg name="initial_pose_y" value="0.0"/>
+    <arg name="initial_pose_a" value="0.0"/>
+
+    <arg name="base_link" default="robot0"/>
+    <arg name="laser_link" default="robot0_laser_0"/>
+
+    <arg name="odom_topic" default="/robot0/odom"/>
+    <arg name="laser_topic" default="/robot0/laser_0"/>
+  </include>
+  
+<!-- rviz
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lxind_simul)/rviz/nav_SIM.rviz"/>
+ -->
+
+</launch>

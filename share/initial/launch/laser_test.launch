@@ -1,0 +1,15 @@
+<launch>
+    <arg name="map_file_prefix" value="outmzpick" />
+
+ <node pkg="sicks300" type="sick300_driver" name="sick_driver" output="screen">
+        <rosparam file="$(find sicks300)/param/BK_sicks300.yaml" command="load" />
+        <remap from="laserscan" to="scan" />
+    </node>
+
+
+
+<!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find initial)/rviz/laser_test.rviz"/>
+
+
+</launch>

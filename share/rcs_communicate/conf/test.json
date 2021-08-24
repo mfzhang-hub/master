@@ -1,0 +1,21 @@
+{
+    "ip":"192.168.33.111",
+    "port":3345,
+    "localport":1112,
+    "car_module":[
+        {
+            "instance":"rcs_communcitae_task", 
+                "fx": 1232.66 , "fy": 1233.04 , 
+                "cx": 976.6 , 
+                "cy":551.98 , 
+                "k1": -0.4454 , "k2": 0.2392 , "k3": 0 , "k4": 0.0007 , "k5": -0.0718,
+                "width": 1920 , "height": 1080 , 
+                "camera_id": 0 , "exposure": 0.005 , 
+                "time_out": 30000 , "time_out1": 200000 , 
+                "qr_need" : 1,
+                "threshold_dist" : 0.1,
+                "detect_time_out" : 10,
+                "judge_count_out" : 10
+        }
+    ]
+}

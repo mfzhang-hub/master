@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: lxind_mapserver
+Description: Description of lxind_mapserver
+Version: 1.14.0
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib -lmap_server_image_loader
+Requires: roscpp tf nav_msgs lxind_msgs

@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: pcl_module
+Description: Description of pcl_module
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: module_keys pcl_conversions lxind_msgs

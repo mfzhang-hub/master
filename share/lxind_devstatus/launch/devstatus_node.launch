@@ -1,0 +1,5 @@
+<launch>
+
+  <include file="$(find lxind_devstatus)/launch/includes/devstatus_node.launch.xml" />
+  
+</launch>

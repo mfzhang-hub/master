@@ -1,0 +1,7 @@
+<launch>
+
+    <node name="mqtt_js" pkg="lxmqtt_js" type="main" output="screen">
+
+    </node>
+
+</launch>

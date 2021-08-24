@@ -1,0 +1,32 @@
+<launch>
+    <arg name="map_file_prefix" value="outmzpick" />
+
+<!-- bringup -->
+    <include file="$(find lxind_simul)/launch/includes/bringup.launch.xml" >
+        <arg name="map_name" value="$(arg map_file_prefix)" />
+    </include>
+
+<!-- movebase -->
+    <include file="$(find lxind_simul)/launch/includes/sim_movebase.launch.xml">
+        <arg name="mock_mode" value="true" />
+        <!-- <arg name="test_mode" value="true" /> -->
+        <arg name="map_name" value="$(arg map_file_prefix)" />
+        <!-- <arg name="robot_param_name" value="new_fr1511g_elev_qrinfo" /> -->
+        <arg name="robot_param_name" value="new_fr1511a_elev" />
+        
+        <arg name="enable_offline_cache" value="false" />
+    </include>
+
+<!-- communi layer -->
+  <include file="$(find lxind_middle1)/launch/includes/middle_node_SIM.launch.xml">
+  </include>
+
+<!-- new ui -->
+  <include file="$(find lxind_gui1)/launch/includes/gui_node_SIM.launch.xml">
+  </include>
+
+<!-- rviz 
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lxind_simul)/rviz/nav_SIM.rviz"/>
+-->
+
+</launch>

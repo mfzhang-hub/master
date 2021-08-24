@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: lxind_msgs
+Description: Description of lxind_msgs
+Version: 1.0.0
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: geometry_msgs message_runtime std_msgs sensor_msgs

@@ -1,0 +1,20 @@
+<package>
+  <name>lxind_description</name>
+  <version>0.1.0</version>
+  <description>
+      3D model
+  </description>
+  
+  <author email="mjshi@robvision.cn">Minjie</author>
+    <maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+</package>

@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="laser_resender" type="laser_resender" name="laser_resender" output="screen" >
+
+        <!-- remap -->
+        <remap from="input_scan" to="/robot0/laser_0" />
+        <remap from="output_scan" to="/scan" />
+    </node>
+</launch>
