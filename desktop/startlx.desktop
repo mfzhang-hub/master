@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=startlx
+Terminal=false
+Type=Application
+Exec=/home/fr1511b/startlx
+Icon=/home/fr1511b/start.png
+StartupNotify=true
+Categories=Development;
+

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+
+        <title>搬运小车手机终端</title>
+
+        <link rel="stylesheet" href="./css/frozen.css">
+        <link rel="stylesheet" href="./css/lxbot.css">
+    </head>
+
+    <body ontouchstart>
+        <header class="ui-header ui-header-positive ui-border-b">
+            <i class="ui-icon-return" id="back-btn"></i><h1> <img src="img/favicon.ico"/> 搬运小车手机终端 </h1>
+        </header>
+        
+        <footer class="ui-footer" style="background-color:white">
+            <ul class="ui-tiled ui-border-t" >
+                <li class="ui-border-r"><div>&copy; 2018 杭州蓝芯科技有限公司</div></li>
+            </ul>
+        </footer>
+        <section class="ui-container">
+
+
+<!--
+ ++++++++++++++++++++++
+    HINT
+ ++++++++++++++++++++++
+-->
+<div id="hint">
+    <section id="connect" class="ui-notice">
+        <div style="width:100%; height:35%;"></div>
+
+        <i></i>
+        <p>连接已断开</p>
+        
+        <!--
+        <div class="ui-notice-btn">
+            <button id="connect" class="ui-btn-primary ui-btn-lg">连接</button>
+        </div>
+        -->
+        
+    </section>
+</div>
+
+
+
+<!--
+ ++++++++++++++++++++++
+ SECTIONS
+ ++++++++++++++++++++++
+-->
+<div id="main-section">
+<section id="list">
+    <div class="lx-block">
+        <ul class="ui-list ui-list-pure ui-border-b">
+            <li id="list-simpnav" class="ui-border-t">
+                手动控制
+            </li> 
+            <li id="list-goobj" class="ui-border-t">
+                到目标
+            </li> 
+        </ul>
+     </div>
+</section>
+
+
+
+<section id="simpnav">
+    <div class="lx-container">
+		<div style="width:100%; height:80px;"></div>
+			
+        <div class="lx-block" style="width:100%;height:280px;">
+            <div class="ui-btn-wrap">
+                <button id="moveup" class="ui-btn-lg" style="position:absolute;top:10%;left:37%;width:25%;height:20%">
+                    前进
+                </button>
+                <button id="movedown" class="ui-btn-lg" style="position:absolute;bottom:10%;left:37%;width:25%;height:20%">
+                    后退
+                </button>
+                <button id="stop" class="ui-btn-lg" style="position:absolute;top:41%;left:40%;width:20%;height:18%;color:brown">
+                    停止
+                </button>
+                <button id="moveleft" class="ui-btn-lg" style="position:absolute;top:40%;left:8%;width:25%;height:20%">
+                    左转
+                </button>
+                <button id="moveright" class="ui-btn-lg" style="position:absolute;top:40%;right:8%;width:25%;height:20%">
+                    右转
+                </button>
+            </div>
+        </div>
+		
+		
+		<div style="width:100%; height:220px;"></div>
+
+			<div class="ui-form ui-border-t">
+				<div class="ui-form-item ui-form-item-show ui-border-b">
+					<label>前进速度</label>
+					<input id="linearvel1" type="text" value="0.5" />
+				</div>
+				<div class="ui-form-item ui-form-item-show ui-border-b">
+					<label>转弯速度</label>
+					<input id="angularvel1" type="text" value="0.4" />
+				</div>
+			</div>
+		
+            <div class="ui-btn-wrap">
+                <button id="setspeed1" class="ui-btn-lg ui-btn-primary">
+                    确定
+                </button>
+            </div>
+    </div>
+	
+</section>
+    
+    
+<section id="goobj">
+    <div class="lx-item">
+        <div class="lx-block" style="width:100%;height:280px;">
+            <div style="width:100%;height:40px;">
+            </div>
+
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg ui-btn-primary" id="gotoilet">
+                    上厕所
+                </button>
+            </div>
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg ui-btn-primary" id="gowater">
+                    去烧水
+                </button>
+            </div>
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg ui-btn-primary" id="gofruit">
+                    吃水果
+                </button>
+            </div>
+            
+            <div style="width:100%;height:25px;">
+            </div>
+            
+            
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg ui-btn-danger" id="gobackl">
+                    >>> 回左工位
+                </button>
+            </div>
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg ui-btn-danger" id="gobackr">
+                    >>> 回右工位
+                </button>
+            </div>
+            
+            <div style="width:100%;height:25px;">
+            </div>
+            <div class="ui-btn-wrap">
+                <button class="ui-btn-lg ui-btn-danger" id="gocharge">
+                    >>> 回去充电
+                </button>
+            </div>
+            
+            <div style="width:100%;height:60px;">
+            </div>
+        </div>
+    </div>
+</section>
+    
+
+</div>
+<!--
+ ++++++++++++++++++++++
+ SECTIONS END
+ ++++++++++++++++++++++
+-->
+
+        </section><!-- /.ui-container-->
+        <script src="./js/lib/zepto.min.js"></script>
+        <script src="./js/lib/frozen.js"></script>
+        
+    <script src="./js/lib/jquery-1.7.2.min.js"></script>
+
+    <script src="./js/lib/eventemitter2.min.js"></script>
+    <script src="./js/lib/roslib.min.js"></script>
+
+    <script src="./js/lib/easeljs-0.8.2.min.js"></script>
+    <script src="./js/lib/ros2d.min.js"></script>
+
+    <script src="./js/lxutil.js"></script>
+    <script src="./js/index.js"></script>
+
+
+    </body>
+</html>
