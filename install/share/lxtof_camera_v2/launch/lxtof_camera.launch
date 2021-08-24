@@ -1,0 +1,5 @@
+<launch>
+
+  <include file="$(find lxtof_camera_v2)/launch/includes/lxtof_camera.launch.xml" />
+ 	
+</launch>

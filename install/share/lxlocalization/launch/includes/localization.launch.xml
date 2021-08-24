@@ -1,0 +1,44 @@
+<launch>
+    <arg name="initial_pose_x" default="0.0"/>
+    <arg name="initial_pose_y" default="0.0"/>
+    <arg name="initial_pose_a" default="0.0"/>
+
+    <arg name="invert_laser" default="false"/>
+    <arg name="base_link" default="base_link"/>
+    <arg name="laser_link" default="laser_link"/>
+    <arg name="param_file" default="param"/>
+
+    <arg name="odom_topic" default="/mobile_base/odom"/>
+    <arg name="laser_topic" default="/scan"/>
+    <arg name="ReadMapFromFile" default="false"/> 
+    <arg name="enable_Arbiter" default="false"/>
+
+    <arg name="isSmallLaserInverted" default="false"/> 
+    <arg name="small_laser_topic" default=""/>
+    <arg name="back_laser_link" default=""/>
+
+  <node pkg="lxlocalization" type="lxlocalization_node" name="lxlocalization" output="screen">
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="laser_topic" value="$(arg laser_topic)"/>
+
+    <param name="cfgFile" value="$(find lxlocalization)/cfg/$(arg param_file).yml"/>
+    <param name="enable_Arbiter" value="$(arg enable_Arbiter)"/>
+    <param name="mapName" value="/map"/>        
+    <param name="base_link" value="$(arg base_link)"/>
+    <param name="laser_link" value="$(arg laser_link)"/>
+    <param name="logConf" value="$(find lxlocalization)/cfg/log4cpp_localization.conf"/>   
+    <param name="invert_laser" value="$(arg invert_laser)"/>   
+    <param name="ReadMapFromFile" value="$(arg ReadMapFromFile)"/>  
+    <param name="reloc_weight_file" value="$(find lxlocalization)/cfg/reloc_weight.json"/>  
+
+    <param name="small_laser_link" value="$(arg back_laser_link)"/>   
+    <param name="isSmallLaserInverted" value="$(arg isSmallLaserInverted)"/>   
+    <param name="small_laser_topic" value="$(arg small_laser_topic)"/>
+
+    <!-- initial pose : x y yaw  -->
+    <param name="initial_pose_x" value="$(arg initial_pose_x)"/>       
+    <param name="initial_pose_y" value="$(arg initial_pose_y)"/>       
+    <param name="initial_pose_yaw" value="$(arg initial_pose_a)"/>       
+  </node>
+  
+</launch>

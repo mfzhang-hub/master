@@ -1,0 +1,11 @@
+<package>
+	<name>lxmqtt_js</name>
+	<version>1.0.0</version>
+	<description>js mqtt  for lx</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+
+</package>

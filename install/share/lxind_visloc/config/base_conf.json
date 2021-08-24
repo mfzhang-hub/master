@@ -1,0 +1,181 @@
+{
+	"misc": {
+		"show": false,
+		"image_size":    [640, 512],
+		"update_method": "oneByOne"
+	},
+
+    "components": {
+        "top_camera": {
+            "image_width_height": [1280, 1024],
+            "view_angle": 1.57
+        },
+        "front_laser": {
+            "external_param": [0.32, 0, 0],
+            "reverse": false
+        }
+    },
+
+    "odom": {
+        "use_raw":  false,
+        "stdev": {
+            "std_x":     0.1,
+            "std_y":     0.03,
+            "std_yaw":   0.03
+        },
+        "interp": {
+            "max_keep_time":           10000,
+            "extrapolation_interval":  10,
+            "extrapolation_reach":     100,
+            "default_pitch":           0,
+            "default_roll":            0
+        },
+        "raw_info": {
+            "wheel_distance":     0.547, 
+            "wheel_radius":       0.1,
+            "speed_reduct_ratio": 20,
+            "encoder_line":       1000
+        }
+    },
+
+    "filter": {
+        "pose": {
+            "method": "kalman",
+            "max_heading_adjustment": 0.05,
+            "max_normal_adjustment": 0.01,
+            "max_angle_adjustment": 0.03
+        },
+        "speed_estimator": {
+            "method": "kalmanspeed",
+            "max_heading_adjustment": 0.05,
+            "max_normal_adjustment": 0.01,
+            "max_angle_adjustment": 0.03
+        } 
+    },
+
+    "detectors": {
+        "top_point": {
+            "map_path":       "",
+            "pre_undistort":  false,
+            "image_size":     [640, 512],
+            "ip":             "localhost",
+            "port":           4971,
+            "buffer_size":    1310800,
+            "timeout":        1000
+        }, 
+        "top_line": {
+            "image_size":      [640, 512],
+            "method":          "fsd",
+            "min_line_length": 50,
+            "canny_min":       0.2,
+            "canny_max":       0.5,
+            "canny_ratio":     true,
+            "hough_max_gap":   30,
+            "hough_thresh":    400
+        },
+        "laser_line": {
+            "min_split_point":   15,
+            "max_neighbor_dist": 0.2,
+            "dist_thresh":       0.1,
+            "min_keep_length":   0.8
+        }
+    },
+
+    "buffers": {
+        "top_point": {
+            "length_capacity":  20,
+            "mileage_capacity": 3.0,
+            "distance_stdev":   1.0,
+            "radius_stdev":     2.0
+        },
+
+        "top_line": {
+            "max_keep_time": 1000
+        },
+
+        "front_laser_line": {
+            "max_keep_time": 1000
+        }
+    },
+
+    "localizers": {
+        "top_point": {
+            "enable": false,
+
+            "method":        "multi",
+            "min_dispersion": 400,
+            "score_balance":  0.3,
+            "max_length":     10,
+            "max_mileage":    2.0,
+            
+            "optimizer": {
+                "optimizer":              "adam",
+                "learning_rate_schedule": "cos",
+                "error_allowed":           0,
+                "max_iteration":           100,
+                "min_iteration":           10,
+                "gradient_allowed":        1e-5,
+                "max_gradient_norm":       1.0,
+                "learning_rate_init":      0.1,
+                "learning_rate_min":       0.0,
+                "learning_rate_step":      100,
+                "learning_rate_order":     1,
+                "momentum":                0.9,
+                "adam_beta1":              0.8,
+                "adam_beta2":              0.9
+            }
+        },
+
+        "top_line_angle": {
+            "enable": false,
+            "map_path": "" 
+        }, 
+
+        "top_line_skier": {
+            "enable": false,
+            "map_path": "",
+
+            "method": "lbd",
+            "descriptor_radius": 25,
+            "distance_thresh": 50,
+            "angle_thresh": 0.1,
+
+            "stdev" : {
+                "std_dir":  10,
+                "std_norm": 0.1,
+                "std_yaw":  0.1
+            },
+
+            "optimizer": {
+                "optimizer":              "moment",
+                "learning_rate_schedule": "cos",
+                "error_allowed":           0,
+                "max_iteration":           100,
+                "min_iteration":           10,
+                "gradient_allowed":        1e-5,
+                "max_gradient_norm":       1.0,
+                "learning_rate_init":      0.1,
+                "learning_rate_min":       0.0,
+                "learning_rate_step":      100,
+                "learning_rate_order":     1,
+                "momentum":                0.9,
+                "adam_beta1":              0.8,
+                "adam_beta2":              0.9
+            }
+        },
+
+        "front_laser_line_skier": {
+            "enable": false,
+            "map_path": "",
+
+            "distance_thresh": 0.1,
+            "angle_thresh": 0.05,
+
+            "stdev" : {
+                "std_dir":  10,
+                "std_norm": 0.1,
+                "std_yaw":  0.1
+            }
+        }
+    }
+}

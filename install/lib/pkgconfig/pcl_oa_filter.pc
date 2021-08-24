@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: pcl_oa_filter
+Description: Description of pcl_oa_filter
+Version: 1.0.0
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: 

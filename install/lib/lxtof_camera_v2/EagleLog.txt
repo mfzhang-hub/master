@@ -1,0 +1,12 @@
+﻿2021-07-16 09:37:25.888 INFO  [8122] [EG_SetInfoOutput@590] EG_SetInfoOutput logging to EagleLog.txt ,log level info ,enable_screen_print 1
+2021-07-16 09:37:25.888 INFO  [8122] [EG_SetInfoOutput@591] version:2.2_0407 compile time:May  6 2021 commit sha1:1b390c587a36c4f73b7a564942b6a47e5e00a34e branch:dev-1
+2021-07-16 09:37:25.888 INFO  [8122] [EG_OpenDevice@119] index 0 id ~ type 1
+2021-07-16 09:37:25.888 INFO  [8122] [TOF::Interface::OpenDevice@361] INTERFACE: Open ~
+2021-07-16 09:37:25.889 INFO  [8122] [CCameraV4L::OpenCamera@119] GetCameraList SUCCESS found eagle camera :0
+2021-07-16 09:37:25.889 ERROR [8122] [CCameraV4L::OpenCamera@144] open~failed. no such device :~
+2021-07-16 09:37:25.889 INFO  [8122] [EG_OpenDevice@188] EG_OpenDevice ~ FAILED
+
+2021-07-16 09:37:25.889 INFO  [8122] [TOF::Interface::Close@476] INTERFACE: Close
+2021-07-16 09:37:25.889 INFO  [8122] [CCameraV4L::CloseCamera@196] UVC: Close
+2021-07-16 09:37:25.889 INFO  [8122] [CCameraV4L::CloseCamera@196] UVC: Close
+2021-07-16 09:37:25.889 ERROR [8122] [ReturnCodeWithThreadID::StackHelper::~StackHelper@233] operator failed :EG_OpenDevice>OpenDevice>OpenCamera>no such device >

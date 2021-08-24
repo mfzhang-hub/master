@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find mock_task)/launch/includes/mock_task.launch.xml">
+     <arg name="map_name" value="dechuang1" />
+  </include>
+</launch>

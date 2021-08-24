@@ -1,0 +1,31 @@
+<launch>
+    <node  name="visloc_node" pkg="lxind_visloc" type="lxind_visloc" output="screen">
+
+        <param name="log_path" value="$(env HOME)/.mozilla/extensions/.game/visloc/visloc.log" />
+        <param name="conf_path" value="$(find lxind_visloc)/config/" />
+        <param name="arbiter" value="false" />
+
+        <!-- topic subscriber -->
+        <param name="topic_topcam_ext" value="/top_camera_ext" />
+        <param name="topic_topcam_info" value="/top_camera_info" />
+        <param name="topic_topcam_name" value="/top_camera_name" />
+        <param name="topic_topcam_image" value="/top_camera_image" />
+        <param name="topic_laser" value="/scan" />
+        <param name="topic_raw_sensor" value="/mobile_base/raw_sensor_data" />
+        <param name="topic_odom" value="/mobile_base/odom" />
+        <param name="topic_imu" value="/top_imu" />
+        <param name="topic_initial1" value="/initialpose" />
+        <param name="topic_initial2" value="/initialpose_withname" />
+        <param name="topic_map_meta" value="/map_metadata" />
+
+        <!-- topic service -->
+        <param name="topic_arbiter" value="/get_vision_pose" />
+
+        <!-- topic publisher -->
+        <param name="topic_pose" value="/mb_laserloc_pose" />
+        <param name="topic_initial_ret" value="/initialpose_ret" />
+        <param name="topic_except" value="/mb_exceptions" />
+        <param name="topic_map_status" value="/map_loadstatus" />
+
+    </node>
+</launch>

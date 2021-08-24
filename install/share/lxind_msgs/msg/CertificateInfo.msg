@@ -1,0 +1,2 @@
+string info_type
+string info_detail

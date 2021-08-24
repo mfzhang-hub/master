@@ -1,0 +1,59 @@
+{
+    "data": {
+        "name": "ceil2",
+        "path": "/mnt/data/user2_data/WC",
+        "gray": true
+    },
+
+    "augment": {
+        "train": {
+            "master": 0.3,
+            "shapeAugParam": {
+                "resize": true,
+                "resize_size": [512, 640],
+                "scale_size": [0.5, 1.5],
+                "crop_size": [512, 640],
+                "rotate_limit": 30
+            }
+        },
+        "test": {
+            "master": 0.0
+        }
+    },
+
+    "test": {
+        "iter": 1000
+    },
+
+    "train": {
+        "batch": 16,
+        "drop": 0.1,
+        "balance": true,
+        "lr": 1e-4,
+        "decay": ["l2", 1e-4],
+        "mode": "normal",
+        "loss_weight": { "pos": 1, "neg": 1, "crd": 1}
+    },
+
+    "class_names": {
+        "light": 1,
+        "black_dot":0
+    },
+
+    "model": {
+        "dir": "/home/user2/my_campfile/model_WC",
+        "backbone": "local_small",
+        "ichn": 1,
+        "mpl": 1,
+        "act": "lrelu"
+    },
+
+    "ctnet": {
+        "conf": {
+            "light": 0.9,
+            "black_dot":0.9
+        },
+        "max_item": 50,
+        "radius": 50
+    }
+}

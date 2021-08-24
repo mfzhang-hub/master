@@ -1,0 +1,1988 @@
+{
+    "cmdlog": [
+        "DELETE [30]",
+        "DELETE [33]",
+        "DELETE [25]",
+        "DELETE [8]"
+    ],
+    "para": {
+        "center": [
+            613,
+            486
+        ],
+        "rot": {
+            "pitch": -0.11,
+            "yaw": 90.541,
+            "roll": 1.53
+        },
+        "default_offset": [
+            [
+                0.468
+            ],
+            [
+                -0.021
+            ],
+            [
+                1.15
+            ]
+        ],
+        "distort": [
+            0.054,
+            -0.068,
+            -0.001,
+            -0.0,
+            0.01
+        ],
+        "default_error": 0.15,
+        "margin": 15,
+        "lower_bound": 5,
+        "tol": 3,
+        "default_z": 2.0,
+        "focal": [
+            647,
+            647
+        ]
+    },
+    "cls": {
+        "light": 1,
+        "black_dot": 0
+    },
+    "star_default_param": {
+        "matchR": 100,
+        "visible_region": []
+    },
+    "stars": [
+        {
+            "class_": "light",
+            "idx": 1,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.688,
+                11.159,
+                3.583
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 2,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.088,
+                11.134,
+                3.578
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 3,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.07,
+                11.126,
+                3.988
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 4,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.728,
+                11.135,
+                3.464
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 5,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.512,
+                11.111,
+                3.95
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 6,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.731,
+                9.949,
+                3.495
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 7,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.532,
+                9.912,
+                3.869
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 8,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.708,
+                9.923,
+                3.462
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 9,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.692,
+                9.92,
+                3.572
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 10,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.038,
+                9.878,
+                3.951
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 11,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.099,
+                9.899,
+                3.563
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 12,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.563,
+                6.523,
+                3.899
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 13,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.128,
+                6.499,
+                3.467
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 14,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.585,
+                5.316,
+                3.856
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 15,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.127,
+                5.298,
+                3.491
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 16,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.175,
+                2.712,
+                3.466
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 17,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.774,
+                2.529,
+                3.375
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 18,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.832,
+                2.475,
+                3.503
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 19,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.56,
+                2.43,
+                3.941
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 20,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.028,
+                2.438,
+                3.96
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 21,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.17,
+                1.534,
+                3.455
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 22,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.812,
+                1.424,
+                3.574
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 23,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.805,
+                1.25,
+                3.534
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 24,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.041,
+                1.216,
+                3.959
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 25,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.531,
+                1.191,
+                3.946
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 26,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.696,
+                1.179,
+                3.497
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 27,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.227,
+                -0.891,
+                3.516
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 28,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.808,
+                -1.277,
+                3.567
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 29,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.689,
+                -1.441,
+                3.465
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 30,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.771,
+                -1.453,
+                3.387
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 31,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.503,
+                -1.476,
+                3.888
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 32,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.157,
+                -1.571,
+                4.007
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 33,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.289,
+                -2.109,
+                3.415
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 34,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.182,
+                -5.269,
+                3.585
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 35,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.283,
+                -6.452,
+                3.399
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 36,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.275,
+                -9.433,
+                3.511
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 37,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.267,
+                -10.583,
+                3.49
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 38,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.274,
+                -14.319,
+                3.484
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 39,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.288,
+                -15.493,
+                3.501
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 40,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.26,
+                -17.949,
+                3.548
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 41,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.251,
+                -19.141,
+                3.47
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 42,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.269,
+                -22.341,
+                3.518
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 43,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.276,
+                -23.518,
+                3.479
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 44,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.161,
+                -26.416,
+                3.67
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 45,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.245,
+                -27.617,
+                3.474
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 46,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.231,
+                -30.771,
+                3.562
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 47,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.22,
+                -31.972,
+                3.534
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 48,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.171,
+                -34.837,
+                3.527
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 49,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.224,
+                -36.043,
+                3.544
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 50,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.17,
+                -39.25,
+                3.507
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 51,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.533,
+                -39.23,
+                3.5
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 52,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.429,
+                -40.2,
+                3.602
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 53,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.164,
+                -40.347,
+                3.538
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 54,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.735,
+                -40.379,
+                3.552
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 55,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.866,
+                -40.393,
+                3.542
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 56,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.828,
+                -40.431,
+                3.535
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 57,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.184,
+                -40.439,
+                3.504
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 59,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.069,
+                -43.203,
+                3.494
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 60,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.461,
+                -43.177,
+                3.489
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 61,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.125,
+                -43.236,
+                3.471
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 62,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.765,
+                -43.261,
+                3.503
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 63,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.658,
+                -43.254,
+                3.506
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 64,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.787,
+                -43.26,
+                3.506
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 65,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.461,
+                -43.265,
+                3.444
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 66,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.444,
+                -44.375,
+                3.484
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 67,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                2.991,
+                -44.383,
+                3.479
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 68,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.452,
+                -44.435,
+                3.449
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 69,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.696,
+                -44.442,
+                3.498
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 70,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                20.066,
+                -44.452,
+                3.559
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 71,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.724,
+                -44.463,
+                3.512
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 72,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.606,
+                -44.484,
+                3.573
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 73,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.458,
+                -47.504,
+                3.522
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 74,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.451,
+                -47.617,
+                3.495
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 75,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.429,
+                -48.699,
+                3.538
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 76,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.463,
+                -48.814,
+                3.518
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 77,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.477,
+                -51.611,
+                3.54
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 78,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.433,
+                -51.696,
+                3.482
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 79,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.485,
+                -52.808,
+                3.434
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 80,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.422,
+                -52.896,
+                3.505
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 81,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.426,
+                -56.055,
+                3.471
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 82,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.408,
+                -57.242,
+                3.488
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 83,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.384,
+                -60.114,
+                3.445
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 84,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                24.351,
+                -61.259,
+                3.357
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 85,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.219,
+                -17.996,
+                3.477
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 86,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.282,
+                -18.001,
+                3.435
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 87,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.779,
+                -18.019,
+                3.49
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 88,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.9,
+                -18.018,
+                3.482
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 89,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.863,
+                -18.018,
+                3.472
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 90,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.291,
+                -19.183,
+                3.465
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 91,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.208,
+                -19.201,
+                3.486
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 92,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.872,
+                -19.206,
+                3.462
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 93,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.779,
+                -19.231,
+                3.493
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 94,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.906,
+                -19.231,
+                3.492
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 95,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.287,
+                -22.35,
+                3.486
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 96,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.281,
+                -23.55,
+                3.491
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 97,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.303,
+                -26.389,
+                3.552
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 98,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.309,
+                -27.604,
+                3.504
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 99,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.331,
+                -30.745,
+                3.46
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 100,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.321,
+                -31.948,
+                3.474
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 101,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.701,
+                -34.771,
+                3.506
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 102,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.833,
+                -34.795,
+                3.46
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 103,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.8,
+                -34.786,
+                3.498
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 104,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.334,
+                -34.794,
+                3.474
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 105,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.141,
+                -34.827,
+                3.483
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 106,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                7.707,
+                -35.976,
+                3.519
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 107,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                11.839,
+                -35.99,
+                3.472
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 108,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                -1.349,
+                -35.989,
+                3.476
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 109,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                15.801,
+                -36.002,
+                3.503
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 110,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                3.134,
+                -36.031,
+                3.488
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 111,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                28.434,
+                -60.182,
+                3.364
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "light",
+            "idx": 112,
+            "tuned": false,
+            "classIdx": 1,
+            "grp": -1,
+            "crds": [
+                28.445,
+                -61.344,
+                3.353
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "idx": 113,
+            "tuned": false,
+            "classIdx": 0,
+            "grp": -1,
+            "crds": [
+                23.883,
+                -39.708,
+                4.751
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "idx": 114,
+            "tuned": false,
+            "classIdx": 0,
+            "grp": -1,
+            "crds": [
+                24.591,
+                -41.666,
+                4.737
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "idx": 115,
+            "tuned": false,
+            "classIdx": 0,
+            "grp": -1,
+            "crds": [
+                23.906,
+                -43.954,
+                4.723
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "idx": 116,
+            "tuned": false,
+            "classIdx": 0,
+            "grp": -1,
+            "crds": [
+                23.855,
+                -48.071,
+                4.721
+            ],
+            "origin": "top_points.json",
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 117,
+            "tuned": false,
+            "crds": [
+                12.342,
+                -17.189,
+                4.805
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 118,
+            "tuned": false,
+            "crds": [
+                3.676,
+                -17.203,
+                4.794
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 119,
+            "tuned": false,
+            "crds": [
+                15.361,
+                -17.195,
+                4.787
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 120,
+            "tuned": false,
+            "crds": [
+                9.633,
+                -17.233,
+                4.798
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 121,
+            "tuned": false,
+            "crds": [
+                21.175,
+                -17.269,
+                4.793
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 122,
+            "tuned": false,
+            "crds": [
+                0.93,
+                -17.199,
+                4.779
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 123,
+            "tuned": false,
+            "crds": [
+                -2.074,
+                -17.217,
+                4.785
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 124,
+            "tuned": false,
+            "crds": [
+                15.495,
+                -18.649,
+                4.795
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 125,
+            "tuned": false,
+            "crds": [
+                2.811,
+                -18.652,
+                4.793
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 126,
+            "tuned": false,
+            "crds": [
+                19.333,
+                -18.662,
+                4.8
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 127,
+            "tuned": false,
+            "crds": [
+                11.42,
+                -18.651,
+                4.795
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 128,
+            "tuned": false,
+            "crds": [
+                1.133,
+                -33.81,
+                4.818
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 129,
+            "tuned": false,
+            "crds": [
+                9.858,
+                -33.807,
+                4.795
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 130,
+            "tuned": false,
+            "crds": [
+                18.521,
+                -33.86,
+                4.797
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 131,
+            "tuned": false,
+            "crds": [
+                15.642,
+                -33.825,
+                4.795
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 132,
+            "tuned": false,
+            "crds": [
+                12.645,
+                -33.804,
+                4.789
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 133,
+            "tuned": false,
+            "crds": [
+                3.918,
+                -33.861,
+                4.789
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 134,
+            "tuned": false,
+            "crds": [
+                21.333,
+                -33.899,
+                4.794
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 135,
+            "tuned": false,
+            "crds": [
+                -2.034,
+                -33.926,
+                4.788
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 136,
+            "tuned": false,
+            "crds": [
+                7.927,
+                -35.482,
+                4.795
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 137,
+            "tuned": false,
+            "crds": [
+                15.71,
+                -35.496,
+                4.798
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 138,
+            "tuned": false,
+            "crds": [
+                11.647,
+                -35.499,
+                4.797
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        },
+        {
+            "class_": "black_dot",
+            "classIdx": 0,
+            "idx": 139,
+            "tuned": false,
+            "crds": [
+                19.578,
+                -35.541,
+                4.795
+            ],
+            "origin": "top_points.json",
+            "grp": -1,
+            "trash": false
+        }
+    ]
+}

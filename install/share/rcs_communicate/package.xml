@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package>
+  <name>rcs_communicate</name>
+  <version>0.0.0</version>
+  <description>The rcs_communicate_module package</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag --> 
+  <!-- Example:  -->
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="chenlin@todo.todo">chenlin</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+
+<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+        <build_depend>lxind_msgs</build_depend>
+	<build_depend>geometry_msgs</build_depend>
+	<build_depend>module_keys</build_depend>
+	<build_depend>actionlib</build_depend>
+        <!-- <build_depend>liblxutil</build_depend>	 -->
+
+	<run_depend>roscpp</run_depend>
+        <run_depend>lxind_msgs</run_depend>
+        <run_depend>geometry_msgs</run_depend>
+	<run_depend>module_keys</run_depend>
+	<run_depend>actionlib</run_depend>
+        <!-- <run_depend>liblxutil</run_depend> -->
+
+</package>

@@ -1,0 +1,33 @@
+{
+	"module": [
+		{
+			"id": 0,
+			"code": "socket",
+			"ip": "192.168.1.248",
+			"port": 6666,
+			"httpIp":"192.168.1.248",
+			"httpPort":"8080",
+			"map": "fish2",
+			"serialNo": 65,
+			"version": 8
+		},
+        {
+			"id": 4,
+			"code": "data"
+		},
+		{
+			"id": 5,
+			"code": "map"
+		},
+		{
+			"id": 6,
+			"code": "mission"
+		},
+		{
+			"id": 7,
+			"code": "sound",
+            "isPlay":true
+		}
+	]
+}
+  

@@ -1,0 +1,17 @@
+<package>
+	<name>py_test</name>
+	<version>1.0.0</version>
+	<description>The test</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+    <build_depend>lxind_msgs</build_depend>
+
+	<run_depend>roscpp</run_depend>
+    <run_depend>lxind_msgs</run_depend>
+
+</package>

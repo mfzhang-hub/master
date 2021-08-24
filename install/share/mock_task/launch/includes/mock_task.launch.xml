@@ -1,0 +1,11 @@
+<launch> 
+    <arg name="map_name" default="outmzpick" />
+
+    <node name="mock_task_node" pkg="mock_task" type="mocktask_node" output="screen">
+        <param name="pri_task_path" value="$(find lxind_params)/param/mock/pri_task.json" />
+        <param name="sub_task_path" value="$(find lxind_params)/param/mock/sub_task.json" />
+        <param name="map_path" value="$(find lxind_nav)/maps/$(arg map_name).yaml"/>
+
+        <param name="log_cfg_path" value="$(find mock_task)/conf/log4cpp_mocktask.conf" />
+    </node>
+</launch>

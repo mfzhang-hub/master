@@ -1,0 +1,62 @@
+{
+	"process": [{
+			"moduleId": 1,
+                        "mac":"11:11:11:11:11:12",
+                        "initGoal":"B8",
+			"taskChain":[
+                        {
+                            "name": "B7",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "B8",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "B8",
+                            "cmd": 8
+                        }
+                       ]
+		},
+                {
+			"moduleId": 2,
+                        "mac":"22:22:22:22:22:22",
+                        "initGoal":"BJ",
+			"taskChain":[
+                        {
+                            "name": "B6",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "BJ",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "BJ",
+                            "cmd": 8
+                        }
+                       ]
+		},
+                {
+			"moduleId": 3,
+                        "mac":"22:22:22:22:22:23",
+                        "initGoal":"1XL",
+			"taskChain":[
+                        {
+                            "name": "3SL",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "1XL",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "1XL",
+                            "cmd": 8
+                        }
+                       ]
+		}
+                
+	]
+
+}

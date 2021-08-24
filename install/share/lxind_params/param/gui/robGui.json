@@ -1,0 +1,33 @@
+{
+    "robGui":
+    [
+		{
+        "_relocPoint": "aa",
+        "chargeName": "charge2",
+        "restName": "rest3",
+        "lowPowerNum": 0,
+        "powerOffNum": 0,
+        "_reloc_mode": false,
+        "passwordDlg": false,
+        "logoName": "lanxin.jpg",
+        "temperatureFirstLevel": 50,
+        "temperatureSecondLevel": 60,
+        "debug_mode": true,
+
+            "taskChain": [
+		{"name":"上料１","chain":[
+		{"endPoint":"veichi-out","action":3},{"endPoint":"veichi-out","action":7},{"endPoint":"veichi-1","action":3},
+		{"endPoint":"veichi-1","action":7},{"endPoint":"veichi-6","action":3},{"endPoint":"veichi-6","action":7}]},
+		{"name":"上料２", "chain":[
+                {"endPoint":"c","action":3},{"endPoint":"c","action":7},{"endPoint":"g","action":3},
+		{"endPoint":"g","action":7},{"endPoint":"b","action":3},{"endPoint":"b","action":7}]},
+                {"name":"空车回收","chain":[
+		{"endPoint":"c","action":3},{"endPoint":"c","action":7},{"endPoint":"d","action":3},
+		{"endPoint":"d","action":7},{"endPoint":"b","action":3},{"endPoint":"b","action":7}]},
+ {"name":"biaoding","chain":[
+		{"endPoint":"charge","action":216}]}
+		
+		]
+        }
+    ]
+}

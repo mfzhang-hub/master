@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: stdr_gui
+Description: Description of stdr_gui
+Version: 0.3.2
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: roscpp roslib tf stdr_msgs stdr_server stdr_robot stdr_parser sensor_msgs nav_msgs

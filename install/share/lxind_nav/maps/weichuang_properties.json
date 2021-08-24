@@ -1,0 +1,74 @@
+[
+	{
+		"name": "charge111",
+		"properties": {
+			"split_dist_load": 0.8,
+			"draw_charge_pile": 1,
+			"target_pose": [
+				-0.72,
+				0.0,
+				0.0
+			],
+			"target_local_pose": [
+				29.767,
+				-61.769,
+				0.02
+			],
+			"danger_range": [
+				-0.76,
+				-0.4,
+				-0.3,
+				0.3
+			]
+		}
+	},
+	{
+		"name": "charge",
+		"properties": {
+			"split_dist_load": 0.8,
+			"draw_charge_pile": 1,
+			"target_pose": [
+				-0.74,
+				0,
+				0.0
+			],
+			"target_loc_pose": [
+				29.767,
+				-61.769,
+				0
+			],
+			"danger_range": [
+				-0.8,
+				-0.44,
+				-0.34,
+				0.34
+			]
+		}
+	},
+	{
+		"name": "charge2",
+		"properties": {
+			"split_dist_load": 0.8,
+			"draw_charge_pile": 1,
+			"target_pose": [
+				-0.74,
+				0,
+				0.0
+			],
+			"target_loc_pose": [
+				29.342,
+				-63,
+				0
+			],
+			"danger_range": [
+				-0.8,
+				-0.44,
+				-0.34,
+				0.34
+			]
+		}
+	}
+]
+
+ 
+

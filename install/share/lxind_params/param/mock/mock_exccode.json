@@ -1,0 +1,27 @@
+{
+    "max_failed_count": 3,
+    "mock_exccode_list":[
+
+        {"task_cmd":120, "comment":"ROLLER_GO_IN 辊筒对接进站", "exc_code":0},
+        {"task_cmd":121, "comment":"ROLLER_LIGHT_DET 辊筒对接完成光后电开关检测", "exc_code":0},
+        {"task_cmd":122, "comment":"ROLLER_ROLL_LOAD 辊筒动作执行: 上下料", "exc_code":0},
+
+        {"task_cmd":160, "comment":"ELEV_ALIGN", "exc_code":0},
+        {"task_cmd":161, "comment":"ELEV_MOVEUP", "exc_code":0},
+        {"task_cmd":162, "comment":"ELEV_MOVEDOWN", "exc_code":0},
+        {"task_cmd":163, "comment":"ELEV_RESET", "exc_code":0},
+
+        {"task_cmd":164, "comment":"", "exc_code":0}
+
+    ],
+
+    "comments": [
+        {"30": "EXC_ROLLER_DOCKER_NOT_FOUND"},
+        {"31": "EXC_ROLLER_ALIGN_FAILED"},
+        {"33": "EXC_ROLLER_LOAD_FAILED"},
+
+        {"51": "EXC_ELEV_SHELF_NOTFOUND"},
+        {"52": "EXC_ELEV_GOIN_FAILED"},
+        {"53": "EXC_ELEV_MOVEOP_FAILED"}
+    ]
+}

@@ -1,0 +1,178 @@
+<launch>
+
+    <param name="/use_sim_time" value="false"/>
+
+    <!--是否使用ifm开关,如果装有ifm相机 则设置为true-->
+    <arg name="enable_ifm" default="false" />
+    
+
+<!-- URDF   机器人描述文件，坐标信息 -->
+  <include file="$(find lxind_description)/launch/includes/FR3300_robot_state.launch.xml" />
+
+<!-- Web sock  用于网页终端控制 --> 
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+    <arg name="topic_vel" value="/mobile_base/cmd_vel" />
+  </include>
+
+<!-- laser 前sick后北阳 标准底盘和改进底盘激光组合 -->
+    <include file="$(find sicks300)/launch/includes/FR1511_sicks300_node.launch.xml" />
+<!--    <include file="$(find urg_node)/launch/urg_lidar.launch"/>  -->
+
+
+<!-- laser 老版双网络sick激光组合 小底盘车型使用,目前基本废弃,新版本已不提供该驱动
+    <include file="$(find sick_tim)/launch/sick_front.launch" />
+    <include file="$(find sick_tim)/launch/sick_back.launch"/>
+ -->
+
+<!-- laser 新版双网络sick激光组合 小底盘车型使用 目前方案为前571 后561 
+    <include file="$(find sick_scan)/launch/sick_tim_561_two.launch" />
+-->
+
+<!-- laser 万集双网络激光组合 低成本车型使用,目前基本废弃,新版本已不提供该驱动
+    <include file="$(find wj_716_lidar)/launch/wj_716_lidar_twin.launch"/>
+ -->
+
+<!-- top camera 顶视相机 视觉导航定位开启
+
+    <include file="$(find lxind_cam_top_pub)/launch/topcampub.launch" />    
+-->
+
+<!-- camera11 向下二维码相机 
+  <include file="$(find camera11)/launch/camera.launch">
+  </include>
+-->
+
+<!-- camera 向上二维码相机 
+  <include file="$(find camera)/launch/camera.launch">
+  </include>
+-->
+
+<!-- depth camera & filter  使用单tof   -->
+  <include file="$(find lxtof_camera_v2)/launch/includes/lxtof_camera.launch.xml" />
+<!-- pcl filter :lxtof-->
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+        <arg name="input_cloud_topic" value="/lxtof_node_v2/FX3_cloud" />
+        <arg name="min_z" value="0.05" />
+	<arg name="max_z" value="0.26" />
+        <arg name="min_front_dist" value="0.54" />
+        <arg name="max_front_dist" value="2.0" />
+
+	<arg name="min_z_0" value="0.05" />
+	<arg name="max_z_0" value="0.26" />
+        <arg name="min_front_dist_0" value="0.54" />
+        <arg name="max_front_dist_0" value="2.0" />
+
+	<arg name="min_z_1" value="0.05" />
+	<arg name="max_z_1" value="0.26" />
+        <arg name="min_front_dist_1" value="0.54" />
+        <arg name="max_front_dist_1" value="2.0" />
+        
+        <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+  </include>
+
+
+<!--  双tof组合
+
+<arg name="camera_id1" value="1" />
+<arg name="camera_id2" value="2" />
+
+<include file="$(find lxtof_camera)/launch/includes/lxtof_camera1.launch.xml" >
+    </include>
+    
+
+    <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter_1.launch.xml" >
+      <arg name="input_cloud_topic" value="/lxtof_node1/LX1_cloud" />
+      <arg name="camera_id" value="$(arg camera_id1)" />
+      <arg name="min_z" value="0.06" />
+      <arg name="max_z" value="0.5" />
+
+      <arg name="min_front_dist" value="0.48" />
+      <arg name="max_front_dist" value="1.5" />
+      
+      <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+    </include> 
+
+ <include file="$(find lxtof_camera)/launch/includes/lxtof_camera2.launch.xml" >
+    </include>
+    
+
+    <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter_2.launch.xml" >
+      <arg name="input_cloud_topic" value="/lxtof_node2/FX3_cloud" />
+      <arg name="camera_id" value="$(arg camera_id2)" />
+      <arg name="min_z" value="0.06" />
+      <arg name="max_z" value="0.5" />
+
+      <arg name="min_front_dist" value="0.48" />
+      <arg name="max_front_dist" value="1.5" />
+      
+      <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+    </include>
+ -->    
+
+
+
+
+
+<!-- 单ifm配置 -->
+<group if="$(arg enable_ifm)">
+    <include file="$(find ifm3d)/launch/includes/camera.launch.xml" />
+    
+    <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+      <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+
+      <arg name="min_z" value="0.06" />
+
+      <arg name="min_front_dist" value="0.48" />
+      <arg name="max_front_dist" value="1.5" />
+      
+      <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+    </include>
+</group>
+
+
+<!--  双ifm配置
+
+<arg name="camera_id1" value="" />
+<arg name="camera_id2" value="1" />
+
+
+  <include file="$(find ifm3d)/launch/includes/camera.launch.xml">
+    <arg name="camera_id" value="$(arg camera_id1)" />
+    <arg name="ip" value="192.168.199.69"/>
+  </include>
+
+
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+    <arg name="input_cloud_topic" value="/ifm3d/camera$(arg camera_id1)/cloud" />
+    <arg name="camera_id" value="$(arg camera_id1)"/>
+
+    <arg name="min_z" value="0.06" />
+
+    <arg name="min_front_dist" value="0.48" />
+    <arg name="max_front_dist" value="1.5" />
+    
+    <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+  </include>
+
+
+
+  <include file="$(find ifm3d)/launch/includes/camera.launch.xml">
+   <arg name="camera_id" value="$(arg camera_id2)" />
+    <arg name="ip" value="192.168.198.69"/>
+  </include>
+  
+
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+    <arg name="input_cloud_topic" value="/ifm3d/camera$(arg camera_id2)/cloud" />
+    <arg name="camera_id" value="$(arg camera_id2)"/>
+
+    <arg name="min_z" value="0.06" />
+
+    <arg name="min_front_dist" value="-3" />
+    <arg name="max_front_dist" value="0" />
+    
+    <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix_back.json" />
+  </include>
+-->
+
+</launch>

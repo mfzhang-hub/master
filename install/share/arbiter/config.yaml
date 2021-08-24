@@ -1,0 +1,15 @@
+use_qr : true
+#导航模式：为０时,qr_path中填写二维码导航路径id。为１时，qr_path中填写激光导航路径id
+loc_mode : 0
+#二维码导航的路径id
+qr_path : [6]
+#切换导航方式超时时间(s)
+change_time_out : 18
+#调试信息打印开关
+debug : true
+#导航方式切换模式，0：根据路径id切换，1：根据区域切换
+change_mode : 1
+#二维码区域,当中以格式[[x1,y1,x2,y2], [x3,y3,x4,y4]]填写
+qr_region : [[-8.1,-1.26,-7.55,-6.48]]
+
+

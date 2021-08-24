@@ -1,6 +1,0 @@
-[{
-  "spotOrderIds": [1,2],
-  "bindSpotId": 1,
-  "applyExternalDevIds": ["1"],
-  "releaseExternalDevIds" : ["2"]
-}]

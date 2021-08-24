@@ -1,0 +1,12 @@
+<launch>
+    <arg name="map_name" default="good" />
+    <arg name="robot_param_name" default="test" />
+
+    <node pkg="rcs_communicate" type="rcs_communicate_node" respawn="false" name="rcs_communicate_node" output="screen"> 
+         <param name="load_map_path" value="$(find lxind_nav)/maps/$(arg map_name).yaml.lxmap"/>
+
+         <param name="robot_param_path" value="$(find rcs_communicate_module)/conf/$(arg robot_param_name).json"/>
+
+         <param name="log_cfg_path" value="$(find rcs_communicate_module)/conf/log4cpp_rcs_communicate.conf" />
+    </node>
+</launch>

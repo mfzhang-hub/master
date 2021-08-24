@@ -1,0 +1,44 @@
+#单相机false,双相机true
+multi_camera : false
+#单个二维码的边长(mm)
+qr_size : 24
+#单码可忽略该配置，多码的情况下为两个二维码之间的间距(mm)
+qr_interval : 10
+#相机到二维码的距离(m)
+point_height : 0.105
+#大圆半径(m)
+radius : 0.02
+#小圆半径(m)
+radius_small : 0.003
+#小圆间距(m)
+circle_dis : 0.0425
+#小圆辅助定位开关
+small_circle_flag : true
+#二维码导航模式。为0,则arbiter中的qr_path中填写二维码导航路径id;为1时，qr_path中填写激光导航路径id
+loc_mode : 0
+#解码频率
+frame_decode : 50
+#图像尺寸
+width_image : 480
+height_image : 480
+#导航视频保存是否开启
+save_video : true
+#允许丢失二维码的最大距离(m)
+exc_dist : 2.5
+#二维码导航时的打滑系数
+slip_value : 0.15
+#二维码解码超时阈值(s)
+decode_timeout : 0.2
+#debug调试信息打印开关
+debug : true
+#二维码矫正开关
+check : false
+#二维码矫正信息写入开关
+write_qrinfo : false
+#激光定位情况下，二维码校准开关，hw定制
+correct_by_qr : false
+#校准模式下，需要识别的二维码类型，hw定制
+correct_qr_name : []
+#提升机二维码类型，hw定制
+hoist_qr_name : []
+

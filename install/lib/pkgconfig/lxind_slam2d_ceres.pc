@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: lxind_slam2d_ceres
+Description: Description of lxind_slam2d_ceres
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/lanxin/lxind_ws/install/lib 
+Requires: 

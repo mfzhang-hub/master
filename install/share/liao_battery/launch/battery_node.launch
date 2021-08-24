@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find liao_battery)/launch/includes/battery_node.launch.xml" >
+    <arg name="device_port" value="ttyS2" />
+  </include>
+  
+</launch>

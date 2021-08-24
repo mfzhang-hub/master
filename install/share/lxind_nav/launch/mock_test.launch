@@ -1,0 +1,24 @@
+<launch>
+    <arg name="map_file_prefix" value="outmzpick" />
+    <arg name="mock_mode" default="true" />
+    <arg name="robot_param_name" default="fr1511c_sroller" />
+
+<!-- bringup -->
+    <include file="$(find lxind_bringup)/launch/includes/S4_bringup.launch.xml" />
+
+<!-- Move base -->
+    <include file="$(find lxind_movebase)/launch/includes/movebase.launch.xml">
+    <!-- <include file="$(find lxind_movebase)/launch/includes/movebase_DEBUG.launch.xml"> -->
+        <arg name="mock_mode" value="$(arg mock_mode)" />
+        <arg name="robot_param_name" value="$(arg robot_param_name)" />
+    </include>
+
+<!-- mock -->
+  <include file="$(find mock_task)/launch/includes/mock_task.launch.xml">
+  </include>
+
+<!-- rviz 
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lxind_nav)/rviz/amcl.rviz"/>
+-->
+
+</launch>

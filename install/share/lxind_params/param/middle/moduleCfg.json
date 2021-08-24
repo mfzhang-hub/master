@@ -1,0 +1,55 @@
+{
+	"msg": [{
+			"id": 1,
+			"code": "ros"
+		},
+		{
+			"id": 0,
+			"code": "socket",
+			"ip": "172.16.10.57",
+			"port": 6666,
+			"map": "carton.yaml",
+			"serialNo": 65,
+			"version": 8,
+			"isOnline" :  true ,
+			"watchDogMaxTime": 20000
+		},
+		{
+			"id": 2,
+			"code": "http",
+			"url": "172.16.10.57",
+			"urlPort": "8080"
+		},
+		{
+			"id": 3,
+			"code": "device"
+		}
+	],
+	"other": [{
+			"id": 4,
+			"code": "data",
+			"isBootReloc":true
+		},
+		{
+			"id": 5,
+			"code": "map"
+		},
+		{
+			"id": 6,
+			"code": "exception"
+		},
+		{
+			"id": 7,
+			"code": "sound",
+                        "isPlay":true
+		},
+		{
+			"id": 8,
+			"code": "status"
+		},
+		{
+		    "id":9,
+		    "code":"sqlite"
+		}
+	]
+}

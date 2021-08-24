@@ -1,0 +1,307 @@
+{
+    "serial_module": [
+        {
+            "串口底座": "新版底座（包括改进底盘与小底盘）",
+            "instance": "common_base",
+            "串口电机参数": "串口端口，串口波特率, 超时时间，通信频率，pid控制频率频率，是否为调试模式",
+            "port": "ttyS1",
+            "baudrate": 115200,
+            "timeout": 1.0,
+            "loop_rate": 20,
+            "pid_rate": 20,
+            "debug": false,
+            "车辆尺寸": "轮径，轮间距(标准底盘0.547，小底盘0.468）, 电机脉冲数，电机减速比",
+            "wheel_diameter": 0.2,
+            "wheel_distance": 0.547,
+            "encoder_resolution": 1000,
+            "gear_reduction": 32,
+            "底盘参数": "底盘配置，获取硬件版本号次数",
+            "is_fr1511_base": true,
+            "get_version_count": 3,
+            "串口限速开关": "stop_mode是否为急刹开关，use_clip是否使用串口平滑，accel_limit加速限制,unload_retry_times下料重试次数",
+            "stop_mode": true,
+            "use_clip": false,
+            "accel_limit": 1.2,
+			"unload_retry_times": 1,
+            "运动控制参数": "imu脉冲数，里程计配置参数，串口调试，打印编码",
+            "imu_vth_resolution": 0.01,
+            "odom_calib_factor": 1.0,
+            "debug_serial": false,
+            "print_encoder": false,
+            "未使用参数": "功能未知",
+            "is_inspect_mode": false,
+            "_BASE_TYPE": "FR1511A",
+            "_comment": "same as fr1511a, gear_reduction: 20",
+			"协议名称":"串口协议",
+            "protocol_name": "serial_protocol"
+        },
+		
+        {
+            "电池串口":"电池串口通信配置",
+            "instance": "liao_batt",
+            "顶升串口个模块": "端口，波特率，告警百分比",
+            "port": "ttyS2",
+            "baudrate": 115200,
+            "alarm_thres_percent": 30,
+            "配置参数": "电池跳变，满电功能，SOH检测最低值，通讯过程中读取失败多少次上报异常",
+            "batt_jump_limit": 5,
+            "full_battery": 90,
+            "SOH_limit": 60,
+            "connect_limit_times": 3
+        }
+    ],
+    "pcl_module": [{
+        "点云合成模块": "use_front_tof是否使用深度相机停障，use_back_laser是否对开启后激光数据合成",
+        "instance": "cloud_agg",
+        "use_front_tof": true,
+        "use_back_laser": true,
+        "激光点云合成范围": "front_min_theta，front_max_theta，back_min_theta，back_max_theta为激光角度范围",
+        "front_min_theta": -120,
+        "front_max_theta": 120,
+        "back_min_theta": -120,
+        "back_max_theta": 120,
+        "min_laser_range": 0.01,
+        "激光过滤参数": "前激光过滤参数，后激光过滤参数",
+        "front_laser_filter": 3.0,
+        "back_laser_filter": 3.0,
+        "激光倒装参数": "front_laser_inv前激光倒装参数，back_laser_inv后激光倒装参数",
+        "front_laser_inv": false,
+        "back_laser_inv": true,
+        "激光坐标角度": "front_laser_pose前激光位置，back_laser_pose后激光位置",
+        "front_laser_pose": [0.300, 0, 0],
+        "back_laser_pose": [-0.373, 0, 180],
+        "tof过滤参数": "ignore_path_id不使用tof相机路径id，ignore_back_laser_path_id不适用后激光路径华为小底盘是使用该参数,use_tof_mode平行背负货架不使用tof设置为1，背负货架不使用tof设置为2，背负货架使用tof设置为0",
+        "ignore_path_id": [261, 262, 790, 791,836,837,829],
+        "ignore_back_laser_path_id": [0],
+        "use_tof_mode": 0,
+	"激光底座过滤":"底座尺寸，前，后，左，右", 
+	"filter_shape":[0,0,0,0],
+        "看门狗参数": "odom_wait_time里程记 qr_wait_time二维码等待时间 laser_wait_time激光超时时间 shelf_wait_time货架等待时间 前tof等待时间 后tof等待时间",
+        "odom_wait_time": 500,
+        "qr_wait_time": 500,
+        "laser_wait_time": 500,
+        "shelf_wait_time": 500,
+        "front_tof_wait_time": 500,
+        "back_tof_wait_time": 200,
+        "_智昌项目定制": "智昌项目定制开关",
+        "_zhichang_mode": false
+    }],
+    "pritask_module": [
+        {
+            "instance": "nav_split_task",
+	    "seamless_align_dist":0.3,
+	    "next_onload_prec_goal_taskcmds":[200,202],
+            "first_node_dist": 1.2,
+            "next_seamless_align_taskcmds": [
+                203,
+                202
+            ]
+        },
+        {
+            "instance": "new_nav_task",
+            "导航任务主参数": "enable_square_rot是否开启直角转弯，use_seamless_align是否开启无缝对接，enable_qr_nav是否开启二维码导航，enable_stop_by_btn",
+            "enable_square_rot": true,
+            "use_seamless_align": true,
+            "enable_qr_nav": false,
+            "enable_stop_by_btn": false,
+            "新导航参数": "只拆导航的第一段盲走开关",
+            "blind_move_mode": true,
+            "相机校验二维码方向": "0-关闭,1-开启,2-蓝思贴码方式",
+            "check_shape_mode": 0,
+            "导航任务主参数": "一次导航任务只验证一次，验证第一个点，-1关闭",
+            "first_node_dist": 1.2,
+            "sqrot_angle": 60,
+            "oa_timeout": 5.0,
+            "next_prec_goal_taskcmds": [
+                5,
+                6,
+                100,
+                101,
+                102,
+                110,
+                170,
+                200,
+                500
+            ],
+            "next_seamless_align_taskcmds": [
+                100,
+                101,
+                102,
+                110,
+                203,
+                202
+            ]
+        },
+        {
+            "instance": "charge_task",
+            "charge_wait_sec": 10.0,
+            "charge_max_fail_count": 2,
+            "charge_blindmove_dist": -0.2,
+            "charge_blindmove_dist_short":-0.6,
+            "充电对接模式": "0 为老版本充电对接子任务， 1 为新版本充电对接子任务",
+            "charge_mode": 1,
+            "配置开关": " 是否跳过充电环节， 仅进行充电对接子任务， 现场对接稳定后要配置成false， 或者不配置（ 默认为false）",
+            "test_mode_skip_charge": false
+        },
+        {
+            "instance": "elev_task",
+            "对接方式": "1:货架腿进入二维码对接，2:激光货架腿对接，3：导航盲走扫描二维码对接",
+            "custom_task_type": 5,
+            "新版本增加下料前货架调整": "小底盘配置为2-无头顶升，旋转顶升车配1，普通顶升车配0,先降下顶板再回正模式3",
+            "rot_task_type": 0,
+            "新版本增加参数开关": "use_forbidden开启非强制上料点，skip_mode小跳过为0大跳过1",
+            "use_forbidden": true,
+            "check_dist": 0.012,
+            "skip_mode": 0,
+            "新版本增加参数开关": "add_nav未匹配货架腿盲走开关，blind_move_dist盲走距离,check_shelf_before_algin对接前检查顶板角度",
+            "add_nav": true,
+            "blind_move_dist": 0.7,
+            "free_jiaoguan_dist": 0.3,
+            "open_camera": true,
+            "use_qr_arrive": true,
+            "test_without_det": true,
+            "新版本增加参数开关": "对接前验证顶板角度",
+            "check_shelf_before_algin": false,
+            "auto_try_time": 1,
+            "test_mode_without_mqtt": false
+        },
+        {
+            "instance": "tmp_task",
+            "charge_blindmove_dist": -0.2
+        },
+        {
+            "instance": "other_task",
+            "map_name": "dcmap",
+            "elev_init_reset_type": 0,
+            "confirm_timeout": 10,
+            "charge_blindmove_dist": -0.2,
+            "charge_mode": false
+        }
+    ],
+    "subtask_module": [
+        {
+            "instance": "sub_split_nav",
+            "data_log_rate":2,"stop_k":1.4,"save_safe_video":false,"stop_dist": 0.8,"max_acc_vx": 0.6
+        },
+        {
+            "instance": "misc_task"
+        },
+        {
+            "instance": "laserdock_task",
+            "dock_shape": [
+                {
+                    "type": "2",
+                    "size": 0.06,
+                    "mode": 0,
+                    "center": [
+                        [
+                            0.47,
+                            0.4
+                        ],
+                        [
+                            0.47,
+                            -0.4
+                        ],
+                        [
+                            -0.47,
+                            0.4
+                        ],
+                        [
+                            -0.47,
+                            -0.4
+                        ]
+                    ]
+                }
+            ],
+	    "reverse_weight_thres":0.3,
+            "运动参数": "最大速度(m/s)，最大角速度(deg/s)",
+            "laserdock_maxv": 0.2,
+            "laserdock_maxw": 30,
+            "控制参数": "角度调整精度(deg)，控制路径转折点(m),默认初始对接距离(m)——新版本修改(与地图预拆分保持一致)，初始位置由定位参数获取开关——新版本增加",
+            "laserdock_arriveangle": 0.8,
+            "laserdock_middledist": 0.4,
+            "laserdock_dockpre": 0.8,
+            "use_loc_mode": true,
+            "调试参数": "初始货架状态，激光位姿，最大对接时间(s),是否进行最后一次调整",
+            "test_side": 0,
+            "laserdock_laserpose": 0.335,
+            "laserdock_time": 40,
+            "last_move": true,
+            "stop_dist": 0.1,
+            "laserdock_maxmovedist": 1,
+            "diff_theta": 20,
+            "控制参数": "增益1，增益2，角度增益1，角度增益2，控制切换点",
+            "kp1": 3,
+            "kp2": 1,
+            "kp_theta1": 0.4,
+            "kp_theta2": 2,
+            "control_dist": 0.3,
+            "看门狗参数": "odom_wait_time里程记 qr_wait_time二维码等待时间 laser_wait_time激光超时时间 shelf_wait_time货架等待时间",
+            "odom_wait_time": 500,
+            "qr_wait_time": 500,
+            "laser_wait_time": 500,
+            "shelf_wait_time": 500
+        },
+        {
+            "instance": "dockloc_task",
+            "filer_dist": 0.3
+        },
+        {
+            "模板匹配对接参数": "模板对接，侧向，前向都可以对接",
+            "instance": "dockctrl_task"
+        }
+    ],
+    "qrtask_module": [
+        {
+            "instance": "qr_task",
+            "相机": "单相机,无论上下相机,均使用不带down的配置项,双相机不带down的参数为上相机，带down的参数为下相机",
+            "二维码参数模板号": "１：华为地码、２：华为货架单码、３：华为货架多码、４：蓝芯单码、５：蓝芯料箱车码、６：蓝芯多码",
+            "template_id": 4,
+            "template_id_down": 4,
+            "相机": "是否是多相机",
+            "multi_camera": false,
+            "识别距离": "相机镜头到二维码的垂直距离(m),如果小车需要执行货架监控的任务，则需要将monitor配置为小车顶起货架时，相机到二维码但距离",
+            "point_height": 0.105,
+            "point_height_down": 0.105,
+            "point_height_monitor": 0.12
+        }
+    ],
+    "movebase": {
+        "split_task_ids": [
+            5,
+            100,
+            101,
+            102,
+            131,
+            200,
+            202,
+            1120,
+            211,
+            202,
+            203,
+	    7
+        ],
+        "filter_carry_task_ids": [
+            5,
+            200,
+            202,
+            203,
+            205
+        ],
+        "target_split_dist_load": 0.8,
+        "target_split_dist_unload": 0.8,
+        "traffic_query_count": 4,
+        "route_find_name": true,
+        "adjust_angle_when_split_dist_too_short": false,
+        "log_dir": [
+            "tof_module",
+            "mock_module",
+            "qrtask_module",
+            "pcl_module",
+            "node_module",
+            "laserloc_module",
+            "rcs_communicate"
+        ]
+    },
+    "_comment": "'common' is a keyword here and shoud be used as a custom parameter"
+}

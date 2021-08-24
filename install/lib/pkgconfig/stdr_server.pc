@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: stdr_server
+Description: Description of stdr_server
+Version: 0.3.2
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib -lstdr_map_loader
+Requires: roscpp tf nav_msgs stdr_msgs actionlib nodelet lxind_mapserver visualization_msgs tf2_ros

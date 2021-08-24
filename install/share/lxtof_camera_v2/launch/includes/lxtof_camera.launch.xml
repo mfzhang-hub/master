@@ -1,0 +1,11 @@
+<launch>
+   <node name="lxtof_node_v2" pkg="lxtof_camera_v2" type="lxtof_node_v2" output="screen" respawn="false">
+        <param name="param_file_path" value="$(find lxtof_camera_v2)/param/" />
+        <param name="camera_name" value="FX3" />
+        <!--frame_id_base:USB相机配置相机型号，网口相机配置相机IP -->
+	<param name="frame_id_base" value="192.168.100.15" />
+	<param name="y_reverse" value="true" />
+	<param name="x_reverse" value="true" />
+        <param name="min_z" value="0.2"/>
+   </node>
+</launch>

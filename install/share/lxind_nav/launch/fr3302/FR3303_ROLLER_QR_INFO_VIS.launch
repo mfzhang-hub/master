@@ -1,0 +1,50 @@
+<launch>
+    <arg name="map_file_prefix" value="Test_Map01" />
+
+<!-- bringup -->
+     <include file="$(find lxind_bringup)/launch/includes/FR3300_bringup.launch.xml">
+        <!--是否使用ifm相机-->
+        <arg name="enable_ifm" value="false" />
+    </include>
+	
+<!-- Move base -->
+    <include file="$(find lxind_movebase)/launch/includes/movebase.launch.xml" >
+        <arg name="robot_param_name" value="new_fr3303_roller" />
+    </include>  
+
+<!-- 2dloc -->  
+    <include file="$(find lxind_cam_top_pub)/launch/topcampub.launch" />
+  
+<!-- camera loc 开启视觉定位使用该文件 -->
+    <include file="$(find lxind_visloc)/launch/visloc.launch" />
+
+<!-- camera11向下相机 
+  <include file="$(find camera11)/launch/camera.launch">
+  </include>
+-->
+
+<!-- camera向上相机 
+  <include file="$(find camera)/launch/camera.launch">
+  </include>
+-->
+
+<!-- qr_loc 二维码定位导航
+  <include file="$(find qr_loc)/launch/qr_loc.launch">
+      <arg name="mapping" value="false" />
+  </include>
+  <include file="$(find arbiter)/launch/we_localization_management.launch">
+  </include>
+-->   
+
+<!-- communi layer -->
+  <include file="$(find lxind_middle1)/launch/includes/middle_node.launch.xml">
+      <arg name="mapfile" value="$(arg map_file_prefix)" />
+  </include>
+
+<!-- new ui -->
+  <include file="$(find lxind_gui1)/launch/includes/gui_node.launch.xml">
+      <arg name="mapfile" value="$(arg map_file_prefix)" />
+  </include>
+
+
+</launch>

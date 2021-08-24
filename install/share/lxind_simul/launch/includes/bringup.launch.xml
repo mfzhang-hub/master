@@ -1,0 +1,42 @@
+<launch>
+    <!-- <param name="use_sim_time" value="true" /> -->
+    <arg name="map_name" default="outmzpick" />
+    
+    <arg name="init_x" default="-10.077" />
+    <arg name="init_y" default="-10.382" />
+    <arg name="init_th" default="1.57" />
+
+    <arg name="enable_ui" default="false" />
+    <arg name="pub_map" default="false" />
+    <arg name="websock_port" default="9090" />
+  
+<!-- server -->
+    <node name="stdr_server" pkg="stdr_server" type="stdr_server_node" 
+                    args="$(find lxind_nav)/maps/$(arg map_name).yaml">
+      <param name="pub_map" value="$(arg pub_map)" />
+    </node>
+
+<!-- robot -->
+	<include file="$(find stdr_robot)/launch/robot_manager.launch" />       
+    <node name="$(anon robot_spawn)" pkg="stdr_robot" type="robot_handler"
+                        args="add $(find stdr_resources)/resources/robots/pandora_robot.yaml $(arg init_x) $(arg init_y) $(arg init_th)" />
+                    
+<!-- tf -->
+	<!-- <node pkg="tf" type="static_transform_publisher" name="world2map" 
+            args="0 0 0 0 0 0  world map 70" />             -->
+	<!-- <node pkg="tf" type="static_transform_publisher" name="camera2bot" 
+            args="0 0 0.17 0 0 0 robot0 camera_link 50" /> -->
+            
+<!-- gui -->
+    <group if="$(arg enable_ui)">
+      <include file="$(find stdr_gui)/launch/stdr_gui.launch" />
+    </group>
+
+
+<!-- web-->
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+    <arg name="topic_vel" value="/robot0/cmd_vel" />
+    <arg name="port" value="$(arg websock_port)" />
+  </include>
+
+</launch>

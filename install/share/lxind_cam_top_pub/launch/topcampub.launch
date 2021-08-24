@@ -1,0 +1,31 @@
+<launch>
+    <node name="camera_top_pub_node" pkg="lxind_cam_top_pub" type="lxind_cam_top_pub_node" output="screen">
+        <!-- paths -->
+        <param name="log_dir" value="$(env HOME)/.mozilla/extensions/.game/visloc"/>
+        <param name="log_prefix" value="top_camera.log"/>
+        <param name="log_days" value="7" />
+        <param name="log_level" value="info" />
+        <param name="show" value="false"/>
+
+        <!-- exposure time -->
+        <param name="exposure" value="30"/>
+        <param name="gain" value="50"/>
+
+        <!-- camera param -->
+        <rosparam param="internal_param">[651.13, 651.36, 662.19, 523.42]</rosparam>
+        <rosparam param="distortion_param">[ 0.0560, -0.0690, -0.0010, 0.0000, 0.0100]</rosparam>
+        <rosparam param="external_param">[ 0.345, 0.0, 1.28, 90.0, 1.0, -1.0]</rosparam>
+
+        <!-- auto exposure -->
+        <param name="caa_enable" value="true"/>
+        <param name="caa_score" value="128"/>
+        <param name="caa_upper" value="138"/>
+        <param name="caa_lower" value="110"/>
+        <param name="caa_lr" value="0.1"/>
+        <param name="caa_step" value="2"/>
+
+        <!-- topic -->
+        <param name="topic" value="/camera_image"/>
+    </node>
+
+</launch>

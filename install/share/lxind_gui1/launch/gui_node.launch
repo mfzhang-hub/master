@@ -1,0 +1,5 @@
+<launch>
+
+  <include file="$(find lxind_gui1)/launch/includes/gui_node.launch.xml" />
+  
+</launch>

@@ -1,0 +1,97 @@
+{
+    "common": {
+        "aaa": true
+    },
+
+    "serial_module": [
+        {
+            "串口底座": "新版底座（包括改进底盘与小底盘）",
+            "instance": "common_base"
+           
+        },
+        {
+            "电池串口":"电池串口通信配置",
+            "instance": "liao_batt"
+           
+        }
+    ],
+    "pcl_module": [{
+        "点云合成模块": "use_front_tof是否使用深度相机停障，use_back_laser是否对开启后激光数据合成",
+        "instance": "cloud_agg",
+		"use_front_tof": true,
+	    "use_back_laser": false
+    }],
+    "pritask_module": [{
+            "common": {
+                "主任务通用参数": "charge_blindmove_dist充电盲走距离正为向前盲走负为向后盲走，roller_blindmove_dist滚筒对接完成后盲走距离，roller_blindmove_dist_short辊筒对接盲走最小距离",
+                "charge_blindmove_dist":-0.8,
+                "roller_blindmove_dist": 1.0,
+                "roller_blindmove_dist_short": 1.0,
+				"主任务通用参数": "牵引配置0,顶升配置1",
+				"vehicle_mode": 0
+            }
+        },
+        {
+            "导航主任务": "新版本修改——使用新导航",
+            "instance": "nav_split_task",
+            "伟创项目配置":"允许原地旋转的点位名称",
+            "local_turn_limit":["veichi-1","veichi-2","veichi-3","veichi_3","veichi-4","veichi-5","veichi-6","veichi-out","goal_819","charge","charge_trun","charge2","charge_trun2","goal_660","goal_849","goal_661"]
+           
+        },
+        {
+            "instance": "charge_task",
+            "充电对接模式": "0 为老版本充电对接子任务， 1 为新版本充电对接子任务",
+            "charge_mode": 1			
+        },
+        {
+            "instance": "tmp_task"			
+        },
+        {
+            "配置信息": "配置地图名称，confirm_timeout用户确认任务自动确认时长,charge_wait_sec充电检测等待时长，不建议使用该配置elev_init_reset_type重置模式：0不进行重置",
+            "instance": "other_task",
+            "map_name":"weichuang",
+            "confirm_timeout": 9999,
+            "charge_wait_sec":20
+        }
+    ],
+
+    "subtask_module": [{
+            "common": {
+                "小车尺寸": "车宽，车中心到前方距离，车中心到后方距离，倒角尺寸，减速圈的厚度",
+                "robot_width": 0.7,
+                "robot_front_dist": 0.46,
+                "robot_back_dist": 0.46,
+                "robot_rotate_r": 0,		
+				"robot_add_slow":0.1
+            }
+        },
+        {
+            "instance": "sub_split_nav"
+        },
+        {
+            "instance": "misc_task",
+            "skip_initloc":false
+        },
+        {
+            "模板匹配对接参数": "模板对接，侧向，前向都可以对接",
+            "instance": "dockctrl_task"
+           
+        },
+        {
+            "模板定位对接": "充电模板对接，模板对接，侧向，前向都可以对接",
+            "instance": "dockloc_task"
+           
+        }
+    ],
+    "qrtask_module": [{
+          "instance":"qr_task"
+		 
+    }],
+    "movebase": {
+        "虚拟点拆分距离":"上料拆分距离，下料拆分距离",
+        "target_split_dist_load": 0.6,
+        "target_split_dist_unload": 0,
+        "点位查询":"离线模式下选择false，在线模式下使用true",
+        "route_find_name": true
+    }
+}

@@ -1,0 +1,8 @@
+prefix=/home/lanxin/lxind_ws/install
+
+Name: pritask_module
+Description: Description of pritask_module
+Version: 1.0.0
+Cflags: -I/home/lanxin/lxind_ws/install/include
+Libs: -L/home/lanxin/lxind_ws/install/lib -lPritaskModule
+Requires: lxind_msgs module_keys liblxtask

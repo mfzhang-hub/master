@@ -1,0 +1,15 @@
+<launch>
+    <arg name="mapping" default="true"/>
+
+<!-- ### Run qr_loc ### -->
+  <node pkg="qr_loc" type="qr_loc" name="qr_loc" output="screen">
+    
+    	<param name="configFilePath" value="$(find qr_loc)/config.yaml" />
+	<param name="configFilePathArbiter" value="$(find arbiter)/config.yaml" />
+	<param name="logPath" value="$(find qr_loc)/log4cpp_localization.conf" /> 
+	<param name="mapping" value="$(arg mapping)" /> 
+
+  </node>
+	
+</launch>
+  

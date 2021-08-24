@@ -1,0 +1,20 @@
+(cl:defpackage ifm3d-srv
+  (:use )
+  (:export
+   "CONFIG"
+   "<CONFIG-REQUEST>"
+   "CONFIG-REQUEST"
+   "<CONFIG-RESPONSE>"
+   "CONFIG-RESPONSE"
+   "DUMP"
+   "<DUMP-REQUEST>"
+   "DUMP-REQUEST"
+   "<DUMP-RESPONSE>"
+   "DUMP-RESPONSE"
+   "TRIGGER"
+   "<TRIGGER-REQUEST>"
+   "TRIGGER-REQUEST"
+   "<TRIGGER-RESPONSE>"
+   "TRIGGER-RESPONSE"
+  ))
+
