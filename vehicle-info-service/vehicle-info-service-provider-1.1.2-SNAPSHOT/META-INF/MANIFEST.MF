@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Implementation-Title: vehicle-info-service-provider
+Implementation-Version: 1.1.2-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.lanxincn
+Spring-Boot-Version: 2.0.3.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: com.lanxincn.vehicle.info.provider.VehicleInfoServiceProv
+ iderApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.6.1
+Build-Jdk: 1.8.0_172
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/vehicle-info-service/vehicle-info-service-provider
+

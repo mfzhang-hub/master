@@ -1,0 +1,5 @@
+增加"设备详情"页面的设备图片：进入 static/device 目录，图片重命名成设备型号，如FR1215.png
+
+修改token配置文件：进入 static 目录,config.js，修改name或token值
+
+显示面板页：：进入 static 目录,config.js，修改showPanel，true表示显示，false表示隐藏

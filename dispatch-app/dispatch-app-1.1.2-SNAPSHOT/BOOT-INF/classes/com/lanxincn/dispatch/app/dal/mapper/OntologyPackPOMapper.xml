@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanxincn.dispatch.app.dal.mapper.OntologyPackPOMapper">
+  <resultMap id="BaseResultMap" type="com.lanxincn.dispatch.app.entity.OntologyPackPO">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="VEHICLE_MODEL" jdbcType="VARCHAR" property="vehicleModel" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="PACK_NAME" jdbcType="VARCHAR" property="packName" />
+    <result column="PACK_URL" jdbcType="VARCHAR" property="packUrl" />
+    <result column="PACK_PATH" jdbcType="VARCHAR" property="packPath" />
+    <result column="LAST_UPDATETIME" jdbcType="TIMESTAMP" property="lastUpdatetime" />
+    <result column="LAST_UPDATEUSER" jdbcType="VARCHAR" property="lastUpdateuser" />
+    <result column="INSERT_TIME" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="ENABLE" jdbcType="BIT" property="enable" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, VEHICLE_MODEL, DESCRIPTION, PACK_NAME, PACK_URL, PACK_PATH, LAST_UPDATETIME, 
+    LAST_UPDATEUSER, INSERT_TIME, ENABLE
+  </sql>
+  <select id="selectByExample" parameterType="com.lanxincn.dba.filter.FilterExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ontology_pack
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ontology_pack
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ontology_pack
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lanxincn.dba.filter.FilterExample">
+    delete from ontology_pack
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lanxincn.dispatch.app.entity.OntologyPackPO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ontology_pack (VEHICLE_MODEL, DESCRIPTION, PACK_NAME, 
+      PACK_URL, PACK_PATH, LAST_UPDATETIME, 
+      LAST_UPDATEUSER, INSERT_TIME, ENABLE
+      )
+    values (#{vehicleModel,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{packName,jdbcType=VARCHAR}, 
+      #{packUrl,jdbcType=VARCHAR}, #{packPath,jdbcType=VARCHAR}, #{lastUpdatetime,jdbcType=TIMESTAMP}, 
+      #{lastUpdateuser,jdbcType=VARCHAR}, #{insertTime,jdbcType=TIMESTAMP}, #{enable,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanxincn.dispatch.app.entity.OntologyPackPO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ontology_pack
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vehicleModel != null">
+        VEHICLE_MODEL,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="packName != null">
+        PACK_NAME,
+      </if>
+      <if test="packUrl != null">
+        PACK_URL,
+      </if>
+      <if test="packPath != null">
+        PACK_PATH,
+      </if>
+      <if test="lastUpdatetime != null">
+        LAST_UPDATETIME,
+      </if>
+      <if test="lastUpdateuser != null">
+        LAST_UPDATEUSER,
+      </if>
+      <if test="insertTime != null">
+        INSERT_TIME,
+      </if>
+      <if test="enable != null">
+        ENABLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vehicleModel != null">
+        #{vehicleModel,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="packName != null">
+        #{packName,jdbcType=VARCHAR},
+      </if>
+      <if test="packUrl != null">
+        #{packUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="packPath != null">
+        #{packPath,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdatetime != null">
+        #{lastUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateuser != null">
+        #{lastUpdateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lanxincn.dba.filter.FilterExample" resultType="java.lang.Long">
+    select count(*) from ontology_pack
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ontology_pack
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.vehicleModel != null">
+        VEHICLE_MODEL = #{record.vehicleModel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packName != null">
+        PACK_NAME = #{record.packName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packUrl != null">
+        PACK_URL = #{record.packUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packPath != null">
+        PACK_PATH = #{record.packPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastUpdatetime != null">
+        LAST_UPDATETIME = #{record.lastUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastUpdateuser != null">
+        LAST_UPDATEUSER = #{record.lastUpdateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insertTime != null">
+        INSERT_TIME = #{record.insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.enable != null">
+        ENABLE = #{record.enable,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ontology_pack
+    set ID = #{record.id,jdbcType=BIGINT},
+      VEHICLE_MODEL = #{record.vehicleModel,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      PACK_NAME = #{record.packName,jdbcType=VARCHAR},
+      PACK_URL = #{record.packUrl,jdbcType=VARCHAR},
+      PACK_PATH = #{record.packPath,jdbcType=VARCHAR},
+      LAST_UPDATETIME = #{record.lastUpdatetime,jdbcType=TIMESTAMP},
+      LAST_UPDATEUSER = #{record.lastUpdateuser,jdbcType=VARCHAR},
+      INSERT_TIME = #{record.insertTime,jdbcType=TIMESTAMP},
+      ENABLE = #{record.enable,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanxincn.dispatch.app.entity.OntologyPackPO">
+    update ontology_pack
+    <set>
+      <if test="vehicleModel != null">
+        VEHICLE_MODEL = #{vehicleModel,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="packName != null">
+        PACK_NAME = #{packName,jdbcType=VARCHAR},
+      </if>
+      <if test="packUrl != null">
+        PACK_URL = #{packUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="packPath != null">
+        PACK_PATH = #{packPath,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdatetime != null">
+        LAST_UPDATETIME = #{lastUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateuser != null">
+        LAST_UPDATEUSER = #{lastUpdateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null">
+        INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enable != null">
+        ENABLE = #{enable,jdbcType=BIT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanxincn.dispatch.app.entity.OntologyPackPO">
+    update ontology_pack
+    set VEHICLE_MODEL = #{vehicleModel,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      PACK_NAME = #{packName,jdbcType=VARCHAR},
+      PACK_URL = #{packUrl,jdbcType=VARCHAR},
+      PACK_PATH = #{packPath,jdbcType=VARCHAR},
+      LAST_UPDATETIME = #{lastUpdatetime,jdbcType=TIMESTAMP},
+      LAST_UPDATEUSER = #{lastUpdateuser,jdbcType=VARCHAR},
+      INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      ENABLE = #{enable,jdbcType=BIT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <cache />
+  <select id="selectByExampleWithRowbounds" parameterType="com.lanxincn.dba.filter.FilterExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ontology_pack
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

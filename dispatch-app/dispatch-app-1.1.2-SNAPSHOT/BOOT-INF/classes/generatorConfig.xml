@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="C:/Users/Admin.LENOVOL-O36RCU2/.m2/repository/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.CachePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.1.102:3306/dispatcher_dev?useUnicode=true" userId="root"
+                        password="root"/>
+
+        <javaModelGenerator targetPackage="com.lanxincn.dispatch.app.entity"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.lanxincn.dispatch.app.dal.mapper"
+                         targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.lanxincn.dispatch.app.dal.mapper"
+                             targetProject="./src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="user" domainObjectName="User">
+            <generatedKey column="ID" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <!--<table tableName="permission" domainObjectName="Permission">-->
+            <!--<generatedKey column="ID" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="role" domainObjectName="Role">
+            <generatedKey column="ID" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <!--<table tableName="user_role" domainObjectName="UserRole">-->
+            <!--<generatedKey column="ID" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="role_permission" domainObjectName="RolePermission">-->
+            <!--<generatedKey column="ID" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
