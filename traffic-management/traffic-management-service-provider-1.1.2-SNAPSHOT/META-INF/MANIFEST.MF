@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Implementation-Title: traffic-management-service-provider
+Implementation-Version: 1.1.2-SNAPSHOT
+Built-By: Admin
+Implementation-Vendor-Id: com.lanxincn
+Spring-Boot-Version: 2.3.5.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Start-Class: com.lanxincn.traffic.management.service.provider.TrafficM
+ anagementServiceProviderApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.6.0
+Build-Jdk: 1.8.0_201
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/traffic-management-service/traffic-management-servi
+ ce-provider
+
