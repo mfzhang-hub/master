@@ -1,0 +1,14 @@
+[
+  {
+    "targetPoint":"A",
+    "mapPoint":"DJ33",
+    "temporaryPoint":"DJ32",
+    "pointType":1
+  },
+  {
+    "targetPoint":"B",
+    "mapPoint":"g_5",
+    "temporaryPoint":"g_4",
+    "pointType":1
+  }
+]
