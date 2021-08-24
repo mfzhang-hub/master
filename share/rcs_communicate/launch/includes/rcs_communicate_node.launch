@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find rcs_communicate)/launch/includes/rcs_communicate_node.launch.xml" />
+    
+</launch>

@@ -1,0 +1,20 @@
+<launch>
+    <arg name="vel_topic" default="/mobile_base/cmd_vel" />
+    <arg name="odom_topic" default="/mobile_base/odom"  />
+    <arg name="laser_topic" default="/scan" />
+
+    <arg name="mapfile" default="good" />
+
+    <node  launch-prefix="gdb -ex run --args" pkg="lxind_middle1" type="middle_node" respawn="false" name="middle_node" output="screen"> 
+         <param name="load_module_path" value="$(find lxind_params)/param/middle/moduleCfg.json"/>
+         <param name="load_status_path" value="$(find lxind_params)/param/middle/status.json"/>
+         <param name = "load_warning_path" value="$(find lxind_params)/param/middle/warning.json"/> 
+         <param name = "load_sound_path" value="$(find lxind_params)/param/middle/sound/"/>
+         
+         <param name="log_path" value="$(find lxind_middle1)/conf/log4cpp_middle.conf"/>
+         <param name="load_map_path" value="$(find lxind_nav)/maps/$(arg mapfile).yaml.lxmap"/>
+        <remap from="cmd_vel" to="$(arg vel_topic)"/>
+        <remap from="scan" to="$(arg laser_topic)"/>
+        <remap from="odom" to="$(arg odom_topic)"/>
+    </node>
+</launch>

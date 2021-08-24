@@ -1,0 +1,154 @@
+[	
+	{"name" : "PT_SXL1",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name" : "RE-CYLE2",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name" : "RE-CYLE1",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name":"on_charge2",
+        "properties":{
+        "split_dist_load": 0.3,
+        "front_dock_draw_charge_pile":2,
+        "front_dock_target_pose":[-0.6,0,0.0],
+        "front_dock_map_node_state":[-0.9,0,0.0]
+	                 }
+	},
+	{"name":"on_charge1",
+        "properties":{
+        "split_dist_load": 0.3,
+        "front_dock_draw_charge_pile":2,
+        "front_dock_target_pose":[-0.61,-0.012,0.0],
+        "front_dock_map_node_state":[-0.9,0,0.0]
+	                 }
+	},
+	{"name":"PT_SXL2",
+	    "properties":{
+		"split_dist_load": 0.83,
+		"split_dist_unload": 0
+	                 }
+	},
+    {"name":"SLGT",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0.8,
+               "models_type":1,
+               "target_pose":[-0.62,-0.01,0.0],
+               "target_loc_pose":[1.54745 , -8.15408 , 0.0102487],
+               "cali_pose":[0.0337633 , 0.0046234 , 1.58601]
+	                 }
+	},
+	{"name":"XLGT",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0.8
+	                 }
+	},
+	{"name":"SLGT2",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0.8
+	                 }
+	},
+	{"name":"GTSL3",
+       "properties":{
+       "split_dist_load": 1.0,
+       "split_dist_unload": 1.0,
+       "right_dock_models_type": 1,
+       "right_dock_map_node_state": [
+                        0.32,
+                    0.65,
+                    0
+                ],
+       "right_dock_target_pose": [
+                        0.32,
+                    0.39,
+                    0.0
+                 ]
+            }
+    },
+	{"name":"RECYCLE1",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name":"RECYCLE2",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name":"GTSL1",
+       "properties":{
+       "split_dist_load": 1.0,
+       "split_dist_unload": 1.0,
+       "right_dock_models_type": 1,
+       "right_dock_map_node_state": [
+                        0.32,
+                    0.65,
+                    0
+                ],
+       "right_dock_target_pose": [
+                        0.32,
+                    0.39,
+                    0.0
+                 ]
+            }
+    },
+    {"name":"GTSL2",
+       "properties":{
+       "split_dist_load": 1.0,
+       "split_dist_unload": 1.0,
+       "right_dock_models_type": 1,
+       "right_dock_map_node_state": [
+                        1.02,
+                    0.65,
+                    0
+                ],
+       "right_dock_target_pose": [
+                        1.02,
+                    0.39,
+                    0.0
+                 ]
+            }
+    },
+    {"name":"off_charge2",
+        "properties":{
+        "split_dist_load": 0.3,
+        "front_dock_draw_charge_pile":2,
+        "front_dock_target_pose":[-0.6,0,0.0],
+        "front_dock_map_node_state":[-0.9,0,0.0]
+	                 }
+    },
+    {"name":"off_charge",
+        "properties":{
+        "split_dist_load": 0.3,
+        "front_dock_draw_charge_pile":1,
+        "front_dock_target_pose":[-0.73,0,0.0],
+        "front_dock_map_node_state":[-1,0,0.0]
+	                 }
+    },
+  	{"name":"on_charge",
+        "properties":{
+        "split_dist_load": 0.3,
+        "draw_charge_pile":1,
+        "target_pose":[-0.74,0,0.0],
+        "target_loc_pose":[-3.04087 , -7.57721 , 3.11938]
+        }
+    	}
+]
+
+ 
+

@@ -1,0 +1,64 @@
+{
+    "base":{
+        "big_dianness":true,
+        "send_querry_version":{
+            "data":[["header_first", "ac", 1], ["header_second", "ed", 1], ["data_length", "3", 1], ["cmd", "1", 1], ["dev_version", "1", 1], ["pro_version", "1", 1], ["check", "2", 1]
+            ]
+        },
+        "recv_querry_version":{
+            "data":[["header_first", 1], ["header_second", 1], ["data_length", 1], ["cmd", 1],  ["dev_version", 1], ["pro_version", 1], ["check", 1]]
+        },
+        "send_control":{
+            "data":[["header_first", "ac", 1], ["header_second", "ed", 1], ["data_length", "0a", 1], ["emerg_signal", "0", 1], ["light_control", "0", 1],
+                    ["dev_state", "0", 1], ["elev_cmd", "0", 1], ["left_vel", "0", 2], ["right_vel", "0", 2], ["reserved1", "0", 1], ["reserved2", "0", 1], ["check", "0", 1]]                    },
+        "recv_control":{
+            "data":[["header_first", 1], ["header_second", 1], ["data_length", 1], ["cmd", 1], ["left_encoder", 4], ["right_encoder", 4], ["left_vel", 2], ["right_vel", 2], ["pitch", 2], ["roll", 2], ["yaw", 2],
+                ["reserved1", 1], ["reserved2", 1], ["stop", 1], ["sensor_state", 1], ["tof1", 2], ["tof2", 2], ["tof3", 2], ["tof4", 2], ["reserved3", 1], ["reserved4", 1], ["motor_alarm1", 1], ["motor_alarm2", 1],
+                ["reserved5", 1], ["reserved6", 1], ["dev_alarm", 2], ["task_status", 1], ["sync_time", 1], ["reserved7", 1], ["reserved8", 1], ["check", 1]
+            ]                    
+        }
+    },
+
+    "elev":{
+        "big_dianness":true,
+        "send_querry_version":{
+            "data":[["header_first", "ac", 1], ["header_second", "ed", 1], ["data_length", "03", 1], ["cmd", "01", 1], ["dev_version", "01", 1], ["pro_version", "01", 1], ["check", "02", 1]]
+        },
+        "recv_querry_version":{
+            "data":[["header_first", 1], ["header_second", 1], ["data_length", 1], ["cmd", 1],  ["dev_version", 1], ["pro_version", 1], ["check", 1]]
+        },
+        "send_elev_cmd":{
+            "data":[["header_first", "ac", 1], ["header_second", "ed", 1], ["data_length", "0a", 1], ["emerg_signal", "0", 1], ["reserved1", "0", 1], 
+                    ["dev_state", "0", 1], ["elev_cmd", "0", 1], ["left_vel", "0", 2], ["right_vel", "0", 2], ["reserved2", "0", 1], ["reserved3", "0", 1], ["check", "0", 1]
+            ]
+        },
+        "recv_elev_cmd":{
+            "data":[["header_first", 1], ["header_second", 1], ["data_length", 1], ["cmd", 1], ["left_encoder", 4], ["right_encoder", 4], ["left_vel", 2], ["right_vel", 2], ["elev_alarm_code", 1],
+                    ["elev_position", 1], ["elev_status", 1], ["elev_cmd", 1], ["motor_alarm1", 1], ["motor_alarm2", 1], ["stop", 1], ["reserved1", 1], ["dev_alarm", 2], ["reserved2", 1], ["reserved3", 1], ["check", 1]
+            ]
+        }
+    },
+
+    "battery":{
+        "big_dianness":true,
+        "send_querry_request":{
+            "data":[["header_first", "dd", 1], ["header_second", "a5", 1], ["cmd", "0", 1], ["data_length", "0", 1], ["check", "0", 2], ["end", "77", 1]]
+        },
+        "recv_querry_version":{
+            "data":[["header_first", 1], ["header_second", 1], ["reply", 1], ["data_length", 1],  ["dev_version", 4], ["check", 2], ["end", 1]]
+        },
+        "recv_query_single_voltage":{
+            "data":[["header_first", 1], ["header_second", 1], ["reply", 1], ["data_length", 1],  ["voltage1", 2], ["voltage2", 2], ["voltage3", 2],["voltage4", 2],
+                    ["voltage5", 2], ["voltage6", 2], ["voltage7", 2], ["voltage8", 2], ["voltage9", 2], ["voltage10", 2], ["voltage11", 2], ["voltage12", 2], 
+                    ["voltage13", 2], ["voltage14", 2], ["voltage15", 2], ["voltage16", 2], ["reserved1", 1], ["reserved2", 1], ["reserved3", 1], ["reserved4", 1],
+                    ["reserved5", 1], ["reserved6", 1], ["check", 2], ["end", 1]]
+        },
+        "recv_querry_batt_info":{
+            "data":[["header_first", 1], ["header_second", 1], ["reply", 1], ["data_length", 1], ["alarm_status", 2], ["bms_temperature", 2], ["lowest_temperature", 2], 
+                    ["highest_temperature", 2], ["total_vol", 4], ["current", 4], ["remain_precent", 1], ["remain_capacity", 4], ["total_capacity", 4], ["sensor_count", 1], 
+                    ["soh_health", 1], ["cycles", 2], ["no_charge_time", 2], ["battery_count", 1], ["over_current_protect", 2], ["over_current_protect_time", 1], 
+                    ["over_load_protect", 2], ["over_load_protect_time", 1], ["short_circuit_protect", 1], ["short_circuit_protect_time", 1], ["bms_status", 1],
+                    ["fet_status", 1], ["product_date", 2], ["reserved1", 1], ["reserved2", 1], ["reserved3", 1], ["reserved4", 1], ["check", 2], ["end", 1]]
+        }
+    }
+}

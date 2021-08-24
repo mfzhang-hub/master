@@ -1,0 +1,28 @@
+<!-- 
+
+This launch file shows how to start a hokuyo node. 
+
+You may have to change the port parameter if your laser is not at
+/dev/ttyACM0.
+
+If you have rviz built, you can uncomment the rviz node to visualize the
+laser data.
+
+Otherwise, you can use rostopic to see the data:
+rostopic echo /scan
+
+-->
+
+<launch>
+  <node name="LMS1xx" pkg="lms1xx" type="LMS1xx_node" respawn="false" output="screen">
+  
+    <!-- Starts up faster, but timestamps will be inaccurate. --> 
+    <param name="host"  value="192.168.0.111"/> 
+    
+    <!-- Set the port to connect to here -->
+    <param name="field"  value="200"/> 
+  
+    <param name="frame_id"  value="laser_link"/>
+  </node>
+  
+</launch>

@@ -1,0 +1,3 @@
+int64 get_image
+---
+sensor_msgs/Image image

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source /opt/ros/kinetic/setup.bash
+source ~/lxind_ws/install/setup.bash
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+
+roscd lxmqtt_js
+cd ../../lib/lxmqtt_js
+
+# echo "!!!!!!!! $PWD"
+bytenode main.jsc

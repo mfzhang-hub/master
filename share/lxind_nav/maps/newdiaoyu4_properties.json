@@ -1,0 +1,23 @@
+[	
+	{"name" : "SL02",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+	{"name" : "SL03",
+	    "properties":{
+		"split_dist_load": 0.8,
+		"split_dist_unload": 0
+	                 }
+	},
+
+	{"name":"on_charge3",
+        "properties":{
+        "split_dist_load": 0.3,
+        "front_dock_draw_charge_pile":2,
+        "front_dock_target_pose":[-0.6,0,0.0],
+        "front_dock_map_node_state":[-0.9,0,0.0]
+	                 }
+	}
+]

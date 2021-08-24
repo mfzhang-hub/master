@@ -1,0 +1,15 @@
+<launch>
+
+<!-- pcl filter: ifm -->
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+    <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+
+    <arg name="min_z" value="0.06" />
+
+    <arg name="min_front_dist" value="0.48" />
+    <arg name="max_front_dist" value="1.5" />
+    
+    <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/FR1511_calib_matrix.json" />
+  </include>
+
+</launch>

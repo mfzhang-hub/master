@@ -1,0 +1,164 @@
+// high level task
+namespace eRobotTask{
+enum{
+    TMP_TASK      = 1,
+    CANCEL_TASK   = 2,
+    NAV_TASK      = 3,
+    GO_OUT_TASK   = 4,
+    CHARGE_TASK   = 5,
+    ABUT_TASK     = 6,
+    CONFIRM_TASK  = 7,
+    CYCLE_TASK    = 8,
+    REASSIGN_TASK = 9,
+    ROLLER_TASK   = 100,
+    DCROLLER_TASK = 110,
+    FORKLIFT_TASK = 170,
+
+    ELEV_TASK     = 200,
+    PICK_TASK       = 300,
+    PICKNAV_TASK    = 301,
+    QA_CONFIRM_TASK = 400
+};
+} // ns
+
+namespace ePriTaskException{
+enum{
+        TASK_FAILED = 1
+};
+} // NS
+
+
+/// sub tasks
+namespace eTaskCmd{
+enum
+{
+    /// 0-20 reserved (see lxind_libs/keys/task_key0.h)
+    //...
+    //// 
+
+    STOP_URGENT       = 1,  //急刹车
+    STOP_SMOOTH       = 2,  //缓慢刹车
+    GO_FIXED_PATH     = 3,  //指定路径进行跟踪，给定目标路径，机器人沿目标路径移动到目标点
+    GO_AUTO_PATH      = 4,  //自主导航-绕障模式
+    GO_BLIND_WALK     = 5,  //盲走模式
+    GO_FIXED_AND_BUTT = 6,  //固定路径导航加上精定位对接
+    GO_FIXED_APPEND   = 7,  // 导航过程中追加点
+
+    //特殊附加导航功能
+    CHARGE_GO_IN       = 101,  //自主充电进站
+    CHARGE_OPEN_RELAY  = 102,  //打开充电继电器
+    CHARGE_CLOSE_RELAY = 103,  //关闭充电继电器
+    PREC_LOC           = 110,
+
+    /// ROLL
+    ROLLER_GO_IN      = 120,  //辊筒对接进站
+    ROLLER_LIGHT_DET  = 121,  //辊筒对接完成光后电开关检测
+    ROLLER_ROLL_LOAD  = 122,  //辊筒动作执行: 上下料
+    ROLLER_ROLL_STOP  = 123,  //辊筒动作执行: STOP
+    ROLLER_HW_RESET = 124,  //辊筒重置硬件
+
+    // roll spec
+    DCROLLER_ROLL_LOAD = 131,  // 德创码头对接
+    DCDOCKER_SKIP      = 132,  // 德创码头跳过
+
+    // PICK
+    PICKER_DETECT       = 141,
+    PICKER_MOVE_ELE     = 142,
+    PICKER_ROT_ELE      = 143,
+    PICKER_PICK_BOX     = 144,
+    PICKER_RETURN_ORI   = 145,
+    PICKER_RESET        = 146,
+    PICKER_CLEAR_CABIN  = 147,
+    PICKER_CLOSE_PUMP   = 148,
+    PICKER_OFFLOAD      = 149,
+    PICKER_ROT_BACK     = 150,
+    PICKER_RESTART_CHIP = 151,
+
+    // ELEV
+    ELEV_ALIGN    = 160,
+    ELEV_MOVEUP   = 161,
+    ELEV_MOVEDOWN = 162,
+    ELEV_RESET    = 163,
+
+    // FORKLIFT
+    FORKLIFT_ALIGN      = 201,
+    FORKLIFT_UP         = 211,
+    FORKLIFT_DOWN       = 212,
+
+    // misc
+    USER_NOR_CONFIRM    = 300,  // normal confirm
+    USER_EXC_CONFIRM    = 301,  // exception confirm
+    REASSIGN            = 302,  // 改派任务
+    EXC_FORWARDER       = 303,  // forward exception task only..
+    SET_TASK_FAILED     = 304,  // set cur task as failed
+    SET_ALL_TASK_FAILED = 305,  // set ALL tasks as failed
+
+    // spec
+    QA_CONFIRM = 400,
+
+    // other
+    SHUTDOWN = 500,  // exception confirm
+};
+} // ns
+
+// exceptions 
+enum class eTaskException
+{
+    // report to middle
+    EXC_NOTHING                = 0,
+    EXC_NAV_PLAN_FAILED        = 11,
+    EXC_OA_FAILED              = 14,
+
+    EXC_CHARGE_STATION_UNFOUND = 21,
+    EXC_CHARGE_GOIN_FAILED     = 22,
+    EXC_CHARGE_CURR_DET_FAILED = 23,
+
+    EXC_ROLLER_DOCKER_NOT_FOUND = 30,
+    EXC_ROLLER_ALIGN_FAILED    = 31,
+    EXC_ROLLER_WAIT_FAILED     = 32,
+    EXC_ROLLER_LOAD_FAILED     = 33,
+    EXC_ROLLER_RESET_FAILED    = 34,
+
+    EXC_PICKER_DET_MISMATCHED   = 42,
+    EXC_PICKER_OPERATION_FAILED = 44,  // failed, but no exception
+    EXC_PICKER_OPERATION_EXC    = 45,
+    EXC_PICKER_CABIN_FULL       = 46,
+    EXC_PICKER_XI_FAILED        = 47,
+    EXC_PICKER_ALARMED          = 48,
+    EXC_PICKER_OUT_RANGE        = 49,
+
+    EXC_ELEV_SHELF_NOTFOUND = 51,
+    EXC_ELEV_GOIN_FAILED    = 52,
+    EXC_ELEV_MOVEOP_FAILED  = 53,
+
+    // PROJECT SPEC
+    EXC_DC_COMMUNI_FAILED = 70,
+
+    EXC_FORKLIFT_ALIGN_FAILED = 80,
+
+    /// 100-200: exception before task finished
+    EXC_NAV_CLOSER_OS          = 112,
+    EXC_NAV_PATH_OS            = 113,
+
+
+    /// used internally, begin from 201
+    EXC_CHARGE_DETECT_FAILED = 201,
+
+    EXC_PICKER_DET_FAILED    = 205,  // 41 before
+    EXC_PICKER_INVALID_PARAM = 206,
+
+    EXC_PICKDET_POSI_ERR = 301,
+
+    /// Proj Spec: begin from 501
+    EXC_DOCKER_COMMUNI_ERR = 501
+
+    /// >1000 subtask exceptions
+};
+
+
+enum class eExcHandleCode
+{
+    RESET = 0,
+    CONTINUE,
+    SKIP
+};

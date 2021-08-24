@@ -1,0 +1,14 @@
+debug: false
+
+frame: "laser_link"
+send_transform: false
+
+tf_x: 0.115
+tf_y: 0.0
+tf_z: 0.21
+
+field_of_view: 216
+
+devicename: "/dev/ttyS0"
+
+baudrate: 115200

@@ -1,0 +1,82 @@
+{
+	"process": [{
+			"moduleId": 1,
+                        "mac":"aa:aa:aa:aa:aa:aa",
+                        "initGoal":"辊淋涂上线-2",
+			"taskChain":[
+                        {
+                            "name": "辊淋涂上线-1",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "辊淋涂上线-2",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "辊淋涂上线-2",
+                            "cmd": 8
+                        }
+                       ]
+		},
+                {
+			"moduleId": 2,
+                        "mac":"bb:bb:bb:bb:bb:bb",
+                        "initGoal":"涂片下线-1",
+			"taskChain":[
+                        {
+                            "name": "丝印线-下线",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "涂片下线-1",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "涂片下线-1",
+                            "cmd": 8
+                        }
+                       ]
+		},
+                {
+			"moduleId": 3,
+                        "mac":"cc:cc:cc:cc:cc:cc",
+                        "initGoal":"丝印线",
+			"taskChain":[
+                        {
+                            "name": "丝印线-下线",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "丝印线",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "丝印线",
+                            "cmd": 8
+                        }
+                       ]
+		},
+                {
+			"moduleId": 4,
+                        "mac":"dd:dd:dd:dd:dd:dd",
+                        "initGoal":"拉伸线上料1-1",
+			"taskChain":[
+                        {
+                            "name": "拉伸线上料1-2",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "拉伸线上料1-1",
+                            "cmd": 3
+                        },
+                        {
+                            "name": "拉伸线上料1-1",
+                            "cmd": 8
+                        }
+                       ]
+		}
+                
+	]
+
+}
+  

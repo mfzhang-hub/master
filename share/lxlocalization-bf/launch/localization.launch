@@ -1,0 +1,19 @@
+<launch>
+<!--   -->
+  <node  launch-prefix="gdb -ex run --args" pkg="lxlocalization" type="lxlocalization_node" name="lxlocalization" output="screen">
+    <param name="odom_topic" value="/mobile_base/odom"/>
+    <param name="laser_topic" value="/scan"/>
+    <param name="cfgFile" value="$(find lxlocalization)/cfg/param.yml"/>
+    <param name="enable_Arbiter" value="false"/>
+    <param name="mapName" value="/map"/>        
+    <param name="logConf" value="$(find lxlocalization)/cfg/log4cpp_localization.conf"/>   
+    <param name="invert_laser" value="true"/>   
+    <param name="base_link" value="base_link"/>        
+    <param name="laser_link" value="laser_link"/> 
+
+	<!-- initial pose : x y yaw  -->
+	<param name="initial_pose_x" value="-28.6"/>       
+	<param name="initial_pose_y" value="15.6"/>       
+	<param name="initial_pose_yaw" value="0"/>       
+  </node>
+</launch>

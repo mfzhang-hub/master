@@ -1,0 +1,11 @@
+<package>
+	<name>lxind_params</name>
+	<version>1.0.0</version>
+	<description>Params for each modules</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+
+</package>

@@ -1,0 +1,8 @@
+<launch>
+   <node name="lxtof_node" pkg="lxtof_camera" type="lxtof_node" output="screen">
+        <param name="param_file_path" value="$(find lxtof_camera)/param/camera2.xml" />
+        <param name="log_file_path" value="$(find lxtof_camera)/cfg/log4cpp_lx2.conf" />
+        <param name="frame_id_base" value="FX3" />
+   </node>
+
+</launch>

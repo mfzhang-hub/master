@@ -1,0 +1,11 @@
+<package>
+	<name>lxind_bringup</name>
+	<version>1.0.0</version>
+	<description>Bring the robot up</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+
+</package>

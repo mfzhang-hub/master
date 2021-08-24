@@ -1,0 +1,171 @@
+{
+    "robGui": [{
+        "_relocPoint": "aa",
+        "chargeName": "on_charge5",
+        "restName": "rest7",
+        "lowPowerNum":10,
+        "powerOffNum": 0,
+        "_reloc_mode": false,
+        "passwordDlg": false,
+        "logoName": "lanxin.jpg",
+        "temperatureFirstLevel": 40,
+        "temperatureSecondLevel":50,
+        "debug_mode": true,
+        "password": "1234",
+
+
+            "taskChain": [
+		{"name":"顶升爬坡循环","chain":[
+			{"endPoint":"PT_SXL1","action":200},{"endPoint":"PT_SXL1","action":210,"orient":4},{"endPoint":"F7N206","action":3},{"endPoint":"F7N206","action":210,"orient":5},            
+			{"endPoint":"F7N2029","action":3},{"endPoint":"F7N2029","action":210,"orient":5},{"endPoint":"PT_SXL2","action":200,"layingOff":true,"orient":2},			
+            {"endPoint":"A","action":3}, {"endPoint":"B","action":3},{"endPoint":"PT_SXL2","action":200},{"endPoint":"PT_SXL2","action":210,"orient":5},            
+            {"endPoint":"F7N2027","action":3},{"endPoint":"F7N2027","action":210,"orient":5},{"endPoint":"A","action":3},{"endPoint":"B","action":3},
+            {"endPoint":"F7N2029","action":3},{"endPoint":"F7N2029","action":210,"orient":5},{"endPoint":"F7N2027","action":3},{"endPoint":"F7N2027","action":210,"orient":5},            
+            {"endPoint":"F7N2024","action":3},{"endPoint":"F7N2024","action":210,"orient":5}, {"endPoint":"PT_SXL1","action":200,"layingOff":true,"orient":2},           
+            {"endPoint":"F7N2024","action":3},{"endPoint":"F7N2024","action":8}]},			
+            {"name":"1普通顶升循环","chain":[
+              {"endPoint":"PT_SXL1","action":200},{"endPoint":"PT_SXL1","action":210,"orient":4},{"endPoint":"F7N206","action":3},{"endPoint":"F7N206","action":210,"orient":5},            
+              {"endPoint":"F7N2029","action":3},{"endPoint":"F7N2029","action":210,"orient":5},{"endPoint":"PT_SXL2","action":200,"layingOff":true,"orient":0},{"endPoint":"F7N2024","action":3},
+              {"endPoint":"PT_SXL2","action":200},{"endPoint":"PT_SXL2","action":210,"orient":5},{"endPoint":"F7N2027","action":3},{"endPoint":"F7N2027","action":210,"orient":5},
+              {"endPoint":"F7N2024","action":3},{"endPoint":"F7N2024","action":210,"orient":5}, {"endPoint":"PT_SXL1","action":200,"layingOff":true,"orient":1},{"endPoint":"F7N2024","action":3},
+              {"endPoint":"F7N2024","action":8}]}, 
+            {"name":"顶升爬坡","chain":[
+			{"endPoint":"PT_SXL1","action":200},{"endPoint":"PT_SXL1","action":210,"orient":4},{"endPoint":"F7N206","action":3},{"endPoint":"F7N206","action":210,"orient":5},            
+		{"endPoint":"F7N2029","action":210,"orient":5},{"endPoint":"F7N2027","action":3},{"endPoint":"F7N2027","action":210,"orient":5},            
+		    {"endPoint":"F7N2024","action":3},{"endPoint":"F7N2024","action":210,"orient":5}, {"endPoint":"PT_SXL1","action":200,"layingOff":true,"orient":2},           
+		    {"endPoint":"F7N2024","action":3}]},
+		{"name":"AAA","chain":[
+			{"endPoint":"C","action":3},
+			{"endPoint":"C","action":315}]},
+        {"name":"用户确认","chain":[
+			{"endPoint":"RE-CYLE1","action":7},{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":3}]},
+		{"name":"頂升","chain":[
+			{"endPoint":"rest","action":200,"orient":2},{"endPoint":"rest","action":209,"orient":6}]},
+        {"name":"休息点做顶升","chain":[
+		        {"endPoint":"rest","action":200,"orient":2}]},
+        {"name":"amy顶升","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200},{"endPoint":"RE-CYLE2","action":210,"info":[{"shelf_target_theta":"-180"},{"loc_target":"-180"}]},{"endPoint":"F7N2060","action":3}]},
+	{"name":"原地对接顶升","chain":[
+			{"endPoint":"RE-CYLE2","action":200}]},
+        {"name":"顶升-左对接","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":0}]},
+        {"name":"云调度-测试","chain":[
+			{"endPoint":"SLGT2","action":131,"orient":2,"layingOff":true,"info":[{"action_type":2},{"roll_part":"FRONT"}]}]},
+        {"name":"顶升-右对接","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":1}]},
+        {"name":"顶升-前对接","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2}]},
+        {"name":"顶升-后对接","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":3}]},
+        {"name":"地图-顶升对接方向","chain":[
+                        {"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200}]},
+        {"name":"右下料","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200},{"endPoint":"F7N2073","action":3},{"endPoint":"RE-CYLE1","action":200,"layingOff":true}]},		
+        {"name":"0度下降","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2},
+			{"endPoint":"F7N2060","action":200,"layingOff":true,"orient":2}]},
+        {"name":"180度下降","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2},{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"info":[{"shelf_target_theta":"-90"},{"loc_target":"-90"}]},
+                        {"endPoint":"F7N2061","action":3},{"endPoint":"F7N2061","action":210,"info":[{"shelf_target_theta":"-180"},{"loc_target":"-180"}]},
+                        {"endPoint":"F7N2064","action":200,"layingOff":true,"orient":3}]},
+        {"name":"90度下降","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2},{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"info":[{"shelf_target_theta":"-90"},{"loc_target":"-90"}]},
+                        {"endPoint":"F7N2061","action":200,"layingOff":true,"orient":3}]},
+        {"name":"顶升直角转弯","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200},{"endPoint":"RE-CYLE2","action":210,"info":[{"shelf_target_theta":"90"},{"loc_target":"90"}]},{"endPoint":"F7N2060","action":3},
+                        {"endPoint":"F7N2064","action":3},{"endPoint":"F7N2073","action":3},{"endPoint":"RE-CYLE1","action":3}]},
+        {"name":"到点任务","chain":[
+                        {"endPoint":"a4","action":3},{"endPoint":"a2","action":200}]},
+        {"name":"辊筒循环-c","chain":[
+                {"endPoint":"N8","action":3},{"endPoint":"G4","action":3},{"endPoint":"XLGT2","action":131,"orient":2},
+		{"endPoint":"N8","action":3},{"endPoint":"G4","action":3},
+		{"endPoint":"XLGT2","action":131,"layingOff":true,"orient":2},
+		{"endPoint":"N8","action":8}]},
+       	{"name":"辊筒上料-c","chain":[
+                {"endPoint":"N8","action":3},{"endPoint":"G4","action":3},{"endPoint":"XLGT2","action":131,"orient":2},
+		{"endPoint":"N8","action":3},{"endPoint":"G4","action":3}]},
+      	{"name":"辊筒下料-c","chain":[
+		{"endPoint":"XLGT2","action":131,"layingOff":true,"orient":2},
+		{"endPoint":"N8","action":8}]},
+	{"name":"标定-xgt","chain":[
+                {"endPoint":"XLGT2","action":216}]},
+        {"name":"滚筒循环单个", "chain":[{"endPoint":"A3","action":3},{"endPoint":"SLGT","action":131},
+            {"endPoint":"A3","action":3},{"endPoint":"SLGT","action":131,"layingOff":true,"orient":2},
+            {"endPoint":"A3","action":8}]},
+        {"name":"标定-lgt","chain":[
+                {"endPoint":"SLGT","action":216}]},
+        {"name":"滚筒上料", "chain":[{"endPoint":"A3","action":3},{"endPoint":"SLGT","action":131},
+            {"endPoint":"A3","action":3}]},
+        {"name":"滚筒下料", "chain":[{"endPoint":"A3","action":3},{"endPoint":"SLGT","action":131,"layingOff":true,"orient":2},
+            {"endPoint":"A3","action":3}]},
+        {"name":"前辊筒循环22测试","chain":[
+                {"endPoint":"A3","action":3},{"endPoint":"SLGT","action":131},{"endPoint":"A3","action":3},
+		{"endPoint":"SLGT","action":131,"layingOff":true,"orient":2},{"endPoint":"A3","action":8}]},			
+		{"name":"大循环","chain":[
+			{"endPoint":"F7N2008","action":3},{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2040","action":3},{"endPoint":"F7N2042","action":3},{"endPoint":"F7N2058","action":3},
+            {"endPoint":"F7N2048","action":3},{"endPoint":"F7N2031","action":3},{"endPoint":"F7N2008","action":3},{"endPoint":"F7N2008","action":8}]},
+        {"name":"中循环","chain":[
+			{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2043","action":3},{"endPoint":"F7N2035","action":3},{"endPoint":"F7N2021","action":3},
+			{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2004","action":8}]},
+        {"name":"小循环","chain":[
+			{"endPoint":"F7N2050","action":3},{"endPoint":"F7N2071","action":3},{"endPoint":"B","action":3},{"endPoint":"F7N2050","action":3},{"endPoint":"F7N2050","action":8}]},			
+        {"name":"双顶升循环前单", "chain":[{"endPoint":"dj2","action":3},{"endPoint":"SL02","action":200},{"endPoint":"SL02","action":210,"orient":4},{"endPoint":"15","action":3},
+			{"endPoint":"15","action":210,"orient":5},{"endPoint":"14","action":3},{"endPoint":"14","action":210,"orient":5},{"endPoint":"SL03","action":200,"layingOff":true,"orient":2},
+			{"endPoint":"14","action":3},{"endPoint":"SL03","action":200},{"endPoint":"SL03","action":210,"orient":5},{"endPoint":"17","action":3},{"endPoint":"17","action":210,"orient":4},
+			{"endPoint":"18","action":3},{"endPoint":"18","action":210,"orient":5},{"endPoint":"SL02","action":200,"layingOff":true,"orient":2},{"endPoint":"dj2","action":8}]},
+		{"name":"双顶升循环前", "chain":[{"endPoint":"dj2","action":3},{"endPoint":"SL02","action":200},{"endPoint":"SL02","action":210,"orient":4},{"endPoint":"15","action":3},
+			{"endPoint":"15","action":210,"orient":5},{"endPoint":"14","action":3},{"endPoint":"14","action":210,"orient":5},{"endPoint":"SL03","action":200,"layingOff":true,"orient":2},
+			{"endPoint":"16","action":3},{"endPoint":"dj2","action":8}]},
+		{"name":"双顶升循环后", "chain":[{"endPoint":"14","action":3},{"endPoint":"SL03","action":200},{"endPoint":"SL03","action":210,"orient":5},{"endPoint":"17","action":3},
+		    {"endPoint":"17","action":210,"orient":4},{"endPoint":"18","action":3},{"endPoint":"18","action":210,"orient":5},{"endPoint":"SL02","action":200,"layingOff":true,"orient":2},
+			{"endPoint":"SL03","action":3},{"endPoint":"14","action":8}]},
+		{"name":"双顶升循环移动1", "chain":[{"endPoint":"RE-CYLE2","action":3}]},
+		{"name":"双顶升循环移动3", "chain":[{"endPoint":"F7N2073","action":210,"orient":4}]},
+		{"name":"双顶升循环移动2", "chain":[{"endPoint":"F7N2057","action":3},{"endPoint":"T2","action":3}]},
+		{"name":"中循环","chain":[
+			{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2030","action":3},{"endPoint":"F7N2040","action":3},{"endPoint":"F7N2042","action":3},
+			{"endPoint":"F7N2043","action":3},{"endPoint":"F7N2046","action":3},{"endPoint":"F7N2048","action":3},{"endPoint":"F7N2031","action":3},
+			{"endPoint":"F7N2033","action":3},{"endPoint":"F7N2022","action":3},{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2004","action":8}]},
+		{"name":"充电点标定2", "chain":[
+                   {"endPoint":"on_charge2","action":216}]},
+                {"name":"充电点标定5", "chain":[
+                   {"endPoint":"on_charge5","action":216}]},
+                {"name":"充电点标定", "chain":[
+                   {"endPoint":"on_charge","action":216}]},
+                {"name":"充电点标定1", "chain":[
+                   {"endPoint":"on_charge1","action":216}]},
+                {"name":"充电点标定3", "chain":[
+                   {"endPoint":"on_charge3","action":216}]},
+                {"name":"SLGT对接标定", "chain":[
+                   {"endPoint":"SLGT","action":216}]},
+                {"name":"空车回收测试","chain":[
+			{"endPoint":"F7N2073","action":3},{"endPoint":"F7N2060","action":205},
+			{"endPoint":"F7N2060","action":9}]},
+		{"name":"回收顶升循环","chain":[
+		{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200},{"endPoint":"RE-CYLE2","action":210,"orient":5},{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"orient":5},            
+		{"endPoint":"F7N2061","action":3},{"endPoint":"F7N2061","action":210,"orient":5},{"endPoint":"F7N2064","action":3},{"endPoint":"F7N2064","action":210,"orient":5},
+		{"endPoint":"F7N2073","action":3},{"endPoint":"F7N2073","action":210,"orient":5},{"endPoint":"RE-CYLE2","action":200,"layingOff":true,"orient":0},
+		{"endPoint":"F7N2064","action":3},{"endPoint":"F7N2064","action":8}]},
+        {"name":"旋转-后调整","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2},
+			{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"info":[{"shelf_target_theta":"-90"},{"loc_target":"-90"}]},
+            {"endPoint":"F7N2061","action":3},{"endPoint":"F7N2061","action":210,"info":[{"shelf_target_theta":"-180"},{"loc_target":"-180"}]},
+            {"endPoint":"F7N2064","action":3},{"endPoint":"F7N2064","action":210,"info":[{"shelf_target_theta":"0"},{"loc_target":"0"}]}]},
+        {"name":"旋转-右调整","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2},
+			{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"info":[{"shelf_target_theta":"-90"},{"loc_target":"-90"}]}]},
+        {"name":"旋转-左调整","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200,"orient":2},
+			{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"info":[{"shelf_target_theta":"90"},{"loc_target":"90"}]}]},
+        {"name":"货架调整","chain":[
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE2","action":200},
+			{"endPoint":"F7N2060","action":3},{"endPoint":"F7N2060","action":210,"info":[{"shelf_target_theta":"-90"},{"loc_target":"-90"}]},
+			{"endPoint":"F7N2061","action":3},{"endPoint":"F7N2061","action":210,"info":[{"shelf_target_theta":"-180"},{"loc_target":"-180"}]},
+			{"endPoint":"F7N2064","action":3},{"endPoint":"F7N2064","action":210,"info":[{"shelf_target_theta":"90"},{"loc_target":"90"}]},
+			{"endPoint":"F7N2061","action":3},{"endPoint":"F7N2061","action":210,"info":[{"shelf_target_theta":"-180"},{"loc_target":"-180"}]},
+			{"endPoint":"F7N2073","action":3},{"endPoint":"F7N2073","action":210,"info":[{"shelf_target_theta":"0"},{"loc_target":"0"}]},
+			{"endPoint":"RE-CYLE1","action":3},{"endPoint":"RE-CYLE1","action":200}]}
+		]
+        }
+    ]
+}

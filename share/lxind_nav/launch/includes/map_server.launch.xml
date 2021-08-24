@@ -1,0 +1,7 @@
+<launch>
+
+  <arg name="map_file" default="office_test.yaml"/>
+  
+  <node name="map_server" pkg="lxind_mapserver" type="map_server" args="$(find lxind_nav)/maps/$(arg map_file)" output="screen" />
+
+</launch>

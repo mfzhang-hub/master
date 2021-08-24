@@ -1,0 +1,3 @@
+<launch>
+    <include file="$(find sicks300)/launch/includes/sicks300.launch.xml" />
+</launch>

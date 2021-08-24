@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find lxmqtt_js)/launch/includes/mqtt_js.launch.xml">
+      <!-- <arg name="topic_vel" value="/mobile_base/cmd_vel" /> -->
+    </include>
+
+</launch>

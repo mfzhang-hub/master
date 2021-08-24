@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="nodelet" type="nodelet" name="robot_manager"  args="manager" output="screen">
+    <param name="log_cfg_path" value="$(find stdr_robot)/conf/log4cpp_stdrrobot.conf" />
+  </node>
+ 
+</launch>

@@ -1,0 +1,17 @@
+<package>
+	<name>laser_resender</name>
+	<version>1.0.0</version>
+	<description>Laser resender node</description>
+	<maintainer email="mjshi@robvision.cn">Minjie</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+	<build_depend>sensor_msgs</build_depend>
+
+	<run_depend>roscpp</run_depend>
+	<run_depend>sensor_msgs</run_depend>
+
+</package>

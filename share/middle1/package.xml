@@ -1,0 +1,19 @@
+<package>
+	<name>middle1</name>
+	<version>1.0.0</version>
+	<description>lx middle for ros</description>
+	<maintainer email="htliu@robvision.cn">LiuHuiting</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+    <build_depend>lxind_msgs</build_depend>
+	<build_depend>actionlib</build_depend>
+
+	<run_depend>roscpp</run_depend>
+    <run_depend>lxind_msgs</run_depend>
+        
+	<run_depend>actionlib</run_depend>
+</package>

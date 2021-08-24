@@ -1,0 +1,27 @@
+<launch>
+
+<!-- ifm camera -->
+  <include file="$(find ifm3d)/launch/camera.launch" />
+  
+<!-- URDF -->
+  <include file="$(find lxind_description)/launch/includes/S4_robot_state.launch.xml" />
+
+<!-- Base -->
+  <include file="$(find lxind_base)/launch/includes/S4_mobile_base_nodelet.launch.xml" />
+
+<!-- filter -->
+  <include file="$(find pcl_oa_filter)/launch/includes/cloud_filter.launch.xml" >
+        <arg name="input_cloud_topic" value="/ifm3d/camera/cloud" />
+
+        <arg name="min_z" value="0.04" />
+
+        <arg name="min_front_dist" value="0.48" />
+        <arg name="max_front_dist" value="1.5" />
+        
+        <arg name="matrix_file_path" value="$(find lxind_params)/param/pcl/S4_calib_matrix.json" />
+  </include>
+
+<!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pcl_oa_filter)/rviz/cloud_filter.rviz"/>
+
+</launch>

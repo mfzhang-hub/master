@@ -1,0 +1,9 @@
+change_count : 10
+buffer_ra : 0
+test :
+  - name : "laser"
+    region: [-2,0.5,2.9]
+qr_path : [3,4]
+
+
+

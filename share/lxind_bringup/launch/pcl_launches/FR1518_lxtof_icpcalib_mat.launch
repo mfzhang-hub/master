@@ -1,0 +1,15 @@
+<launch>
+
+<!-- URDF -->
+  <include file="$(find lxind_description)/launch/includes/FR1518_robot_state.launch.xml" />
+
+<!-- calib -->
+  <include file="$(find pcl_oa_filter)/launch/includes/icpcalib.launch.xml" >
+        <arg name="input_cloud_topic" value="/lxtof_node/cloud" />
+        <arg name="depth_frame" value="lxtof_link" />
+  </include>
+
+<!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pcl_oa_filter)/rviz/icp_calib.rviz"/>
+
+</launch>

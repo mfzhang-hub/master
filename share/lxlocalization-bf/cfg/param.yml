@@ -1,0 +1,93 @@
+laser_pose  : [0,0,0]
+min_use_range  :  0.1
+max_use_range  :  19.9
+#定位模式，选o_d_o_m_为里程计模式，l_a_s_e_r__d_o_u_b_l_e_为双激光定位
+#mode : l_a_s_e_r__d_o_u_b_l_e_
+#是否开启视觉融合定位
+vision_enable : 0
+#是否输出定位视频
+out_debug_image : 0
+#与全局地图匹配的阈值，低于该值进入盲走
+consist_thres : 0.1
+#里程计每米的距离噪音
+motion_noise_dist : 0.4
+#里程计每弧度的角度噪音
+motion_noise_angle : 0.8
+#激光里程计每米的距离噪音
+laser_odom_noise_dist : 0.2
+#激光里程计每弧度的角度噪音
+laser_odom_noise_angle : 0.4
+#i_c_p_失败时最小距离噪音
+min_noise_icp_fail_dist : 0.04
+#i_c_p_失败时最小角度噪音
+min_noise_icp_fail_theta : 0.0262
+#激光里程计最小距离噪音
+min_noise_icp_dist : 0.015
+#激光里程计最小角度噪音
+min_noise_icp_theta : 0.0131
+#粒子滤波最少粒子数
+min_particle_num : 30
+#重定位匹配度阈值
+trust_weight_global : 0.3
+#激光里程计跟踪最大跟踪距离
+laser_odom_dist : 0.15
+#激光里程计跟踪最大跟踪角度
+laser_odom_angle : 0.0524
+#激光线段匹配模型，线段匹配度阈值
+seg_weight_thres : 0.9
+#激光线段匹配模型，最少匹配线段数
+min_seg_num : 2
+#激光线段匹配模型，匹配线段角度最小差异(弧度)
+min_seg_variety : 0.3491
+#跳过地图i_c_p_的匹配度阈值	
+skip_pose_optimize : 1.5
+#激光线段分割时，每段线的最少激光点数
+min_split_point : 5
+#激光线段分割时，激光点与线段的最大距离
+dist_thres : 0.05
+#激光线段分割时，同一线段邻点之间的最大距离
+max_neighbor_dist : 1
+#激光线段分割后，保留的最短线段
+min_keep_len : 0.15
+#激光线段匹配时，最长线段长度(超过此长度，被强制赋值为此长度)
+max_keep_len : 3
+#局部地图重置时用到的帧数
+initial_local_map_frame_cnt : 2
+#进行局部地图重置的运动距离
+update_local_map_dist : 8
+#激光里程计中，跳过粗匹配的匹配度阈值
+skip_coarse_weight : 0.7
+#激光里程计跟踪开始时刻，被认为有较好匹配的匹配度阈值
+initial_laser_odom_weight : 1.5
+#激光里程计中，被认为是静态点的概率值阈值
+static_grid_thres : 0.11
+#i_c_p_与粗匹配之间的差值阈值
+icp_diff : 0.03
+#粗匹配与里程计之间的差值阈值
+global_icp_threshold_k : 1.1
+global_icp_threshold_b : 0
+#启用全局ICP的阈值，越大越不容易使用全局匹配结果。
+
+filter_front_scan : 1
+#滤掉位姿前面无法与地图匹配上的激光（可能导致长廊下丢失）
+coarse_match_diff : 0.05
+y_noise_scale : 2.0
+filter_width : 3.4
+filter_dist : 10.0
+#重定位会在下面指定的范围内进行
+globallocalization_param_xy : 1.5
+globallocalization_param_theta : 3.14
+#允许重定位连续穿过墙的激光点个数，一般来说0.5°一个激光点，推荐值20
+raycasting_tolerance : 100
+
+#处理激光帧时编码器角度与激光里程计角度的差值大于阈值上报编码器异常(单位 弧度)
+slip_diff_threshold : 0.1
+#连续出现多少次编码器异常后，上报打滑异常(推荐值3 现场的激光帧数大约6帧每秒，可以在连续打滑0.5s后及时发现，过大导致上报不及时，过低容易误报)
+diff_tolerance_count : 50
+#前后激光匹配差异过大时，屏蔽后激光定位,单位：毫秒
+lasertime_max_diff : 30
+#处理激光帧时编码器与激光里程计距离的差值大于阈值上报编码器异常(单位 m)
+slip_diff_threshold_dist : 0.06
+#连续三次超过上报打滑异常
+diff_tolerance_count_dist : 3
+

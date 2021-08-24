@@ -1,0 +1,75 @@
+{
+    "robGui":
+    [
+		{
+        "chargeName": "on_chagre",
+        "restName": "rest111",
+        "lowPowerNum": 20,
+        "powerOffNum": 0,
+        "_reloc_mode": false,
+        "passwordDlg": false,
+        "logoName": "lanxin.jpg",
+        "temperatureFirstLevel": 40,
+        "temperatureSecondLevel": 50,
+        "debug_mode": true,
+	"pauseTask":false,
+
+
+            "taskChain": [
+                {"name":"cs0831","chain":[
+                {"endPoint":"a1","action":3},{"endPoint":"a2","action":3},{"endPoint":"a3","action":3},{"endPoint":"a4","action":3},{"endPoint":"a4","action":8}]},
+		{"name":"大循环","chain":[
+			{"endPoint":"F7N2057","action":3},{"endPoint":"F7N2022","action":3},{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2040","action":3},{"endPoint":"F7N2042","action":3},
+			{"endPoint":"F7N2048","action":3},{"endPoint":"F7N2031","action":3},{"endPoint":"F7N2022","action":3},{"endPoint":"F7N2022","action":8}]},
+		{"name":"GTSL","chain":[
+                {"endPoint":"SL001","action":131},{"endPoint":"A","action":3},{"endPoint":"B","action":3},
+		{"endPoint":"XL001","action":131,"layingOff":true,"orient":2},{"endPoint":"B","action":3},{"endPoint":"B","action":8}]},
+           {"name":"SL","chain":[
+                {"endPoint":"SL01","action":131},{"endPoint":"C","action":3},{"endPoint":"C","action":8}]},
+               {"name":"XL","chain":[
+                {"endPoint":"XL01","action":131,"layingOff":true,"orient":2},{"endPoint":"C","action":3},{"endPoint":"C","action":8}]},
+           {"name":"SL-XL","chain":[
+                {"endPoint":"SL01","action":131},{"endPoint":"C","action":3},{"endPoint":"C","action":8},
+                {"endPoint":"XL01","action":131,"layingOff":true,"orient":2},{"endPoint":"C","action":3},{"endPoint":"C","action":8}]},
+           {"name":"chagre","chain":[
+                {"endPoint":"on_chagre","action":5},{"endPoint":"F7N2080","action":3},{"endPoint":"F7N2080","action":8}]},
+           {"name":"2WM-2","chain":[
+                {"endPoint":"66","action":3},{"endPoint":"88","action":211},{"endPoint":"88","action":8}]},
+           {"name":"XL-T","chain":[
+                {"endPoint":"A2","action":3},{"endPoint":"XLGT","action":131,"isDown":true,"orient":2}]},
+           {"name":"0717-test","chain":[
+                {"endPoint":"A3","action":3},{"endPoint":"SLGT","action":131},{"endPoint":"A3","action":3},{"endPoint":"GTSL1","action":3},
+                {"endPoint":"XLGT","action":131,"layingOff":true,"orient":2},{"endPoint":"A2","action":3},{"endPoint":"XLGT","action":131},
+                {"endPoint":"A2","action":3},{"endPoint":"F7N2045","action":3},{"endPoint":"F7N2042","action":3},
+                {"endPoint":"SLGT","action":131,"layingOff":true,"orient":2},{"endPoint":"A3","action":8}]},
+		{"name":"中循环","chain":[
+			{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2030","action":3},{"endPoint":"F7N2040","action":3},{"endPoint":"F7N2042","action":3},
+			{"endPoint":"F7N2043","action":3},{"endPoint":"F7N2046","action":3},{"endPoint":"F7N2048","action":3},{"endPoint":"F7N2031","action":3},
+			{"endPoint":"F7N2033","action":3},{"endPoint":"F7N2022","action":3},{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2004","action":8}]},
+		{"name":"中循环","chain":[
+			{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2030","action":3},{"endPoint":"F7N2040","action":3},{"endPoint":"F7N2042","action":3},
+			{"endPoint":"F7N2043","action":3},{"endPoint":"F7N2046","action":3},{"endPoint":"F7N2048","action":3},{"endPoint":"F7N2031","action":3},
+			{"endPoint":"F7N2033","action":3},{"endPoint":"F7N2022","action":3},{"endPoint":"F7N2004","action":3},{"endPoint":"F7N2004","action":8}]},
+           {"name":"123123123123123123", "chain":[
+             {"endPoint":"23","action":3},{"endPoint":"19","action":3},{"endPoint":"19","action":8}]},
+           {"name":"滚筒下料1", "chain":[
+             {"endPoint":"SLGT","action":131,"layingOff":true},{"endPoint":"F7N2074","action":3}]},
+           {"name":"滚筒sl", "chain":[
+             {"endPoint":"SLGT","action":131,"layingOff":false},{"endPoint":"GTSL1","action":3}]},
+           {"name":"3地圖", "chain":[
+             {"endPoint":"F2_664","action":3,"layingOff":false},{"endPoint":"F2_619","action":3},{"endPoint":"F2_664","action":3},{"endPoint":"F2_664","action":8}]},
+           {"name":"滚筒循环", "chain":[
+             {"endPoint":"SLGT","action":131},{"endPoint":"F7N2074","action":3},
+             
+             {"endPoint":"XLGT","action":131,"layingOff":true,"orient":2},
+             {"endPoint":"F7N2074","action":3},{"endPoint":"XLGT","action":131},
+             {"endPoint":"F7N2074","action":3},
+             {"endPoint":"SLGT","action":131,"layingOff":true,"orient":2},
+	     {"endPoint":"F7N2074","action":3},
+             {"endPoint":"F7N2074","action":8}]}
+		
+			
+]
+       		}
+    ]
+}

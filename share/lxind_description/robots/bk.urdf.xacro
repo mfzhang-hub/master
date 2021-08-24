@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+		name="lxind">
+
+    <!-- servo4: smaller robot -->
+
+	<!-- const -->
+	<xacro:property name="M_PI" value="3.1415926" />
+
+	<!-- base -->
+	<link name="base_footprint">
+		<visual>
+			<geometry>
+				<box size="0.853 0.629 0.001" />
+			</geometry>
+		</visual>
+	</link>
+
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<box size="0.853 0.629 0.001" />
+			</geometry>
+			<material name="green">
+				<color rgba="0 1 0 1" />
+			</material>
+		</visual>
+	</link>
+
+	<link name="laser_link">
+		<visual>
+			<geometry>
+				<box size="0.1 0.1 0.1" />
+			</geometry>
+			<material name="gb">
+				<color rgba="0 1 1 1" />
+			</material>
+		</visual>
+	</link>
+    
+
+<!-- ifm camera -->
+	<link name="ifm3d/camera_link">
+		<visual>
+			<geometry>
+				<box size="0.05 0.05 0.05" />
+			</geometry>
+			<material name="g05b">
+				<color rgba="0 1 0.5 1" />
+			</material>
+		</visual>
+	</link>
+
+    
+<!-- JOINTS -->
+	<joint name="base_joint" type="fixed">
+		<origin rpy="0 0 0" xyz="0 0 0" />   
+		<parent link="base_footprint" />
+		<child link="base_link" />
+	</joint>  <!-- AT TOP SURF===> NOW: FLOOR same --> 
+
+	<joint name="base_laser_joint" type="fixed">
+		<origin rpy="${M_PI} 0 0" xyz="0.346 0 0.228" />   <!-- xy offset from centre of driving wheel -->
+		<parent link="base_link" />
+		<child link="laser_link" />
+	</joint>
+
+    
+	<joint name="base_ifm_joint" type="fixed">
+		<origin rpy="${-M_PI/2} ${M_PI*0.37} 0" xyz="0.55 0.03 1.06" /> <!-- around red/green/blue axis -->
+            <!--  around y axis(minus ->toward ground), x(ros axis), z  ${M_PI/4} -->
+		<parent link="base_link" />
+		<child link="ifm3d/camera_link" />
+	</joint>
+    
+</robot>
