@@ -1,0 +1,78 @@
+{
+	"misc": {
+		"show": true
+	},
+    
+    "odom": {
+        "use_raw":  false,
+        "stdev": {
+            "std_x":     0.1,
+            "std_y":     0.03,
+            "std_yaw":   0.03
+        },
+        "interp": {
+            "default_pitch":           0,
+            "default_roll":            0
+        }
+    },
+
+    "filter": {
+        "pose": {
+            "method": "kalman",
+            "max_heading_adjustment": 0.05,
+            "max_normal_adjustment": 0.01,
+            "max_angle_adjustment": 0.03
+        }
+    },
+
+    "detectors": {
+        "top_point": {
+            "image_size":     [640, 512],
+            "port":           4971
+        }, 
+        "top_line": {
+            "image_size":      [640, 512],
+            "method":          "fsd"
+        }
+    },
+
+    "buffers": {
+        "top_point": {
+            "map_path":         "top_points.json",
+            "length_capacity":  50,
+            "mileage_capacity": 5.0,
+            "distance_stdev":   3.0,
+            "radius_stdev":     3.0
+        },
+
+        "top_line": {
+            "max_keep_time": 1000
+        }
+    },
+
+    "localizers": {
+        "top_point": {
+            "enable": true,
+
+            "method":        "multi",
+            "min_dispersion": 400,
+            "max_length":     50,
+            "max_mileage":    5.0
+        },
+
+        "top_line_angle": {
+            "enable": true,
+            "map_path": "top_angle.json" 
+        },
+
+        "top_line_skier": {
+            "enable": true,
+            "map_path": "top_lines.json",
+
+            "method": "lbd",
+            "descriptor_radius": 250,
+            "distance_thresh": 50,
+            "angle_thresh": 0.1
+        }
+    }
+}
