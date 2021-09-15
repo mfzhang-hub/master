@@ -1,9 +1,11 @@
 
 
 #!/bin/bash
-
+	if [ ! -d "~/cpu/" ];then
+	mkdir -p ~/cpu/
+	fi
 function delFile(){
-    string=`du ~/memlog.txt`
+    string=`du ~/cpu/cpu.log`
     #对IFS变量 进行替换处理
     OLD_IFS="$IFS"
     IFS=" "
@@ -19,22 +21,27 @@ function delFile(){
     echo $fileSize
     size=20000
     if [ $fileSize -gt $size ] ; then
-    mv ~/memlog.txt ~/memlog1.txt
+    mv ~/cpu.log ~/cpu.log1
     fi
 }
 
 while true
 do
-    echo "start" >> ~/memlog.txt
+    echo "start" >> ~/cpu/cpu.log
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/memlog.txt
-    ps -eo pid,%cpu,%mem,args --sort -%mem | head -5 >> ~/memlog.txt
-    sleep 0.5
+    echo $ttime >> ~/cpu/cpu.log
+    ps -eo pid,%cpu,%mem,args --sort -%mem | head -5 >> ~/cpu/cpu.log
+    sleep 0.1
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/memlog.txt
-    ps -eo pid,%cpu,%mem,args --sort -%cpu | head -5 >> ~/memlog.txt
-    sleep 0.5
-    echo "END" >> ~/memlog.txt
+    echo $ttime >> ~/cpu/cpu.log
+    ps -eo pid,%cpu,%mem,args --sort -%cpu | head -5 >> ~/cpu/cpu.log
+    sleep 0.1
+    ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+    echo $ttime >> ~/cpu/cpu.log
+    sensors  >> ~/cpu/cpu.log
+    sleep 0.1
+    echo "END" >> ~/cpu/cpu.log
+    echo -e " " >> ~/cpu/cpu.log
     delFile
-    sleep 0.5
+    sleep 0.1
 done
