@@ -1,11 +1,13 @@
 
 
 #!/bin/bash
+save_day=10
 	if [ ! -d "~/cpu/" ];then
 	mkdir -p ~/cpu/
 	fi
 function delFile(){
     string=`du ~/cpu/cpu.log`
+    string=`du ~/cpu/memory.log`
     OLD_IFS="$IFS"
     IFS=" "
     array=($string)
@@ -18,13 +20,14 @@ function delFile(){
     break
     done
     echo $fileSize
-    size=20000
+    size=20000000
     if [ $fileSize -gt $size ] ; then
-    mv ~/cpu.log ~/cpu.log1
+    mv ~/cpu/cpu.log ~/cpu/cpu.log1
+    fi	
+   if [ $fileSize -gt $size ] ; then
+    mv ~/cpu/memory.log ~/cpu/memory.log1
     fi
-	if [ $fileSize -gt $size ] ; then
-    mv ~/memory.log ~/memory.log1
-    fi
+    
 }
 while true
 do
@@ -76,7 +79,7 @@ echo "%us：表示用户空间程序的cpu使用率（没有通过nice调度）
     echo -e " " >> ~/cpu/memory.log
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/cpu/cpu.log
-    echo -e "结束查询" >> ~/cpu/cpu.log
+    echo -e "结束查询" >> ~/cpu/cpu.log 
     echo -e " " >> ~/cpu/cpu.log
     delFile
     sleep 0.1
