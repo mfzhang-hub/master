@@ -1,4 +1,5 @@
-deli: {
+deli: 
+{
     unimodule.sh 2 : "前上辊筒上料"
     unimodule.sh 3 : "前上辊筒出料"
     unimodule.sh 4 : "前下辊筒进料"
