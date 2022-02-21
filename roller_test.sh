@@ -88,7 +88,7 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /cmd_roller std_msgs/UInt8 "data: 13" 
-elif [ $1 -eq 29 ]   #平台高度设置为400mm  ************SMT***************
+elif [ $1 -eq 29 ]   #平台高度设置为500mm  ************SMT***************
 then
    cd /mnt/
    source devel_isolated/setup.bash
