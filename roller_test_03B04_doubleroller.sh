@@ -169,7 +169,7 @@ then
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 1
 cmd: 0x42
 dmsData: 0"
-elif [ $1 -eq 29 ]   #平台高度设置为400mm  ************SMT***************
+elif [ $1 -eq 29 ]   #平台高度设置为500mm  ************SMT***************
 then
    cd /mnt/
    source devel_isolated/setup.bash
