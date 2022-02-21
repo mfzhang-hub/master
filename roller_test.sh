@@ -88,6 +88,43 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /cmd_roller std_msgs/UInt8 "data: 13" 
+elif [ $1 -eq 29 ]   #平台高度设置为400mm  ************SMT***************
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
+cargo_size: 0
+roller_speed: 0.0
+roller_height: 500"  
+elif [ $1 -eq 30 ]   #平台高度设置为1000mm
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
+cargo_size: 0
+roller_speed: 0.0
+roller_height: 1000"
+elif [ $1 -eq 31 ]   #平台左伸
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+cmd: 0x61
+dmsData: 0" 
+elif [ $1 -eq 32 ]   #平台右伸
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+cmd: 0x62
+dmsData: 0" 
+elif [ $1 -eq 33 ]   #平台回到原点
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+cmd: 0x63
+dmsData: 0"
 else
    echo "less param"
 fi
