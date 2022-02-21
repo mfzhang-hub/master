@@ -20,7 +20,7 @@ sleep 1
 cd /mnt
 rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0x63
-dmsData: 0"
+dmsData: 0"           #平台回到原点
 
 sleep 5
 cd /
@@ -31,13 +31,13 @@ cd /mnt
 rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 1
 cmd: 0x41
 dmsData: 0"
-sleep 2
+sleep 2            #右侧挡板升起
 
 cd  /mnt
 rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 1
 cmd: 0x31
 dmsData: 0"
-sleep 2
+sleep 2             #左侧挡板升起
 
 cd /
 sh pid.sh &
