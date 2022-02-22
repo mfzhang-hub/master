@@ -111,7 +111,8 @@ then
    source devel_isolated/setup.bash
    rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
 cargo_size: 500
-roller_speed: 0.0"
+roller_speed: 0.0
+roller_height: 0"
 elif [ $1 -eq 20 ]   #滚筒转速500(正转)******************上层******************
 then
    cd /mnt/
@@ -126,7 +127,7 @@ then
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 1
 cmd: 0x20
 dmsData: 0" 
-elif [ $1 -eq 22]   #滚筒转速500（反转）
+elif [ $1 -eq 22 ]   #滚筒转速500（反转）
 then
    cd /mnt/
    source devel_isolated/setup.bash
@@ -168,7 +169,7 @@ then
    source devel_isolated/setup.bash
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 1
 cmd: 0x42
-dmsData: 0"
+dmsData: 0"   
 elif [ $1 -eq 29 ]   #平台高度设置为400mm  ************SMT***************
 then
    cd /mnt/
@@ -209,6 +210,7 @@ dmsData: 0"
 else
    echo "less param"
 fi
+
 
 
 
