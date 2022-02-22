@@ -9,8 +9,8 @@ source devel_isolated/setup.bash
 rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
 cargo_size: 0
 roller_speed: 0.0
-roller_height: 500"  
-     #平台高度设置为500mm
+roller_height: 400"  
+     #平台高度设置为400mm
 sleep 10
 
 cd /
@@ -186,7 +186,7 @@ cd /mnt
 rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
 cargo_size: 0
 roller_speed: 0.0
-roller_height: 500"   #平台高度设置为500mm
+roller_height: 400"   #平台高度设置为400mm
 
 sleep 10
 
