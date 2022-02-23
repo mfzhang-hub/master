@@ -207,6 +207,22 @@ then
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0x63
 dmsData: 0"   
+elif [ $1 -eq 34 ]   #平台高度设置为300mm触发下限位  ************SMT***************
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
+cargo_size: 0
+roller_speed: 0.0
+roller_height: 300"
+elif [ $1 -eq 35 ]   #平台高度设置为1100mm触发上限位  ************SMT***************
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
+cargo_size: 0
+roller_speed: 0.0
+roller_height: 1100"  
 else
    echo "less param"
 fi
