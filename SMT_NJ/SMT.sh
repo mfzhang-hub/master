@@ -9,6 +9,17 @@ source devel_isolated/setup.bash
 rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
 cargo_size: 0
 roller_speed: 0.0
+roller_height: 300"   #平台高度设置为300mm触发下限位
+
+sleep 10
+
+cd /
+sh pid.sh &
+sleep 1
+
+rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
+cargo_size: 0
+roller_speed: 0.0
 roller_height: 400"  
      #平台高度设置为400mm
 sleep 10
@@ -54,6 +65,18 @@ sleep 10
 cd /
 sh pid.sh &
 sleep 1
+
+rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
+cargo_size: 0
+roller_speed: 0.0
+roller_height: 1100"   #平台高度设置为1100mm触发上限位
+
+sleep 10
+
+cd /
+sh pid.sh &
+sleep 1
+
 
 cd /mnt
 rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
