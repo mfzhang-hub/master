@@ -40,6 +40,7 @@ then
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0
 dmsData: 0x10"  
+   #双辊筒下层辊筒模块测试如下
 elif [ $1 -eq 8 ]   #使能滚筒
 then
    cd /mnt/
@@ -113,6 +114,7 @@ then
 cargo_size: 500
 roller_speed: 0.0
 roller_height: 0"
+   #双辊筒上层辊筒模块测试如下
 elif [ $1 -eq 20 ]   #滚筒转速500(正转)******************上层******************
 then
    cd /mnt/
