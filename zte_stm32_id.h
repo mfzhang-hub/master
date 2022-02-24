@@ -95,3 +95,11 @@ namespace zte_id_T660DS //T660DS车型
 
     };
 } //
+
+namespace zte_id_T660DS（ZX） //T660DS(ZX)车型
+{
+    enum {
+      DS_01020301010606,  //
+
+    };
+} //
