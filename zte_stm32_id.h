@@ -63,3 +63,11 @@ namespace zte_id_T261DS（ZX） //T261旋转顶升车型
 
     };
 } //
+
+namespace zte_id_T261GT //T261辊筒车型
+{
+    enum {
+      GT_01010302010206,  //
+
+    };
+} //
