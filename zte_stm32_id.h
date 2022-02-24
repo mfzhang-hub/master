@@ -87,3 +87,11 @@ namespace zte_id_deli //得力双层双列辊筒车型
 
     };
 } //
+
+namespace zte_id_T660DS //T660DS车型
+{
+    enum {
+      DS_01020301010106,  //
+
+    };
+} //
