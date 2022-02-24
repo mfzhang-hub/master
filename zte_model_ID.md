@@ -167,4 +167,18 @@ model_T660SGT {
           Protocol_number   6
       }
  
+},
+
+model_SMT_NJ {
+
+      OUTPUT：{
+          Serial_code   1
+          Model_code  1
+          Manufacturer_code  3
+          Differentiate_code   4
+          Control_code   1
+          Function_code  40
+          Protocol_number   6
+      }
+ 
 }
