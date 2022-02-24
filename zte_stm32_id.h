@@ -80,3 +80,10 @@ namespace zte_id_T261ZDQY //T261自动牵引车型
     };
 } //
 
+namespace zte_id_deli //得力双层双列辊筒车型
+{
+    enum {
+      double_roller_01010302010806,  //底盘ID
+
+    };
+} //
