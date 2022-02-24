@@ -55,3 +55,11 @@ namespace zte_id_T261DS //T261顶升车型
 
     };
 } //
+
+namespace zte_id_T261DS（ZX） //T261旋转顶升车型
+{
+    enum {
+      DS_01010302010606,  //
+
+    };
+} //
