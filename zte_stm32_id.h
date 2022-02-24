@@ -47,3 +47,11 @@ namespace zte_id_T260ZDQY //T260自动牵引车型
 
     };
 } //
+
+namespace zte_id_T261DS //T261顶升车型
+{
+    enum {
+      DS_01010302010206,  //
+
+    };
+} //
