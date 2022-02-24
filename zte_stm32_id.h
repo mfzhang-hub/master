@@ -71,3 +71,12 @@ namespace zte_id_T261GT //T261辊筒车型
 
     };
 } //
+
+namespace zte_id_T261ZDQY //T261自动牵引车型
+{
+    enum {
+      QY_01010302010506,  //
+
+    };
+} //
+
