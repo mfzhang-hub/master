@@ -23,3 +23,11 @@ namespace zte_id_single_roller //单层辊筒模块
 
     };
 } //
+
+namespace zte_id_T260DS //T260顶升车型
+{
+    enum {
+      DS_01010301010106,  //
+
+    };
+} //
