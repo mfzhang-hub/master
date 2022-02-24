@@ -103,3 +103,11 @@ namespace zte_id_T660DS（ZX） //T660DS(ZX)车型
 
     };
 } //
+
+namespace zte_id_T660SGT //T660SGT车型
+{
+    enum {
+      double_roller_01020301010306,  //底盘（整车）
+
+    };
+} //
