@@ -111,3 +111,11 @@ namespace zte_id_T660SGT //T660SGT车型
 
     };
 } //
+
+namespace zte_id_SMT_NJ //SMT车型
+{
+    enum {
+      SMT_01010304014006,  //
+
+    };
+} //
