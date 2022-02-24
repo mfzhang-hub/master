@@ -119,3 +119,11 @@ namespace zte_id_SMT_NJ //SMT车型
 
     };
 } //
+
+namespace zte_id_SMT_DOUBLE //SMT辊筒模块车型
+{
+    enum {
+      SMT_01010301100501,  //辊筒模块
+
+    };
+} //
