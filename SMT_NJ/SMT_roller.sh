@@ -177,7 +177,7 @@ then
    rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
 cargo_size: 0
 roller_speed: 0.0
-roller_height: 400"  
+roller_height: 230"  
 elif [ $1 -eq 30 ]   #平台高度设置为1000mm
 then
    cd /mnt/
@@ -185,7 +185,7 @@ then
    rostopic pub /roller_command common_msgs/Roller "roller_task: 0 
 cargo_size: 0
 roller_speed: 0.0
-roller_height: 1000"
+roller_height: 1050"
 elif [ $1 -eq 31 ]   #平台左伸
 then
    cd /mnt/
