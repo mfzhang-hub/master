@@ -1,0 +1,1029 @@
+[ DEBUG] [2022-03-11 11:00:05.739] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:00:10.529] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 116.106 left: 1640 right: 534]
+[ DEBUG] [2022-03-11 11:00:11.931] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:00:14.933] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:00:35.740] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:00:40.330] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.55 current: -1.5 percent: 0.52 status: 0]
+[ DEBUG] [2022-03-11 11:00:40.530] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 146.128 left: 1782 right: 577]
+[ DEBUG] [2022-03-11 11:01:05.839] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:01:10.530] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 176.129 left: 1655 right: 440]
+[ DEBUG] [2022-03-11 11:01:35.839] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:01:40.530] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.57 current: -1.4 percent: 0.52 status: 0]
+[ DEBUG] [2022-03-11 11:01:40.530] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 206.13 left: 1642 right: 435]
+[ DEBUG] [2022-03-11 11:01:54.730] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 11:01:57.730] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:02:01.730] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 1 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:02:03.466] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.52 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 11:02:03.478] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.52 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 11:02:03.478] [ros.ztexing_node.only_print_log] - Shutdown execute----------->  battery_danger_count: 0]
+[ INFO] [2022-03-11 11:07:25.109] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 11:07:25.351] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 11:07:25.351] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:07:25.351] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 25.782 left: 141 right: 264]
+[ DEBUG] [2022-03-11 11:07:25.351] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:07:44.790] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:07:47.118] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:07:50.112] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:07:50.715] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 11:07:53.712] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:07:55.512] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 55.937 left: 147 right: 424]
+[ DEBUG] [2022-03-11 11:08:01.112] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:08:04.112] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:08:14.889] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:08:25.511] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.6 current: -1.4 percent: 0.52 status: 0]
+[ DEBUG] [2022-03-11 11:08:25.713] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 86.138 left: 92 right: 305]
+[ DEBUG] [2022-03-11 11:08:33.312] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 11:08:36.312] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:08:44.989] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:08:55.713] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 116.139 left: 102 right: 311]
+[ DEBUG] [2022-03-11 11:09:02.114] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:09:05.112] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:09:05.712] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 11:09:08.914] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:09:15.089] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:09:23.513] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:09:25.712] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.48 current: -2.5 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:09:25.912] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 146.341 left: 93 right: 296]
+[ DEBUG] [2022-03-11 11:09:26.511] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:09:26.915] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 11:09:29.914] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:09:34.115] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 1 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:09:37.262] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.51 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 11:09:37.270] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.51 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 11:09:37.270] [ros.ztexing_node.only_print_log] - Shutdown execute----------->  battery_danger_count: 0]
+[ INFO] [2022-03-11 11:33:43.072] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 11:33:43.275] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 11:33:43.275] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:33:43.275] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 25.714 left: 181 right: 95]
+[ DEBUG] [2022-03-11 11:33:43.275] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:33:47.879] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:34:01.881] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:34:04.878] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:34:08.280] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 11:34:11.276] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:34:11.883] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 11:34:13.277] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 55.711 left: 178 right: 95]
+[ DEBUG] [2022-03-11 11:34:14.878] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:34:17.978] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:34:18.676] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 1 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:34:21.546] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.51 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 11:34:21.554] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.51 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 11:34:21.554] [ros.ztexing_node.only_print_log] - Shutdown execute----------->  battery_danger_count: 0]
+[ INFO] [2022-03-11 11:39:35.317] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 11:39:35.521] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 11:39:35.521] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:39:35.521] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 25.969 left: 1 right: 2]
+[ DEBUG] [2022-03-11 11:39:35.521] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:39:53.738] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 11:40:05.522] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 55.97 left: 154 right: 157]
+[ DEBUG] [2022-03-11 11:40:23.838] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ INFO] [2022-03-11 11:42:53.756] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 11:42:53.985] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 11:42:53.985] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 11:42:53.985] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 224.339 left: 152 right: 155]
+[ DEBUG] [2022-03-11 11:42:53.985] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 11:43:24.162] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 254.626 left: 47 right: 97]
+[ DEBUG] [2022-03-11 11:43:54.158] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.62 current: -1.2 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:43:54.358] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 284.827 left: 22 right: 159]
+[ DEBUG] [2022-03-11 11:44:24.375] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 314.849 left: 25 right: 144]
+[ DEBUG] [2022-03-11 11:44:54.176] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.2 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:44:54.376] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 344.85 left: -90 right: -246]
+[ DEBUG] [2022-03-11 11:45:24.379] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 374.851 left: -12 right: 24]
+[ DEBUG] [2022-03-11 11:45:54.180] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.1 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:45:54.383] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 404.852 left: -7 right: 162]
+[ DEBUG] [2022-03-11 11:46:24.425] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 434.894 left: -9 right: -26]
+[ DEBUG] [2022-03-11 11:46:54.230] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.59 current: -1.2 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:46:54.448] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 464.915 left: -10 right: 7]
+[ DEBUG] [2022-03-11 11:47:24.635] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 495.117 left: 13 right: 131]
+[ DEBUG] [2022-03-11 11:47:54.904] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.1 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:47:54.904] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 525.378 left: 70 right: 155]
+[ DEBUG] [2022-03-11 11:48:24.921] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 555.399 left: 70 right: 151]
+[ DEBUG] [2022-03-11 11:48:54.921] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.59 current: -1.3 percent: 0.51 status: 0]
+[ DEBUG] [2022-03-11 11:48:55.121] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 585.6 left: 71 right: 154]
+[ DEBUG] [2022-03-11 11:49:25.121] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 615.602 left: 72 right: 145]
+[ ERROR] [2022-03-11 11:49:37.891] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:37.911] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ DEBUG] [2022-03-11 11:49:37.921] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 1 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ ERROR] [2022-03-11 11:49:37.931] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:37.951] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:37.971] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:37.991] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.051] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.071] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.091] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.111] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.131] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.151] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.171] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.191] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.211] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.231] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.250] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.271] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.291] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.311] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.331] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.351] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.371] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.391] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.411] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.431] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.451] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.471] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.491] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.511] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.531] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.551] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.571] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.591] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.611] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.631] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.651] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.671] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.691] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.711] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.731] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.751] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.771] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.791] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.811] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.831] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.851] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.871] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.891] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.911] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.931] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.951] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.971] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:38.991] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.011] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.031] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.051] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.071] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.091] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.111] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.151] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.171] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.191] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.211] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.231] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.251] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.271] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.291] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.311] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.331] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.351] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.371] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.391] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.431] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.451] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.471] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.491] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.511] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.531] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.551] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.571] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.591] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.611] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.631] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.731] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.751] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.771] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.791] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.811] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.831] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.851] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.871] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.891] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.911] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.931] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.951] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.971] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:39.991] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.011] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.031] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.313] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.471] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.491] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.833] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.853] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:40.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:41.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.411] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.451] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.513] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.691] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:42.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.633] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.913] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:43.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.713] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:44.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.013] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.033] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.191] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.313] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.771] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:45.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.133] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.413] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.693] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:46.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.253] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.533] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.813] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:47.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.112] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.633] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.712] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:48.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.012] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.072] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.092] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.113] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.132] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.152] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.172] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.192] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.212] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.232] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.252] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.272] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.292] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.312] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.332] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.352] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.372] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.392] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.412] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.432] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.452] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.472] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.492] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.512] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.532] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.552] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.572] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.592] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.612] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.632] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.652] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.672] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.692] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.713] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.732] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.752] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.772] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.792] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.812] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.832] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.852] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.872] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.892] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.912] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.932] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.952] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.972] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:49.992] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.013] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.032] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.052] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.256] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.276] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.296] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.316] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.336] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.356] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.376] [ros.ztexing_node] - Failed to call service('/auto_start_control/shutdown_service') shutdown node and save data.
+[ ERROR] [2022-03-11 11:49:50.396] [ro[ INFO] [2022-03-11 13:38:34.201] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 13:38:34.422] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 13:38:34.422] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 13:38:34.422] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 25.916 left: 0 right: -3]
+[ DEBUG] [2022-03-11 13:38:34.422] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 13:39:04.605] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 56.089 left: 0 right: -3]
+[ DEBUG] [2022-03-11 13:39:29.444] [ros.ztexing_node.actionlib] - The action server has received a new goal request
+[ DEBUG] [2022-03-11 13:39:29.444] [ros.ztexing_node.actionlib] - A new goal has been recieved by the single goal action server
+[ DEBUG] [2022-03-11 13:39:29.444] [ros.ztexing_node.actionlib] - Accepting a new goal
+[ DEBUG] [2022-03-11 13:39:29.444] [ros.ztexing_node.actionlib] - Accepting goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:30.314] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:30.314] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:30.314] [ros.ztexing_node.only_print_log] - Odom data not update when publishWheelState.
+[ DEBUG] [2022-03-11 13:39:30.735] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:30.735] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:31.457] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:31.457] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:31.646] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:31.646] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:31.835] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:31.835] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.024] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.024] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.213] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.213] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.402] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.402] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.591] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.591] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.780] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.780] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.969] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:32.969] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.158] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.158] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.348] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.348] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.537] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.537] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.726] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.726] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.915] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:33.915] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:34.104] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:34.104] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:34.293] [ros.ztexing_node.actionlib] - Publishing feedback for goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:34.293] [ros.ztexing_node.actionlib] - Publishing feedback for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:34.606] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.76 current: -1 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:39:34.606] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 80.95 left: 0 right: -3]
+[ DEBUG] [2022-03-11 13:39:35.793] [ros.ztexing_node.actionlib] - Setting the current goal as succeeded
+[ DEBUG] [2022-03-11 13:39:35.793] [ros.ztexing_node.actionlib] - Setting status to succeeded on goal, id: goal_0.5212903510443123_1646977169126, stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:35.793] [ros.ztexing_node.actionlib] - Publishing result for goal with id: goal_0.5212903510443123_1646977169126 and stamp: 1646977169.44
+[ DEBUG] [2022-03-11 13:39:35.803] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 13:39:40.604] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 13:40:04.804] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 30.361 left: 1 right: 0]
+[ DEBUG] [2022-03-11 13:40:34.808] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.68 current: -1.4 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:40:34.808] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 60.362 left: 1 right: 0]
+[ DEBUG] [2022-03-11 13:41:05.003] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 90.563 left: 1 right: 1]
+[ DEBUG] [2022-03-11 13:41:35.005] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.65 current: -1.4 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:41:35.005] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 120.566 left: 1 right: 0]
+[ DEBUG] [2022-03-11 13:42:05.206] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 150.766 left: 1 right: 2]
+[ DEBUG] [2022-03-11 13:42:35.204] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.63 current: -1.4 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:42:35.403] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 180.968 left: -5 right: -218]
+[ DEBUG] [2022-03-11 13:43:05.405] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 210.969 left: -22 right: -247]
+[ DEBUG] [2022-03-11 13:43:35.205] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.4 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:43:35.405] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 240.97 left: 8 right: -18]
+[ DEBUG] [2022-03-11 13:44:05.405] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 270.972 left: 8 right: -57]
+[ DEBUG] [2022-03-11 13:44:35.405] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.6 current: -1.4 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:44:35.405] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 300.973 left: -5 right: -79]
+[ DEBUG] [2022-03-11 13:45:05.605] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 331.175 left: 8 right: -28]
+[ DEBUG] [2022-03-11 13:45:35.605] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.6 current: -1.4 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:45:35.605] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 361.176 left: 69 right: 300]
+[ DEBUG] [2022-03-11 13:46:05.605] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 391.178 left: 10 right: 144]
+[ DEBUG] [2022-03-11 13:46:35.805] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.59 current: -1.5 percent: 0.5 status: 0]
+[ DEBUG] [2022-03-11 13:46:35.805] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 421.379 left: 47 right: 299]
+[ INFO] [2022-03-11 13:55:46.031] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 13:55:46.240] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 13:55:46.240] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 13:55:46.240] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 25.801 left: 102 right: 1240]
+[ DEBUG] [2022-03-11 13:55:46.240] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 13:55:46.480] [ros.ztexing_node.only_print_log] - Odom data not update when publishWheelState.
+[ DEBUG] [2022-03-11 13:55:51.048] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ WARN] [2022-03-11 13:55:43.469] [ros.ztexing_node] - Messages of type 0 arrived out of order (will print only once)
+[ DEBUG] [2022-03-11 13:55:56.049] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:01.049] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:01.836] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 13:56:02.226] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 13:56:06.049] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:11.069] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:16.069] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:16.426] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 64.06 left: 0 right: 606]
+[ DEBUG] [2022-03-11 13:56:21.069] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:24.369] [ros.ztexing_node.only_print_log] - Odom data not update when publishWheelState.
+[ DEBUG] [2022-03-11 13:56:26.089] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:31.109] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:36.109] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:41.129] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:46.129] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:46.426] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.64 current: -1.1 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 13:56:46.426] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 94.061 left: -17 right: 383]
+[ DEBUG] [2022-03-11 13:56:51.129] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:56:56.149] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:00.349] [ros.ztexing_node.only_print_log] - Odom data not update when publishWheelState.
+[ DEBUG] [2022-03-11 13:57:01.169] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:06.169] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:11.189] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:16.189] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:16.427] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 124.062 left: -93 right: 515]
+[ DEBUG] [2022-03-11 13:57:21.209] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:26.229] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:31.229] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:36.249] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:36.349] [ros.ztexing_node.only_print_log] - Odom data not update when publishWheelState.
+[ DEBUG] [2022-03-11 13:57:41.249] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:46.269] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:46.426] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.64 current: -1.2 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 13:57:46.629] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 154.283 left: -3 right: 1111]
+[ DEBUG] [2022-03-11 13:57:51.289] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:57:56.289] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:58:01.289] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:58:03.210] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 13:58:04.627] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 13:58:06.289] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:58:06.626] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 13:58:07.226] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 13:58:11.289] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 13:58:13.425] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 13:58:14.026] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 13:58:16.426] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 13:58:16.626] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 1(low:0 middle:1 high:2) jack_exe_state: 3]
+[ DEBUG] [2022-03-11 13:58:16.827] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 184.465 left: -9 right: 1109]
+[ DEBUG] [2022-03-11 13:58:19.426] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 13:58:19.827] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 2(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 13:58:20.028] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 1(low:0 middle:1 high:2) jack_exe_state: 0]
+[ DEBUG] [2022-03-11 13:58:22.826] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 13:58:33.310] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 13:58:46.626] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.6 current: -1.3 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 13:58:47.028] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 214.666 left: -8 right: 1109]
+[ DEBUG] [2022-03-11 13:59:03.410] [ros.ztexing_node.only_print_log] - vx:0 vy:0 wz:0
+[ DEBUG] [2022-03-11 13:59:17.227] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 244.867 left: -8 right: 1109]
+[ DEBUG] [2022-03-11 13:59:31.179] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 1 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 13:59:33.434] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.49 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 13:59:33.442] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.49 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 13:59:33.442] [ros.ztexing_node.only_print_log] - Shutdown execute----------->  battery_danger_count: 0]
+[ INFO] [2022-03-11 15:38:35.720] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 15:38:35.940] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 15:38:35.940] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:38:35.940] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 24.409 left: -69 right: 23]
+[ DEBUG] [2022-03-11 15:38:35.940] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ WARN] [2022-03-11 15:38:34.298] [ros.ztexing_node] - Messages of type 0 arrived out of order (will print only once)
+[ DEBUG] [2022-03-11 15:39:06.087] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 62.798 left: -71 right: 26]
+[ DEBUG] [2022-03-11 15:39:21.086] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:39:36.088] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.78 current: -1.3 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 15:39:36.088] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 92.799 left: -45410 right: -83721]
+[ DEBUG] [2022-03-11 15:40:06.092] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 122.8 left: -45427 right: -83740]
+[ DEBUG] [2022-03-11 15:40:36.288] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.74 current: -1.1 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 15:40:36.288] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 153.002 left: -45589 right: -83809]
+[ DEBUG] [2022-03-11 15:41:06.489] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 183.203 left: -45590 right: -83814]
+[ DEBUG] [2022-03-11 15:41:36.486] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.72 current: -1.2 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 15:41:36.684] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 213.385 left: -45670 right: -83815]
+[ DEBUG] [2022-03-11 15:42:06.686] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 243.406 left: -45671 right: -83817]
+[ DEBUG] [2022-03-11 15:42:36.685] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.71 current: -1.1 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 15:42:36.884] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 273.607 left: -45670 right: -83817]
+[ DEBUG] [2022-03-11 15:43:06.885] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 303.609 left: -45672 right: -83837]
+[ DEBUG] [2022-03-11 15:43:36.685] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.7 current: -1.2 percent: 0.49 status: 0]
+[ DEBUG] [2022-03-11 15:43:36.885] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 333.61 left: -45670 right: -83837]
+[ DEBUG] [2022-03-11 15:44:07.084] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 363.811 left: -45672 right: -83841]
+[ DEBUG] [2022-03-11 15:44:26.485] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:44:31.885] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:44:32.885] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:44:34.085] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:44:35.886] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:44:36.685] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.66 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:44:37.285] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 394.013 left: -25938 right: -56178]
+[ DEBUG] [2022-03-11 15:45:07.483] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 424.194 left: -25872 right: -56126]
+[ DEBUG] [2022-03-11 15:45:36.883] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.65 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:45:37.683] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 454.396 left: -25779 right: -56043]
+[ DEBUG] [2022-03-11 15:46:07.883] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 484.597 left: -25759 right: -56052]
+[ DEBUG] [2022-03-11 15:46:36.885] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.63 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:46:37.883] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 514.598 left: -25835 right: -56105]
+[ DEBUG] [2022-03-11 15:46:39.404] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:46:39.485] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:46:44.424] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:46:49.424] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:46:54.444] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:46:59.464] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:47:04.484] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:47:08.083] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 544.8 left: -25893 right: -56193]
+[ DEBUG] [2022-03-11 15:47:09.504] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:47:12.890] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:47:13.285] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:47:16.887] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:47:30.885] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:47:33.285] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:47:34.884] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:47:36.744] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:47:36.884] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:47:37.085] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.63 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:47:38.084] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 574.821 left: 40517 right: 3644]
+[ DEBUG] [2022-03-11 15:47:39.284] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:47:43.484] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:47:45.483] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:48:08.285] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 605.022 left: -7007 right: -29537]
+[ DEBUG] [2022-03-11 15:48:37.085] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.62 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:48:38.483] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 635.204 left: -7005 right: -29535]
+[ DEBUG] [2022-03-11 15:48:56.083] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 1 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:48:58.807] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.48 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 15:48:58.819] [ros.ztexing_node.only_print_log] - Shutdown[power_bt_trigger: 1 battery_percent: 0.48 battery_danger_count: 0]
+[ DEBUG] [2022-03-11 15:48:58.819] [ros.ztexing_node.only_print_log] - Shutdown execute----------->  battery_danger_count: 0]
+[ INFO] [2022-03-11 15:49:32.735] [ros.ztexing_node] - ZTE XING : driver initialised success.
+[ DEBUG] [2022-03-11 15:49:32.939] [ros.ztexing_node.only_print_log] - Battery[voltage: 0 current: 0 percent: 1 status: 0]
+[ DEBUG] [2022-03-11 15:49:32.939] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:49:32.939] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 26.243 left: -17 right: -1]
+[ DEBUG] [2022-03-11 15:49:32.939] [ros.ztexing_node.only_print_log] - Jack[curr_elev_pos: 0(low:0 middle:1 high:2) jack_exe_state: -1]
+[ DEBUG] [2022-03-11 15:50:02.943] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 56.251 left: -14 right: -1]
+[ DEBUG] [2022-03-11 15:50:31.739] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:50:33.138] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.62 current: -1.2 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:50:33.138] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 86.418 left: -68 right: -12]
+[ DEBUG] [2022-03-11 15:50:35.337] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:50:35.739] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:37.338] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:42.138] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:42.738] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:44.139] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:45.503] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:50:45.537] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:50:46.739] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:50:47.338] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:48.739] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:53.140] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:53.541] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:50:55.139] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:51:03.338] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 116.604 left: -182 right: -77]
+[ DEBUG] [2022-03-11 15:51:33.138] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.6 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:51:33.339] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 146.591 left: -185 right: -72]
+[ DEBUG] [2022-03-11 15:52:03.339] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 176.577 left: -247 right: -83]
+[ DEBUG] [2022-03-11 15:52:33.339] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.4 percent: 0.48 status: 0]
+[ DEBUG] [2022-03-11 15:52:33.539] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 206.772 left: -249 right: -84]
+[ DEBUG] [2022-03-11 15:52:38.642] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:52:38.739] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:52:43.642] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:52:48.643] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:52:53.662] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:52:58.662] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:03.682] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:03.739] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 236.974 left: -253 right: -109]
+[ DEBUG] [2022-03-11 15:53:08.702] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:13.702] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:18.722] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:23.742] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:28.742] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:33.539] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.63 current: -1.2 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:53:33.741] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 266.975 left: -253 right: -109]
+[ DEBUG] [2022-03-11 15:53:33.762] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:38.762] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:43.762] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:48.782] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:53.782] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:53:58.802] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:03.802] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:03.940] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 297.177 left: -253 right: -110]
+[ DEBUG] [2022-03-11 15:54:08.822] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:13.822] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:18.842] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:23.842] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:28.862] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:33.738] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.64 current: -1.2 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:54:33.882] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:34.138] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 327.378 left: -253 right: -111]
+[ DEBUG] [2022-03-11 15:54:38.882] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:43.902] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:48.922] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:53.922] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:54:58.922] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:03.942] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:04.139] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 357.379 left: -253 right: -109]
+[ DEBUG] [2022-03-11 15:55:08.942] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:13.962] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:18.962] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:23.962] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:28.982] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:33.739] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.63 current: -1.2 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:55:33.982] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:34.339] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 387.581 left: -254 right: -109]
+[ DEBUG] [2022-03-11 15:55:39.002] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:44.002] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:49.022] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:54.042] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:55:59.042] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:04.042] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:04.538] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 417.782 left: -254 right: -109]
+[ DEBUG] [2022-03-11 15:56:09.062] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:14.062] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:19.063] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:24.082] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:29.082] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:33.939] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.63 current: -1.2 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:56:34.082] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:34.538] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 447.784 left: -253 right: -109]
+[ DEBUG] [2022-03-11 15:56:39.102] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:44.102] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:49.102] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:54.122] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:56:59.142] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:57:04.142] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:57:04.539] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 477.785 left: -254 right: -111]
+[ DEBUG] [2022-03-11 15:57:09.162] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:57:14.163] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:57:19.182] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:57:24.182] [ros.ztexing_node.only_print_log] - Voice[safety_tentacle_triggered] playing.
+[ DEBUG] [2022-03-11 15:57:26.138] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 1 front_bumped: 1 rear_bumped: 1]
+[ DEBUG] [2022-03-11 15:57:26.938] [ros.ztexing_node.only_print_log] - Trigger[enablement: 0 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:57:28.138] [ros.ztexing_node.only_print_log] - Trigger[enablement: 1 power: 0 emeg_stop: 0 front_bumped: 0 rear_bumped: 0]
+[ DEBUG] [2022-03-11 15:57:34.139] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.62 current: -1.3 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:57:34.539] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 507.786 left: -323 right: -131]
+[ DEBUG] [2022-03-11 15:58:04.739] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 537.987 left: -325 right: -133]
+[ DEBUG] [2022-03-11 15:58:34.338] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.3 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:58:34.938] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 568.188 left: -324 right: -131]
+[ DEBUG] [2022-03-11 15:59:05.138] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 598.39 left: -324 right: -133]
+[ DEBUG] [2022-03-11 15:59:34.538] [ros.ztexing_node.only_print_log] - Battery[voltage: 48.61 current: -1.4 percent: 0.47 status: 0]
+[ DEBUG] [2022-03-11 15:59:35.139] [ros.ztexing_node.only_print_log] - Encoder[time_stamp: 628.391 left: -325 right: -132]
