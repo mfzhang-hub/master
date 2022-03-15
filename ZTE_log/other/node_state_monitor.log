@@ -1,0 +1,15 @@
+[rospy.client][INFO] 2022-03-14 09:14:00,845: init_node, name[/node_state_monitor], pid[3114]
+[xmlrpc][INFO] 2022-03-14 09:14:00,846: XML-RPC server binding to 0.0.0.0:0
+[xmlrpc][INFO] 2022-03-14 09:14:00,847: Started XML-RPC server [http://robot:46873/]
+[rospy.init][INFO] 2022-03-14 09:14:00,847: ROS Slave URI: [http://robot:46873/]
+[rospy.impl.masterslave][INFO] 2022-03-14 09:14:00,847: _ready: http://robot:46873/
+[rospy.registration][INFO] 2022-03-14 09:14:00,848: Registering with master node http://127.0.0.1:11311
+[xmlrpc][INFO] 2022-03-14 09:14:00,849: xml rpc node: starting XML-RPC server
+[rospy.init][INFO] 2022-03-14 09:14:00,947: registered with master
+[rospy.rosout][INFO] 2022-03-14 09:14:00,948: initializing /rosout core topic
+[rospy.rosout][INFO] 2022-03-14 09:14:00,990: connected to core topic /rosout
+[rospy.simtime][INFO] 2022-03-14 09:14:01,099: /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+[rospy.internal][INFO] 2022-03-14 09:14:01,241: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:01,566: topic[/mode_control] adding connection to [http://robot:45809/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,328: topic[/diagnostics] adding connection to [/diagnostic_aggregator], count 0
+[rospy.internal][INFO] 2022-03-14 09:16:08,464: topic[/mode_control] adding connection to [http://robot:39981/], count 1

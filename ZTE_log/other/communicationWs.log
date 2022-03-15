@@ -1,0 +1,645 @@
+[rospy.client][INFO] 2022-03-14 09:14:00,715: init_node, name[/communicationWs], pid[2594]
+[xmlrpc][INFO] 2022-03-14 09:14:00,716: XML-RPC server binding to 0.0.0.0:0
+[xmlrpc][INFO] 2022-03-14 09:14:00,716: Started XML-RPC server [http://robot:39559/]
+[rospy.impl.masterslave][INFO] 2022-03-14 09:14:00,716: _ready: http://robot:39559/
+[rospy.init][INFO] 2022-03-14 09:14:00,718: ROS Slave URI: [http://robot:39559/]
+[xmlrpc][INFO] 2022-03-14 09:14:00,719: xml rpc node: starting XML-RPC server
+[rospy.registration][INFO] 2022-03-14 09:14:00,719: Registering with master node http://127.0.0.1:11311
+[rospy.registration][INFO] 2022-03-14 09:14:00,720: Registering publisher topic [/control_system/map_update] type [common_msgs/MapUpdateParam] with master
+[rospy.registration][INFO] 2022-03-14 09:14:00,838: Registering publisher topic [/validateCrc] type [std_msgs/Empty] with master
+[rospy.init][INFO] 2022-03-14 09:14:00,919: registered with master
+[rospy.rosout][INFO] 2022-03-14 09:14:00,919: initializing /rosout core topic
+[rospy.rosout][INFO] 2022-03-14 09:14:00,952: connected to core topic /rosout
+[rospy.simtime][INFO] 2022-03-14 09:14:01,023: /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+[rospy.internal][INFO] 2022-03-14 09:14:01,141: topic[/rosout] adding connection to [/rosout], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:01,474: topic[/tf] adding connection to [http://robot:33317/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:01,475: topic[/tf] adding connection to [http://robot:39053/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:01,478: topic[/tf] adding connection to [http://robot:39171/], count 2
+[rospy.internal][INFO] 2022-03-14 09:14:01,480: topic[/tf] adding connection to [http://robot:43223/], count 3
+[rospy.internal][INFO] 2022-03-14 09:14:01,484: topic[/tf] adding connection to [http://robot:45983/], count 4
+[rospy.internal][INFO] 2022-03-14 09:14:01,502: topic[/tf_static] adding connection to [http://robot:39053/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,102: topic[/move_base_simple/canceledPlan] adding connection to [http://robot:39559/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,103: topic[/move_base_simple/canceledPlan] adding connection to [/communicationWs], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,156: topic[/validateCrc] adding connection to [http://robot:39559/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,161: topic[/validateCrc] adding connection to [/communicationWs], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,171: topic[/control_system/clearAgvTasks] adding connection to [http://robot:39559/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,172: topic[/control_system/clearAgvTasks] adding connection to [/communicationWs], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,182: topic[/control_system/map_update] adding connection to [http://robot:39559/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,193: topic[/control_system/map_update] adding connection to [/communicationWs], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:02,675: topic[/diagnostics] adding connection to [/diagnostic_aggregator], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:04,308: topic[/validateCrc] adding connection to [http://robot:34887/], count 1
+[rospy.internal][INFO] 2022-03-14 09:14:04,309: topic[/control_system/map_update] adding connection to [http://robot:34887/], count 1
+[rospy.internal][INFO] 2022-03-14 09:14:05,836: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:05,867: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:09,626: topic[/tf] adding connection to [http://robot:38085/], count 5
+[rospy.internal][INFO] 2022-03-14 09:14:09,843: topic[/display_exception] adding connection to [http://robot:39277/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:10,008: topic[/tf] adding connection to [http://robot:34407/], count 6
+[rospy.internal][INFO] 2022-03-14 09:14:10,012: topic[/switch_map_feedback] adding connection to [http://robot:35835/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:10,113: topic[/switch_map] adding connection to [/navigation_switch_map], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:10,126: topic[/tf] adding connection to [http://robot:36243/], count 7
+[rospy.internal][INFO] 2022-03-14 09:14:10,190: topic[/laser_odom] adding connection to [http://robot:36243/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:10,217: topic[/switch_map] adding connection to [/location_node], count 1
+[rospy.internal][INFO] 2022-03-14 09:14:10,218: topic[/validateCrc] adding connection to [http://robot:45463/], count 2
+[rospy.internal][INFO] 2022-03-14 09:14:10,218: topic[/switch_map_feedback] adding connection to [http://robot:45463/], count 1
+[rospy.internal][INFO] 2022-03-14 09:14:10,258: topic[/tf] adding connection to [http://robot:41853/], count 8
+[rospy.internal][INFO] 2022-03-14 09:14:10,285: topic[/switch_map] adding connection to [/map_server], count 2
+[rospy.internal][INFO] 2022-03-14 09:14:10,807: topic[/move_base_simple/canceledPlan] adding connection to [/mapTest_graph], count 1
+[rospy.internal][INFO] 2022-03-14 09:14:10,908: topic[/move_base_simple/resetState] adding connection to [/mapTest_graph], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:10,909: topic[/move_base_simple/offlinePlannedRoute] adding connection to [/mapTest_graph], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:10,977: topic[/move_base_simple/finishedPlan] adding connection to [http://robot:42545/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:12,243: topic[/control_system/control_system_crc] adding connection to [http://robot:39981/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:12,455: topic[/tf] adding connection to [http://robot:42545/], count 9
+[rospy.internal][INFO] 2022-03-14 09:14:13,369: topic[/move_base_simple/finish_cycle_task] adding connection to [http://robot:42545/], count 0
+[rospy.internal][INFO] 2022-03-14 09:14:13,489: topic[/finish_dispatch_task] adding connection to [/mapTest_graph], count 0
+[rospy.internal][INFO] 2022-03-14 09:16:09,879: topic[/switch_map] removing connection to /navigation_switch_map
+[rospy.internal][INFO] 2022-03-14 09:16:09,879: topic[/switch_map] removing connection to /map_server
+[rospy.internal][WARNING] 2022-03-14 09:16:10,378: Unknown error initiating TCP/IP socket to robot:51985 (http://robot:35835/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:10,378: topic[/switch_map_feedback] removing connection to http://robot:35835/
+[rospy.internal][WARNING] 2022-03-14 09:16:11,099: Unknown error initiating TCP/IP socket to robot:54137 (http://robot:34407/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:11,100: topic[/tf] removing connection to http://robot:34407/
+[rospy.internal][WARNING] 2022-03-14 09:16:13,803: Unknown error initiating TCP/IP socket to robot:55817 (http://robot:38085/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:13,804: topic[/tf] removing connection to http://robot:38085/
+[rospy.internal][WARNING] 2022-03-14 09:16:14,751: Unknown error initiating TCP/IP socket to robot:55543 (http://robot:41853/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:14,752: topic[/tf] removing connection to http://robot:41853/
+[rospy.internal][INFO] 2022-03-14 09:16:15,719: topic[/switch_map] removing connection to /location_node
+[rospy.internal][WARNING] 2022-03-14 09:16:15,733: Unknown error initiating TCP/IP socket to robot:50249 (http://robot:45463/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:15,733: topic[/validateCrc] removing connection to http://robot:45463/
+[rospy.internal][WARNING] 2022-03-14 09:16:15,734: Unknown error initiating TCP/IP socket to robot:50249 (http://robot:45463/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:15,734: topic[/switch_map_feedback] removing connection to http://robot:45463/
+[rospy.internal][WARNING] 2022-03-14 09:16:15,898: Unknown error initiating TCP/IP socket to robot:40605 (http://robot:39277/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:15,898: topic[/display_exception] removing connection to http://robot:39277/
+[rospy.internal][WARNING] 2022-03-14 09:16:15,930: Unknown error initiating TCP/IP socket to robot:48911 (http://robot:36243/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:15,930: topic[/tf] removing connection to http://robot:36243/
+[rospy.internal][WARNING] 2022-03-14 09:16:15,931: Unknown error initiating TCP/IP socket to robot:48911 (http://robot:36243/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:15,931: topic[/laser_odom] removing connection to http://robot:36243/
+[rospy.internal][INFO] 2022-03-14 09:16:16,220: topic[/move_base_simple/offlinePlannedRoute] removing connection to /mapTest_graph
+[rospy.internal][INFO] 2022-03-14 09:16:16,220: topic[/move_base_simple/resetState] removing connection to /mapTest_graph
+[rospy.internal][INFO] 2022-03-14 09:16:16,220: topic[/finish_dispatch_task] removing connection to /mapTest_graph
+[rospy.internal][INFO] 2022-03-14 09:16:16,221: topic[/move_base_simple/canceledPlan] removing connection to /mapTest_graph
+[rospy.internal][WARNING] 2022-03-14 09:16:16,247: Unknown error initiating TCP/IP socket to robot:34377 (http://robot:42545/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:16,247: topic[/move_base_simple/finishedPlan] removing connection to http://robot:42545/
+[rospy.internal][WARNING] 2022-03-14 09:16:16,247: Unknown error initiating TCP/IP socket to robot:34377 (http://robot:42545/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:16,247: topic[/tf] removing connection to http://robot:42545/
+[rospy.internal][WARNING] 2022-03-14 09:16:16,248: Unknown error initiating TCP/IP socket to robot:34377 (http://robot:42545/): Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 650, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 362, in read_ros_handshake_header
+    d = sock.recv(buff_size)
+error: [Errno 104] Connection reset by peer
+
+[rospy.internal][INFO] 2022-03-14 09:16:16,248: topic[/move_base_simple/finish_cycle_task] removing connection to http://robot:42545/
+[rospy.internal][INFO] 2022-03-14 09:18:17,934: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 1
+[rospy.internal][INFO] 2022-03-14 09:18:17,934: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 09:18:17,998: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 1
+[rospy.internal][INFO] 2022-03-14 09:18:17,998: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 09:18:44,975: topic[/control_system/StationDistribute] adding connection to [http://robot:39981/], count 0
+[rosout][INFO] 2022-03-14 09:18:45,008: msg: 
+[rosout][ERROR] 2022-03-14 09:18:45,499: ***********distributeMapId:3854050a-a1d4-11ec-bb00-b0416f0601b8 
+[rosout][ERROR] 2022-03-14 09:18:45,530: distributeStation.py->getMapCrc():[Errno 2] No such file or directory: '/root/params/map.png'
+[rosout][ERROR] 2022-03-14 09:18:45,532: distributeStation.py->getMapCrc():[Errno 2] No such file or directory: '/root/params/map.png'
+[rosout][INFO] 2022-03-14 09:18:45,545: validateCrc success
+[rosout][ERROR] 2022-03-14 09:18:45,637: distributeStation.py->getMapCrc():[Errno 2] No such file or directory: '/root/params/map.png'
+[rosout][INFO] 2022-03-14 09:18:45,661: validateCrc success
+[rosout][INFO] 2022-03-14 09:18:45,693: StationDistribute success
+[rospy.internal][INFO] 2022-03-14 09:20:26,098: topic[/tf] adding connection to [http://robot:41877/], count 5
+[rospy.internal][INFO] 2022-03-14 09:20:26,215: topic[/display_exception] adding connection to [http://robot:35907/], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:26,432: topic[/tf] adding connection to [http://robot:37099/], count 6
+[rospy.internal][INFO] 2022-03-14 09:20:26,498: topic[/tf] adding connection to [http://robot:36473/], count 7
+[rospy.internal][INFO] 2022-03-14 09:20:26,500: topic[/switch_map_feedback] adding connection to [http://robot:37269/], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:26,601: topic[/switch_map] adding connection to [/navigation_switch_map], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:26,630: topic[/switch_map] adding connection to [/map_server], count 1
+[rospy.internal][INFO] 2022-03-14 09:20:26,664: topic[/laser_odom] adding connection to [http://robot:36473/], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:26,734: topic[/tf] adding connection to [http://robot:36161/], count 8
+[rospy.internal][INFO] 2022-03-14 09:20:26,946: topic[/validateCrc] adding connection to [http://robot:42649/], count 2
+[rospy.internal][INFO] 2022-03-14 09:20:26,946: topic[/switch_map_feedback] adding connection to [http://robot:42649/], count 1
+[rospy.internal][INFO] 2022-03-14 09:20:27,124: topic[/switch_map] adding connection to [/location_node], count 2
+[rospy.internal][INFO] 2022-03-14 09:20:27,364: topic[/move_base_simple/finishedPlan] adding connection to [http://robot:34873/], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:27,365: topic[/move_base_simple/resetState] adding connection to [/mapTest_graph], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:27,365: topic[/move_base_simple/canceledPlan] adding connection to [/mapTest_graph], count 1
+[rospy.internal][INFO] 2022-03-14 09:20:27,366: topic[/move_base_simple/offlinePlannedRoute] adding connection to [/mapTest_graph], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:27,791: topic[/tf] adding connection to [http://robot:34873/], count 9
+[rospy.internal][INFO] 2022-03-14 09:20:28,507: topic[/move_base_simple/finish_cycle_task] adding connection to [http://robot:34873/], count 0
+[rospy.internal][INFO] 2022-03-14 09:20:28,730: topic[/finish_dispatch_task] adding connection to [/mapTest_graph], count 0
+[rosout][INFO] 2022-03-14 09:21:04,250: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:21:57,070: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:22:38,455: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:23:30,770: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:24:12,270: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:25:04,869: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:25:46,659: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:26:38,877: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:27:20,558: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:28:19,928: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:29:03,498: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:29:59,351: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:30:40,340: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:31:38,813: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:32:20,361: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:33:13,956: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:33:55,153: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:34:49,139: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:35:30,554: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:36:23,868: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:37:05,050: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:38:01,359: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:38:43,408: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:39:36,280: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:40:17,695: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:41:10,013: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:41:51,779: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:42:44,649: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:43:26,441: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:44:21,973: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:45:03,352: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:45:56,565: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:46:38,148: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:47:31,815: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:48:13,468: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:49:06,648: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:49:47,835: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:50:40,977: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:51:22,250: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:52:23,447: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:53:04,886: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:54:02,693: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:54:44,071: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:55:42,394: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:56:23,812: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:57:25,944: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:58:07,964: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 09:59:07,568: taskHandler.py-->goalReached
+[rospy.internal][INFO] 2022-03-14 09:59:37,585: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 09:59:37,585: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rosout][WARNING] 2022-03-14 09:59:38,132: Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+[rospy.internal][ERROR] 2022-03-14 09:59:38,132: Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+[rospy.internal][INFO] 2022-03-14 09:59:39,509: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 09:59:39,611: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rosout][INFO] 2022-03-14 09:59:48,950: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:00:48,266: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:01:29,451: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:02:30,866: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:03:12,415: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:04:34,067: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:05:15,502: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:06:17,189: taskHandler.py-->goalReached
+[rospy.internal][INFO] 2022-03-14 10:06:25,344: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 10:06:25,345: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rosout][WARNING] 2022-03-14 10:06:26,178: Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+[rospy.internal][ERROR] 2022-03-14 10:06:26,178: Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+[rospy.internal][INFO] 2022-03-14 10:06:26,453: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 10:06:26,590: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rosout][INFO] 2022-03-14 10:06:58,539: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:07:55,857: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:08:37,647: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:09:35,802: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:10:18,268: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:11:17,369: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:11:58,539: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:12:58,365: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:13:39,556: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:14:35,214: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:15:16,568: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:16:15,278: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:16:56,986: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:17:49,950: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:18:31,564: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:19:31,247: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:20:12,365: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:21:12,677: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:21:54,151: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:22:54,179: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:23:35,506: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:24:33,680: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:25:15,365: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:26:13,163: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:26:54,367: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:27:53,311: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:28:34,692: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:29:36,778: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:30:18,247: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:31:19,037: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:32:00,553: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:32:58,656: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:33:39,866: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:34:37,768: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:35:19,348: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:36:25,996: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:37:08,057: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:38:00,596: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:38:41,849: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:39:48,148: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:40:29,468: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:41:29,276: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:42:11,193: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:43:03,645: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:43:45,207: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:44:42,964: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:45:24,464: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:46:40,344: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:47:40,467: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:48:53,969: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:49:39,202: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:51:08,005: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:51:48,856: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:53:20,294: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:54:01,578: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:55:37,769: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:56:18,857: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:57:57,774: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 10:58:38,876: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:00:12,945: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:00:54,249: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:02:26,376: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:03:07,445: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:04:40,744: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:05:22,193: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:06:56,985: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:07:38,104: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:09:20,836: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:10:02,167: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:11:56,155: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:12:36,963: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:14:09,244: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:14:49,890: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:16:30,671: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:17:11,300: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:18:44,616: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:19:28,553: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:20:59,850: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:21:40,655: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:23:15,507: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:23:57,269: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:25:29,262: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:26:10,674: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:27:34,905: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:28:22,600: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:29:49,500: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:30:30,847: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:32:04,846: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:32:45,548: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:34:20,468: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:35:01,568: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:36:34,977: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:37:16,509: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:38:51,482: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:39:32,906: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:41:05,944: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:41:47,187: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:43:22,455: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:44:03,395: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:45:29,870: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:46:10,995: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:47:44,443: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:48:25,367: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:50:10,963: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:50:52,077: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:52:26,446: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:53:07,463: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:54:38,962: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:55:20,304: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:56:54,167: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:57:35,565: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:59:06,689: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 11:59:48,007: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:03:19,248: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:04:00,350: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:05:45,800: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:06:27,637: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:07:53,372: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:08:35,025: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:10:06,549: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:10:48,029: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:12:20,755: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:13:01,868: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:14:51,846: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:15:32,932: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:26:16,217: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:26:57,053: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:28:31,769: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:29:13,167: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:30:46,827: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:31:27,124: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:33:00,029: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:33:40,826: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:35:20,926: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:36:02,226: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:37:55,952: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:38:37,065: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:40:07,371: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:40:48,727: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:42:21,073: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:43:02,138: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:44:49,917: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:45:31,481: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:47:18,646: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:47:59,799: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:49:34,535: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:50:15,575: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:51:41,957: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:52:24,019: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:53:55,850: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:54:37,150: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:56:11,696: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:56:52,966: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:58:25,842: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 12:59:06,471: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:00:41,819: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:01:26,127: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:02:55,549: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:03:37,422: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:05:13,328: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:05:54,653: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:07:28,747: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:08:10,731: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:09:42,049: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:10:23,636: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:11:59,224: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:12:40,724: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:14:15,323: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:14:57,247: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:16:34,127: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:17:15,056: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:18:49,572: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:19:31,251: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:20:54,861: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:21:42,379: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:23:06,648: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:23:48,701: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:25:20,488: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:26:02,228: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:27:58,252: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:28:39,340: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:30:14,948: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:30:56,735: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:32:33,866: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:33:15,362: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:34:52,195: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:35:34,059: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:37:09,889: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:37:50,745: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:39:29,577: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:40:13,761: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:42:00,573: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:42:43,189: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:44:16,948: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:44:58,529: taskHandler.py-->goalReached
+[rospy.internal][INFO] 2022-03-14 13:45:28,382: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 13:45:28,382: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 13:45:32,284: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 13:45:32,437: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rosout][INFO] 2022-03-14 13:46:33,233: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:47:15,239: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:48:50,052: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:49:31,257: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:50:59,230: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:51:41,152: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:53:16,252: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:54:01,431: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:55:38,549: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:56:23,127: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:57:56,055: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 13:58:37,791: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:00:12,765: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:00:54,374: taskHandler.py-->goalReached
+[rospy.internal][INFO] 2022-03-14 14:01:49,628: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 14:01:49,628: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 14:01:49,789: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 14:01:49,928: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rosout][INFO] 2022-03-14 14:02:27,968: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:03:09,124: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:04:46,282: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:05:29,323: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:07:29,959: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:08:11,723: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:10:18,668: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:10:59,820: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:12:51,123: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:13:32,690: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:15:07,878: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:15:49,169: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:17:26,064: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:26:44,939: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:27:51,381: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:28:44,554: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:30:11,624: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:30:52,513: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:32:26,767: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:33:46,741: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:35:43,332: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:36:28,052: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:38:21,850: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:39:02,938: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:40:43,926: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:41:55,150: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:43:04,166: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:43:56,941: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:45:19,389: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:46:01,123: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:47:36,371: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:48:17,455: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 14:53:07,850: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:51:32,989: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:52:14,727: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:53:38,450: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:54:19,733: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:57:35,249: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:58:35,155: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 15:59:54,258: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:00:35,784: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:02:11,329: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:02:53,510: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:04:31,568: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:05:13,425: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:06:50,573: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:07:32,055: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:09:08,713: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:09:49,942: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:10:52,679: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:12:39,553: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:13:40,147: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:14:22,651: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:15:24,490: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:16:06,588: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:17:07,944: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:17:49,960: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:18:49,553: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:19:31,449: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:20:27,027: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:21:11,965: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:22:11,268: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:22:59,628: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:23:54,657: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:24:36,533: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:25:36,388: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:26:17,886: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:27:19,912: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:28:06,447: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:29:09,804: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:29:51,537: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:30:53,373: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:31:34,853: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:32:34,861: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:33:16,946: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:34:17,039: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:34:58,526: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:35:59,139: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:36:40,835: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:37:44,544: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:38:26,333: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:39:26,124: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:40:07,566: taskHandler.py-->goalReached
+[rospy.internal][INFO] 2022-03-14 16:40:17,590: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 16:40:17,591: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 16:40:17,593: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 0
+[rospy.internal][INFO] 2022-03-14 16:40:17,734: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rosout][INFO] 2022-03-14 16:41:07,647: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:41:49,641: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:42:43,189: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:43:26,161: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:44:30,940: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:45:13,124: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:46:14,738: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:46:56,273: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:47:52,650: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:48:33,963: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:49:40,849: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:50:21,874: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:51:21,851: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:52:03,434: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:53:07,367: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:53:49,436: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:54:48,657: taskHandler.py-->goalReached
+[rosout][WARNING] 2022-03-14 16:55:22,049: Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+[rospy.internal][ERROR] 2022-03-14 16:55:22,050: Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+[rospy.internal][INFO] 2022-03-14 16:55:22,293: topic[/control_system/StationDistributeInfo] adding connection to [/rosbridge_websocket], count 1
+[rospy.internal][INFO] 2022-03-14 16:55:22,294: topic[/control_system/StationDistributeInfo] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 16:55:22,299: topic[/move_base_simple/switchMapSuccess] removing connection to /rosbridge_websocket
+[rospy.internal][INFO] 2022-03-14 16:55:22,494: topic[/move_base_simple/switchMapSuccess] adding connection to [/rosbridge_websocket], count 0
+[rosout][INFO] 2022-03-14 16:55:30,545: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:56:32,362: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:57:14,358: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:58:16,935: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:58:58,932: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 16:59:58,551: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:00:41,028: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:01:40,859: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:02:23,238: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:03:23,894: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:04:06,069: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:05:06,674: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:05:48,832: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:06:48,466: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:07:29,940: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:08:32,531: taskHandler.py-->goalReached
+[rosout][INFO] 2022-03-14 17:09:16,823: taskHandler.py-->goalReached
