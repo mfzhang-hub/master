@@ -16,21 +16,21 @@ elif [ $1 -eq 4 ]   #光通讯模块发送0x99
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+   rostopic pub -r 1 /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0
 dmsData: 0x99"  
 elif [ $1 -eq 5 ]   #光通讯模块发送0x66
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+   rostopic pub -r 1 /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0
 dmsData: 0x66"  
 elif [ $1 -eq 6 ]   #读取光通讯模块
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+   rostopic pub -r 1 /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0
 dmsData: 0"  
 elif [ $1 -eq 7 ]   #左和右光通讯模块关闭
