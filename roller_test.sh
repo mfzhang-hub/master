@@ -46,11 +46,11 @@ then
    source devel_isolated/setup.bash 
 elif [ $1 -eq 9 ]   #滚筒转速500(正转)
 then
-   cd /mnt/
+cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
-cmd: 0x21
-dmsData: 0" 
+cmd: 0x22
+dmsData: 0"    
 elif [ $1 -eq 10 ]   #滚筒速度0 （停止转动）
 then
    cd /mnt/
