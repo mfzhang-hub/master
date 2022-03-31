@@ -20,7 +20,7 @@ function delFile(){
     break
     done
     echo $fileSize
-    size=20000000  #可在此修改数据
+    size=20000000   #可修改配置
     if [ $fileSize -gt $size ] ; then
     mv ~/cpu/cpu.log ~/cpu/cpu.log1
     fi	
