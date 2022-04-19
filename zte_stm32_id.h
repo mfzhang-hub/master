@@ -37,6 +37,8 @@ namespace zte_id_T260GT //T260辊筒车型
     enum {
       GT_01010301010206,  //
 
+      
+
     };
 } //
 

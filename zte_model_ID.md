@@ -3,6 +3,7 @@
  # Rosservice call /getStm32VersionNumber查看终端输出是否为改车对应的ID
 
 model_T260DS {
+    
 
       OUTPUT：{
           Serial_code   1
