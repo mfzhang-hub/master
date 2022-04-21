@@ -114,7 +114,7 @@ model_T261ZDQY {
  
 }，
 
-model_T261DL(double_roller_two) {
+model_T261DL(double_two_roller) {
 
       OUTPUT：{
           Serial_code   1
