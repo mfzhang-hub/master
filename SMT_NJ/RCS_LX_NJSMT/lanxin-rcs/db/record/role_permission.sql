@@ -1,0 +1,7 @@
+-- creat table 2021/4/20 jhh
+DROP TABLE IF EXISTS `role_permission`;
+CREATE TABLE `role_permission`(
+  `id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'ID',
+  `r_id` BIGINT NOT NULL COMMENT '角色ID',
+  `p_id` BIGINT NOT NULL COMMENT '权限ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色权限关联表';

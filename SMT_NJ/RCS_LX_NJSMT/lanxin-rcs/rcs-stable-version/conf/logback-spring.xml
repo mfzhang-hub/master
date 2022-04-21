@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+1) 根节点<configuration>，包含下面三个属性：
+　　　　scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+　　　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+　　　　debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。-->
+<configuration scan="true" scanPeriod="60" debug="false">
+    <property name="LOG_HOME" value="logs"/>
+
+    <!--控制台输出日志格式-->
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS,GMT+8} -- %-5level -- [%thread] -- %logger{50}:%line\ --- %msg %n}"/>
+    <!--文件输出日志格式-->
+    <property name="FILE_LOG_PATTERN" value="${FILE_LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS,GMT+8} -- %-5level -- [%thread] -- %logger{50}:%line\ --- %msg %n}"/>
+    <!-- 视频日志格式 -->
+    <property name="VIDEO_LOG_PATTERN" value="${VIDEO_LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS,GMT+8} %msg %n}"/>
+    <!-- wcs日志文件格式 -->
+    <property name="WCS_LOG_PATTERN" value="${WCS_LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS,GMT+8} %msg %n}"/>
+
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <!--当环境是dev开发环境时，这部分配置才生效-->
+<!--        <springProfile name="dev">-->
+            <!--日志输出格式-->
+            <encoder>
+                <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+                <charset>UTF-8</charset>
+            </encoder>
+<!--        </springProfile>-->
+    </appender>
+
+
+    <appender name="CoreFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--当环境是production生产环境时，这部分配置才生效
+                即在production生产环境上，我们才将日志信息记录到日志文件中-->
+        <!--      <springProfile name="test">-->
+        <!--日志文件保存路径，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建 -->
+        <!--<filter class="com.lanxincn.jlego.core.log.filter.ThreadNameFilter">
+            <threadNamePattern>AmrExecutor</threadNamePattern>
+        </filter>-->
+        <!--<filter class="com.lanxincn.jlego.core.log.filter.LoggerNameFilter">
+            <excludeLoggerName>com.lanxincn.rcs.core.comm</excludeLoggerName>
+        </filter>-->
+        <filter class="com.lanxincn.jlego.core.log.filter.LoggerNameFilter">
+            <excludeLoggerName>com.lanxincn.rcs.core.traffic</excludeLoggerName>
+        </filter>
+        <file>${LOG_HOME}/rcs/rcs.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/rcs/rcs-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>50MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="TrafficFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--当环境是production生产环境时，这部分配置才生效
+                即在production生产环境上，我们才将日志信息记录到日志文件中-->
+        <!--      <springProfile name="test">-->
+        <!--日志文件保存路径，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建 -->
+        <!--<filter class="com.lanxincn.jlego.core.log.filter.ThreadNameFilter">
+            <threadNamePattern>AmrExecutor</threadNamePattern>
+        </filter>-->
+        <filter class="com.lanxincn.jlego.core.log.filter.LoggerNameFilter">
+            <includeLoggerName>com.lanxincn.rcs.core.traffic</includeLoggerName>
+        </filter>
+        <file>${LOG_HOME}/traffic/traffic.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/traffic/traffic-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="VideoLogFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--当环境是production生产环境时，这部分配置才生效
+                即在production生产环境上，我们才将日志信息记录到日志文件中-->
+        <!--      <springProfile name="test">-->
+        <!--日志文件保存路径，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建 -->
+        <!--<filter class="com.lanxincn.jlego.core.log.filter.ThreadNameFilter">
+            <threadNamePattern>AmrExecutor</threadNamePattern>
+        </filter>-->
+
+        <file>${LOG_HOME}/video/video.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/video/video-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认15天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${VIDEO_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="WcsLogFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--当环境是production生产环境时，这部分配置才生效
+                即在production生产环境上，我们才将日志信息记录到日志文件中-->
+        <!--      <springProfile name="test">-->
+        <!--日志文件保存路径，可以是相对目录，也可以是绝对目录，如果上级目录不存在会自动创建 -->
+        <!--<filter class="com.lanxincn.jlego.core.log.filter.ThreadNameFilter">
+            <threadNamePattern>AmrExecutor</threadNamePattern>
+        </filter>-->
+
+        <file>${LOG_HOME}/wcs/wcs.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/wcs/wcs-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认15天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${WCS_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="RollerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/roller/rol.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/roller/hzx-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${WCS_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="ZxLxAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/zx/zx-Lx.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/zx/zx-lx-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${WCS_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="ZxReceiveAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/zx/zxReceive.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/zx/zxReceive-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${WCS_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <appender name="ZxOutAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/zx/zxOutPlatFrom.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/zx/zxOutPlatFrom-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${WCS_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+
+    <appender name="ZxInAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/zx/zxInPlatFrom.log</file>
+        <!--基于大小和时间的轮转策略，当日志内容超出文件大小限制后，会自动生成一个文件来继续记录和重命名-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--当日志内容超出文件大小限制后，会自动生成一个文件来继续记录，文件按下面格式命名-->
+            <fileNamePattern>${LOG_HOME}/zx/zxInPlatFrom-%d{yyyy-MM-dd}-%i.log.gz</fileNamePattern>
+            <!--文件最大限制，默认10MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--文件最大保存周期，默认7天-->
+            <maxHistory>15</maxHistory>
+            <!--所有归档文件总的大小限制-->
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <!--日志输出格式-->
+        <encoder>
+            <pattern>${WCS_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!--      </springProfile>-->
+    </appender>
+
+    <Logger name="zxLog-lx" additivity="false" level="INFO">
+        <appender-ref ref="ZxLxAppender"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+    <Logger name="zxLog-receive" additivity="false" level="INFO">
+        <appender-ref ref="ZxReceiveAppender"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+    <Logger name="zxLog-OutPlatFrom" additivity="false" level="INFO">
+        <appender-ref ref="ZxOutAppender"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+    <Logger name="zxLog-InPlatFrom" additivity="false" level="INFO">
+        <appender-ref ref="ZxInAppender"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+
+    <Logger name="rollerLog" additivity="false" level="INFO">
+        <appender-ref ref="RollerAppender"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+    <logger name="com.lanxincn" level="INFO"/>
+
+    <Logger name="videoLog" additivity="false" level="INFO">
+        <appender-ref ref="VideoLogFileAppender" />
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+    <Logger name="wcsLog" additivity="false" level="INFO">
+        <appender-ref ref="WcsLogFileAppender" />
+        <appender-ref ref="ConsoleAppender"/>
+    </Logger>
+
+
+    <root level="INFO">
+        <appender-ref ref="ConsoleAppender"/>
+<!--        <appender-ref ref="CommFileAppender"/>-->
+        <appender-ref ref="CoreFileAppender"/>
+        <appender-ref ref="TrafficFileAppender"/>
+    </root>
+
+</configuration>

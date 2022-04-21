@@ -1,0 +1,2 @@
+2022-04-14 17:46:53.991 -- INFO  -- [main] -- c.l.rcs.core.traffic.block.TrafficBlockCache:66 --- sync traffic block cache and new blocks is {} 
+2022-04-14 17:46:53.993 -- INFO  -- [main] -- c.l.rcs.core.traffic.block.TrafficBlockCache:74 --- sync traffic block cache and new blocks vertexs is {} 

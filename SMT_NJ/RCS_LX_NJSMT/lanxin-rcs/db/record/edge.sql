@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS `edge`;
+CREATE TABLE `edge` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `source` varchar(255) DEFAULT NULL COMMENT '起点code',
+  `target` varchar(255) DEFAULT NULL COMMENT '目标点code',
+  `type` int(4) DEFAULT NULL COMMENT '类型',
+  `max_speed` double DEFAULT NULL COMMENT '最大速度',
+  `safe_distance` double DEFAULT NULL COMMENT '安全距离',
+  `point_mode` int(4) DEFAULT 1 COMMENT '到点模式 0-精确 1-一般 ,2-精确(无头0) ,3-一般(无头)',
+  `is_avoidance` int(4) DEFAULT 1 COMMENT '是否避障 0-否 1-是',
+  `avoidance_mode` int(4) DEFAULT 0 COMMENT '避障模式',
+  `expansion_mode` int(4) DEFAULT 0 COMMENT '膨胀模式',
+  `navigation_mode` int(4) DEFAULT 0 COMMENT '导航模式 0-前进模式 1-后退模式 2-无头模式',
+  `turning_mode` int(4) DEFAULT 0 COMMENT '转弯模式 0-圆弧转弯 1-直角转弯',
+  `cost` double DEFAULT 1 COMMENT '路线权重',
+  `location_mode` int(4) DEFAULT 0 COMMENT '定位模式',
+  `sensor` varchar(255) DEFAULT NULL COMMENT '传感器',
+  `path_width` double DEFAULT 0 COMMENT '路径宽度',
+  `min_turn_radius` double DEFAULT 0 COMMENT '最小转弯半径',
+  `distance_2_point` double(255,0) DEFAULT 0 COMMENT '到点距离阈值',
+  `angle_2_point` double(255,0) DEFAULT 0 COMMENT '到点角度阈值',
+  `forbidden_full` int(4) DEFAULT 0 COMMENT '禁止满车 0-否 1-是',
+  `forbidden_empty` int(4) DEFAULT 0 COMMENT '禁止空车 0-否 1-是',
+  `extend` varchar(2550) DEFAULT NULL COMMENT '拓展 ,json格式',
+  `map_id` bigint(20) DEFAULT NULL COMMENT '地图id',
+  `distance` double DEFAULT 0 COMMENT '距离',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
