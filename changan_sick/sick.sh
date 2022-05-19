@@ -146,28 +146,28 @@ source devel_isolated/setup.bash &
     rostopic echo /scan_back >> ~/SICK/rostopic_back_scan.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/SICK/lsusb_camera.log &
-    lsusb >> ~/SICK/lsusb_camera.log
+    echo $ttime >> ~/SICK/lsusb_camera.log 
+    lsusb >> ~/SICK/lsusb_camera.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/SICK/camera_ros.log &
-    ps -ef | grep lx_up_camera_image >> ~/SICK/camera_ros.log
+    echo $ttime >> ~/SICK/camera_ros.log 
+    ps -ef | grep lx_up_camera_image >> ~/SICK/camera_ros.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/SICK/camera_ros.log &
-    ps -ef | grep lx_down_camera_image >> ~/SICK/camera_ros.log
+    echo $ttime >> ~/SICK/camera_ros.log 
+    ps -ef | grep lx_down_camera_image >> ~/SICK/camera_ros.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/SICK/scan_front_ros.log &
-    ps -ef | grep scan_front >> ~/SICK/scan_front_ros.log
+    echo $ttime >> ~/SICK/scan_front_ros.log 
+    ps -ef | grep scan_front >> ~/SICK/scan_front_ros.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/SICK/scan_back_ros.log &
-    ps -ef | grep scan_back >> ~/SICK/scan_back_ros.log
+    echo $ttime >> ~/SICK/scan_back_ros.log 
+    ps -ef | grep scan_back >> ~/SICK/scan_back_ros.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    echo $ttime >> ~/SICK/pgv100_scan.log &
-    rostopic echo /pgv100_scan >> ~/SICK/pgv100_scan.log
+    echo $ttime >> ~/SICK/pgv100_scan.log 
+    rostopic echo /pgv100_scan >> ~/SICK/pgv100_scan.log &
     sleep 0.01
      
 
