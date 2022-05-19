@@ -29,7 +29,7 @@ function delFile(){
     break
     done
     echo $fileSize
-    size=2000000    #可根据现场需求以及实际日志输出大小而定  size=kb
+    size=2000000    #可根据现场需求以及实际日志输出大小而定
     if [ $fileSize -gt $size ] ; then
     mv ~/SICK/sick_front_scan.log ~/SICK/sick_front_scan.log1
     fi	
