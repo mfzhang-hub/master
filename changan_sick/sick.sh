@@ -29,7 +29,7 @@ function delFile(){
     break
     done
     echo $fileSize
-    size=20000   #可根据现场需求以及实际日志输出大小而定
+    size=20   #可根据现场需求以及实际日志输出大小而定
 
     #SOURCE_FILES_PATH="string"
     #TARGET_FILES_PATH="string"
@@ -52,9 +52,6 @@ function delFile(){
     if [ $fileSize -gt $size ] ; then
     mv ~/SICK/sick_back_scan.log ~/SICK/sick_back_scan.log1
     fi	
-   if [ $fileSize -gt $size ] ; then
-    mv ~/SICK/rostopic_back_scan.log ~/SICK/rostopic_back_scan.log1
-    fi
     #if [ $fileSize -gt $size ] ; then
     #mv ~/SICK/rostopic_front_scan.log ~/SICK/rostopic_front_scan.log1
     #fi
@@ -74,10 +71,10 @@ function delFile(){
     mv ~/SICK/camera_ros.log ~/SICK/camera_ros.log1
     fi
     if [ $fileSize -gt $size ] ; then
-    mv ~/SICK/scna_front_ros.log ~/SICK/scan_front_ros.log1
+    mv ~/SICK/scan_front_ros.log ~/SICK/scan_front_ros.log1
     fi
     if [ $fileSize -gt $size ] ; then
-    mv ~/SICK/scna_back_ros.log ~/SICK/scan_back_ros.log1
+    mv ~/SICK/scan_back_ros.log ~/SICK/scan_back_ros.log1
     fi
     #if [ $fileSize -gt $size ] ; then
     #mv ~/SICK/pgv100_scan.log ~/SICK/pgv100_scan.log1
@@ -112,6 +109,17 @@ do
 #source devel_isolated/setup.bash &
 
 
+#destination_front_ip=192.168.100.104
+#if ping -c1 $destination_front_ip &> ~/SICK/sick_front_scan.log
+#then 
+#echo "$destination_front_ip is online."
+#else
+#echo "$destination_front_ip is offline."
+#fi
+
+
+
+
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/cpu_all_ros.log
     top -bn 1 -i -c | head -6 >> ~/SICK/cpu_all_ros.log
@@ -135,7 +143,7 @@ do
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/sick_front_scan.log
     ping -c 1 192.168.100.104 >> ~/SICK/sick_front_scan.log &
-    #sleep 0.01
+    sleep 0.1
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/sick_back_scan.log
     ping -c 1 192.168.100.108 >> ~/SICK/sick_back_scan.log &
