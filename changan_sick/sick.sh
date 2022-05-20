@@ -29,7 +29,7 @@ function delFile(){
     break
     done
     echo $fileSize
-    size=20   #可根据现场需求以及实际日志输出大小而定
+    size=200000   #可根据现场需求以及实际日志输出大小而定
 
     #SOURCE_FILES_PATH="string"
     #TARGET_FILES_PATH="string"
