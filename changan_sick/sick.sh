@@ -107,9 +107,9 @@ do
     #echo "开始查询" >> ~/SICK/lsusb_camera.log
     #ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 
-cd /mnt
+#cd /mnt
 
-source devel_isolated/setup.bash &
+#source devel_isolated/setup.bash &
 
 
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
@@ -134,11 +134,11 @@ source devel_isolated/setup.bash &
     #sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/sick_front_scan.log
-    ping 192.168.100.104 -t 1 >> ~/SICK/sick_front_scan.log &
+    ping -c 1 192.168.100.104 >> ~/SICK/sick_front_scan.log &
     #sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/sick_back_scan.log
-    ping 192.168.100.108 -t 1 >> ~/SICK/sick_back_scan.log &
+    ping -c 1 192.168.100.108 >> ~/SICK/sick_back_scan.log &
     #sleep 0.01
     #ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     #echo $ttime >> ~/SICK/rostopic_front_scan.log
