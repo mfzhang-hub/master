@@ -7,9 +7,9 @@
 function delFile(){
     string=`du ~/SICK/sick_front_scan.log`
     string=`du ~/SICK/sick_back_scan.log`
-    #string=`du ~/SICK/rostopic_front_scan.log`
+    string=`du ~/SICK/rostopic_front_scan.log`
     string=`du ~/SICK/ros.log`
-    #string=`du ~/SICK/rostopic_back_scan.log`
+    string=`du ~/SICK/rostopic_back_scan.log`
     string=`du ~/SICK/cpu_all_ros.log`
     string=`du ~/SICK/lsusb_camera.log`
     string=`du ~/SICK/camera_ros.log`
@@ -52,12 +52,12 @@ function delFile(){
     if [ $fileSize -gt $size ] ; then
     mv ~/SICK/sick_back_scan.log ~/SICK/sick_back_scan.log1
     fi	
-    #if [ $fileSize -gt $size ] ; then
-    #mv ~/SICK/rostopic_front_scan.log ~/SICK/rostopic_front_scan.log1
-    #fi
-    #if [ $fileSize -gt $size ] ; then
-    #mv ~/SICK/rostopic_back_scan.log ~/SICK/rostopic_back_scan.log1
-    #fi
+    if [ $fileSize -gt $size ] ; then
+    mv ~/SICK/rostopic_front_scan.log ~/SICK/rostopic_front_scan.log1
+    fi
+    if [ $fileSize -gt $size ] ; then
+    mv ~/SICK/rostopic_back_scan.log ~/SICK/rostopic_back_scan.log1
+    fi
     if [ $fileSize -gt $size ] ; then
     mv ~/SICK/cpu_all_ros.log ~/SICK/cpu_all_ros.log1
     fi
@@ -147,19 +147,19 @@ do
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/sick_back_scan.log
     ping -c 1 192.168.100.108 >> ~/SICK/sick_back_scan.log &
-    #sleep 0.01
-    #ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    #echo $ttime >> ~/SICK/rostopic_front_scan.log
-    #rostopic echo /scan_front >> ~/SICK/rostopic_front_scan.log &
+    sleep 0.01
+    ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+    echo $ttime >> ~/SICK/rostopic_front_scan.log
+    rostopic echo /scan_front >> ~/SICK/rostopic_front_scan.log &
     sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/ros.log
     ps -ef | grep ros >> ~/SICK/ros.log &
     sleep 0.01
-    #ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-    #echo $ttime >> ~/SICK/rostopic_back_scan.log
-    #rostopic echo /scan_back >> ~/SICK/rostopic_back_scan.log &
-    #sleep 0.01
+    ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+    echo $ttime >> ~/SICK/rostopic_back_scan.log
+    rostopic echo /scan_back >> ~/SICK/rostopic_back_scan.log &
+    sleep 0.01
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/lsusb_camera.log 
     lsusb >> ~/SICK/lsusb_camera.log &
@@ -168,7 +168,7 @@ do
     echo $ttime >> ~/SICK/camera_ros.log 
     ps -ef | grep lx_up_camera_image >> ~/SICK/camera_ros.log &
     sleep 0.01
-    #ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+    ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/SICK/camera_ros.log 
     ps -ef | grep lx_down_camera_image >> ~/SICK/camera_ros.log &
     sleep 0.01
