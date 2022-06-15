@@ -49,7 +49,7 @@ then
 cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
-cmd: 0x22
+cmd: 0x21
 dmsData: 0"    
 elif [ $1 -eq 10 ]   #滚筒速度0 （停止转动）
 then
