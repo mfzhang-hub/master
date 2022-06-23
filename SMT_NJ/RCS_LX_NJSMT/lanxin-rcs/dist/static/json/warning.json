@@ -1,0 +1,1643 @@
+{
+	"Warning": [
+		{
+			"id": 1,
+			"name": "地图不一致",
+			"showmode": 2,
+			"workmode": [1, 1, 1],
+			"buttonNum": 2,
+			"prompt": "本体和服务器运行地图不一致",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "",
+			"priority": 7
+		},
+		{
+			"id": 2,
+			"name": "http新增任务失败",
+			"showmode": 2,
+            "prompt": "http新增任务失败",
+			"workmode": [1, 1, 1],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"buttonNum": 1,
+			"sound": "",
+			"priority": 9
+		},
+		{
+			"id": 3,
+			"name": "http改派任务失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "下达任务失败，请重试",
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"buttonNum": 1,
+			"sound": "",
+			"priority": 9
+		},
+		{
+			"id": 4,
+			"name": "http启/停用失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "下达任务失败，请重试",
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"buttonNum": 1,
+			"sound": "",
+			"priority": 9
+		},
+		{
+			"id": 5,
+			"name": "http通信超时",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}],
+			"sound": "",
+			"priority": 9
+		},
+		{
+			"id": 6,
+			"name": "http通信失败",
+			"showmode": 2,
+                        "prompt": "http通信失败",
+			"workmode": [1, 1, 0],
+            "buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}],
+			"sound": "",
+			"priority": 9
+		},
+		{
+			"id": 7,
+			"name": "点位不存在",
+			"showmode": 2,
+            "prompt": "点位不存在，请检查任务链配置",
+			"workmode": [1, 1, 0],
+            "buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}],
+			"sound": "",
+			"priority": 9
+		},
+		{
+			"id": 1001,
+			"name": "相机启动失败",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "相机启动失败",
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 1
+		},
+		{
+			"id": 1002,
+			"name": "图像数据为空",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1003,
+			"name": "图像数据较老",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1004,
+			"name": "长时间(3s)没有图像数据",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1005,
+			"name": "长时间(3s)没有里程计数据",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1006,
+			"name": "图像过曝或欠曝",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1007,
+			"name": "地图数据读取失败",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1008,
+			"name": "特征检测服务异常",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1009,
+			"name": "定位初始化失败",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1010,
+			"name": "长时间(10s)特征检测失败",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1011,
+			"name": "偏离路径，长距离(10m)无特征",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1012,
+			"name": "重定位超时(10s)，定位丢失",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "关闭",
+				"id": 100
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 1507,
+			"name": "打滑",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "小车打滑，请现场人员处理",
+			"buttonFunc": [{
+				"name": "取消打滑并取消所有任务",
+				"id": 12
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"stop":true,
+			"priority": 7
+		},
+
+		{
+			"id": 2001,
+			"name": "任务拆分初始化失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "任务拆分初始化失败",
+			"buttonFunc": [{
+				"name": "重启",
+				"id": 1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2009,
+			"name": "货架状态异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "有货架状态，不能去上料/充电",
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"sound": "",
+			"priority": 7
+		},
+		{
+			"id": 2011,
+			"name": "路径规划失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "路径规划失败",
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"sound": "路径规划异常.wav",
+			"priority": 7
+		},		
+		{
+			"id": 2012,
+			"name": "货架状态异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "货架状态异常",
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "路径规划异常.wav",
+			"priority": 7
+		},		
+		{
+			"id": 2013,
+			"name": "货架TYPE异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "货架TYPE异常",
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2014,
+			"name": "绕障失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "绕障失败",
+			"buttonFunc": [{
+				"name": "继续",
+				"id": 8
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2015,
+			"name": "读取当前路径失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "读取当前路径失败，拍急停推到路径上，拉急停继续",
+			"buttonFunc": [{
+				"name": "继续",
+				"id": 8
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2016,
+			"name": "当前角度偏差过大",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "当前角度偏差过大，需要人工转到合适的角度，拉急停继续",
+			"buttonFunc": [{
+				"name": "继续",
+				"id": 8
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2017,
+			"name": "货架TYPE不匹配",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "货架TYPE不匹配",
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2021,
+			"name": "充电桩标记没找到",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "充电桩标记没找到",
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 7
+		},
+		{
+			"id": 2022,
+			"name": "充电桩对接失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "充电桩对接失败",
+			"sound": "recharge.wav",
+			"priority": 9
+		},
+		{
+			"id": 2023,
+			"name": "充电检测失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "充电检测失败",
+			"sound": "recharge.wav",
+			"priority": 9
+		},
+		{
+			"id": 2025,
+			"name": "有货架状态下不能充电",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "有货架状态下不能充电",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+
+		{
+			"id": 2030,
+			"name": "未找到辊筒码头",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "未找到辊筒码头,请选择跳过",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2031,
+			"name": "辊筒上下料对接失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "手动对接",
+				"id": 8
+			}],
+			"prompt": "辊筒上下料对接失败,请手动对接，然后点击屏幕上的按钮",
+			"sound": "码头对接失败，请重试.wav",
+			"priority": 9
+		},
+		{
+			"id": 2032,
+			"name": "辊筒下料对接失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+				}, {
+					"name": "手动对接",
+					"id": 8
+			}],
+			"prompt": "辊筒下料对接失败,请选择跳过或者手动对接",
+			"sound": "码头对接失败，请重试.wav",
+			"priority": 9
+		},
+		{
+			"id": 2033,
+			"name": "辊筒上下料失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 8
+			}],
+			"prompt": "辊筒上下料失败,请选择跳过或者手动对接",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2034,
+			"name": "辊筒硬件重置失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "辊筒硬件重置失败",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2035,
+			"name": "小车下料时未检测到物料",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "小车下料时未检测到物料",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2036,
+			"name": "无法获取PLCIP参数",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+			"name": "跳过",
+			"id": 10
+			}],
+			"prompt": "无法获取参数:PLCIP",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2037,
+			"name": "码头通信失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "码头通信失败",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2038,
+			"name": "码头上下料超时异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 10
+			}],
+			"prompt": "码头上下料超时异常",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2039,
+			"name": "码头出料超时或卡料",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 10
+			}],
+			"prompt": "码头出料超时或卡料",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+
+		{
+			"id": 2041,
+			"name": "拣货视觉识别失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "视觉识别失败,点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2042,
+			"name": "拣货闭环检测失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "闭环检测失败,点击重置按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2044,
+			"name": "拣货机械臂运行失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 0
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "机械臂运行失败，请点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2045,
+			"name": "拣货机械臂运行异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "机械臂运行异常，请点击重置按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2046,
+			"name": "拣货货框已满",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "重置",
+					"id": 0
+				},
+				{
+					"name": "",
+					"id": -1
+				}
+			],
+			"prompt": "货框已满，请点击重置按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2047,
+			"name": "拣货吸嘴吸取失败",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "重置",
+					"id": 0
+				},
+				{
+					"name": "",
+					"id": -1
+				}
+			],
+			"prompt": "吸嘴吸取失败，请点击重置按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2048,
+			"name": "拣货机械臂报警",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "重置",
+					"id": 0
+				},
+				{
+					"name": "",
+					"id": -1
+				}
+			],
+			"prompt": "机械臂报警，请点击重置按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2051,
+			"name": "货架没找到",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 8
+				},
+				{
+					"name": "重试",
+					"id": 8
+				}
+			],
+			"prompt": "货架没找到，请点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2052,
+			"name": "顶升对接失败",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "重试",
+					"id": 2
+				}
+			],
+			"prompt": "对接失败，请点击跳过或重试按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2053,
+			"name": "顶升机械运行失败",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "",
+					"id": -1
+				}
+			],
+			"prompt": "机械运行失败，请点击跳过",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2054,
+			"name": "顶升对接超时",
+			"showmode": 2,
+			"workmode": [
+				1,
+				1,
+				0
+			],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "重试",
+					"id": 8
+				}
+			],
+			"prompt": "对接超时，请移动到对接点后点击重试按钮，或者点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2055,
+			"name": "对接运动距离过远",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "重试",
+					"id": 8
+				}
+			],
+			"prompt": "请将货架移到正确位置后点击重试按钮，或者点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2056,
+			"name": "货架校准失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "重试",
+					"id": 8
+				}
+			],
+			"prompt": "请将AGV移出后点击重试按钮，或者点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2057,
+			"name": "激光或传感器数据获取失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "重试",
+					"id": 8
+				}
+			],
+			"prompt": "请将AGV移出后点击重试按钮，或者点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},		
+		{
+			"id": 2059,
+			"name": "货架错误或任务对接错误",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+					"name": "跳过",
+					"id": 2
+				},
+				{
+					"name": "重置",
+					"id": 9
+				}
+			],
+			"prompt": "请将AGV移出后点击重置按钮，或者点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2060,
+			"name": "取消任务，但当前有货架",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 0
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+
+		{
+			"id": 2062,
+			"name": "货架位置错误",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "继续",
+				"id": 8
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "请检查货架位置,手动调整货架位置后点击继续按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2064,
+			"name": "二维码识别超时，文档中为无法识别",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "请将AGV移出货架后检查二维码是否丢失或破损,点击重试按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2065,
+			"name": "二维码位置丢失",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "继续",
+				"id": 8
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "请检查货架位置,手动调整货架位置后点击继续按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},	
+		{
+			"id": 2066,
+			"name": "相机数据读取失败，请重启相机检查或者断电重启小车恢复",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "相机数据读取失败，请重启相机检查或者断电重启小车恢复",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},	
+		{
+			"id": 2085,
+			"name": "空车回收交管申请失败，点击重置",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 9
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "空车回收交管申请失败，点击重置",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2101,
+			"name": "导航二维码精到点任务超时，移到二维码上方点击重试，或移到合适位置点击跳过",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "导航二维码精到点任务超时，移到二维码上方点击重试，或移到合适位置点击跳过",
+			"priority": 9
+		},
+		{
+			"id": 2102,
+			"name": "方向超出阈值",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "方向超出阈值",
+			"priority": 9
+		},
+		{
+			"id": 2103,
+			"name": "角度超出阈值",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "角度超出阈值",
+			"priority": 9
+		},
+		{
+			"id": 2104,
+			"name": "二维码位姿与里程计位姿偏差过大，需要转动小车到进入方向，点击重试",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "二维码位姿与里程计位姿偏差过大，需要转动小车到进入方向，点击重试",
+			"priority": 9
+		},
+		{
+			"id": 2116,
+			"name": "栈板货架类型不对，请检查QRSTACK货架配置，点击重置 将会降下顶板取消任务",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 9
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "栈板货架类型不对，请检查QRSTACK货架配置，点击重置 将会降下顶板取消任务",
+			"priority": 9
+		},
+		{
+			"id": 2122,
+			"name": "栈板货架类型不对，请检查palletdock货架配置，点击重置 将会降下顶板取消任务",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重置",
+				"id": 9
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"prompt": "二维码位姿与里程计位姿偏差过大，需要转动小车到进入方向，点击重试",
+			"priority": 9
+		},
+		{
+			"id": 2401,
+			"name": "该任务与车型不匹配",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc":  [{
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "执行与车型不匹配的任务,点击跳过按钮",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2601,
+			"name": "二维码对接超时",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "二维码对接超时",
+			"priority": 9
+		},
+		{
+			"id": 2602,
+			"name": "二维码对接初始化失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "二维码对接初始化失败",
+			"priority": 9
+		},
+		{
+			"id": 2603,
+			"name": "二维码对接精度超出阈值",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "二维码对接精度超出阈值",
+			"priority": 9
+		},	
+		{
+			"id": 2605,
+			"name": "二维码对接失败，需要拖到货架底下点重试",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "二维码对接失败，需要拖到货架底下点重试",
+			"priority": 9
+		},
+		{
+			"id": 2606,
+			"name": "二维码位姿与里程计位姿偏差过大，需要转动小车到进入货架方向，点击重试",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "二维码位姿与里程计位姿偏差过大，需要转动小车到进入货架方向，点击重试",
+			"priority": 9
+		},
+		{
+			"id": 2631,
+			"name": "里程计货架调整超时",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc":  [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "里程计货架调整超时，点击重试或跳过",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2632,
+			"name": "里程计货架状态异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc":  [{
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "请确认货架状态和点位调整属性",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2633,
+			"name": "里程计货架调整失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "里程计货架调整失败，点击重试或跳过",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2634,
+			"name": "激光或里程计无数据",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "重试",
+				"id": 8
+			}, {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "激光或里程计无数据，点击重试或跳过",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2635,
+			"name": "主任务未下发目标角度",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [ {
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "主任务未下发目标角度,请联系研发人员",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+
+		{
+			"id": 2801,
+			"name": "路径规划失败异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [ {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "",
+			"sound": "",
+			"priority": 9
+		},
+
+		{
+			"id": 2802,
+			"name": "背负状态无法执行此任务 ",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [ {
+				"name": "跳过",
+				"id": 2
+			}],
+			"prompt": "",
+			"sound": "",
+			"priority": 9
+		},
+
+
+		{
+			"id": 2636,
+			"name": "货架状态异常",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [ {
+				"name": "重置",
+				"id": 0
+			}],
+			"prompt": "当前任务将被取消，点击重置，货架将降下，小车将执行下个任务",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2900,
+			"name": "下面辊桶有料",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 3
+			}],
+			"prompt": "下面辊桶有料",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2901,
+			"name": "上面辊桶有料",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 3
+			}],
+			"prompt": "上面辊桶有料",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2902,
+			"name": "下面辊桶无料",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 3
+			}],
+			"prompt": "下面辊桶无料",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2903,
+			"name": "获取料箱数失败",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 3
+			}],
+			"prompt": "获取料箱数失败",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2904,
+			"name": "料箱数不一致",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 3
+			}],
+			"prompt": "辊筒上料箱数与码头上料箱数不一致",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 2905,
+			"name": "等待超时",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"buttonFunc": [{
+				"name": "跳过",
+				"id": 2
+			}, {
+				"name": "手动对接",
+				"id": 3
+			}],
+			"prompt": "等待超时",
+			"sound": "发生异常，需要人工处理.mp3",
+			"priority": 9
+		},
+		{
+			"id": 3012,
+			"name": "近处停障",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "近处停障",
+			"sound": "obstacle.wav",
+			"priority": 9
+		},
+		{
+			"id": 3013,
+			"name": "路径被挡",
+			"showmode": 1,   
+			"workmode": [1, 1, 0],
+			"prompt": "路径被挡",
+			"sound": "obstacle.wav",
+			"priority": 9
+		},
+		{
+            "id": 4002,
+            "name": "前激光无数据",
+            "showmode": 1,
+            "workmode": [1, 1, 0],
+            "prompt": "前激光无数据",
+            "sound": "发生异常，需要人工处理.mp3",
+            "priority": 9
+        },
+		{
+			"id": 6001,
+			"name": "急停",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "急停",
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 7001,
+			"name": "碰撞",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "碰撞",
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 8003,
+            "name": "顶升异常",
+            "showmode": 2,
+            "workmode": [1, 1, 0],
+			"prompt": "顶升异常",
+			"buttonFunc": [{
+				"name": "请检查顶升异常",
+				"id": 2
+			}],
+			"stop": true,
+            "sound": "发生异常，需要人工处理.mp3",
+            "priority": 9
+		},
+		{
+			"id": 14001,
+			"name": "MAC地址未注册",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "MAC地址未注册",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 14002,
+			"name": "车辆重复接入",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "车辆重复接入",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 14003,
+			"name": "车辆停用或维护状态",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "车辆停用或维护状态",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 14004,
+			"name": "车辆未绑定区域",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "车辆未绑定区域",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 14005,
+			"name": "车辆绑定区域无地图可用",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "车辆绑定区域无地图可用",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 15001,
+			"name": "sessionId不存在",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "sessionId不存在",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 15002,
+			"name": "软件不兼容",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "软件不兼容",
+			"sound": "alert.wav",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"priority": 9
+		},
+		{
+			"id": 15003,
+			"name": "硬件不兼容",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "硬件不兼容",
+			"sound": "alert.wav",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"priority": 9
+		},
+		{
+			"id": 15004,
+			"name": "地图不匹配",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "地图不匹配",
+			"sound": "alert.wav",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"priority": 9
+		},
+		{
+			"id": 16009,
+			"name": "无法释放之前点位",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "无法释放之前点位",
+			"sound": "alert.wav",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"priority": 9
+		},
+		{
+			"id": 16010,
+			"name": "无法申请当前点位",
+			"showmode": 2,
+			"workmode": [1, 1, 0],
+			"prompt": "无法申请当前点位",
+			"buttonFunc": [{
+				"name": "",
+				"id": -1
+			}, {
+				"name": "",
+				"id": -1
+			}],
+			"sound": "alert.wav",
+			"priority": 9
+		},
+		{
+			"id": 19011,
+			"name": "显示屏没关好",
+			"showmode": 1,
+			"workmode": [1, 1, 0],
+			"prompt": "显示屏没关好",
+			"sound": "触摸屏已旋出.mp3",
+			"priority": 9
+		}
+	],
+
+	"comment": "showmode: 1 冒泡 2 弹窗 "
+}
