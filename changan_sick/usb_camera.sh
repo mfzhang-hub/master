@@ -35,7 +35,7 @@
 	rm -r ~/Changan/usb_cp1/*
 	rm -r ~/Changan/usb_cp2/*
     sleep 0.1
-    cameradown_pid=`ps -ef | grep lx_camera_up | grep -v grep | awk '{print $2}'`
+    cameradown_pid=`ps -ef | grep lx_camera_down | grep -v grep | awk '{print $2}'`
     echo "find result: $cameradown_pid "
     echo "robot" | sudo -S kill -9 $cameradown_pid
     sleep 0.5
