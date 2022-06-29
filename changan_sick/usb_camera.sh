@@ -87,6 +87,7 @@ function delFile(){
     done
     echo $fileSize
     size=52
+    size_ros=12
 
     sleep 0.1
     cp /mnt/src/agv/agv_drivers/lx_camera/config/cyusb.conf /etc/
@@ -150,6 +151,12 @@ function delFile(){
     ls -1t $dir/* | awk 'NR>200 {print "rm -r "$0}' | bash 
     ls -1t $dir1/* | awk 'NR>200 {print "rm -r "$0}' | bash 
     ls -1t $dir2/* | awk 'NR>200 {print "rm -r "$0}' | bash
+    fi
+
+    if [ $fileSize -gt $size ] ; then
+    sleep 0.1
+    dir_ros=~/.ros/log
+    ls -1t $dir_ros/rostopic_*.log | awk 'NR>6 {print "rm -r "$0}' | bash
     fi
 
 
