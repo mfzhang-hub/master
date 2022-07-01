@@ -180,7 +180,7 @@ do
 
 
     echo $ttime >> ~/Changan/logger/camera_down_pgv.log
-    rostopic echo -n 1 /pgv100_scan >> ~/Changan/logger/camera_down_pgv.log & 
+    rostopic echo -n 1 /pgv100_scan --noarr >> ~/Changan/logger/camera_down_pgv.log & 
     sleep 0.01
     echo $ttime >> ~/Changan/logger/cpu.log
     top -bn 1 -i -c | head -6 >> ~/Changan/logger/cpu.log
@@ -210,10 +210,10 @@ do
     ping -c 1 192.168.22.1 >> ~/Changan/logger/ping_internet.log &
     sleep 0.01
     echo $ttime >> ~/Changan/logger/rostopic_front_scan.log
-    rostopic echo -n 1 /scan_front >> ~/Changan/logger/rostopic_front_scan.log &
+    rostopic echo -n 1 /scan_front --noarr >> ~/Changan/logger/rostopic_front_scan.log &
     sleep 0.01
     echo $ttime >> ~/Changan/logger/rostopic_back_scan.log
-    rostopic echo -n 1 /scan_back >> ~/Changan/logger/rostopic_back_scan.log &
+    rostopic echo -n 1 /scan_back --noarr >> ~/Changan/logger/rostopic_back_scan.log &
     sleep 0.01
     echo $ttime >> ~/Changan/logger/lsusb.log 
     lsusb >> ~/Changan/logger/lsusb.log &
@@ -225,10 +225,10 @@ do
     ps -ef | grep lx_up_camera_image >> ~/Changan/logger/camera_image_grep.log &
     sleep 0.01
     echo $ttime >> ~/Changan/logger/camera_image_grep.log 
-    ps -ef | grep lx_down_camera_image >> ~/Changan/logger/camera_image_grep.log &
+    ps -ef | grep lx_down_camera_image --noarr >> ~/Changan/logger/camera_image_grep.log &
     sleep 0.01
     echo $ttime >> ~/Changan/logger/rostopic_camera_down_image.log
-    rostopic echo -n 1 /lx_down_camera_image >> ~/Changan/logger/rostopic_camera_down_image.log &
+    rostopic echo -n 1 /lx_down_camera_image --noarr >> ~/Changan/logger/rostopic_camera_down_image.log &
     sleep 0.01
     echo $ttime >> ~/Changan/logger/rostopic_camera_up_image.log
     rostopic echo -n 1 /lx_up_camera_image >> ~/Changan/logger/rostopic_camera_up_image.log &
