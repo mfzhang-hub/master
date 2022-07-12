@@ -145,3 +145,12 @@ namespace zte_id_T2000DS_DS //2T车辆顶升
 
     };
 } //
+
+namespace zte_id_T2000DS_DS //MINI叉车程序
+{
+    enum {
+      T2000DS_01020301033007,  //MINI叉车程序
+
+    };
+} //
+
