@@ -61,7 +61,7 @@
     [
         叉臂升降控制:
         {
-            单位(mm):rostopic pub /ztexing_node/forklift_hegiht ""
+            单位(mm):rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: "
         }
     ]
 
