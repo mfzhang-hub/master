@@ -211,17 +211,17 @@ elif [ $1 -eq 34 ]   #叉臂回原点
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/forklift_hegiht "0"   
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 0"  
 elif [ $1 -eq 35 ]   #叉臂触发400行程
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/forklift_hegiht "400"  
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 400" 
 elif [ $1 -eq 36 ]   #叉臂到达顶点
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/forklift_hegiht "2400"    
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2400"    
 else
    echo "less param"
 fi
