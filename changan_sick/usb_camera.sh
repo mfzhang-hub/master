@@ -159,18 +159,12 @@ function delFile(){
     ls -1t $dir_ros/rostopic_*.log | awk 'NR>6 {print "rm -r "$0}' | bash
     fi
 
-
-    
-
 }
-
-    
 
 
 while true
 do
     
-
     sleep 0.1
     cd /mnt
     source devel_isolated/setup.bash

@@ -129,3 +129,19 @@ namespace zte_id_SMT_DOUBLE //SMT辊筒模块车型
 
     };
 } //
+
+namespace zte_id_T2000DS_DP //2T车辆底盘
+{
+    enum {
+      T2000DS_01030301020106,  //底盘模块
+
+    };
+} //
+
+namespace zte_id_T2000DS_DS //2T车辆顶升
+{
+    enum {
+      T2000DS_01020301200101,  //顶升模块
+
+    };
+} //
