@@ -50,6 +50,17 @@
         }
     ]
 
+[
+    灯光测试:
+    {
+        左灯:rostopic pub /light_command std_msgs/UInt8 "data: 6"
+    },
+    {
+        右灯:rostopic pub /light_command std_msgs/UInt8 "data: 7"
+    }
+]
+    
+
     [
         TFmini测距检测(叉臂下方):
         {
