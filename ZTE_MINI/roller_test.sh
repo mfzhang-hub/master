@@ -221,7 +221,7 @@ elif [ $1 -eq 36 ]   #叉臂到达顶点
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2400"    
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 1800"    
 else
    echo "less param"
 fi

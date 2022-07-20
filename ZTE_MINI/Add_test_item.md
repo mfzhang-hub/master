@@ -27,7 +27,7 @@
             新增如下:
             1:叉臂回到原点：     ./roller_test.sh 34
             2:叉臂到达400行程：  ./roller_test.sh 35
-            3:叉臂到达顶部行程：  ./roller_test.sh 36
+            3:叉臂到达1800行程(软件限制超过1800mm无法继续上升)：  ./roller_test.sh 36
         }
 
     ]
