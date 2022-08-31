@@ -148,6 +148,11 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /charge_command "0"
+elif [ $1 -eq 31 ] #draw photoelectric state
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic echo /ztexing_node/draw_status
 else
    echo "less param"
 fi
