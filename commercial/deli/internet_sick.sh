@@ -16,6 +16,12 @@
     if [ ! -d "~/DL/back_shark" ];then
 	mkdir -p ~/DL/back_shark
 	fi
+    if [ ! -d "~/DL/top_shark" ];then
+	mkdir -p ~/DL/top_shark
+	fi
+    if [ ! -d "~/DL/forklift_shark" ];then
+	mkdir -p ~/DL/forklift_shark
+	fi
 
 
     #rm -r ~/DL/SICK/*
@@ -29,6 +35,10 @@ function delFile(){
     string=`du ~/DL/SICK/rostopic_front.log`
     string=`du ~/DL/SICK/rostopic_back.log`
     string=`du ~/DL/SICK/battery.log`
+    string=`du ~/DL/SICK/ping_top.log`
+    string=`du ~/DL/SICK/rostopic_top.log`
+    string=`du ~/DL/SICK/ping_forklift.log`
+    string=`du ~/DL/SICK/rostopic_forklift.log`
     OLD_IFS="$IFS"
     IFS=" "
     array=($string)
@@ -55,13 +65,23 @@ function delFile(){
     sleep 0.1
     mv ~/DL/SICK/battery.log ~/DL/SICK/battery.log1
     sleep 0.1
+    mv ~/DL/SICK/ping_top.log ~/DL/SICK/ping_top.log1
+    sleep 0.1
+    mv ~/DL/SICK/rostopic_top.log ~/DL/SICK/rostopic_top.log1
+    sleep 0.1
+    mv ~/DL/SICK/ping_forklift.log ~/DL/SICK/ping_forklift.log1
+    sleep 0.1
+    mv ~/DL/SICK/rostopic_forklift.log ~/DL/SICK/rostopic_forklift.log1
+    sleep 0.1
     fi
     if [ $fileSize -gt $size ] ; then
     mv ~/DL/SICK/* ~/DL/beifen &
     sleep 1
     tar -zcPvf ~/DL/log/log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/beifen &
-    tar -zcPvf ~/DL/log/front_wireshark1-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/front_shark &
-    tar -zcPvf ~/DL/log/back_wireshark2-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/back_shark &
+    tar -zcPvf ~/DL/log/front_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/front_shark &
+    tar -zcPvf ~/DL/log/back_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/back_shark &
+    tar -zcPvf ~/DL/log/top_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/top_shark &
+    tar -zcPvf ~/DL/log/forklift_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/forklift_shark &
     sleep 0.1
     dir=~/DL/log
     dir_ros=~/.ros/log
@@ -74,6 +94,8 @@ function delFile(){
     rm -r ~/DL/beifen/* 
     rm -r ~/DL/front_shark/*
     rm -r ~/DL/back_shark/*
+    rm -r ~/DL/top_shark/*
+    rm -r ~/DL/forklift_shark/*
     fi
     
     
@@ -92,11 +114,23 @@ do
     echo $ttime >> ~/DL/SICK/ping_back.log
     ping -c 1 192.168.100.107 >> ~/DL/SICK/ping_back.log &
     sleep 0.01
+    echo $ttime >> ~/DL/SICK/top_back.log
+    ping -c 1 192.168.100.109 >> ~/DL/SICK/ping_top.log &
+    sleep 0.01
+    echo $ttime >> ~/DL/SICK/ping_forklift.log
+    ping -c 1 192.168.100.106 >> ~/DL/SICK/ping_forklift.log &
+    sleep 0.01
     echo $ttime >> ~/DL/SICK/rostopic_front.log
     rostopic echo -n 1 /scan_front --noarr >> ~/DL/SICK/rostopic_front.log &
     sleep 0.01
     echo $ttime >> ~/DL/SICK/rostopic_back.log
     rostopic echo -n 1 /scan_back --noarr >> ~/DL/SICK/rostopic_back.log &
+    sleep 0.01
+    echo $ttime >> ~/DL/SICK/rostopic_top.log
+    rostopic echo -n 1 /scan_top --noarr >> ~/DL/SICK/rostopic_top.log &
+    sleep 0.01
+    echo $ttime >> ~/DL/SICK/rostopic_forklift.log
+    rostopic echo -n 1 /scan_back_forklift --noarr >> ~/DL/SICK/rostopic_forklift.log &
     sleep 0.01
     echo $ttime >> ~/DL/SICK/battery.log
     rostopic echo -n 1 /ztexing_node/dev_status  >> ~/DL/SICK/battery.log &
@@ -104,6 +138,10 @@ do
     tcpdump -i eno1 src net 192.168.100.104 -w ~/DL/front_shark/front_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     sleep 0.01
     tcpdump -i eno1 src net 192.168.100.107 -w ~/DL/back_shark/back_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    sleep 0.01
+    tcpdump -i eno1 src net 192.168.100.109 -w ~/DL/top_shark/top_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    sleep 0.01
+    tcpdump -i eno1 src net 192.168.100.106 -w ~/DL/forklift_shark/forklift_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     delFile
     sleep 0.01
 done
