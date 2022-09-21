@@ -7,8 +7,8 @@
     if [ ! -d "~/DL/beifen" ];then
 	mkdir -p ~/DL/beifen
 	fi
-    if [ ! -d "~/DL/log" ];then
-	mkdir -p ~/DL/log
+    if [ ! -d "~/DL/logger/log" ];then
+	mkdir -p ~/DL/logger/log
 	fi
     if [ ! -d "~/DL/front_shark" ];then
 	mkdir -p ~/DL/front_shark
@@ -21,6 +21,18 @@
 	fi
     if [ ! -d "~/DL/forklift_shark" ];then
 	mkdir -p ~/DL/forklift_shark
+	fi
+    if [ ! -d "~/DL/logger/forklift" ];then
+	mkdir -p ~/DL/logger/forklift
+	fi
+    if [ ! -d "~/DL/logger/back" ];then
+	mkdir -p ~/DL/logger/back
+	fi
+    if [ ! -d "~/DL/logger/front" ];then
+	mkdir -p ~/DL/logger/front
+	fi
+    if [ ! -d "~/DL/logger/top" ];then
+	mkdir -p ~/DL/logger/top
 	fi
 
 
@@ -51,7 +63,7 @@ function delFile(){
     break
     done
     echo $fileSize
-    size=40
+    size=20
 
 
     if [ $fileSize -gt $size ] ; then
@@ -77,16 +89,24 @@ function delFile(){
     if [ $fileSize -gt $size ] ; then
     mv ~/DL/SICK/* ~/DL/beifen &
     sleep 1
-    tar -zcPvf ~/DL/log/log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/beifen &
-    tar -zcPvf ~/DL/log/front_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/front_shark &
-    tar -zcPvf ~/DL/log/back_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/back_shark &
-    tar -zcPvf ~/DL/log/top_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/top_shark &
-    tar -zcPvf ~/DL/log/forklift_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/forklift_shark &
+    tar -zcPvf ~/DL/logger/log/log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/beifen &
+    tar -zcPvf ~/DL/logger/front/front_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/front_shark &
+    tar -zcPvf ~/DL/logger/back/back_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/back_shark &
+    tar -zcPvf ~/DL/logger/top/top_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/top_shark &
+    tar -zcPvf ~/DL/logger/forklift/forklift_wireshark-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/forklift_shark &
     sleep 0.1
-    dir=~/DL/log
+    dir=~/DL/logger/log
+    dir_forklift=~/DL/logger/forklift
+    dir_back=~/DL/logger/back
+    dir_front=~/DL/logger/front
+    dir_top=~/DL/logger/top
     dir_ros=~/.ros/log
     #find ~/DL/log -mtime +1 -name "log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz" -exec rm -rf {} \;
-    ls -1t $dir/* | awk 'NR>300 {print "rm -r "$0}' | bash 
+    ls -1t $dir/* | awk 'NR>150 {print "rm -r "$0}' | bash
+    ls -1t $dir_forklift/* | awk 'NR>150 {print "rm -r "$0}' | bash 
+    ls -1t $dir_back/* | awk 'NR>150 {print "rm -r "$0}' | bash 
+    ls -1t $dir_front/* | awk 'NR>150 {print "rm -r "$0}' | bash 
+    ls -1t $dir_top/* | awk 'NR>150 {print "rm -r "$0}' | bash  
     ls -1t $dir_ros/rostopic_*.log | awk 'NR>10 {print "rm -r "$0}' | bash 
     sleep 0.1
     ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
@@ -135,13 +155,13 @@ do
     echo $ttime >> ~/DL/SICK/battery.log
     rostopic echo -n 1 /ztexing_node/dev_status  >> ~/DL/SICK/battery.log &
     sleep 0.01
-    tcpdump -i eno1 src net 192.168.100.104 -w ~/DL/front_shark/front_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    tcpdump -i enp2s0 src net 192.168.100.104 -w ~/DL/front_shark/front_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     sleep 0.01
-    tcpdump -i eno1 src net 192.168.100.107 -w ~/DL/back_shark/back_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    tcpdump -i enp2s0 src net 192.168.100.107 -w ~/DL/back_shark/back_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     sleep 0.01
-    tcpdump -i eno1 src net 192.168.100.109 -w ~/DL/top_shark/top_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    tcpdump -i enp2s0 src net 192.168.100.109 -w ~/DL/top_shark/top_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     sleep 0.01
-    tcpdump -i eno1 src net 192.168.100.106 -w ~/DL/forklift_shark/forklift_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    tcpdump -i enp2s0 src net 192.168.100.106 -w ~/DL/forklift_shark/forklift_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     delFile
     sleep 0.01
 done
