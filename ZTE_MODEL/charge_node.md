@@ -2,7 +2,7 @@
 charge_station_check:
 {
 
-    cd /.ros/log/zte/ztexing_node/
+    cd .ros/log/zte/ztexing_node/
     rostopic echo /ztexing_node/charge_station_check;
     
     
