@@ -69,6 +69,7 @@ function delFile(){
     done
     echo $fileSize
     size=20
+    size1=3
 
 
     if [ $fileSize -gt $size ] ; then
@@ -125,7 +126,7 @@ function delFile(){
     rm -r ~/DL/top_shark/*
     rm -r ~/DL/forklift_shark/*
     fi
-    if [ $fileSize -gt $size ] ; then
+    if [ $fileSize -gt $size1 ] ; then
     cp -r /var/log/syslog ~/DL/logger/computer &
     cp -r /var/log/kern.log ~/DL/logger/computer &
     fi
