@@ -207,6 +207,21 @@ then
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0x63
 dmsData: 0"   
+elif [ $1 -eq 34 ]   #叉臂回原点
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 0"  
+elif [ $1 -eq 35 ]   #叉臂触发400行程
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 400" 
+elif [ $1 -eq 36 ]   #叉臂到达顶点
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 1900"    
 else
    echo "less param"
 fi
