@@ -1,4 +1,4 @@
-#wifi6\u7f51\u5361\u6d4b\u8bd5\u6253\u5370
+#wifi6网卡测试打印
 #!/bin/bash
 echo "wifi6网卡测试对比老款网卡数据情况"
 echo "ip.txt里面按照写入所需ping的ip名称（正常是服务器的Ip)中间使用“.”隔开"
