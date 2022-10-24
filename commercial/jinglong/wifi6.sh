@@ -1,9 +1,8 @@
 #wifi6\u7f51\u5361\u6d4b\u8bd5\u6253\u5370
 #!/bin/bash
-echo "wifi6\u7f51\u5361\u6d4b\u8bd5\u5bf9\u6bd4\u8001\u6b3e\u7f51\u5361\u6570\u636e\u60c5\u51b5"
-echo "ip.txt\u91cc\u9762\u6309\u7167\u5199\u5165\u6240\u9700ping\u7684ip\u540d\u79f0\uff08\u6b63\u5e38\u662f\u670d\u52a1\u5668\u7684Ip)\u4e2d\u95f4\u4f7f\u7528\u201c.\u201d\u9694\u5f00"
-echo "enth.txt\u91cc\u9762\u901a\u8fc7iwconfig\u67e5\u8be2\u5230\u7684\u7f51\u5361\u540d\u79f0\u5199\u5165\u5373\u53ef"
-
+echo "wifi6网卡测试对比老款网卡数据情况"
+echo "ip.txt里面按照写入所需ping的ip名称（正常是服务器的Ip)中间使用“.”隔开"
+echo "enth.txt里面通过iwconfig查询到的网卡名称写入即可"
 if [ ! -d "~/JL/wifi/" ];then
   mkdir -p ~/JL/wifi/
   else
