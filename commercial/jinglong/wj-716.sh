@@ -166,10 +166,6 @@ do
     echo $ttime >> ~/JL/WLR-716/ping_lanxin_lan1.log
     ping -c 1 192.168.100.111 >> ~/JL/WLR-716/ping_lanxin_lan1.log
     sleep 0.01
-    echo $ttime >> ~/JL/WLR-716/ping_lanxin_lan2.log             # No data possible
-    echo "No data possible" >> ~/JL/WLR-716/ping_lanxin_lan2.log
-    ping -c 1 192.168.100.110 >> ~/JL/WLR-716/ping_lanxin_lan2.log  # No data possible
-    sleep 0.01
     echo $ttime >> ~/JL/WLR-716/PS.log 
     ps -ef | grep wlr >>~/JL/WLR-716/PS.log
 
