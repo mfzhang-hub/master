@@ -54,6 +54,8 @@ function delFile(){
     string=`du ~/JL/WLR-716/ping_back_Center.log`
     string=`du ~/JL/WLR-716/rostopic_front.log`
     string=`du ~/JL/WLR-716/rostopic_back.log`
+    string='du ~/JL/WLR-716/rostopic_front_Center.log'
+    string='du ~/JL/WLR-716/rostopic_back_Center.log'
     string=`du ~/JL/WLR-716/battery.log`
     string=`du ~/JL/WLR-716/ping_lanxin_lan1.log`
     string=`du ~/JL/WLR-716/ping_lanxin_lan2.log`
@@ -151,6 +153,12 @@ do
     sleep 0.01
     echo $ttime >> ~/JL/WLR-716/rostopic_back.log
     rostopic echo -n 1 /scan_back --noarr >> ~/JL/WLR-716/rostopic_back.log &
+    sleep 0.01
+    echo $ttime >> ~/JL/WLR-716/rostopic_front_Center.log
+    rostopic echo -n 1 /front_mid_scan --noarr >> ~/JL/WLR-716/rostopic_front_Center.log &
+    sleep 0.01
+    echo $ttime >> ~/JL/WLR-716/rostopic_back_Center.log
+    rostopic echo -n 1 /back_mid_scan --noarr >> ~/JL/WLR-716/rostopic_back_Center.log &
     sleep 0.01
     echo $ttime >> ~/JL/WLR-716/battery.log
     rostopic echo -n 1 /ztexing_node/dev_status >> ~/JL/WLR-716/battery.log &

@@ -81,7 +81,8 @@ do
     cat ip | xargs -n1 ping -c 1 >> ~/JL/wifi/ping.log
     sleep 0.01
     echo $ttime >> ~/JL/wifi/iwconfig.log
-    iwconfig wlp3s0 | grep -i --color quality >> ~/JL/wifi/iwconfig.log
+    iwconfig wlp3s0 | grep -i --color quality >> ~/JL/wifi/iwconfig.log 
+    #wlp3s0替换为实际无线网卡名称，使用ifconfif查看
     sleep 0.01
     echo $ttime >> ~/JL/wifi/iwconfig_all.log
     iwconfig >> ~/JL/wifi/iwconfig_all.log
