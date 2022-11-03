@@ -78,11 +78,14 @@ do
     cd ~/JL/wifi
     ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
     echo $ttime >> ~/JL/wifi/ping.log
-    cat ip | xargs -n1 ping -c 1 >> ~/JL/wifi/ping.log
+    network=wlp3s0
+    #wlp3s0替换为实际无线网卡名称，使用ifconfif查看
+    ip=192.168.4.113
+    #正常为调度ip
+    cat $ip | xargs -n1 ping -c 1 >> ~/JL/wifi/ping.log
     sleep 0.01
     echo $ttime >> ~/JL/wifi/iwconfig.log
-    iwconfig wlp3s0 | grep -i --color quality >> ~/JL/wifi/iwconfig.log 
-    #wlp3s0替换为实际无线网卡名称，使用ifconfif查看
+    iwconfig $network | grep -i --color quality >> ~/JL/wifi/iwconfig.log 
     sleep 0.01
     echo $ttime >> ~/JL/wifi/iwconfig_all.log
     iwconfig >> ~/JL/wifi/iwconfig_all.log
