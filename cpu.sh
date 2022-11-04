@@ -48,7 +48,9 @@ function delFile(){
     sleep 1
     rm -r ~/CPU/beifen/*
     sleep 0.1
-    find ~/CPU/log -mtime +1 -name "log-$(date +%Y-%m-%d-%H-%M).tar.gz" -exec rm -rf {} \;
+    dir=~/CPU/log
+    #find ~/CPU/log -mtime +1 -name "log-$(date +%Y-%m-%d-%H-%M).tar.gz" -exec rm -rf {} \;
+    ls -1t $dir/* | awk 'NR>200 {print "rm -r "$0}' | bash
     fi
     
 }
