@@ -30,11 +30,11 @@ Check 校验和，除校验和本身外所有字节的校验和。
       "agreement":
 {
 
-const unsigned char check_old_edition[5] = {0xA0,0x03,0x00,0x72,0xeb}; //新版本检测 
-const unsigned char check_new_edition[5] = {0xA0,0x03,0x01,0x72,0xea}; //旧版本检测   
-const unsigned char send_old_instructions[6] = {0xA0,0x04,0x00,0x89,0x01,0xD2);//读取新版本标签数据信息
-const unsigned char send_new_instructions[6] = {0xA0,0x04,0x01,0x89,0x01,0xD1);//读取旧版本标签数据信息 
-const unsigned char send_sanduoTrigger[8] = {0x40,0x06,0xee,0x01,0x00,0x00,0x00,0xcb);//读取旧版本标签数据信息
+const unsigned char check_old_edition[5] = {0xA0,0x03,0x00,0x72,0xeb}; //旧版本检测 
+const unsigned char check_new_edition[5] = {0xA0,0x03,0x01,0x72,0xea}; //新版本检测   
+const unsigned char send_old_instructions[6] = {0xA0,0x04,0x00,0x89,0x01,0xD2);//读取旧版本标签数据信息
+const unsigned char send_new_instructions[6] = {0xA0,0x04,0x01,0x89,0x01,0xD1);//读取新版本标签数据信息 
+const unsigned char send_sanduoTrigger[8] = {0x40,0x06,0xee,0x01,0x00,0x00,0x00,0xcb);//读取新版本标签数据信息
 const unsigned char read new power[5] = {0xA0,0x03,0x01,0x77,0xE5}; //读取当前功率
 const unsigned char set power 26[6] = {0xA0,0x04,0x01,0x76,0x1A,0xCB}; //设置功率为26dBm
 const unsigned char set power 25[6] = {0xA0,0x04,0x01,0x76,0x19,0xCC}; //设置功率为25dBm
@@ -48,24 +48,27 @@ const unsigned char set power 18[6] = {0xA0,0x04,0x01,0x76,0x12,0xD3}; //设置�
 const unsigned char set power 10[6] = {0xA0,0x04,0x01,0x76,0x0A,0xDB}; //设置功率为10dBm
 
 },
-"test":     
+"test":
 
     {
     "Version_Query":
-      "send: "A0 03 00 72 eb"
-      "Error_return" : "" 
-      "success_return" : " 00000000: df ee f3 97 f7 f3 f7 f7   13 b3 f3 53 b6 52 d6 "
+      "send: "A0 03 01 72 ea"
+      "Error_return" : ""
+      "success_return_win" : " A0 05 01 72 01 09 DE "
+      "success_return_ubuntu" : " 00000000: df ee f3 97 f7 f3 f7 f7   13 b3 f3 53 b6 52 d6 "
     },
     {
     "power":
     "send: "A0 03 00 77 E5"
-    "success_return" : "00000000: df ee f3 97 f7 f3 f7 f7   13 13 f3 53 a9 e5 eb"
+    "success_return_win" : "  A0 04 01 77 17 CD "
+    "success_return_ubuntu" : "00000000: df ee f3 97 f7 f3 f7 f7   13 13 f3 53 a9 e5 eb"
     "Error_return" : "" 
     },
     {
-    "Set_power":
-    "send: "A0 04 01 76 14 D1"
-    "success_return": "00000000: df ee f3 77 f3 f3 d7 f3   13 33 f7 d3 73 f3 73 eb  00000010: ca d6 "
+    "Set_power23":
+    "send: "A0 04 01 76 17 CE"
+    "success_return_ubuntu": " A0 04 01 76 10 D5 "
+    "success_return_ubuntu": "00000000: df ee f3 77 f3 f3 d7 f3   13 33 f7 d3 73 f3 73 eb  00000010: ca d6 "
     "Error_return" : "A0 04 * 76 ErrorCode *" 
     },
 
