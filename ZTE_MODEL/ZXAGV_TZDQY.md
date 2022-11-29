@@ -67,7 +67,7 @@ const unsigned char set power 10[6] = {0xA0,0x04,0x01,0x76,0x0A,0xDB}; //设置�
     {
     "Set_power23":
     "send: "A0 04 01 76 17 CE"
-    "success_return_ubuntu": " A0 04 01 76 10 D5 "
+    "success_return_win": " A0 04 01 76 10 D5 "
     "success_return_ubuntu": "00000000: df ee f3 77 f3 f3 d7 f3   13 33 f7 d3 73 f3 73 eb  00000010: ca d6 "
     "Error_return" : "A0 04 * 76 ErrorCode *" 
     },
