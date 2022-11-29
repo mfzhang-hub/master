@@ -56,14 +56,14 @@ const unsigned char set power 10[6] = {0xA0,0x04,0x01,0x76,0x0A,0xDB}; //设置�
       "Check_bit_win" : " 00 "
       "Error_return" : ""
       "success_return_win" : " A0 05 01 72 01 09 DE "
-      "success_return_ubuntu" : " 00000000: df ee f3 97 f7 f3 f7 f7   13 b3 f3 53 b6 52 d6 "
+      "success_return_ubuntu" : " A0 05 01 72 01 09 DE "
     },
     {
     "power":
     "send: "A0 03 01 77 E5"
     "Check_bit_win" : " 00 "
     "success_return_win" : "  A0 04 01 77 17 CD "
-    "success_return_ubuntu" : "00000000: df ee f3 97 f7 f3 f7 f7   13 13 f3 53 a9 e5 eb"
+    "success_return_ubuntu" : "A0 04 01 77 17 CD"
     "Error_return" : "" 
     },
     {
@@ -71,7 +71,7 @@ const unsigned char set power 10[6] = {0xA0,0x04,0x01,0x76,0x0A,0xDB}; //设置�
     "send: "A0 04 01 76 17 CE"
     "Check_bit_win" : " 01 "
     "success_return_win": " A0 04 01 76 10 D5 "
-    "success_return_ubuntu": "00000000: df ee f3 77 f3 f3 d7 f3   13 33 f7 d3 73 f3 73 eb  00000010: ca d6 "
+    "success_return_ubuntu": "A0 04 01 76 10 D5 "
     "Error_return" : "A0 04 * 76 ErrorCode *" 
     },
 
