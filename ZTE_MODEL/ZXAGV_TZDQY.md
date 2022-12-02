@@ -49,7 +49,7 @@ const unsigned char set power 10[6] = {0xA0,0x04,0x01,0x76,0x0A,0xDB}; //设置�
 
 },
 "test":
-
+#Parity:None
     {
     "Version_Query":
       "send: "A0 03 01 72 ea"
