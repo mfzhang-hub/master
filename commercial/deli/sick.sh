@@ -1,28 +1,29 @@
-#得力项目激光数据打印
-#!/bin/bash
+#寰楀姏椤圭洰婵€鍏夋暟鎹墦鍗?#!/bin/bash
 
 	if [ ! -d "~/DL/SICK/" ];then
 	mkdir -p ~/DL/SICK/
 	fi
-    if [ ! -d "~/DL/beifen" ];then
-	mkdir -p ~/DL/beifen
+    if [ ! -d "~/DL/logger" ];then
+	mkdir -p ~/DL/logger
 	fi
     if [ ! -d "~/DL/log" ];then
 	mkdir -p ~/DL/log
 	fi
-    if [ ! -d "~/DL/front_shark" ];then
-	mkdir -p ~/DL/front_shark
+    if [ ! -d "~/DL/front_shark/eno1" ];then
+	mkdir -p ~/DL/front_shark/eno1
 	fi
-    if [ ! -d "~/DL/back_shark" ];then
-	mkdir -p ~/DL/back_shark
+    if [ ! -d "~/DL/back_shark/eno1" ];then
+	mkdir -p ~/DL/back_shark/eno1
+	fi
+    if [ ! -d "~/DL/front_shark/enp1s0" ];then
+	mkdir -p ~/DL/front_shark/enp1s0
+	fi
+    if [ ! -d "~/DL/back_shark/enp1s0" ];then
+	mkdir -p ~/DL/back_shark/enp1s0
 	fi
 
+    sleep 0.1
 
-    #rm -r ~/DL/SICK/*
-
-    sleep 1
-    
-    rm -r ~/DL/beifen/* 
 function delFile(){
     string=`du ~/DL/SICK/ping_front.log`
     string=`du ~/DL/SICK/ping_back.log`
@@ -57,23 +58,25 @@ function delFile(){
     sleep 0.1
     fi
     if [ $fileSize -gt $size ] ; then
-    mv ~/DL/SICK/* ~/DL/beifen &
-    sleep 1
-    tar -zcPvf ~/DL/log/log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/beifen &
+    mv ~/DL/SICK/* ~/DL/logger &
+    sleep 0.2
+    tar -zcPvf ~/DL/log/log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/logger &
     tar -zcPvf ~/DL/log/front_wireshark1-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/front_shark &
     tar -zcPvf ~/DL/log/back_wireshark2-$(date +%Y-%m-%d-%H-%M-%S).tar.gz ~/DL/back_shark &
-    sleep 0.1
+    sleep 1
     dir=~/DL/log
     dir_ros=~/.ros/log
     #find ~/DL/log -mtime +1 -name "log-$(date +%Y-%m-%d-%H-%M-%S).tar.gz" -exec rm -rf {} \;
-    ls -1t $dir/* | awk 'NR>300 {print "rm -r "$0}' | bash 
+    ls -1t $dir/* | awk 'NR>800 {print "rm -r "$0}' | bash 
     ls -1t $dir_ros/rostopic_*.log | awk 'NR>10 {print "rm -r "$0}' | bash 
     sleep 0.1
     ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
-    sleep 1
-    rm -r ~/DL/beifen/* 
-    rm -r ~/DL/front_shark/*
-    rm -r ~/DL/back_shark/*
+    sleep 0.1
+    rm -r ~/DL/logger/* 
+    rm -r ~/DL/front_shark/eno1/*
+    rm -r ~/DL/back_shark/eno1/*
+    rm -r ~/DL/front_shark/enp1s0/*
+    rm -r ~/DL/back_shark/enp1s0/*
     fi
     
     
@@ -101,9 +104,13 @@ do
     echo $ttime >> ~/DL/SICK/battery.log
     rostopic echo -n 1 /ztexing_node/dev_status  >> ~/DL/SICK/battery.log &
     sleep 0.01
-    tcpdump -i eno1 src net 192.168.100.104 -w ~/DL/front_shark/front_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    tcpdump -i eno1 src net 192.168.100.104 -w ~/DL/front_shark/eno1/front_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     sleep 0.01
-    tcpdump -i eno1 src net 192.168.100.108 -w ~/DL/back_shark/back_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    tcpdump -i eno1 src net 192.168.100.108 -w ~/DL/back_shark/eno1/back_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    sleep 0.01
+    tcpdump -i enp1s0 src net 192.168.100.104 -w ~/DL/front_shark/enp1s0/front_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
+    sleep 0.01
+    tcpdump -i enp1s0 src net 192.168.100.108 -w ~/DL/back_shark/enp1s0/back_shark-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     delFile
     sleep 0.01
 done
