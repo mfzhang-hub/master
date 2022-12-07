@@ -1,4 +1,4 @@
-#寰楀姏椤圭洰婵€鍏夋暟鎹墦鍗?#!/bin/bash
+#!/bin/bash
 
 	if [ ! -d "~/DL/SICK/" ];then
 	mkdir -p ~/DL/SICK/
