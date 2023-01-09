@@ -11,10 +11,11 @@
     5:左叉臂限位光电触发检测指令:    ./factory_test.sh 24
     6:右叉臂限位光电触发检测指令:    ./factory_test.sh 25
     7:叉臂高度获取:                 ./factory_test.sh 26
-    8:左TFmini测距:                 ./factory_test.sh 27
-    9:右TFmini测距:                 ./factory_test.sh 28
+    8:左TFmini测距(老车型):         ./factory_test.sh 27
+    9:右TFmini测距(老车型):          ./factory_test.sh 28
     10:触发充电开始:                 ./factory_test.sh 29
     11:触发充电结束:                 ./factory_test.sh 30
+    12：叉齿位置蓝海激光:             暂无
     }
 
     ]
