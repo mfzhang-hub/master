@@ -236,7 +236,7 @@ do
     tcpdump -i usbmon1 -w ~/Changan/usb_wireshark1/usbmon1-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
     sleep 0.01
     tcpdump -i usbmon2 -w ~/Changan/usb_wireshark2/usbmon2-$(date +%Y-%m-%d-%H-%M-%S-%3N).pcap &
-    sleep 0.01
+    sleep 0.01                                                                                                           
     echo $ttime >> ~/Changan/logger/usb_cat.log 
     cat /sys/kernel/debug/usb/devices >> ~/Changan/logger/usb_cat.log &
 
