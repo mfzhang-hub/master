@@ -62,6 +62,14 @@
     
 
     [
+        TFmini测距检测(叉臂下方——老车适配):
+        {
+            左侧TFmini: rostopic echo /tfmini_left/TFmini
+            右侧TFmini: rostopic echo /tfmini_right/TFmini
+        }
+    ]
+
+    [
         叉臂升降控制:
         {
             单位(mm):rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: "
