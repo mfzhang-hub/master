@@ -65,7 +65,7 @@ roslaunch lx_camera lx_camera_up.launch >> ~/.game/camera_up.log &
 
 echo -e "\033[32m 4 ok \033[0m"
 
-sleep 30
+sleep 60
 
 echo -e "\n" >> ~/.game/camera_down.log
 echo -e "START CAMERA_DOWN" >> ~/.game/camera_down.log
@@ -80,11 +80,17 @@ sleep 3
 echo -e "\033[32m Read Refresh OK  \033[0m" 
 echo  $ttime Read Refresh OK >> ~/.game/frequency_refresh_time
 cd /root/.game/
-#grep -o "START CAMERA_UP" camera_up.log | wc -l > ~/.game/frequency_up_start.log 
-#grep -o "未找到相机驱动，请联系硬件人员检查链接是否正常!!!" camera_up.log | wc -l > ~/.game/frequency_up_bad.log 
+grep -o "START CAMERA_UP" camera_up.log | wc -l > ~/.game/frequency_up_start.log 
+grep -o "未找到相机驱动，请联系硬件人员检查链接是否正常!!!" camera_up.log | wc -l > ~/.game/frequency_up_bad.log 
+grep -o "START CAMERA_UP" camera_up.log | wc -l > ~/.game/frequency_up_start.log 
+grep -o "请联系出厂设置人员检查配置是否正确!!!" camera_up.log | wc -l > ~/.game/frequency_up_configure.log
+grep -o "Interface claimed successfully"  camera_down.log | wc -l > ~/.game/frequency_down_suuess.log 
 grep -o "START CAMERA_DOWN" camera_down.log | wc -l > ~/.game/frequency_down_start.log 
 grep -o "未找到相机驱动，请联系硬件人员检查链接是否正常!!!" camera_down.log | wc -l > ~/.game/frequency_down_bad.log 
+grep -o "START CAMERA_DOWN" camera_down.log | wc -l > ~/.game/frequency_down_start.log 
+#grep -o "UsbCmdSendFAILED" camera_down.log | wc -l > ~/.game/frequency_down_configure.log
+grep -o "请联系出厂设置人员检查配置是否正确!!!" camera_down.log | wc -l > ~/.game/frequency_down_configure.log 
 grep -o "Interface claimed successfully"  camera_down.log | wc -l > ~/.game/frequency_down_suuess.log
-grep -o "请联系出厂设置人员检查配置是否正确!!!" camera_down.log | wc -l > ~/.game/frequency_down_ID.log
 done
+
 
