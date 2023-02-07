@@ -10,12 +10,15 @@
     4:叉车顶部导航激光topick数据:   ./factory_test.sh 23
     5:左叉臂限位光电触发检测指令:    ./factory_test.sh 24
     6:右叉臂限位光电触发检测指令:    ./factory_test.sh 25
-    7:叉臂高度获取:                 ./factory_test.sh 26
+    7:叉臂高度获取:                 ./factory_test.sh 26  
     8:左TFmini测距(老车型):         ./factory_test.sh 27
     9:右TFmini测距(老车型):          ./factory_test.sh 28
     10:触发充电开始:                 ./factory_test.sh 29
     11:触发充电结束:                 ./factory_test.sh 30
-    12：叉齿位置蓝海激光:             暂无
+    12：叉齿位置蓝海激光:             ./factory_test.sh 32
+    13：前方realsense相机数据:        ./factory_test.sh 33
+    14：维感相机RGB数据:              ./factory_test.sh 34
+    15：维感相机depth深度数据:         ./factory_test.sh 35
     }
 
     ]

@@ -10,7 +10,7 @@ ip配置(正对车头)：
     叉根避障激光:192.168.100.106  //首批三台样机ip配置
     叉根避障激光:192.168.100.102
     顶部激光:192.168.100.109
-    叉尖对接激光：192.168.100.108
+    叉尖对接激光（蓝海）：192.168.100.108
 },
  激光原始数据测试:
 {
@@ -18,7 +18,7 @@ ip配置(正对车头)：
     右前激光: rostopic echo /scan_back
     叉根避障激光: rostopic echo /scan_back_forklift
     顶部激光: rostopic echo /scan_top
-    叉尖对接激光：
+    叉尖对接激光（蓝海）：rostopic echo /lidarl/forklift_scan
 }
 ]
 
@@ -79,9 +79,16 @@ ip配置(正对车头)：
 ]
 
 [
-        维感相机：
+
+        相机：
         {
+
+        维感相机：
            ip配置：192.168.100.82
-           数据指令： 
+           rgb相机数据：rostopic echo /Vzense/color/image_raw
+           depth深度数据：rostopic echo /Vzense/aligned_depth_to_color/image_raw"
+
+        realsense相机数据指令：rostopic echo /high realsense_scan
         }
+
 ]
