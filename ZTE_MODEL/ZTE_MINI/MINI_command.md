@@ -87,7 +87,7 @@ ip配置(正对车头)：
            ip配置：192.168.100.82
            VZense相机启动Launch:roslaunch vzense_camera vzense_camera.launch
            rgb相机数据：rostopic echo /Vzense/color/image_raw
-           depth深度数据：rostopic echo /Vzense/aligned_depth_to_color/image_raw"
+           depth深度数据：rostopic echo /Vzense/aligned_depth_to_color/image_raw
 
         realsense相机数据指令：rostopic echo /high_realsense_scan
         }
