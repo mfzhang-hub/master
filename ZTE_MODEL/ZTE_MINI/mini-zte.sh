@@ -13,12 +13,12 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /ztexing_node/imu_cali std_msgs/Bool "data: true" 
-elif [ $1 -eq 4 ] #sick 581
+elif [ $1 -eq 4 ] #wlr-716-mini-left
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic echo /scan_front
-elif [ $1 -eq 5 ] #sick 240
+elif [ $1 -eq 5 ] #wlr-716-mini-right
 then
    cd /mnt/
    source devel_isolated/setup.bash
@@ -32,22 +32,17 @@ elif [ $1 -eq 7 ] #realsense
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /realsense_scan 
-elif [ $1 -eq 8 ] #tfmini front
+   rostopic echo /high_realsense_scan
+elif [ $1 -eq 8 ] #Vzense rgb
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /tfmini_front/TFmini 
-elif [ $1 -eq 9 ] #tfmini top
+   rostopic echo /Vzense/color/image_raw 
+elif [ $1 -eq 9 ] #Vzense depth
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /tfmini_top/TFmini
-elif [ $1 -eq 10 ] #pgv
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic echo /pgv100_scan  
+   rostopic echo /Vzense/aligned_depth_to_color/image_raw
 elif [ $1 -eq 11 ] #power trigger
 then
    cd /mnt/
@@ -62,47 +57,12 @@ elif [ $1 -eq 13 ] #charge open
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /charge_command std_msgs/UInt8 "data: 1"
+   rostopic pub /charge_command "1"
 elif [ $1 -eq 14 ] #charge close
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /charge_command std_msgs/UInt8 "data: 0" 
-elif [ $1 -eq 15 ] #top camera light
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic pub /top_camera_light_command std_msgs/UInt8 "data: 1"
-elif [ $1 -eq 16 ] #top camera light
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic pub /top_camera_light_command std_msgs/UInt8 "data: 2"
-elif [ $1 -eq 17 ] #top camera light
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic pub /top_camera_light_command std_msgs/UInt8 "data: 3"
-elif [ $1 -eq 18 ] #top camera light
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic pub /top_camera_light_command std_msgs/UInt8 "data: 0"
-elif [ $1 -eq 19 ] #top camera light
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic echo /usb_cam/image_raw
-elif [ $1 -eq 20 ] #Left front laser
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic echo /scan_front
-elif [ $1 -eq 21 ] #Right front laser
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic echo /scan_back
+   rostopic pub /charge_command "0" 
 elif [ $1 -eq 22 ] #Rear docking laser
 then
    cd /mnt/
@@ -128,31 +88,26 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rosparam get /forklift/height
-elif [ $1 -eq 27 ] #Left fork arm tfmini ranging
+elif [ $1 -eq 27 ] #Lift the inserting arm to 0
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /tfmini_left/TFmini
-elif [ $1 -eq 28 ] #Right fork arm tfmini ranging
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 0"
+elif [ $1 -eq 28 ] #Lift the inserting arm to 2300
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /tfmini_right/TFmini
-elif [ $1 -eq 29 ] #Forklift charging starts
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2300"   
+elif [ $1 -eq 29 ] #Lift the inserting arm to 2500
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /charge_command "1"
-elif [ $1 -eq 30 ] #Forklift charging end
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2500"
+elif [ $1 -eq 30 ] #Lift the inserting arm to 2200
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /charge_command "0"
-elif [ $1 -eq 31 ] #draw photoelectric state
-then
-   cd /mnt/
-   source devel_isolated/setup.bash
-   rostopic echo /ztexing_node/draw_status
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2200"
 else
    echo "less param"
 fi
