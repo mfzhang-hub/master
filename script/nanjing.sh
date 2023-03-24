@@ -60,10 +60,8 @@ debug_cmd(){
 }
 
 debug_cmd " echo "$ttime The execution is normal before the "while" loop." >> $debug_name "
-
     cd /mnt
-    source devel_isolated/setup.bash 
-
+    source devel_isolated/setup.bash &
 debug_cmd "echo "$ttime The "source" instruction executes normally." >> $debug_name "
 
 while true
@@ -71,6 +69,7 @@ do
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 echo -e "\033[31m start$Start_Initial_Count \033[0m"
 Start_Initial_Count=$((Start_Initial_Count+1))
+debug_cmd " echo " $ttime "Start $Start_Initial_Count Cycles."" >> $debug_name "
 debug_cmd " echo "$ttime "While" starts." >> $debug_name "
 sleep 0.1
     echo $ttime >> $cpu 
@@ -211,7 +210,7 @@ fi
 debug_cmd " echo "$ttime "The execution of the" count3 "circular query instruction has completed."." >> $debug_name "
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
-
+debug_cmd " echo " $ttime "End $End_Initial_Count Cycles."" >> $debug_name "
 if [ "$DEBUG_executions_number" = true ]; then
 if [[ $End_Initial_Count -ge $Circulate ]];then 
 ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
