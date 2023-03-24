@@ -13,21 +13,6 @@ if [ ! -d "~/lanxin/intel/back/wireshark" ];then
 	mkdir -p ~/lanxin/intel/back/wireshark
 	fi
 
-echo '54mI5pys5Y+377yadjEuMA==' > ~/lanxin/version
-
-    ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
-
-max_size=10000000
-max_size_all=10000000
-max_box=100
-max_ros=15
-
-sleep 0.1
-tcpdump -i eno1 src net 192.168.100.104 -w ~/lanxin/intel/front/wireshark/front_shark.pcap &
-sleep 0.1
-tcpdump -i eno1 src net 192.168.100.108 -w ~/lanxin/intel/back/wireshark/back_shark.pcap &
-sleep 0.1
-
 cpu=~/lanxin/intel/cpu.log
 memory=~/lanxin/intel/memory.log
 ping_front=~/lanxin/intel/front/ping_front.log
@@ -38,55 +23,72 @@ rostopic_battery=~/lanxin/intel/battery.log
 tcpdump_front=~/lanxin/intel/front/wireshark/front_shark.pcap
 tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
 debug_name=~/lanxin/debug.log
-
+version_logg=~/lanxin/version
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-echo $ttime >> ~/lanxin/debug.log
-echo "The execution is normal before the "while" loop." >> ~/lanxin/debug.log
+echo '54mI5pys5Y+377yadjIuMC3mm7TmlrDkuoblkITpobnpmIjlgLzvvIwxMG1i5LiA5Liq54mI5pys5YyF55Sf5oiQ5LiA5Liq5pWw5o2u5YyF6Ieq5Yqo6KaG55uW5LmL5YmN5pWw5o2u77yM5pyA5pep5LiA5LiqcGNhcOWMheS4jeS8muWIoOmZpOOAgg==' > $version_logg
+ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
+DEBUG=true
+max_size=10000000
+max_size_all=10000000
+max_box=100
+max_ros=15
+i=1
+o=1
+p=100
+front_ip=192.168.100.104
+back_ip=192.168.100.104
+echo $ttime >> $debug_name
+echo "debug:$DEBUG" >> $debug_name
+echo "max_size:$max_size" >> $debug_name
+echo "max_size_all:$max_size_all" >> $debug_name
+echo "max_box:$max_box" >> $debug_name
+echo "max_ros:$max_ros" >> $debug_name
+echo "i:$i" >> $debug_name
+echo "o:$o" >> $debug_name
+echo "p:$p" >> $debug_name
+sleep 0.1
+tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
+sleep 0.1
+tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
+sleep 0.1
+
+debug_cmd(){
+    if $DEBUG;then
+    eval "$@"
+    fi
+}
+
+debug_cmd " echo "$ttime The execution is normal before the "while" loop." >> $debug_name "
 
     cd /mnt
     source devel_isolated/setup.bash 
 
-echo $ttime >> ~/lanxin/debug.log
-echo "The "source" instruction executes normally." >> ~/lanxin/debug.log
-i=1
-o=1
+debug_cmd "echo "$ttime The "source" instruction executes normally." >> $debug_name "
+
 while true
 do
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 echo -e "\033[31m start$i \033[0m"
 i=$((i+1))
-echo $ttime >> ~/lanxin/debug.log
-echo ""While" starts." >> ~/lanxin/debug.log
+debug_cmd " echo "$ttime "While" starts." >> $debug_name "
 sleep 0.1
-
-    echo $ttime >> ~/lanxin/intel/cpu.log 
-    sensors  >> ~/lanxin/intel/cpu.log 
-    sleep 0.1
-    echo $ttime >> ~/lanxin/intel/memory.log 
-    free -m >> ~/lanxin/intel/memory.log 
-    sleep 0.1
-    echo $ttime >> ~/lanxin/intel/memory.log 
-    df -hl >> ~/lanxin/intel/memory.log 
-    sleep 0.1
-    echo $ttime >> ~/lanxin/intel/front/ping_front.log 
-    ping -c 1 192.168.100.104 >> ~/lanxin/intel/front/ping_front.log 
-    sleep 0.01
-    echo $ttime >> ~/lanxin/intel/back/ping_back.log 
-    ping -c 1 192.168.100.108 >> ~/lanxin/intel/back/ping_back.log 
-    sleep 0.01
-
-    echo $ttime >> ~/lanxin/intel/front/rostopic_front.log 
-    rostopic echo -n 1 /scan_front --noarr >> ~/lanxin/intel/front/rostopic_front.log &
-    sleep 0.01
-    echo $ttime >> ~/lanxin/intel/back/rostopic_back.log 
-    rostopic echo -n 1 /scan_back --noarr >> ~/lanxin/intel/back/rostopic_back.log &
-    sleep 0.01
-
-    echo $ttime >> ~/lanxin/intel/battery.log 
-    rostopic echo -n 1 /ztexing_node/dev_status  >> ~/lanxin/intel/battery.log 
-
-echo $ttime >> ~/lanxin/debug.log
-echo ""If" is executed normally before starting." >> ~/lanxin/debug.log
+    echo $ttime >> $cpu 
+    sensors  >> $cpu
+    echo $ttime >> $memory
+    free -m >> $memory
+    echo $ttime >> $memory
+    df -hl >> $memory
+    echo $ttime >> $ping_front
+    ping -c 1 $front_ip >> $ping_front
+    echo $ttime >> $ping_back
+    ping -c 1 $back_ip >> $ping_back
+    echo $ttime >> $rostopic_front
+    rostopic echo -n 1 /scan_front --noarr >> $rostopic_front &
+    echo $ttime >> $rostopic_back 
+    rostopic echo -n 1 /scan_back --noarr >> $rostopic_back &
+    echo $ttime >> $rostopic_battery
+    rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 
+debug_cmd " echo "$ttime "If" is executed normally before starting." >> $debug_name "
 
 size_cpu=$(du -b "$cpu" | awk '{print $1}') 
 size_memory=$(du -b "$memory" | awk '{print $1}') 
@@ -100,13 +102,21 @@ size_tcpdump_back=$(du -b "$tcpdump_back" | awk '{print $1}')
 size_debug_name=$(du -b "$debug_name" | awk '{print $1}') 
 
 
-echo $ttime >> ~/lanxin/debug.log
-echo "The "du" query file size is normal." >> ~/lanxin/debug.log
+debug_cmd " echo "$ttime The "du" query file size is normal." >> $debug_name "
 
 if [ "$size_debug_name" -gt "$max_size_all" ];then
 back_file0="$debug_name-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$debug_name" "$back_file0"
 touch "$debug_name"
+echo $ttime >> $debug_name
+echo "debug:$DEBUG" >> $debug_name
+echo "max_size:$max_size" >> $debug_name
+echo "max_size_all:$max_size_all" >> $debug_name
+echo "max_box:$max_box" >> $debug_name
+echo "max_ros:$max_ros" >> $debug_name
+echo "i:$i" >> $debug_name
+echo "o:$o" >> $debug_name
+echo "p:$p" >> $debug_name
 fi
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
@@ -154,75 +164,58 @@ fi
 if [ "$size_tcpdump_front" -gt "$max_size" ];then
 back_file8="$tcpdump_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_front" "$back_file8"
-#ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9 &
 touch "$tcpdump_front" &
 fi
 
 if [ "$size_tcpdump_back" -gt "$max_size" ];then
 back_file9="$tcpdump_back-$(date +"%Y-%m-%d-%H-%M-%S")" 
 mv "$tcpdump_back" "$back_file9"
-#ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9 &
 touch "$tcpdump_back" &
 fi
 
-echo $ttime >> ~/lanxin/debug.log
-echo ""IF" first cycle completed." >> ~/lanxin/debug.log
+debug_cmd " echo "$ttime "IF" first cycle completed." >> $debug_name "
 
 if [ "$size_tcpdump_front" -gt "$max_size" ];then
-echo $ttime >> ~/lanxin/debug.log
-ps -ef | grep "tcpdump -i eno1 src net 192.168.100.104" |grep -v grep |awk '{print $2}'| xargs kill -9 
-echo "The kill 104 process is complete." >> ~/lanxin/debug.log
-sleep 1
-echo $ttime >> ~/lanxin/debug.log
-tcpdump -i eno1 src net 192.168.100.104 -w ~/lanxin/intel/front/wireshark/front_shark.pcap &
-echo "Tcpdump 104 execution begins." >> ~/lanxin/debug.log
+ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime The kill 104 process is complete." >> $debug_name "
+tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
+debug_cmd " echo "$ttime Tcpdump 104 execution begins." >> $debug_name "
 fi
-
 if [ "$size_tcpdump_back" -gt "$max_size" ];then
-echo $ttime >> ~/lanxin/debug.log
-ps -ef | grep "tcpdump -i eno1 src net 192.168.100.108" |grep -v grep |awk '{print $2}'| xargs kill -9 
-echo "The kill 108 process is complete." >> ~/lanxin/debug.log
-sleep 1
-echo $ttime >> ~/lanxin/debug.log
-tcpdump -i eno1 src net 192.168.100.108 -w ~/lanxin/intel/back/wireshark/back_shark.pcap &
-echo "Tcpdump 108 execution begins." >> ~/lanxin/debug.log
+ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime The kill 108 process is complete." >> $debug_name "
+tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
+debug_cmd " echo "$ttime Tcpdump 108 execution begins." >> $debug_name "
 fi
-
-echo $ttime >> ~/lanxin/debug.log
-echo "The second cycle of "IF" is completed." >> ~/lanxin/debug.log
-
+debug_cmd " echo "$ttime The second cycle of "IF" is completed." >> $debug_name "
 count1=$(ls -lt ~/lanxin/intel/back/wireshark/ | grep "^-" | wc -l)
 count2=$(ls -lt ~/lanxin/intel/front/wireshark/ | grep "^-" | wc -l)
 count3=$(ls -lt ~/.ros/log/rostopic_*.log | grep "^-" | wc -l)
-
-echo $ttime >> ~/lanxin/debug.log
-echo ""Count" execution completed." >> ~/lanxin/debug.log
-
+debug_cmd " echo "$ttime "Count" execution completed." >> $debug_name "
 if [ "$count1" -gt "$max_box" ];then
  old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
 fi
-
-echo $ttime >> ~/lanxin/debug.log
-echo ""The execution of the" count1 "circular query instruction has completed."." >> ~/lanxin/debug.log 
-
+debug_cmd " echo "$ttime "The execution of the" count1 "circular query instruction has completed."." >> $debug_name "
 if [ "$count2" -gt "$max_box" ];then
  old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
 fi
-
-echo $ttime >> ~/lanxin/debug.log
-echo ""The execution of the" count2 "circular query instruction has completed."." >> ~/lanxin/debug.log
-
+debug_cmd " echo "$ttime "The execution of the" count2 "circular query instruction has completed."." >> $debug_name "
 if [ "$count3" -gt "$max_ros" ];then
  old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
 fi
-
-echo $ttime >> ~/lanxin/debug.log
-echo ""The execution of the" count3 "circular query instruction has completed."." >> ~/lanxin/debug.log
-
+debug_cmd " echo "$ttime "The execution of the" count3 "circular query instruction has completed."." >> $debug_name "
 echo -e "\033[32m end$o \033[0m"
 o=$((o+1))
+
+if [[ $o -ge $p ]]; then
+ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime End printing when the number of cycles reaches the judgment threshold." >> $debug_name "
+kill -s SIGINT $$
+break
+fi
 
 done
