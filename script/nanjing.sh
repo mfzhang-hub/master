@@ -25,33 +25,34 @@ tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
 debug_name=~/lanxin/debug.log
 version_logg=~/lanxin/version
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-echo '54mI5pys5Y+377yadjIuMC3mm7TmlrDkuoblkITpobnpmIjlgLzvvIwxMG1i5LiA5Liq54mI5pys5YyF55Sf5oiQ5LiA5Liq5pWw5o2u5YyF6Ieq5Yqo6KaG55uW5LmL5YmN5pWw5o2u77yM5pyA5pep5LiA5LiqcGNhcOWMheS4jeS8muWIoOmZpOOAgg==' > $version_logg
+echo '54mI5pys5Y+377yadjMuMC3mm7TmlrDkuoblkITpobnpmIjlgLzvvIwxMG1i5LiA5Liq54mI5pys5YyF55Sf5oiQ5LiA5Liq5pWw5o2u5YyF6Ieq5Yqo6KaG55uW5LmL5YmN5pWw5o2u77yM5pyA5pep5LiA5LiqcGNhcOWMheS4jeS8muWIoOmZpOOAguaWsOWinuaYr+WQpuW8gOWQr+W+queOr+asoeaVsOajgOa1i++8jOm7mOiupOWFs+mXreasoeaVsOajgOa1i++8jOWFqOWxgOaXoOe6v+aJk+WNsOOAgg==' > $version_logg
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
 DEBUG=true
+DEBUG_executions_number=false
 max_size=10000000
 max_size_all=10000000
 max_box=100
 max_ros=15
-i=1
-o=1
-p=100
+Start_Initial_Count=1 
+End_Initial_Count=1 
+Circulate=150000
 front_ip=192.168.100.104
 back_ip=192.168.100.104
 echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
+echo "DEBUG_executions_number:$DEBUG_executions_number" >> $debug_name
 echo "max_size:$max_size" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
-echo "i:$i" >> $debug_name
-echo "o:$o" >> $debug_name
-echo "p:$p" >> $debug_name
+echo "Start_Initial_Count:$Start_Initial_Count" >> $debug_name
+echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
+echo "Circulate:$Circulate" >> $debug_name
 sleep 0.1
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
 sleep 0.1
 tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
 sleep 0.1
-
 debug_cmd(){
     if $DEBUG;then
     eval "$@"
@@ -68,8 +69,8 @@ debug_cmd "echo "$ttime The "source" instruction executes normally." >> $debug_n
 while true
 do
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-echo -e "\033[31m start$i \033[0m"
-i=$((i+1))
+echo -e "\033[31m start$Start_Initial_Count \033[0m"
+Start_Initial_Count=$((Start_Initial_Count+1))
 debug_cmd " echo "$ttime "While" starts." >> $debug_name "
 sleep 0.1
     echo $ttime >> $cpu 
@@ -110,13 +111,14 @@ mv "$debug_name" "$back_file0"
 touch "$debug_name"
 echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
+echo "DEBUG_executions_number:$DEBUG_executions_number" >> $debug_name
 echo "max_size:$max_size" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
-echo "i:$i" >> $debug_name
-echo "o:$o" >> $debug_name
-echo "p:$p" >> $debug_name
+echo "Start_Initial_Count:$Start_Initial_Count" >> $debug_name
+echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
+echo "Circulate:$Circulate" >> $debug_name
 fi
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
@@ -207,15 +209,17 @@ if [ "$count3" -gt "$max_ros" ];then
 xargs rm $old_count3 &
 fi
 debug_cmd " echo "$ttime "The execution of the" count3 "circular query instruction has completed."." >> $debug_name "
-echo -e "\033[32m end$o \033[0m"
-o=$((o+1))
+echo -e "\033[32m end$End_Initial_Count \033[0m"
+End_Initial_Count=$((End_Initial_Count+1))
 
-if [[ $o -ge $p ]]; then
+if [ "$DEBUG_executions_number" = true ]; then
+if [[ $End_Initial_Count -ge $Circulate ]];then 
 ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime End printing when the number of cycles reaches the judgment threshold." >> $debug_name "
+debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
 kill -s SIGINT $$
 break
 fi
-
+fi
 done
