@@ -52,6 +52,7 @@ i=1
 o=1
 while true
 do
+ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 echo -e "\033[31m start$i \033[0m"
 i=$((i+1))
 echo $ttime >> ~/lanxin/debug.log
