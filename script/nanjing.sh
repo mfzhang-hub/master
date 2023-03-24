@@ -199,7 +199,7 @@ echo $ttime >> ~/lanxin/debug.log
 echo ""Count" execution completed." >> ~/lanxin/debug.log
 
 if [ "$count1" -gt "$max_box" ];then
- old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +10 | head -n -1)
+ old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
 fi
 
@@ -207,7 +207,7 @@ echo $ttime >> ~/lanxin/debug.log
 echo ""The execution of the" count1 "circular query instruction has completed."." >> ~/lanxin/debug.log 
 
 if [ "$count2" -gt "$max_box" ];then
- old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +10 | head -n -1)
+ old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
 fi
 
@@ -215,7 +215,7 @@ echo $ttime >> ~/lanxin/debug.log
 echo ""The execution of the" count2 "circular query instruction has completed."." >> ~/lanxin/debug.log
 
 if [ "$count3" -gt "$max_ros" ];then
- old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +15 | head -n -1)
+ old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
 fi
 
