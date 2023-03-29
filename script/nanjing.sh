@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# gnome-session-properties : gnome-terminal -x
+
 if [ ! -d "~/lanxin/intel/front" ];then
 	mkdir -p ~/lanxin/intel/front
 	fi
