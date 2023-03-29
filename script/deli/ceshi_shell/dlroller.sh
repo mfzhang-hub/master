@@ -3,7 +3,7 @@ cd /
 sh pid.sh &
 sleep 3
 cd /mnt
-source devel_isolated/setup.bash
+source devel_isolated/setup.bash 
 
 rostopic pub /roller_dlayer_drow_command common_msgs/DLayerDRowRollerComm "frontUpper:
   roller_task: 2
