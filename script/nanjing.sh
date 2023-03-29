@@ -66,7 +66,7 @@ debug_cmd(){
     fi
 }
 
-uptime -s > $shutdown_time 
+uptime -s >> $shutdown_time 
 
 debug_cmd " echo "$ttime The execution is normal before the "while" loop." >> $debug_name "
     cd /mnt
