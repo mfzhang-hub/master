@@ -29,7 +29,7 @@ shutdown_time=~/lanxin/shutdowm
 version_logg=~/lanxin/version
 explain=~/lanxin/Explain.md
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-echo '54mI5pys5Y+377yadjQuMC3lop7liqDkuobnu4jnq6/ovpPlhaVjdHJsK2Pml7bkvJrmiZPljbDorrDlvZXliLBkZWJ1Z+aWh+S7tu+8iOazqO+8muW7uuiuruW8gOacuuiHquW+queOr+W8gOWQr++8mmdub21lLXRlcm1pbmFsIC1477yJ44CC' > $version_logg
+echo '54mI5pys5Y+377yadjUt5aKe5Yqg5Y+C5pWw6YWN572u6K+05piO5paH5Lu2RXhwbGFpbi5tZA==' > $version_logg
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
 DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常2秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
