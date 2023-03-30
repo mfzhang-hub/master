@@ -27,8 +27,22 @@ tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
 debug_name=~/lanxin/debug.log
 shutdown_time=~/lanxin/shutdowm
 version_logg=~/lanxin/version
+explain=~/lanxin/Explain.md
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 echo '54mI5pys5Y+377yadjQuMC3lop7liqDkuobnu4jnq6/ovpPlhaVjdHJsK2Pml7bkvJrmiZPljbDorrDlvZXliLBkZWJ1Z+aWh+S7tu+8iOazqO+8muW7uuiuruW8gOacuuiHquW+queOr+W8gOWQr++8mmdub21lLXRlcm1pbmFsIC1477yJ44CC' > $version_logg
+echo "
+DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
+DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常2秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
+max_size： 网络数据包的单包保存大小（单位：字节，10000000=10mb）；
+max_size_all： 除网络数据包之外其他的日志文件单个保存大小（单位：字节，10000000=10mb）；
+max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包（正常两个包的数据间隔是3分钟）；
+max_ros： 系统./ros/log下面的rostopic开头的文件所在文件夹下的循环保存数量，因为下述脚本循环执行topic指令会导致很多数据包生成；
+Start_Initial_Count： 计数器初始值-默认1，请勿修改；
+End_Initial_Count： 计数器结束值-默认1，请勿修改；
+Circulate： 当“DEBUG_executions_number”参数改为true时会自动调用此参数-参数配置*2为循环打印输出的时间点；
+front_ip： 激光Ip-此处默认配置潜入式车型前激光ip;
+back_ip: 激光Ip-此处默认配置潜入式车型后激光ip;
+ctrl_c_flag： “ctrl+c”终端信号检测的判定值-默认0，请勿修改" > $explain
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
 DEBUG=true
 DEBUG_executions_number=false
