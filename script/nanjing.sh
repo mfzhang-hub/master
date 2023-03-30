@@ -255,67 +255,67 @@ if [ "$count1" -gt "$max_box" ];then
  old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
 fi
-echo "1"
+
 debug_cmd " echo "$ttime "The execution of the" count1 "circular query instruction has completed."." >> $debug_name "
 if [ "$count2" -gt "$max_box" ];then
  old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
 fi
-echo "2"
+
 debug_cmd " echo "$ttime "The execution of the" count2 "circular query instruction has completed."." >> $debug_name "
 if [ "$count3" -gt "$max_ros" ];then
  old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
 fi
-echo "3"
+
 debug_cmd " echo "$ttime "The execution of the" count3 "circular query instruction has completed."." >> $debug_name "
 if [ "$count4" -gt "$max_debug" ];then
  old_count4=$(ls -t ~/lanxin/debug/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count4 &
 fi
-echo "4"
+
 debug_cmd " echo "$ttime "The execution of the" count4 "circular query instruction has completed."." >> $debug_name "
 if [ "$count5" -gt "$max_debug" ];then
  old_count5=$(ls -t ~/lanxin/intel/computer/cpu/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count5 &
 fi
-echo "5"
+
 debug_cmd " echo "$ttime "The execution of the" count5 "circular query instruction has completed."." >> $debug_name "
 if [ "$count6" -gt "$max_debug" ];then
  old_count6=$(ls -t ~/lanxin/intel/front/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count6 &
 fi
-echo "6"
+
 debug_cmd " echo "$ttime "The execution of the" count6 "circular query instruction has completed."." >> $debug_name "
 if [ "$count7" -gt "$max_debug" ];then
  old_count7=$(ls -t ~/lanxin/intel/back/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count7 &
 fi
-echo "7"
+
 debug_cmd " echo "$ttime "The execution of the" count7 "circular query instruction has completed."." >> $debug_name "
 if [ "$count8" -gt "$max_debug" ];then
  old_count8=$(ls -t ~/lanxin/intel/front/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count8 &
 fi
-echo "8"
+
 debug_cmd " echo "$ttime "The execution of the" count8 "circular query instruction has completed."." >> $debug_name "
 if [ "$count9" -gt "$max_debug" ];then
  old_count9=$(ls -t ~/lanxin/intel/back/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count9 &
 fi
-echo "9"
+
 debug_cmd " echo "$ttime "The execution of the" count9 "circular query instruction has completed."." >> $debug_name "
 if [ "$count10" -gt "$max_debug" ];then
  old_count10=$(ls -t ~/lanxin/intel/computer/memory/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count10 &
 fi
-echo "10"
+
 debug_cmd " echo "$ttime "The execution of the" count10 "circular query instruction has completed."." >> $debug_name "
 if [ "$count11" -gt "$max_debug" ];then
  old_count11=$(ls -t ~/lanxin/intel/computer/battery/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count11 &
 fi
-echo "11"
+
 debug_cmd " echo "$ttime "The execution of the" count11 "circular query instruction has completed."." >> $debug_name "
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
