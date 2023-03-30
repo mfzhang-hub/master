@@ -2,11 +2,11 @@
 
 # gnome-session-properties : gnome-terminal -x
 
-if [ ! -d "~/lanxin/intel/front" ];then
-	mkdir -p ~/lanxin/intel/front
+if [ ! -d "~/lanxin/intel/front/ping" ];then
+	mkdir -p ~/lanxin/intel/front/ping
 	fi
-if [ ! -d "~/lanxin/intel/back" ];then
-	mkdir -p ~/lanxin/intel/back
+if [ ! -d "~/lanxin/intel/back/ping" ];then
+	mkdir -p ~/lanxin/intel/back/ping
 	fi
 if [ ! -d "~/lanxin/intel/front/wireshark" ];then
 	mkdir -p ~/lanxin/intel/front/wireshark
@@ -14,22 +14,41 @@ if [ ! -d "~/lanxin/intel/front/wireshark" ];then
 if [ ! -d "~/lanxin/intel/back/wireshark" ];then
 	mkdir -p ~/lanxin/intel/back/wireshark
 	fi
+if [ ! -d "~/lanxin/debug" ];then
+	mkdir -p ~/lanxin/debug
+	fi
+if [ ! -d "~/lanxin/intel/computer/memory" ];then
+	mkdir -p ~/lanxin/intel/computer/memory
+	fi
+if [ ! -d "~/lanxin/intel/front/rostopic" ];then
+	mkdir -p ~/lanxin/intel/front/rostopic
+	fi
+if [ ! -d "~/lanxin/intel/back/rostopic" ];then
+	mkdir -p ~/lanxin/intel/back/rostopic
+	fi
+if [ ! -d "~/lanxin/intel/computer/cpu" ];then
+	mkdir -p ~/lanxin/intel/computer/cpu
+	fi
+if [ ! -d "~/lanxin/intel/computer/battery" ];then
+	mkdir -p ~/lanxin/intel/computer/battery
+	fi
+sleep 1
 
-cpu=~/lanxin/intel/cpu.log
-memory=~/lanxin/intel/memory.log
-ping_front=~/lanxin/intel/front/ping_front.log
-ping_back=~/lanxin/intel/back/ping_back.log
-rostopic_front=~/lanxin/intel/front/rostopic_front.log
-rostopic_back=~/lanxin/intel/back/rostopic_back.log
-rostopic_battery=~/lanxin/intel/battery.log
+cpu=~/lanxin/intel/computer/cpu/cpu.log
+memory=~/lanxin/intel/computer/memory/memory.log
+ping_front=~/lanxin/intel/front/ping/ping_front.log
+ping_back=~/lanxin/intel/back/ping/ping_back.log
+rostopic_front=~/lanxin/intel/front/rostopic/rostopic_front.log
+rostopic_back=~/lanxin/intel/back/rostopic/rostopic_back.log
+rostopic_battery=~/lanxin/intel/computer/battery/battery.log
 tcpdump_front=~/lanxin/intel/front/wireshark/front_shark.pcap
 tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
-debug_name=~/lanxin/debug.log
+debug_name=~/lanxin/debug/debug.log
 shutdown_time=~/lanxin/shutdowm
 version_logg=~/lanxin/version
 explain=~/lanxin/Explain.md
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-echo '54mI5pys5Y+377yadjUt5aKe5Yqg5Y+C5pWw6YWN572u6K+05piO5paH5Lu2RXhwbGFpbi5tZA==' > $version_logg
+echo '54mI5pys5Y+377yadjYt5paH5Lu25ZCI5bm26Iez55u45a+55bqU5paH5Lu25aS55bm25aKe5YqgbWF4X2RlYnVn5Y+C5pWw6ZmQ5Yi255u45YWz5a2Y5YyF' > $version_logg
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
 DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常2秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
@@ -37,6 +56,7 @@ max_size： 网络数据包的单包保存大小（单位：字节，10000000=10
 max_size_all： 除网络数据包之外其他的日志文件单个保存大小（单位：字节，10000000=10mb）；
 max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包（正常两个包的数据间隔是3分钟）；
 max_ros： 系统./ros/log下面的rostopic开头的文件所在文件夹下的循环保存数量，因为下述脚本循环执行topic指令会导致很多数据包生成；
+max_debug： 作为debug日志及computer的相关日志的存储限制数量参数；
 Start_Initial_Count： 计数器初始值-默认1，请勿修改；
 End_Initial_Count： 计数器结束值-默认1，请勿修改；
 Circulate： 当“DEBUG_executions_number”参数改为true时会自动调用此参数-参数配置*2为循环打印输出的时间点；
@@ -50,6 +70,7 @@ max_size=10000000
 max_size_all=10000000
 max_box=200
 max_ros=15
+max_debug=50
 Start_Initial_Count=1 
 End_Initial_Count=1 
 Circulate=150000
@@ -69,6 +90,7 @@ echo "Circulate:$Circulate" >> $debug_name
 echo "front_ip:$front_ip" >> $debug_name
 echo "back_ip:$back_ip" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
+echo "max_debug:$max_debug" >> $debug_name
 sleep 0.1
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
 sleep 0.1
@@ -151,6 +173,7 @@ echo "Circulate:$Circulate" >> $debug_name
 echo "front_ip:$front_ip" >> $debug_name
 echo "back_ip:$back_ip" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
+echo "max_debug:$max_debug" >> $debug_name
 fi
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
@@ -219,22 +242,81 @@ debug_cmd " echo "$ttime The second cycle of "IF" is completed." >> $debug_name 
 count1=$(ls -lt ~/lanxin/intel/back/wireshark/ | grep "^-" | wc -l)
 count2=$(ls -lt ~/lanxin/intel/front/wireshark/ | grep "^-" | wc -l)
 count3=$(ls -lt ~/.ros/log/rostopic_*.log | grep "^-" | wc -l)
+count4=$(ls -lt ~/lanxin/debug/ | grep "^-" | wc -l)
+count5=$(ls -lt ~/lanxin/intel/computer/cpu/ | grep "^-" | wc -l)
+count6=$(ls -lt ~/lanxin/intel/front/ping/ | grep "^-" | wc -l)
+count7=$(ls -lt ~/lanxin/intel/back/ping/ | grep "^-" | wc -l)
+count8=$(ls -lt ~/lanxin/intel/front/rostopic/ | grep "^-" | wc -l)
+count9=$(ls -lt ~/lanxin/intel/back/rostopic/ | grep "^-" | wc -l)
+count10=$(ls -lt ~/lanxin/intel/computer/memory/ | grep "^-" | wc -l)
+count11=$(ls -lt ~/lanxin/intel/computer/battery/ | grep "^-" | wc -l)
 debug_cmd " echo "$ttime "Count" execution completed." >> $debug_name "
 if [ "$count1" -gt "$max_box" ];then
  old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
 fi
+echo "1"
 debug_cmd " echo "$ttime "The execution of the" count1 "circular query instruction has completed."." >> $debug_name "
 if [ "$count2" -gt "$max_box" ];then
  old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
 fi
+echo "2"
 debug_cmd " echo "$ttime "The execution of the" count2 "circular query instruction has completed."." >> $debug_name "
 if [ "$count3" -gt "$max_ros" ];then
  old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
 fi
+echo "3"
 debug_cmd " echo "$ttime "The execution of the" count3 "circular query instruction has completed."." >> $debug_name "
+if [ "$count4" -gt "$max_debug" ];then
+ old_count4=$(ls -t ~/lanxin/debug/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count4 &
+fi
+echo "4"
+debug_cmd " echo "$ttime "The execution of the" count4 "circular query instruction has completed."." >> $debug_name "
+if [ "$count5" -gt "$max_debug" ];then
+ old_count5=$(ls -t ~/lanxin/intel/computer/cpu/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count5 &
+fi
+echo "5"
+debug_cmd " echo "$ttime "The execution of the" count5 "circular query instruction has completed."." >> $debug_name "
+if [ "$count6" -gt "$max_debug" ];then
+ old_count6=$(ls -t ~/lanxin/intel/front/ping/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count6 &
+fi
+echo "6"
+debug_cmd " echo "$ttime "The execution of the" count6 "circular query instruction has completed."." >> $debug_name "
+if [ "$count7" -gt "$max_debug" ];then
+ old_count7=$(ls -t ~/lanxin/intel/back/ping/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count7 &
+fi
+echo "7"
+debug_cmd " echo "$ttime "The execution of the" count7 "circular query instruction has completed."." >> $debug_name "
+if [ "$count8" -gt "$max_debug" ];then
+ old_count8=$(ls -t ~/lanxin/intel/front/rostopic/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count8 &
+fi
+echo "8"
+debug_cmd " echo "$ttime "The execution of the" count8 "circular query instruction has completed."." >> $debug_name "
+if [ "$count9" -gt "$max_debug" ];then
+ old_count9=$(ls -t ~/lanxin/intel/back/rostopic/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count9 &
+fi
+echo "9"
+debug_cmd " echo "$ttime "The execution of the" count9 "circular query instruction has completed."." >> $debug_name "
+if [ "$count10" -gt "$max_debug" ];then
+ old_count10=$(ls -t ~/lanxin/intel/computer/memory/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count10 &
+fi
+echo "10"
+debug_cmd " echo "$ttime "The execution of the" count10 "circular query instruction has completed."." >> $debug_name "
+if [ "$count11" -gt "$max_debug" ];then
+ old_count11=$(ls -t ~/lanxin/intel/computer/battery/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count11 &
+fi
+echo "11"
+debug_cmd " echo "$ttime "The execution of the" count11 "circular query instruction has completed."." >> $debug_name "
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
 debug_cmd " echo " $ttime "End $End_Initial_Count Cycles."" >> $debug_name "
