@@ -2,30 +2,44 @@
 
 # gnome-session-properties : gnome-terminal -x
 
+front_switch=1
+back_switch=1
+if [ $front_switch -eq 1 ]; then
 if [ ! -d "~/lanxin/intel/front/ping" ];then
 	mkdir -p ~/lanxin/intel/front/ping
 	fi
+fi
+if [ $back_switch -eq 1 ]; then
 if [ ! -d "~/lanxin/intel/back/ping" ];then
 	mkdir -p ~/lanxin/intel/back/ping
 	fi
+fi
+if [ $front_switch -eq 1 ]; then
 if [ ! -d "~/lanxin/intel/front/wireshark" ];then
 	mkdir -p ~/lanxin/intel/front/wireshark
 	fi
+fi
+if [ $back_switch -eq 1 ]; then
 if [ ! -d "~/lanxin/intel/back/wireshark" ];then
 	mkdir -p ~/lanxin/intel/back/wireshark
 	fi
+fi
 if [ ! -d "~/lanxin/debug" ];then
 	mkdir -p ~/lanxin/debug
 	fi
 if [ ! -d "~/lanxin/intel/computer/memory" ];then
 	mkdir -p ~/lanxin/intel/computer/memory
 	fi
+if [ $front_switch -eq 1 ]; then
 if [ ! -d "~/lanxin/intel/front/rostopic" ];then
 	mkdir -p ~/lanxin/intel/front/rostopic
 	fi
+fi
+if [ $back_switch -eq 1 ]; then
 if [ ! -d "~/lanxin/intel/back/rostopic" ];then
 	mkdir -p ~/lanxin/intel/back/rostopic
 	fi
+fi
 if [ ! -d "~/lanxin/intel/computer/cpu" ];then
 	mkdir -p ~/lanxin/intel/computer/cpu
 	fi
@@ -48,7 +62,7 @@ shutdown_time=~/lanxin/shutdowm
 version_logg=~/lanxin/version
 explain=~/lanxin/Explain.md
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-echo '54mI5pys5Y+377yadjYt5paH5Lu25ZCI5bm26Iez55u45a+55bqU5paH5Lu25aS55bm25aKe5YqgbWF4X2RlYnVn5Y+C5pWw6ZmQ5Yi255u45YWz5a2Y5YyF' > $version_logg
+echo '54mI5pys5Y+377yadjct5aKe5Yqg5YmN5ZCO5r+A5YWJ5pW05L2T5omT5Y2w5byA5YWz' > $version_logg
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
 DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常2秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
@@ -62,7 +76,9 @@ End_Initial_Count： 计数器结束值-默认1，请勿修改；
 Circulate： 当“DEBUG_executions_number”参数改为true时会自动调用此参数-参数配置*2为循环打印输出的时间点；
 front_ip： 激光Ip-此处默认配置潜入式车型前激光ip;
 back_ip: 激光Ip-此处默认配置潜入式车型后激光ip;
-ctrl_c_flag： “ctrl+c”终端信号检测的判定值-默认0，请勿修改" > $explain
+ctrl_c_flag： “ctrl+c”终端信号检测的判定值-默认0，请勿修改;
+front_switch：“前激光所有日志打印开关，当开关为1时则启用前激光相关的配置文件，当为0时则关闭执行-默认1；
+back_switch：“后激光所有日志打印开关，当开关为1时则启用后激光相关的配置文件，当为0时则关闭执行-默认1；”" > $explain
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
 DEBUG=true
 DEBUG_executions_number=false
@@ -74,8 +90,12 @@ max_debug=50
 Start_Initial_Count=1 
 End_Initial_Count=1 
 Circulate=150000
+if [ $front_switch -eq 1 ]; then
 front_ip=192.168.100.104
+fi
+if [ $back_switch -eq 1 ]; then
 back_ip=192.168.100.108
+fi
 ctrl_c_flag=0
 echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
@@ -87,14 +107,24 @@ echo "max_ros:$max_ros" >> $debug_name
 echo "Start_Initial_Count:$Start_Initial_Count" >> $debug_name
 echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
+if [ $front_switch -eq 1 ]; then
 echo "front_ip:$front_ip" >> $debug_name
+fi
+if [ $back_switch -eq 1 ]; then
 echo "back_ip:$back_ip" >> $debug_name
+fi
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
+echo "front_switch:$front_switch" >> $debug_name
+echo "back_switch:$back_switch" >> $debug_name
 sleep 0.1
+if [ $front_switch -eq 1 ]; then
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
 sleep 0.1
+fi
+if [ $back_switch -eq 1 ]; then
 tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
+fi
 sleep 0.1
 debug_cmd(){
     if $DEBUG;then
@@ -130,27 +160,47 @@ sleep 0.1
     free -m >> $memory
     echo $ttime >> $memory
     df -hl >> $memory
+if [ $front_switch -eq 1 ]; then
     echo $ttime >> $ping_front
     ping -c 1 -w 1 $front_ip >> $ping_front
+fi
+if [ $back_switch -eq 1 ]; then
     echo $ttime >> $ping_back
     ping -c 1 -w 1 $back_ip >> $ping_back
+fi
+if [ $front_switch -eq 1 ]; then
     echo $ttime >> $rostopic_front
     rostopic echo -n 1 /scan_front --noarr >> $rostopic_front &
+fi
+if [ $back_switch -eq 1 ]; then
     echo $ttime >> $rostopic_back 
     rostopic echo -n 1 /scan_back --noarr >> $rostopic_back &
+fi
     echo $ttime >> $rostopic_battery
     rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 
 debug_cmd " echo "$ttime "If" is executed normally before starting." >> $debug_name "
 
 size_cpu=$(du -b "$cpu" | awk '{print $1}') 
 size_memory=$(du -b "$memory" | awk '{print $1}') 
+if [ $front_switch -eq 1 ]; then
 size_ping_front=$(du -b "$ping_front" | awk '{print $1}') 
+fi
+if [ $back_switch -eq 1 ]; then
 size_ping_back=$(du -b "$ping_back" | awk '{print $1}') 
+fi
+if [ $front_switch -eq 1 ]; then
 size_rostopic_front=$(du -b "$rostopic_front" | awk '{print $1}') 
+fi
+if [ $back_switch -eq 1 ]; then
 size_rostopic_back=$(du -b "$rostopic_back" | awk '{print $1}') 
+fi
 size_rostopic_battery=$(du -b "$rostopic_battery" | awk '{print $1}') 
+if [ $front_switch -eq 1 ]; then
 size_tcpdump_front=$(du -b "$tcpdump_front" | awk '{print $1}') 
+fi
+if [ $back_switch -eq 1 ]; then
 size_tcpdump_back=$(du -b "$tcpdump_back" | awk '{print $1}') 
+fi
 size_debug_name=$(du -b "$debug_name" | awk '{print $1}') 
 
 
@@ -174,6 +224,8 @@ echo "front_ip:$front_ip" >> $debug_name
 echo "back_ip:$back_ip" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
+echo "front_switch:$front_switch" >> $debug_name
+echo "back_switch:$back_switch" >> $debug_name
 fi
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
@@ -187,31 +239,34 @@ back_file2="$memory-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$memory" "$back_file2"
 touch "$memory"
 fi
-
+if [ $front_switch -eq 1 ]; then
 if [ "$size_ping_front" -gt "$max_size_all" ];then
 back_file3="$ping_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_front" "$back_file3"
 touch "$ping_front"
 fi
-
+fi
+if [ $back_switch -eq 1 ]; then
 if [ "$size_ping_back" -gt "$max_size_all" ];then
 back_file4="$ping_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_back" "$back_file4"
 touch "$ping_back"
 fi
-
+fi
+if [ $front_switch -eq 1 ]; then
 if [ "$size_rostopic_front" -gt "$max_size_all" ];then
 back_file5="$rostopic_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_front" "$back_file5"
 touch "$rostopic_front"
 fi
-
+fi
+if [ $back_switch -eq 1 ]; then
 if [ "$size_rostopic_back" -gt "$max_size_all" ];then
 back_file6="$rostopic_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_back" "$back_file6"
 touch "$rostopic_back"
 fi
-
+fi
 if [ "$size_rostopic_battery" -gt "$max_size_all" ];then
 back_file7="$rostopic_battery-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_battery" "$back_file7"
@@ -219,7 +274,7 @@ touch "$rostopic_battery"
 fi
 
 debug_cmd " echo "$ttime "IF" first cycle completed." >> $debug_name "
-
+if [ $front_switch -eq 1 ]; then
 if [ "$size_tcpdump_front" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime The kill 104 process is complete." >> $debug_name "
@@ -229,6 +284,8 @@ touch "$tcpdump_front"
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
 debug_cmd " echo "$ttime Tcpdump 104 execution begins." >> $debug_name "
 fi
+fi
+if [ $back_switch -eq 1 ]; then
 if [ "$size_tcpdump_back" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime The kill 108 process is complete." >> $debug_name "
@@ -238,31 +295,48 @@ touch "$tcpdump_back"
 tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
 debug_cmd " echo "$ttime Tcpdump 108 execution begins." >> $debug_name "
 fi
+fi
 debug_cmd " echo "$ttime The second cycle of "IF" is completed." >> $debug_name "
+if [ $back_switch -eq 1 ]; then
 count1=$(ls -lt ~/lanxin/intel/back/wireshark/ | grep "^-" | wc -l)
+fi
+if [ $front_switch -eq 1 ]; then
 count2=$(ls -lt ~/lanxin/intel/front/wireshark/ | grep "^-" | wc -l)
+fi
 count3=$(ls -lt ~/.ros/log/rostopic_*.log | grep "^-" | wc -l)
 count4=$(ls -lt ~/lanxin/debug/ | grep "^-" | wc -l)
 count5=$(ls -lt ~/lanxin/intel/computer/cpu/ | grep "^-" | wc -l)
+if [ $front_switch -eq 1 ]; then
 count6=$(ls -lt ~/lanxin/intel/front/ping/ | grep "^-" | wc -l)
+fi
+if [ $back_switch -eq 1 ]; then
 count7=$(ls -lt ~/lanxin/intel/back/ping/ | grep "^-" | wc -l)
+fi
+if [ $front_switch -eq 1 ]; then
 count8=$(ls -lt ~/lanxin/intel/front/rostopic/ | grep "^-" | wc -l)
+fi
+if [ $back_switch -eq 1 ]; then
 count9=$(ls -lt ~/lanxin/intel/back/rostopic/ | grep "^-" | wc -l)
+fi
 count10=$(ls -lt ~/lanxin/intel/computer/memory/ | grep "^-" | wc -l)
 count11=$(ls -lt ~/lanxin/intel/computer/battery/ | grep "^-" | wc -l)
 debug_cmd " echo "$ttime "Count" execution completed." >> $debug_name "
+if [ $back_switch -eq 1 ]; then
 if [ "$count1" -gt "$max_box" ];then
  old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count1 "circular query instruction has completed."." >> $debug_name "
+fi
+if [ $front_switch -eq 1 ]; then
 if [ "$count2" -gt "$max_box" ];then
  old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count2 "circular query instruction has completed."." >> $debug_name "
+fi
 if [ "$count3" -gt "$max_ros" ];then
  old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
@@ -281,30 +355,38 @@ xargs rm $old_count5 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count5 "circular query instruction has completed."." >> $debug_name "
+if [ $front_switch -eq 1 ]; then
 if [ "$count6" -gt "$max_debug" ];then
  old_count6=$(ls -t ~/lanxin/intel/front/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count6 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count6 "circular query instruction has completed."." >> $debug_name "
+fi
+if [ $back_switch -eq 1 ]; then
 if [ "$count7" -gt "$max_debug" ];then
  old_count7=$(ls -t ~/lanxin/intel/back/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count7 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count7 "circular query instruction has completed."." >> $debug_name "
+fi
+if [ $front_switch -eq 1 ]; then
 if [ "$count8" -gt "$max_debug" ];then
  old_count8=$(ls -t ~/lanxin/intel/front/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count8 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count8 "circular query instruction has completed."." >> $debug_name "
+fi
+if [ $back_switch -eq 1 ]; then
 if [ "$count9" -gt "$max_debug" ];then
  old_count9=$(ls -t ~/lanxin/intel/back/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count9 &
 fi
 
 debug_cmd " echo "$ttime "The execution of the" count9 "circular query instruction has completed."." >> $debug_name "
+fi
 if [ "$count10" -gt "$max_debug" ];then
  old_count10=$(ls -t ~/lanxin/intel/computer/memory/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count10 &
@@ -322,8 +404,12 @@ End_Initial_Count=$((End_Initial_Count+1))
 debug_cmd " echo " $ttime "End $End_Initial_Count Cycles."" >> $debug_name "
 if [ "$DEBUG_executions_number" = true ]; then
 if [[ $End_Initial_Count -ge $Circulate ]];then 
+if [ $front_switch -eq 1 ]; then
 ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+fi
+if [ $back_switch -eq 1 ]; then
 ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+fi
 debug_cmd " echo "$ttime End printing when the number of cycles reaches the judgment threshold." >> $debug_name "
 debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
 kill -s SIGINT $$
