@@ -166,6 +166,8 @@ Circulate： 当“DEBUG_executions_number”参数改为true时会自动调用�
 front_ip： 激光Ip-此处默认配置潜入式车型前激光ip;
 back_ip: 激光Ip-此处默认配置潜入式车型后激光ip;
 forklift_ip：激光Ip-此处默认配置叉车叉根激光ip;
+top_ip： 激光Ip-此处默认配置叉车顶部导航激光ip;
+forklift_scan_ip： 激光Ip-此处默认配置叉车叉尖蓝海激光ip;
 ctrl_c_flag： “ctrl+c”终端信号检测的判定值-默认0，请勿修改;
 front_switch：“前激光所有日志打印开关，当开关为1时则启用前激光相关的配置文件，当为0时则关闭执行-默认1；
 back_switch：“潜入式车型后激光/叉车右前激光所有日志打印开关，当开关为1时则启用潜入式车型后激光/叉车右前激光相关的配置文件，当为0时则关闭执行-默认1”；
@@ -226,10 +228,22 @@ echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
-echo "front_switch:$front_switch" >> $debug_name
-echo "back_switch:$back_switch" >> $debug_name
-echo "forklift_switch:$forklift_switch" >> $debug_name
 
+if [ $front_switch -eq 1 ]; then
+echo "front_switch:$front_switch" >> $debug_name
+fi
+
+if [ $back_switch -eq 1 ]; then
+echo "back_switch:$back_switch" >> $debug_name
+fi
+
+if [ $forklift_switch -eq 1 ]; then
+echo "forklift_switch:$forklift_switch" >> $debug_name
+fi
+
+if [ $top_switch -eq 1 ]; then
+echo "top_switch:$top_switch" >> $debug_name
+fi
 
 if [ $front_switch -eq 1 ]; then
 echo "front_ip:$front_ip" >> $debug_name
@@ -288,13 +302,7 @@ debug_cmd(){
 #启动时间查询
 
 uptime -s >> $shutdown_time 
-
-debug_cmd " echo "$ttime 在“while”循环之前，执行是正常的。" >> $debug_name "
-
-    cd /mnt
-    source devel_isolated/setup.bash 
-
-debug_cmd "echo "$ttime “source”指令执行正常。" >> $debug_name "
+debug_cmd " echo "$ttime 读取系统关机时间完毕。" >> $debug_name "
 
 trap 'ctrl_c_flag=1' INT
 
@@ -302,6 +310,13 @@ trap 'ctrl_c_flag=1' INT
 
 while true
 do
+
+debug_cmd " echo "$ttime 在“while”循环之前，执行是正常的。" >> $debug_name "
+
+    cd /mnt
+    source devel_isolated/setup.bash 
+
+debug_cmd " echo "$ttime “source”指令执行正常。" >> $debug_name "
 
 if [ $ctrl_c_flag -eq 1 ]; then
 echo "$ttime 检测到ctrl+c关闭信号。 " >> $debug_name
@@ -494,9 +509,22 @@ echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
+
+if [ $front_switch -eq 1 ]; then
 echo "front_switch:$front_switch" >> $debug_name
+fi
+
+if [ $back_switch -eq 1 ]; then
 echo "back_switch:$back_switch" >> $debug_name
+fi
+
+if [ $forklift_switch -eq 1 ]; then
 echo "forklift_switch:$forklift_switch" >> $debug_name
+fi
+
+if [ $top_switch -eq 1 ]; then
+echo "top_switch:$top_switch" >> $debug_name
+fi
 
 if [ $front_switch -eq 1 ]; then
 echo "front_ip:$front_ip" >> $debug_name
@@ -520,85 +548,85 @@ if [ $forklift_scan_switch -eq 1 ]; then
 echo "forklift_scan_ip:$forklift_scan_ip" >> $debug_name
 sleep 0.1
 fi
-
-debug_cmd " echo "$ttime IF size_debug_name“循环已完成。" >> $debug_name "
 fi
+
+debug_cmd " echo "$ttime “IF size_debug_name”执行已完成。" >> $debug_name "
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
 back_file1="$cpu-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$cpu" "$back_file1"
-touch "$cpu"
-debug_cmd " echo "$ttime “IF size_cpu”循环完成。" >> $debug_name "
+touch "$cpu" 
+debug_cmd " echo "$ttime “IF size_cpu”备份完成。" >> $debug_name "
 fi
-
+sleep 0.01
 if [ "$size_memory" -gt "$max_size_all" ];then
 back_file2="$memory-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$memory" "$back_file2"
-touch "$memory"
-debug_cmd " echo "$ttime “IF size_memory”循环完成。" >> $debug_name "
+touch "$memory" &
+debug_cmd " echo "$ttime “IF size_memory”备份完成。" >> $debug_name "
 fi
-
+sleep 0.01
 if [ $front_switch -eq 1 ]; then
 if [ "$size_ping_front" -gt "$max_size_all" ];then
 back_file3="$ping_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_front" "$back_file3"
 touch "$ping_front"
-debug_cmd " echo "$ttime “IF size_ping_front”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_ping_front”备份已完成。" >> $debug_name "
 fi
 fi
-
+sleep 0.01
 if [ $back_switch -eq 1 ]; then
 if [ "$size_ping_back" -gt "$max_size_all" ];then
 back_file4="$ping_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_back" "$back_file4"
 touch "$ping_back"
-debug_cmd " echo "$ttime “IF size_ping_back”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_ping_back”备份已完成。" >> $debug_name "
 fi
 fi
-
+sleep 0.01
 if [ $front_switch -eq 1 ]; then
 if [ "$size_rostopic_front" -gt "$max_size_all" ];then
 back_file5="$rostopic_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_front" "$back_file5"
 touch "$rostopic_front"
-debug_cmd " echo "$ttime “IF size_rostopic_front”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_rostopic_front”备份已完成。" >> $debug_name "
 fi
 fi
-
+sleep 0.01
 if [ $back_switch -eq 1 ]; then
 if [ "$size_rostopic_back" -gt "$max_size_all" ];then
 back_file6="$rostopic_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_back" "$back_file6"
 touch "$rostopic_back"
-debug_cmd " echo "$ttime “IF size_rostopic_back”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_rostopic_back”备份已完成。" >> $debug_name "
 fi
 fi
-
+sleep 0.01
 if [ "$size_rostopic_battery" -gt "$max_size_all" ];then
 back_file7="$rostopic_battery-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_battery" "$back_file7"
 touch "$rostopic_battery"
-debug_cmd " echo "$ttime “IF rostopic_battery”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF rostopic_battery”备份已完成。" >> $debug_name "
 fi
-
+sleep 0.01
 if [ $forklift_switch -eq 1 ]; then
 if [ "$size_rostopic_forklift" -gt "$max_size_all" ];then
 back_file10="$rostopic_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_forklift" "$back_file10"
 touch "$rostopic_forklift"
-debug_cmd " echo "$ttime “IF size_rostopic_forklift”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_rostopic_forklift”备份已完成。" >> $debug_name "
 fi
 fi
-
+sleep 0.01
 if [ $forklift_switch -eq 1 ]; then
 if [ "$size_ping_forklift" -gt "$max_size_all" ];then
 back_file11="$ping_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_forklift" "$back_file11"
 touch "$ping_forklift"
-debug_cmd " echo "$ttime “IF size_ping_forklift”循环完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_ping_forklift”备份已完成。" >> $debug_name "
 fi
 fi
-
+sleep 0.01
 debug_cmd " echo "$ttime “IF”第一次循环完成。" >> $debug_name "
 if [ $front_switch -eq 1 ]; then
 if [ "$size_tcpdump_front" -gt "$max_size" ];then
