@@ -995,7 +995,7 @@ fi
 if [ $forklift_scan_switch -eq 1 ]; then
 ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
-debug_cmd " echo "$ttime 当循环次数达到判断阈值，结束打印。" >> $debug_name "
+debug_cmd " echo "$ttime 循环次数达到判断阈值，结束打印。" >> $debug_name "
 debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
 kill -s SIGINT $$
 break
