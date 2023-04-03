@@ -364,15 +364,15 @@ trap 'ctrl_c_flag=1' INT
 while true
 do
 
-debug_cmd " echo "$ttime 在“while”循环之前，执行是正常的。" >> $debug_name "
+debug_cmd " echo "$ttime 开始进入循环程序" >> $debug_name "
 
     cd /mnt
     source devel_isolated/setup.bash 
 
-debug_cmd " echo "$ttime “source”指令执行正常。" >> $debug_name "
+debug_cmd " echo "$ttime “source”指令执行完毕。" >> $debug_name "
 
 if [ $ctrl_c_flag -eq 1 ]; then
-echo "$ttime 检测到ctrl+c关闭信号。 " >> $debug_name
+echo "$ttime 检测到ctrl+c关闭打印信号，请确认是否人为！！！ " >> $debug_name
 break
 fi
 
@@ -382,7 +382,7 @@ echo -e "\033[31m start$Start_Initial_Count \033[0m"
 Start_Initial_Count=$((Start_Initial_Count+1))
 
 debug_cmd " echo " $ttime "Start $Start_Initial_Count Cycles."" >> $debug_name "
-debug_cmd " echo "$ttime "While" 开始." >> $debug_name "
+debug_cmd " echo "$ttime "" 数据循环打印开始！！！" >> $debug_name "
 
 #系统信息打印
 
@@ -450,99 +450,99 @@ fi
 
     echo $ttime >> $rostopic_battery
     rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 
-debug_cmd " echo "$ttime “if”在启动前正常执行。" >> $debug_name "
+debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name "
 
 #“Du”查询定义
 
 size_cpu=$(du -b "$cpu" | awk '{print $1}') 
-debug_cmd " echo "$ttime “cpu日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime cpu系统日志保存文件大小查询完毕。" >> $debug_name "
 
 size_memory=$(du -b "$memory" | awk '{print $1}') 
-debug_cmd " echo "$ttime “memory日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime 系统内存日志文件大小查询完毕。" >> $debug_name "
 
 if [ $front_switch -eq 1 ]; then
 size_ping_front=$(du -b "$ping_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime “ping_front日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 size_ping_back=$(du -b "$ping_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime “ping_back日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 size_rostopic_front=$(du -b "$rostopic_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime “rostopic_front日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 size_rostopic_back=$(du -b "$rostopic_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime “rostopic_back日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
 fi
 
 size_rostopic_battery=$(du -b "$rostopic_battery" | awk '{print $1}') 
-debug_cmd " echo "$ttime “rostopic_battery日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime 电池状态日志文件大小查询完毕。" >> $debug_name "
 
 if [ $front_switch -eq 1 ]; then
 size_tcpdump_front=$(du -b "$tcpdump_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime “tcpdump_front日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 size_tcpdump_back=$(du -b "$tcpdump_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime “tcpdump_back日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
 fi
 
-size_debug_name=$(du -b "$debug_name" | awk '{print $1}') 
-debug_cmd " echo "$ttime “debug_name日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " size_debug_name=$(du -b "$debug_name" | awk '{print $1}') "
+debug_cmd " echo "$ttime 调试日志文件大小查询完毕。" >> $debug_name "
 
 if [ $forklift_switch -eq 1 ]; then
 size_ping_forklift=$(du -b "$ping_forklift" | awk '{print $1}') 
-debug_cmd " echo "$ttime “ping_forrklift日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 size_rostopic_forklift=$(du -b "$rostopic_forklift" | awk '{print $1}') 
-debug_cmd " echo "$ttime “rostopic_forklift日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 size_tcpdump_forklift=$(du -b "$tcpdump_forklift" | awk '{print $1}') 
-debug_cmd " echo "$ttime “tcpdump_forklift日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 size_ping_top=$(du -b "$ping_top" | awk '{print $1}') 
-debug_cmd " echo "$ttime “ping_top日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 size_rostopic_top=$(du -b "$rostopic_top" | awk '{print $1}') 
-debug_cmd " echo "$ttime “rostopic_top日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 size_tcpdump_top=$(du -b "$tcpdump_top" | awk '{print $1}') 
-debug_cmd " echo "$ttime “tcpdump_top日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 size_ping_forklift_scan=$(du -b "$ping_forklift_scan" | awk '{print $1}') 
-debug_cmd " echo "$ttime “ping_forrklift_scan日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 size_rostopic_forklift_scan=$(du -b "$rostopic_forklift_scan" | awk '{print $1}') 
-debug_cmd " echo "$ttime “rostopic_forklift_scan日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 size_tcpdump_forklift_scan=$(du -b "$tcpdump_forklift_scan" | awk '{print $1}') 
-debug_cmd " echo "$ttime “tcpdump_forklift_scan日志”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
 fi
 
 
-debug_cmd " echo "$ttime “du流程”查询文件大小正常。" >> $debug_name "
+debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕" >> $debug_name "
 
 #Determine whether the file exceeds the configured size and perform related operations
 
@@ -603,20 +603,20 @@ sleep 0.1
 fi
 fi
 
-debug_cmd " echo "$ttime “IF size_debug_name”执行已完成。" >> $debug_name "
+debug_cmd " echo "$ttime 调试信息打印完毕" >> $debug_name "
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
 back_file1="$cpu-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$cpu" "$back_file1"
 touch "$cpu" 
-debug_cmd " echo "$ttime “IF size_cpu”备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime cpu系统日志备份完成。" >> $debug_name "
 fi
 sleep 0.01
 if [ "$size_memory" -gt "$max_size_all" ];then
 back_file2="$memory-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$memory" "$back_file2"
 touch "$memory" &
-debug_cmd " echo "$ttime “IF size_memory”备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime 系统内存信息日志备份完成。" >> $debug_name "
 fi
 sleep 0.01
 if [ $front_switch -eq 1 ]; then
@@ -624,7 +624,7 @@ if [ "$size_ping_front" -gt "$max_size_all" ];then
 back_file3="$ping_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_front" "$back_file3"
 touch "$ping_front"
-debug_cmd " echo "$ttime “IF size_ping_front”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 网络延迟日志备份完成。" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -633,7 +633,7 @@ if [ "$size_ping_back" -gt "$max_size_all" ];then
 back_file4="$ping_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_back" "$back_file4"
 touch "$ping_back"
-debug_cmd " echo "$ttime “IF size_ping_back”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志备份完成。" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -642,7 +642,7 @@ if [ "$size_rostopic_front" -gt "$max_size_all" ];then
 back_file5="$rostopic_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_front" "$back_file5"
 touch "$rostopic_front"
-debug_cmd " echo "$ttime “IF size_rostopic_front”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -651,7 +651,7 @@ if [ "$size_rostopic_back" -gt "$max_size_all" ];then
 back_file6="$rostopic_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_back" "$back_file6"
 touch "$rostopic_back"
-debug_cmd " echo "$ttime “IF size_rostopic_back”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -659,7 +659,7 @@ if [ "$size_rostopic_battery" -gt "$max_size_all" ];then
 back_file7="$rostopic_battery-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_battery" "$back_file7"
 touch "$rostopic_battery"
-debug_cmd " echo "$ttime “IF rostopic_battery”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime 电池日志文件备份已完成。" >> $debug_name "
 fi
 sleep 0.01
 if [ $forklift_switch -eq 1 ]; then
@@ -667,7 +667,7 @@ if [ "$size_rostopic_forklift" -gt "$max_size_all" ];then
 back_file10="$rostopic_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_forklift" "$back_file10"
 touch "$rostopic_forklift"
-debug_cmd " echo "$ttime “IF size_rostopic_forklift”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -676,44 +676,45 @@ if [ "$size_ping_forklift" -gt "$max_size_all" ];then
 back_file11="$ping_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_forklift" "$back_file11"
 touch "$ping_forklift"
-debug_cmd " echo "$ttime “IF size_ping_forklift”备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件备份已完成。" >> $debug_name "
 fi
 fi
+
 sleep 0.01
-debug_cmd " echo "$ttime “IF”第一次循环完成。" >> $debug_name "
+
 if [ $front_switch -eq 1 ]; then
 if [ "$size_tcpdump_front" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
-debug_cmd " echo "$ttime 终止104过程完成。" >> $debug_name "
+debug_cmd " echo "$ttime 终止ip:$front_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file9="$tcpdump_front-$(date +"%Y-%m-%d-%H-%M-%S")" 
 mv "$tcpdump_front" "$back_file9"
 touch "$tcpdump_front" 
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
-debug_cmd " echo "$ttime Tcpdump 104的执行开始。" >> $debug_name "
+debug_cmd " echo "$ttime Tcpdump ip:$front_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
 if [ $back_switch -eq 1 ]; then
 if [ "$size_tcpdump_back" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
-debug_cmd " echo "$ttime 终止108过程完成。" >> $debug_name "
+debug_cmd " echo "$ttime 终止ip:$back_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file8="$tcpdump_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_back" "$back_file8"
 touch "$tcpdump_back" 
 tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
-debug_cmd " echo "$ttime Tcpdump 108的执行开始。" >> $debug_name "
+debug_cmd " echo "$ttime Tcpdump ip:$back_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$size_tcpdump_forklift" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $forklift_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
-debug_cmd " echo "$ttime 终止102过程完成。" >> $debug_name "
+debug_cmd " echo "$ttime 终止ip:$forklift_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file12="$tcpdump_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_forklift" "$back_file12"
 touch "$tcpdump_forklift" 
 tcpdump -i eno1 src net $forklift_ip -w $tcpdump_forklift &
-debug_cmd " echo "$ttime Tcpdump 102的执行开始。" >> $debug_name "
+debug_cmd " echo "$ttime Tcpdump ip:$forklift_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
@@ -722,7 +723,7 @@ if [ "$size_rostopic_top" -gt "$max_size_all" ];then
 back_file13="$rostopic_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_top" "$back_file13"
 touch "$rostopic_top"
-debug_cmd " echo "$ttime “IF size_rostopic_top”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
 fi
 fi
 
@@ -731,19 +732,19 @@ if [ "$size_ping_top" -gt "$max_size_all" ];then
 back_file14="$ping_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_top" "$back_file14"
 touch "$ping_top"
-debug_cmd " echo "$ttime “IF size_ping_top”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 网络延迟日志文件备份已完成。" >> $debug_name "
 fi
 fi
 
 if [ $top_switch -eq 1 ]; then
 if [ "$size_tcpdump_top" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $top_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
-debug_cmd " echo "$ttime 终止109过程完成。" >> $debug_name "
+debug_cmd " echo "$ttime 终止ip:$top_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file15="$tcpdump_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_top" "$back_file15"
 touch "$tcpdump_top" 
 tcpdump -i eno1 src net $top_ip -w $tcpdump_top &
-debug_cmd " echo "$ttime Tcpdump 109的执行开始。" >> $debug_name "
+debug_cmd " echo "$ttime Tcpdump ip:$top_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
@@ -752,7 +753,7 @@ if [ "$size_rostopic_forklift_scan" -gt "$max_size_all" ];then
 back_file16="$rostopic_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_forklift_scan" "$back_file16"
 touch "$rostopic_forklift_scan"
-debug_cmd " echo "$ttime “IF size_rostopic_forklift_scan”循环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
 fi
 fi
 
@@ -761,23 +762,23 @@ if [ "$size_ping_forklift_scan" -gt "$max_size_all" ];then
 back_file17="$ping_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_forklift_scan" "$back_file17"
 touch "$ping_forklift_scan"
-debug_cmd " echo "$ttime “IF size_ping_forklift_scan”循环完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络延迟日志文件备份已完成。" >> $debug_name "
 fi
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$size_tcpdump_forklift_scan" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
-debug_cmd " echo "$ttime 终止108过程完成。" >> $debug_name "
+debug_cmd " echo "$ttime 终止ip:$forklift_scan_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file17="$tcpdump_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_forklift_scan" "$back_file17"
 touch "$tcpdump_forklift_scan" 
 tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_top &
-debug_cmd " echo "$ttime Tcpdump 108的执行开始。" >> $debug_name "
+debug_cmd " echo "$ttime Tcpdump ip:$forklift_scan_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
-debug_cmd " echo "$ttime “IF”的第二个循环完成。" >> $debug_name "
+debug_cmd " echo "$ttime 判断文件是否大于阈值并执行相关操作流程循环完毕。" >> $debug_name "
 
 #Query on the number of specified files under a folder
 
