@@ -144,7 +144,66 @@ ping_forklift_scan=~/lanxin/intel/forklift_scan/ping/ping_forklift_scan.log
 rostopic_forklift_scan=~/lanxin/intel/forklift_scan/rostopic/rostopic_forklift_scan.log
 tcpdump_forklift_scan=~/lanxin/intel/forklift_scan/wireshark/forklift_scan_shark.pcap
 
+#调试开关
+debug_cmd(){
+    if $DEBUG;then
+    eval "$@"
+    fi
+}
+
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+
+#判断tcpdump执行文件是否存在，存在则重命名防止pcap文件信息覆盖
+
+if [ $front_switch -eq 1 ]; then
+if [ -f "$tcpdump_front" ]; then
+new_name1="$tcpdump_front-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_front" "$new_name1"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_front”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_front”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
+if [ $back_switch -eq 1 ]; then
+if [ -f "$tcpdump_back" ]; then
+new_name2="$tcpdump_back-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_back" "$new_name2"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_back”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_back”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
+if [ $forklift_switch -eq 1 ]; then
+if [ -f "$tcpdump_forklift" ]; then
+new_name3="$tcpdump_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_forklift" "$new_name3"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_forklift”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_forklift”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
+if [ $top_switch -eq 1 ]; then
+if [ -f "$tcpdump_top" ]; then
+new_name4="$tcpdump_top-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_top" "$new_name4"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_top”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_top”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
+if [ $forklift_scan_switch -eq 1 ]; then
+if [ -f "$tcpdump_forklift_scan" ]; then
+new_name5="$tcpdump_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_forklift_scan" "$new_name5"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_forklift_scan”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_forklift_scan”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
 
 #版本号输出
 
@@ -292,12 +351,6 @@ tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
 fi
 
 sleep 0.1
-#调试开关
-debug_cmd(){
-    if $DEBUG;then
-    eval "$@"
-    fi
-}
 
 #启动时间查询
 
@@ -399,7 +452,7 @@ fi
     rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 
 debug_cmd " echo "$ttime “if”在启动前正常执行。" >> $debug_name "
 
-#"Du" query definition
+#“Du”查询定义
 
 size_cpu=$(du -b "$cpu" | awk '{print $1}') 
 debug_cmd " echo "$ttime “cpu日志”查询文件大小正常。" >> $debug_name "
@@ -820,7 +873,7 @@ fi
 
 debug_cmd " echo "$ttime “count”执行完成。" >> $debug_name "
 
-#Determine whether the number of files in the folder exceeds the configured value, and perform relevant operations
+#确定文件夹中的文件数是否超过配置值，并执行相关操作
 
 if [ $back_switch -eq 1 ]; then
 if [ "$count1" -gt "$max_box" ];then
@@ -995,7 +1048,7 @@ fi
 if [ $forklift_scan_switch -eq 1 ]; then
 ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
-debug_cmd " echo "$ttime 循环次数达到判断阈值，结束打印。" >> $debug_name "
+debug_cmd " echo "$ttime 当循环次数达到判断阈值，结束打印。" >> $debug_name "
 debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
 kill -s SIGINT $$
 break
