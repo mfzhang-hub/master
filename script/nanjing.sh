@@ -722,7 +722,7 @@ if [ "$size_rostopic_top" -gt "$max_size_all" ];then
 back_file13="$rostopic_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_top" "$back_file13"
 touch "$rostopic_top"
-debug_cmd " echo "$ttime “IF size_rostopic_top”环已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “IF size_rostopic_top”循环已完成。" >> $debug_name "
 fi
 fi
 
@@ -783,95 +783,95 @@ debug_cmd " echo "$ttime “IF”的第二个循环完成。" >> $debug_name "
 
 if [ $back_switch -eq 1 ]; then
 count1=$(ls -lt ~/lanxin/intel/back/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count1”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/back/wireshark/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 count2=$(ls -lt ~/lanxin/intel/front/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count2”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/front/wireshark/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 count3=$(ls -lt ~/.ros/log/rostopic_*.log | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count3”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/.ros/log/rostopic_*.log目录下文件数量”执行完成。" >> $debug_name "
 
 count4=$(ls -lt ~/lanxin/debug/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count4”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/debug/目录下文件数量”执行完成。" >> $debug_name "
 
 count5=$(ls -lt ~/lanxin/intel/computer/cpu/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count5”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/cpu/目录下文件数量”执行完成。" >> $debug_name "
 
 if [ $front_switch -eq 1 ]; then
 count6=$(ls -lt ~/lanxin/intel/front/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count6”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/front/ping/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 count7=$(ls -lt ~/lanxin/intel/back/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count7”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/back/ping/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 count8=$(ls -lt ~/lanxin/intel/front/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count8”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/front/rostopic/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 count9=$(ls -lt ~/lanxin/intel/back/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count9”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/back/rostopic/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 count10=$(ls -lt ~/lanxin/intel/computer/memory/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count10”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/memory/目录下文件数量”执行完成。" >> $debug_name "
 
 count11=$(ls -lt ~/lanxin/intel/computer/battery/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count11”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/battery/目录下文件数量”执行完成。" >> $debug_name "
 
 if [ $forklift_switch -eq 1 ]; then
 count12=$(ls -lt ~/lanxin/intel/forklift/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count12”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/wireshark/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 count13=$(ls -lt ~/lanxin/intel/forklift/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count13”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/rostopic/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 count14=$(ls -lt ~/lanxin/intel/forklift/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count14”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/ping/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 count15=$(ls -lt ~/lanxin/intel/top/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count15”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/top/ping/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 count16=$(ls -lt ~/lanxin/intel/top/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count16”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/top/rostopic/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 count17=$(ls -lt ~/lanxin/intel/top/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count17”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/top/wireshark/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 count18=$(ls -lt ~/lanxin/intel/forklift_scan/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count18”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/ping/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 count19=$(ls -lt ~/lanxin/intel/forklift_scan/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count19”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/rostopic/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 count20=$(ls -lt ~/lanxin/intel/forklift_scan/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “count20”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/wireshark/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
-debug_cmd " echo "$ttime “count”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime 查询“目录文件数量”步骤已全部执行完成。" >> $debug_name "
 
 #确定文件夹中的文件数是否超过配置值，并执行相关操作
 
@@ -879,150 +879,150 @@ if [ $back_switch -eq 1 ]; then
 if [ "$count1" -gt "$max_box" ];then
  old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
+debug_cmd " echo "$ttime “~/lanxin/intel/back/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count1”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 if [ "$count2" -gt "$max_box" ];then
  old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
+debug_cmd " echo "$ttime “~/lanxin/intel/front/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count2”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ "$count3" -gt "$max_ros" ];then
  old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
-debug_cmd " echo "$ttime “count3”循环查询指令的执行已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/.ros/log/rostopic_*.log”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
 
 if [ "$count4" -gt "$max_debug" ];then
  old_count4=$(ls -t ~/lanxin/debug/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count4 &
-debug_cmd " echo "$ttime “count4”循环查询指令的执行已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/debug/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
 
 if [ "$count5" -gt "$max_debug" ];then
  old_count5=$(ls -t ~/lanxin/intel/computer/cpu/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count5 &
-debug_cmd " echo "$ttime “count5”循环查询指令的执行已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/cpu/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 if [ "$count6" -gt "$max_debug" ];then
  old_count6=$(ls -t ~/lanxin/intel/front/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count6 &
+debug_cmd " echo "$ttime “~/lanxin/intel/front/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count6”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 if [ "$count7" -gt "$max_debug" ];then
  old_count7=$(ls -t ~/lanxin/intel/back/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count7 &
+debug_cmd " echo "$ttime “~/lanxin/intel/back/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count7”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 if [ "$count8" -gt "$max_debug" ];then
  old_count8=$(ls -t ~/lanxin/intel/front/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count8 &
+debug_cmd " echo "$ttime “~/lanxin/intel/front/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count8”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 if [ "$count9" -gt "$max_debug" ];then
  old_count9=$(ls -t ~/lanxin/intel/back/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count9 &
+debug_cmd " echo "$ttime “~/lanxin/intel/back/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count9”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ "$count10" -gt "$max_debug" ];then
  old_count10=$(ls -t ~/lanxin/intel/computer/memory/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count10 &
-debug_cmd " echo "$ttime “count10”循环查询指令的执行已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/memory/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
 
 if [ "$count11" -gt "$max_debug" ];then
  old_count11=$(ls -t ~/lanxin/intel/computer/battery/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count11 &
-debug_cmd " echo "$ttime “count11”循环查询指令的执行已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/battery/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$count12" -gt "$max_debug" ];then
  old_count12=$(ls -t ~/lanxin/intel/forklift/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count12 &
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count12”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$count13" -gt "$max_debug" ];then
  old_count13=$(ls -t ~/lanxin/intel/forklift/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count13 &
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count13”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$count14" -gt "$max_debug" ];then
  old_count14=$(ls -t ~/lanxin/intel/forklift/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count14 &
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count14”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 if [ "$count15" -gt "$max_debug" ];then
  old_count15=$(ls -t ~/lanxin/intel/top/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count15 &
+debug_cmd " echo "$ttime “~/lanxin/intel/top/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count15”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 if [ "$count16" -gt "$max_debug" ];then
  old_count16=$(ls -t ~/lanxin/intel/top/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count16 &
+debug_cmd " echo "$ttime “~/lanxin/intel/top/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count16”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 if [ "$count17" -gt "$max_debug" ];then
  old_count17=$(ls -t ~/lanxin/intel/top/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count17 &
+debug_cmd " echo "$ttime “~/lanxin/intel/top/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count17”循环查询指令的执行已完成。." >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$count18" -gt "$max_debug" ];then
  old_count18=$(ls -t ~/lanxin/intel/forklift_scan/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count18 &
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count18”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$count19" -gt "$max_debug" ];then
  old_count19=$(ls -t ~/lanxin/intel/forklift_scan/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count19 &
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count19”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$count20" -gt "$max_debug" ];then
  old_count20=$(ls -t ~/lanxin/intel/forklift_scan/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count20 &
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
 fi
-debug_cmd " echo "$ttime “count20”循环查询指令的执行已完成。" >> $debug_name "
 fi
 
 echo -e "\033[32m end$End_Initial_Count \033[0m"
