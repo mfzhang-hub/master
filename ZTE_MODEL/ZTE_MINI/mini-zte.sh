@@ -107,7 +107,7 @@ elif [ $1 -eq 30 ] #Lift the inserting arm to 2200
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2200"
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2400"
 else
    echo "less param"
 fi

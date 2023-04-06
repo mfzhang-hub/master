@@ -58,5 +58,5 @@ rosparam get /forklift/height                                             叉臂
 rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 0"      叉臂高度回归零点
 rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2300"   叉臂高度升至2300mm（2.3m叉车高度使用）
 rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2500"   叉臂高度升至2500mm（2.5m叉车高度使用）
-rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2200"   叉臂高度升至2200mm（通用测试程序限制2200高度）
+rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2200"   叉臂高度升至2400mm（通用测试程序限制2400高度，软件限制高度）
 }
