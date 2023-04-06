@@ -250,6 +250,8 @@ max_debug=50
 Start_Initial_Count=1 
 End_Initial_Count=1 
 Circulate=150000
+start_start=$Start_Initial_Count
+end_end=$End_Initial_Count
 
 if [ $front_switch -eq 1 ]; then
 front_ip=192.168.100.104
@@ -282,8 +284,10 @@ echo "max_size:$max_size" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
-echo "Start_Initial_Count:$Start_Initial_Count" >> $debug_name
-echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
+echo "Start_Initial_Count:$start_start" >> $debug_name
+echo "End_Initial_Count:$end_end" >> $debug_name
+echo "Start_Initial_Count_initial:$Start_Initial_Count" >> $debug_name
+echo "End_Initial_Count_initial:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
@@ -557,6 +561,8 @@ echo "max_size:$max_size" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
+echo "Start_Initial_Count_initial:$start_start" >> $debug_name
+echo "End_Initial_Count_initial:$end_end" >> $debug_name
 echo "Start_Initial_Count:$Start_Initial_Count" >> $debug_name
 echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
