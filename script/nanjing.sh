@@ -4,11 +4,14 @@
 
 #全局激光器配置开关
 
-front_switch=1
-back_switch=1
-forklift_switch=0
-top_switch=0
-forklift_scan_switch=0
+front_switch=1 #前激光配置开关；也可用作叉车左前激光配置，但需修改此处绑定的ip地址！！！
+back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，但需修改此处绑定的ip地址！！！
+forklift_switch=0 #叉根激光配置开关
+top_switch=0 #叉车顶部激光配置开关
+forklift_scan_switch=0 #叉车蓝海激光配置开关
+2T_Central_front_laser=0 #2T全向AGV前中激光配置开关，暂未维护！！！
+2T_Central_back_laser=0 ##2T全向AGV后中激光配置开关，暂未维护！！！
+
 
 #文件夹创建判断
 
