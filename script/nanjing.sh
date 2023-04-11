@@ -9,8 +9,8 @@ back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，�
 forklift_switch=0 #叉根激光配置开关
 top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
-2T_Central_front_laser=0 #2T全向AGV前中激光配置开关，暂未维护！！！
-2T_Central_back_laser=0 ##2T全向AGV后中激光配置开关，暂未维护！！！
+T2_Central_front_switch=0 
+T2_Central_back_switch=0 
 
 
 #文件夹创建判断
@@ -120,6 +120,42 @@ if [ ! -d "~/lanxin/intel/forklift_scan/ping" ];then
 	mkdir -p ~/lanxin/intel/forklift_scan/ping
 	fi
 fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/T2_Central_front/rostopic" ];then
+	mkdir -p ~/lanxin/intel/T2_Central_front/rostopic
+	fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/T2_Central_front/wireshark" ];then
+	mkdir -p ~/lanxin/intel/T2_Central_front/wireshark
+	fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/T2_Central_front/ping" ];then
+	mkdir -p ~/lanxin/intel/T2_Central_front/ping
+	fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/T2_Central_back/rostopic" ];then
+	mkdir -p ~/lanxin/intel/T2_Central_back/rostopic
+	fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/T2_Central_back/wireshark" ];then
+	mkdir -p ~/lanxin/intel/T2_Central_back/wireshark
+	fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/T2_Central_back/ping" ];then
+	mkdir -p ~/lanxin/intel/T2_Central_back/ping
+	fi
+fi
 sleep 1
 
 #文件路径定义
@@ -146,6 +182,12 @@ tcpdump_top=~/lanxin/intel/top/wireshark/top_shark.pcap
 ping_forklift_scan=~/lanxin/intel/forklift_scan/ping/ping_forklift_scan.log
 rostopic_forklift_scan=~/lanxin/intel/forklift_scan/rostopic/rostopic_forklift_scan.log
 tcpdump_forklift_scan=~/lanxin/intel/forklift_scan/wireshark/forklift_scan_shark.pcap
+ping_T2_Central_front=~/lanxin/intel/T2_Central_front/ping/ping_T2_Central_front.log
+rostopic_T2_Central_front=~/lanxin/intel/T2_Central_front/rostopic/rostopic_T2_Central_front.log
+tcpdump_T2_Central_front=~/lanxin/intel/T2_Central_front/wireshark/shark_T2_Central_front.pcap
+ping_T2_Central_back=~/lanxin/intel/T2_Central_back/ping/ping_T2_Central_back.log
+rostopic_T2_Central_back=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Central_back.log
+tcpdump_T2_Central_back=~/lanxin/intel/T2_Central_back/wireshark/shark_T2_Central_back.pcap
 
 #调试开关
 debug_cmd(){
@@ -208,9 +250,29 @@ debug_cmd " echo "$ttime 该“tcpdump_forklift_scan”定义的文件不存在�
 fi
 fi
 
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ -f "$tcpdump_T2_Central_front" ]; then
+new_name6="$tcpdump_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_T2_Central_front" "$new_name6"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_T2_Central_front”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_T2_Central_front”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ -f "$tcpdump_T2_Central_back" ]; then
+new_name7="$tcpdump_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_T2_Central_back" "$new_name7"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_T2_Central_back”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_T2_Central_back”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
 #版本号输出
 
-echo '54mI5pys5Y+377yadjgt5aKe5Yqg5Y+J6L2m5bem5Y+z5r+A5YWJ5Zmo' > $version_logg
+echo '54mI5pys5Y+377yadjkt5aKe5Yqg5YWo5ZCRQUdW5YmN5ZCO5Lit572u6Zu36L6+5pWw5o2u5oqT5YyF' > $version_logg
 
 #配置开关说明
 
@@ -235,8 +297,9 @@ front_switch：“前激光所有日志打印开关，当开关为1时则启用�
 back_switch：“潜入式车型后激光/叉车右前激光所有日志打印开关，当开关为1时则启用潜入式车型后激光/叉车右前激光相关的配置文件，当为0时则关闭执行-默认1”；
 forklift_switch：“叉车叉根激光所有日志打印开关，当开关为1时则启用叉车叉根激光相关的配置文件，当为0时则关闭执行-默认0”
 top_switch： “叉车顶部导航激光所有日志打印开关，当开关为1时则启用叉车顶部导航激光相关的配置文件，当为0时则关闭执行-默认0”
-forklift_scan_switch： “叉车蓝海激光所有日志打印开关，当开关为1时则启用叉车蓝海激光相关的配置文件，当为0时则关闭执行-默认0” " > $explain
-
+forklift_scan_switch： “叉车蓝海激光所有日志打印开关，当开关为1时则启用叉车蓝海激光相关的配置文件，当为0时则关闭执行-默认0”  
+T2_Central_front_switch：“T2全向AGV前中雷达日志打印开关，当开关为1时则启用T2前中激光相关的配置文件，当为0时则关闭执行-默认0”
+T2_Central_back_switch：“T2全向AGV后中雷达日志打印开关，当开关为1时则启用T2后中激光相关的配置文件，当为0时则关闭执行-默认0” " > $explain
 #终止tcpdump进程
 
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
@@ -274,6 +337,14 @@ fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 forklift_scan_ip=192.168.100.108
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+T2_Central_front_ip=192.168.100.101
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+T2_Central_back_ip=192.168.100.102
 fi
 
 ctrl_c_flag=0
@@ -334,6 +405,16 @@ echo "forklift_scan_ip:$forklift_scan_ip" >> $debug_name
 sleep 0.1
 fi
 
+if [ $T2_Central_front_switch -eq 1 ]; then
+echo "T2_Central_front_ip:$T2_Central_front_ip" >> $debug_name
+sleep 0.1
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+echo "T2_Central_back_ip:$T2_Central_back_ip" >> $debug_name
+sleep 0.1
+fi
+
 #开始网络数据包捕获
 
 if [ $front_switch -eq 1 ]; then
@@ -355,6 +436,14 @@ fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+tcpdump -i eno1 src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+tcpdump -i eno1 src net $T2_Central_back_ip -w $tcpdump_T2_Central_back &
 fi
 
 sleep 0.1
@@ -455,6 +544,26 @@ if [ $forklift_scan_switch -eq 1 ]; then
     rostopic echo -n 1 /lidarl/forklift_scan --noarr >> $rostopic_forklift_scan &
 fi
 
+if [ $T2_Central_front_switch -eq 1 ]; then
+    echo $ttime >> $ping_T2_Central_front
+    ping -c 1 -w 1 $T2_Central_front_ip >> $ping_T2_Central_front
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+    echo $ttime >> $rostopic_T2_Central_front
+    rostopic echo -n 1  --noarr >> $rostopic_T2_Central_front & #topic参数暂未维护
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+    echo $ttime >> $ping_T2_Central_back
+    ping -c 1 -w 1 $T2_Central_back_ip >> $ping_T2_Central_back
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+    echo $ttime >> $rostopic_T2_Central_back
+    rostopic echo -n 1  --noarr >> $rostopic_T2_Central_back & #topic参数暂未维护
+fi
+
     echo $ttime >> $rostopic_battery
     rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 
 debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name "
@@ -548,6 +657,36 @@ size_tcpdump_forklift_scan=$(du -b "$tcpdump_forklift_scan" | awk '{print $1}')
 debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
 fi
 
+if [ $T2_Central_front_switch -eq 1 ]; then
+size_ping_T2_Central_front=$(du -b "$ping_T2_Central_front" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+size_rostopic_T2_Central_front=$(du -b "$rostopic_T2_Central_front" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+size_tcpdump_T2_Central_front=$(du -b "$tcpdump_T2_Central_front" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+size_ping_T2_Central_back=$(du -b "$ping_T2_Central_back" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+size_rostopic_T2_Central_back=$(du -b "$rostopic_T2_Central_back" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+size_tcpdump_T2_Central_back=$(du -b "$tcpdump_T2_Central_back" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+fi
+
 
 debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕" >> $debug_name "
 
@@ -588,6 +727,18 @@ if [ $top_switch -eq 1 ]; then
 echo "top_switch:$top_switch" >> $debug_name
 fi
 
+if [ $forklift_scan_switch -eq 1 ]; then
+echo "forklift_scan_switch:$forklift_scan_switch" >> $debug_name
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+echo "T2_Central_front_switch:$T2_Central_front_switch" >> $debug_name
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+echo "T2_Central_back_switch:$T2_Central_back_switch" >> $debug_name
+fi
+
 if [ $front_switch -eq 1 ]; then
 echo "front_ip:$front_ip" >> $debug_name
 fi
@@ -608,6 +759,16 @@ fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 echo "forklift_scan_ip:$forklift_scan_ip" >> $debug_name
+sleep 0.1
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+echo "T2_Central_front_ip:$T2_Central_front_ip" >> $debug_name
+sleep 0.1
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+echo "T2_Central_back_ip:$T2_Central_back_ip" >> $debug_name
 sleep 0.1
 fi
 fi
@@ -782,8 +943,68 @@ debug_cmd " echo "$ttime 终止ip:$forklift_scan_ip 网络数据抓包进程完�
 back_file17="$tcpdump_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_forklift_scan" "$back_file17"
 touch "$tcpdump_forklift_scan" 
-tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_top &
+tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
 debug_cmd " echo "$ttime Tcpdump ip:$forklift_scan_ip 网络数据抓包进程开始。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$size_rostopic_T2_Central_front" -gt "$max_size_all" ];then
+back_file18="$rostopic_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_T2_Central_front" "$back_file18"
+touch "$rostopic_T2_Central_front"
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$size_ping_T2_Central_front" -gt "$max_size_all" ];then
+back_file19="$ping_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$ping_T2_Central_front" "$back_file19"
+touch "$ping_T2_Central_front"
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件备份已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$size_tcpdump_T2_Central_front" -gt "$max_size" ];then
+ps -ef | grep "tcpdump -i eno1 src net $T2_Central_front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime 终止ip:$T2_Central_front_ip 网络数据抓包进程完成。" >> $debug_name "
+back_file20="$tcpdump_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_T2_Central_front" "$back_file20"
+touch "$tcpdump_T2_Central_front" 
+tcpdump -i eno1 src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
+debug_cmd " echo "$ttime Tcpdump ip:$T2_Central_front_ip 网络数据抓包进程开始。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$size_rostopic_T2_Central_back" -gt "$max_size_all" ];then
+back_file21="$rostopic_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_T2_Central_back" "$back_file21"
+touch "$rostopic_T2_Central_back"
+debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$size_ping_T2_Central_back" -gt "$max_size_all" ];then
+back_file22="$ping_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$ping_T2_Central_back" "$back_file22"
+touch "$ping_T2_Central_back"
+debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 网络延迟日志文件备份已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$size_tcpdump_T2_Central_back" -gt "$max_size" ];then
+ps -ef | grep "tcpdump -i eno1 src net $T2_Central_bakc_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime 终止ip:$T2_Central_bakc_ip 网络数据抓包进程完成。" >> $debug_name "
+back_file23="$tcpdump_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_T2_Central_back" "$back_file23"
+touch "$tcpdump_T2_Central_back" 
+tcpdump -i eno1 src net $T2_Central_bakc_ip -w $tcpdump_T2_Central_back &
+debug_cmd " echo "$ttime Tcpdump ip:$T2_Central_bakc_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
@@ -879,6 +1100,36 @@ fi
 if [ $forklift_scan_switch -eq 1 ]; then
 count20=$(ls -lt ~/lanxin/intel/forklift_scan/wireshark/ | grep "^-" | wc -l)
 debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+count21=$(ls -lt ~/lanxin/intel/T2_Central_front/ping/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/ping/目录下文件数量”执行完成。" >> $debug_name "
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+count22=$(ls -lt ~/lanxin/intel/T2_Central_front/rostopic/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+count23=$(ls -lt ~/lanxin/intel/T2_Central_front/wireshark/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+count24=$(ls -lt ~/lanxin/intel/T2_Central_back/ping/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/ping/目录下文件数量”执行完成。" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+count25=$(ls -lt ~/lanxin/intel/T2_Central_back/rostopic/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+count26=$(ls -lt ~/lanxin/intel/T2_Central_back/wireshark/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/wireshark/目录下文件数量”执行完成。" >> $debug_name "
 fi
 
 debug_cmd " echo "$ttime 查询“目录文件数量”步骤已全部执行完成。" >> $debug_name "
@@ -1035,6 +1286,54 @@ debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/wireshark/”目录下�
 fi
 fi
 
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$count21" -gt "$max_debug" ];then
+ old_count21=$(ls -t ~/lanxin/intel/T2_Central_front/ping/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count21 &
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$count22" -gt "$max_debug" ];then
+ old_count22=$(ls -t ~/lanxin/intel/T2_Central_front/rostopic/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count22 &
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$count23" -gt "$max_debug" ];then
+ old_count23=$(ls -t ~/lanxin/intel/T2_Central_front/wireshark/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count23 &
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$count24" -gt "$max_debug" ];then
+ old_count24=$(ls -t ~/lanxin/intel/T2_Central_back/ping/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count24 &
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$count25" -gt "$max_debug" ];then
+ old_count25=$(ls -t ~/lanxin/intel/T2_Central_back/rostopic/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count25 &
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+fi
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$count26" -gt "$max_debug" ];then
+ old_count26=$(ls -t ~/lanxin/intel/T2_Central_back/wireshark/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count26 &
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+fi
+fi
+
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
 debug_cmd " echo " $ttime "End $End_Initial_Count Cycles."" >> $debug_name "
@@ -1057,6 +1356,12 @@ ps -ef | grep "tcpdump -i eno1 src net $top_ip" |grep -v grep |awk '{print $2}'|
 fi
 if [ $forklift_scan_switch -eq 1 ]; then
 ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+fi
+if [ $T2_Central_front_switch -eq 1 ]; then
+ps -ef | grep "tcpdump -i eno1 src net $T2_Central_front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+fi
+if [ $T2_Central_back_switch -eq 1 ]; then
+ps -ef | grep "tcpdump -i eno1 src net $T2_Central_back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 debug_cmd " echo "$ttime 当循环次数达到判断阈值，结束打印。" >> $debug_name "
 debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
