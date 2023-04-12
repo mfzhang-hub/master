@@ -9,8 +9,8 @@ back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，�
 forklift_switch=0 #叉根激光配置开关
 top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
-T2_Central_front_switch=0 
-T2_Central_back_switch=0 
+T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关
+T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关
 
 
 #文件夹创建判断
