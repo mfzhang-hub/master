@@ -9,8 +9,8 @@ back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，�
 forklift_switch=0 #叉根激光配置开关
 top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
-T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关
-T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关
+T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关,topic未维护
+T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关，topic未维护
 
 
 #文件夹创建判断
@@ -272,7 +272,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjkt5aKe5Yqg5YWo5ZCRQUdW5YmN5ZCO5Lit572u6Zu36L6+5pWw5o2u5oqT5YyF' > $version_logg
+echo '54mI5pys5Y+377yadjEwLeWinuWKoOebuOWFs2RlYnVn6LCD6K+V5pel5b+X5L+h5oGv' > $version_logg
 
 #配置开关说明
 
@@ -468,7 +468,7 @@ debug_cmd " echo "$ttime 开始进入循环程序" >> $debug_name "
 debug_cmd " echo "$ttime “source”指令执行完毕。" >> $debug_name "
 
 if [ $ctrl_c_flag -eq 1 ]; then
-echo "$ttime 检测到ctrl+c关闭打印信号，请确认是否人为！！！ " >> $debug_name
+echo "$ttime 检测到ctrl+c关闭打印信号，请确认是否人为操作导致！！！ " >> $debug_name
 break
 fi
 
@@ -571,29 +571,29 @@ debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name 
 #“Du”查询定义
 
 size_cpu=$(du -b "$cpu" | awk '{print $1}') 
-debug_cmd " echo "$ttime cpu系统日志保存文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime cpu系统日志保存文件大小查询完毕。size_cpu:$size_cpu" >> $debug_name "
 
 size_memory=$(du -b "$memory" | awk '{print $1}') 
-debug_cmd " echo "$ttime 系统内存日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime 系统内存日志文件大小查询完毕。size_memory:$size_memory" >> $debug_name "
 
 if [ $front_switch -eq 1 ]; then
 size_ping_front=$(du -b "$ping_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$front_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 网络延迟日志文件大小查询完毕。size_ping_front:$size_ping_front" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 size_ping_back=$(du -b "$ping_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志文件大小查询完毕。size_ping_back:$size_ping_back" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 size_rostopic_front=$(du -b "$rostopic_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_front:$size_rostopic_front" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 size_rostopic_back=$(du -b "$rostopic_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_back:$size_rostopic_back" >> $debug_name "
 fi
 
 size_rostopic_battery=$(du -b "$rostopic_battery" | awk '{print $1}') 
@@ -601,96 +601,96 @@ debug_cmd " echo "$ttime 电池状态日志文件大小查询完毕。" >> $debu
 
 if [ $front_switch -eq 1 ]; then
 size_tcpdump_front=$(du -b "$tcpdump_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_front:$size_tcpdump_front" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 size_tcpdump_back=$(du -b "$tcpdump_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_back:$size_tcpdump_back" >> $debug_name "
 fi
 
 debug_cmd " size_debug_name=$(du -b "$debug_name" | awk '{print $1}') "
-debug_cmd " echo "$ttime 调试日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime 调试日志文件大小查询完毕。size_debug_name:$size_debug_name" >> $debug_name "
 
 if [ $forklift_switch -eq 1 ]; then
 size_ping_forklift=$(du -b "$ping_forklift" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件大小查询完毕。size_ping_forklift:$size_ping_forklift" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 size_rostopic_forklift=$(du -b "$rostopic_forklift" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_forklift:$size_rostopic_forklift" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 size_tcpdump_forklift=$(du -b "$tcpdump_forklift" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_forklift:$size_tcpdump_forklift" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 size_ping_top=$(du -b "$ping_top" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$top_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 网络延迟日志文件大小查询完毕。size_ping_top:$size_ping_top" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 size_rostopic_top=$(du -b "$rostopic_top" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_top:$size_rostopic_top" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 size_tcpdump_top=$(du -b "$tcpdump_top" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_top:$size_tcpdump_top" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 size_ping_forklift_scan=$(du -b "$ping_forklift_scan" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络延迟日志文件大小查询完毕。size_ping_forklift_scan:$size_ping_forklift_scan" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 size_rostopic_forklift_scan=$(du -b "$rostopic_forklift_scan" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_forklift_scan:$size_rostopic_forklift_scan" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 size_tcpdump_forklift_scan=$(du -b "$tcpdump_forklift_scan" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_forklift_scan:$size_tcpdump_forklift_scan" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 size_ping_T2_Central_front=$(du -b "$ping_T2_Central_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件大小查询完毕。size_ping_T2_Central_front:$size_ping_T2_Central_front" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 size_rostopic_T2_Central_front=$(du -b "$rostopic_T2_Central_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_T2_Central_front:$size_rostopic_T2_Central_front" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 size_tcpdump_T2_Central_front=$(du -b "$tcpdump_T2_Central_front" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_T2_Central_front:$size_tcpdump_T2_Central_front" >> $debug_name "
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 size_ping_T2_Central_back=$(du -b "$ping_T2_Central_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$T2_Central_back_ip 网络延迟日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 网络延迟日志文件大小查询完毕。size_ping_T2_Central_back:$size_ping_T2_Central_back" >> $debug_name "
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 size_rostopic_T2_Central_back=$(du -b "$rostopic_T2_Central_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_T2_Central_back:$size_rostopic_T2_Central_back" >> $debug_name "
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 size_tcpdump_T2_Central_back=$(du -b "$tcpdump_T2_Central_back" | awk '{print $1}') 
-debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光网络抓包数据包大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_T2_Central_back:$size_tcpdump_T2_Central_back" >> $debug_name "
 fi
 
 
-debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕" >> $debug_name "
+debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕。" >> $debug_name "
 
-#Determine whether the file exceeds the configured size and perform related operations
+#确定文件是否超过配置的大小并执行相关操作
 
 if [ "$size_debug_name" -gt "$max_size_all" ];then
 back_file0="$debug_name-$(date +"%Y-%m-%d-%H-%M-%S")"
@@ -773,20 +773,20 @@ sleep 0.1
 fi
 fi
 
-debug_cmd " echo "$ttime 调试信息打印完毕" >> $debug_name "
+debug_cmd " echo "$ttime 调试信息打印完毕。" >> $debug_name "
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
 back_file1="$cpu-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$cpu" "$back_file1"
 touch "$cpu" 
-debug_cmd " echo "$ttime cpu系统日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime cpu系统日志备份完成，备份日志名称：$back_file1" >> $debug_name "
 fi
 sleep 0.01
 if [ "$size_memory" -gt "$max_size_all" ];then
 back_file2="$memory-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$memory" "$back_file2"
 touch "$memory" &
-debug_cmd " echo "$ttime 系统内存信息日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime 系统内存信息日志备份完成，备份日志名称：$back_file2" >> $debug_name "
 fi
 sleep 0.01
 if [ $front_switch -eq 1 ]; then
@@ -794,7 +794,7 @@ if [ "$size_ping_front" -gt "$max_size_all" ];then
 back_file3="$ping_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_front" "$back_file3"
 touch "$ping_front"
-debug_cmd " echo "$ttime ip:$front_ip 网络延迟日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 网络延迟日志备份完成，备份日志名称：$back_file3" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -803,7 +803,7 @@ if [ "$size_ping_back" -gt "$max_size_all" ];then
 back_file4="$ping_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_back" "$back_file4"
 touch "$ping_back"
-debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志备份完成，备份日志名称：$back_file4" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -812,7 +812,7 @@ if [ "$size_rostopic_front" -gt "$max_size_all" ];then
 back_file5="$rostopic_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_front" "$back_file5"
 touch "$rostopic_front"
-debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file5" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -821,7 +821,7 @@ if [ "$size_rostopic_back" -gt "$max_size_all" ];then
 back_file6="$rostopic_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_back" "$back_file6"
 touch "$rostopic_back"
-debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file6" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -829,7 +829,7 @@ if [ "$size_rostopic_battery" -gt "$max_size_all" ];then
 back_file7="$rostopic_battery-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_battery" "$back_file7"
 touch "$rostopic_battery"
-debug_cmd " echo "$ttime 电池日志文件备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime 电池日志文件备份已完成，备份日志名称：$back_file7" >> $debug_name "
 fi
 sleep 0.01
 if [ $forklift_switch -eq 1 ]; then
@@ -837,7 +837,7 @@ if [ "$size_rostopic_forklift" -gt "$max_size_all" ];then
 back_file10="$rostopic_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_forklift" "$back_file10"
 touch "$rostopic_forklift"
-debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file10" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -846,7 +846,7 @@ if [ "$size_ping_forklift" -gt "$max_size_all" ];then
 back_file11="$ping_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_forklift" "$back_file11"
 touch "$ping_forklift"
-debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件备份已完成，备份日志名称：$back_file11" >> $debug_name "
 fi
 fi
 
@@ -858,6 +858,7 @@ ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}
 debug_cmd " echo "$ttime 终止ip:$front_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file9="$tcpdump_front-$(date +"%Y-%m-%d-%H-%M-%S")" 
 mv "$tcpdump_front" "$back_file9"
+debug_cmd " echo "$ttime ip:$front_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file9" >> $debug_name "
 touch "$tcpdump_front" 
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
 debug_cmd " echo "$ttime Tcpdump ip:$front_ip 网络数据抓包进程开始。" >> $debug_name "
@@ -870,6 +871,7 @@ ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'
 debug_cmd " echo "$ttime 终止ip:$back_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file8="$tcpdump_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_back" "$back_file8"
+debug_cmd " echo "$ttime ip:$back_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file8" >> $debug_name "
 touch "$tcpdump_back" 
 tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
 debug_cmd " echo "$ttime Tcpdump ip:$back_ip 网络数据抓包进程开始。" >> $debug_name "
@@ -882,6 +884,7 @@ ps -ef | grep "tcpdump -i eno1 src net $forklift_ip" |grep -v grep |awk '{print 
 debug_cmd " echo "$ttime 终止ip:$forklift_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file12="$tcpdump_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_forklift" "$back_file12"
+debug_cmd " echo "$ttime ip:$forklift_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file12" >> $debug_name "
 touch "$tcpdump_forklift" 
 tcpdump -i eno1 src net $forklift_ip -w $tcpdump_forklift &
 debug_cmd " echo "$ttime Tcpdump ip:$forklift_ip 网络数据抓包进程开始。" >> $debug_name "
@@ -893,7 +896,7 @@ if [ "$size_rostopic_top" -gt "$max_size_all" ];then
 back_file13="$rostopic_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_top" "$back_file13"
 touch "$rostopic_top"
-debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file13" >> $debug_name "
 fi
 fi
 
@@ -902,7 +905,7 @@ if [ "$size_ping_top" -gt "$max_size_all" ];then
 back_file14="$ping_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_top" "$back_file14"
 touch "$ping_top"
-debug_cmd " echo "$ttime ip:$top_ip 网络延迟日志文件备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$top_ip 网络延迟日志文件备份已完成，备份日志名称：$back_file14" >> $debug_name "
 fi
 fi
 
@@ -912,6 +915,7 @@ ps -ef | grep "tcpdump -i eno1 src net $top_ip" |grep -v grep |awk '{print $2}'|
 debug_cmd " echo "$ttime 终止ip:$top_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file15="$tcpdump_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_top" "$back_file15"
+debug_cmd " echo "$ttime ip:$top_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file15" >> $debug_name "
 touch "$tcpdump_top" 
 tcpdump -i eno1 src net $top_ip -w $tcpdump_top &
 debug_cmd " echo "$ttime Tcpdump ip:$top_ip 网络数据抓包进程开始。" >> $debug_name "
@@ -923,7 +927,7 @@ if [ "$size_rostopic_forklift_scan" -gt "$max_size_all" ];then
 back_file16="$rostopic_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_forklift_scan" "$back_file16"
 touch "$rostopic_forklift_scan"
-debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file16" >> $debug_name "
 fi
 fi
 
@@ -932,19 +936,7 @@ if [ "$size_ping_forklift_scan" -gt "$max_size_all" ];then
 back_file17="$ping_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_forklift_scan" "$back_file17"
 touch "$ping_forklift_scan"
-debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络延迟日志文件备份已完成。" >> $debug_name "
-fi
-fi
-
-if [ $forklift_scan_switch -eq 1 ]; then
-if [ "$size_tcpdump_forklift_scan" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
-debug_cmd " echo "$ttime 终止ip:$forklift_scan_ip 网络数据抓包进程完成。" >> $debug_name "
-back_file17="$tcpdump_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
-mv "$tcpdump_forklift_scan" "$back_file17"
-touch "$tcpdump_forklift_scan" 
-tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
-debug_cmd " echo "$ttime Tcpdump ip:$forklift_scan_ip 网络数据抓包进程开始。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络延迟日志文件备份已完成，备份日志名称：$back_file17" >> $debug_name "
 fi
 fi
 
@@ -953,7 +945,7 @@ if [ "$size_rostopic_T2_Central_front" -gt "$max_size_all" ];then
 back_file18="$rostopic_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_T2_Central_front" "$back_file18"
 touch "$rostopic_T2_Central_front"
-debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file18" >> $debug_name "
 fi
 fi
 
@@ -962,7 +954,7 @@ if [ "$size_ping_T2_Central_front" -gt "$max_size_all" ];then
 back_file19="$ping_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_T2_Central_front" "$back_file19"
 touch "$ping_T2_Central_front"
-debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件备份已完成，备份日志名称：$back_file19" >> $debug_name "
 fi
 fi
 
@@ -972,6 +964,7 @@ ps -ef | grep "tcpdump -i eno1 src net $T2_Central_front_ip" |grep -v grep |awk 
 debug_cmd " echo "$ttime 终止ip:$T2_Central_front_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file20="$tcpdump_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_T2_Central_front" "$back_file20"
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file20" >> $debug_name "
 touch "$tcpdump_T2_Central_front" 
 tcpdump -i eno1 src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
 debug_cmd " echo "$ttime Tcpdump ip:$T2_Central_front_ip 网络数据抓包进程开始。" >> $debug_name "
@@ -983,7 +976,7 @@ if [ "$size_rostopic_T2_Central_back" -gt "$max_size_all" ];then
 back_file21="$rostopic_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_T2_Central_back" "$back_file21"
 touch "$rostopic_T2_Central_back"
-debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 所绑定的激光topic原始数据日志备份完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file21" >> $debug_name "
 fi
 fi
 
@@ -992,7 +985,7 @@ if [ "$size_ping_T2_Central_back" -gt "$max_size_all" ];then
 back_file22="$ping_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$ping_T2_Central_back" "$back_file22"
 touch "$ping_T2_Central_back"
-debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 网络延迟日志文件备份已完成。" >> $debug_name "
+debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 网络延迟日志文件备份已完成，备份日志名称：$back_file22" >> $debug_name "
 fi
 fi
 
@@ -1002,134 +995,148 @@ ps -ef | grep "tcpdump -i eno1 src net $T2_Central_bakc_ip" |grep -v grep |awk '
 debug_cmd " echo "$ttime 终止ip:$T2_Central_bakc_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file23="$tcpdump_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_T2_Central_back" "$back_file23"
+debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file23" >> $debug_name "
 touch "$tcpdump_T2_Central_back" 
 tcpdump -i eno1 src net $T2_Central_bakc_ip -w $tcpdump_T2_Central_back &
 debug_cmd " echo "$ttime Tcpdump ip:$T2_Central_bakc_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
+if [ $forklift_scan_switch -eq 1 ]; then
+if [ "$size_tcpdump_forklift_scan" -gt "$max_size" ];then
+ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime 终止ip:$forklift_scan_ip 网络数据抓包进程完成。" >> $debug_name "
+back_file24="$tcpdump_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_forklift_scan" "$back_file17"
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file24" >> $debug_name "
+touch "$tcpdump_forklift_scan" 
+tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
+debug_cmd " echo "$ttime Tcpdump ip:$forklift_scan_ip 网络数据抓包进程开始。" >> $debug_name "
+fi
+fi
+
 debug_cmd " echo "$ttime 判断文件是否大于阈值并执行相关操作流程循环完毕。" >> $debug_name "
 
-#Query on the number of specified files under a folder
+#查询文件夹下指定文件的数量
 
 if [ $back_switch -eq 1 ]; then
 count1=$(ls -lt ~/lanxin/intel/back/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/back/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/back/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count1" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 count2=$(ls -lt ~/lanxin/intel/front/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/front/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/front/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count2" >> $debug_name "
 fi
 
 count3=$(ls -lt ~/.ros/log/rostopic_*.log | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/.ros/log/rostopic_*.log目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/.ros/log/rostopic_*.log目录下文件数量”执行完成。当前文件夹下数量为：$count3" >> $debug_name "
 
 count4=$(ls -lt ~/lanxin/debug/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/debug/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/debug/目录下文件数量”执行完成。当前文件夹下数量为：$count4" >> $debug_name "
 
 count5=$(ls -lt ~/lanxin/intel/computer/cpu/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/cpu/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/cpu/目录下文件数量”执行完成。当前文件夹下数量为：$count5" >> $debug_name "
 
 if [ $front_switch -eq 1 ]; then
 count6=$(ls -lt ~/lanxin/intel/front/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/front/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/front/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count6" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 count7=$(ls -lt ~/lanxin/intel/back/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/back/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/back/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count7" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 count8=$(ls -lt ~/lanxin/intel/front/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/front/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/front/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count7" >> $debug_name "
 fi
 
 if [ $back_switch -eq 1 ]; then
 count9=$(ls -lt ~/lanxin/intel/back/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/back/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/back/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count9" >> $debug_name "
 fi
 
 count10=$(ls -lt ~/lanxin/intel/computer/memory/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/memory/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/memory/目录下文件数量”执行完成。当前文件夹下数量为：$count10" >> $debug_name "
 
 count11=$(ls -lt ~/lanxin/intel/computer/battery/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/battery/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/battery/目录下文件数量”执行完成。当前文件夹下数量为：$count11" >> $debug_name "
 
 if [ $forklift_switch -eq 1 ]; then
 count12=$(ls -lt ~/lanxin/intel/forklift/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count12" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 count13=$(ls -lt ~/lanxin/intel/forklift/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count13" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 count14=$(ls -lt ~/lanxin/intel/forklift/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count14" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 count15=$(ls -lt ~/lanxin/intel/top/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/top/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/top/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count15" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 count16=$(ls -lt ~/lanxin/intel/top/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/top/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/top/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count16" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
 count17=$(ls -lt ~/lanxin/intel/top/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/top/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/top/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count17" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 count18=$(ls -lt ~/lanxin/intel/forklift_scan/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count18" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 count19=$(ls -lt ~/lanxin/intel/forklift_scan/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count19" >> $debug_name "
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 count20=$(ls -lt ~/lanxin/intel/forklift_scan/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/forklift_scan/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count20" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 count21=$(ls -lt ~/lanxin/intel/T2_Central_front/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count21" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 count22=$(ls -lt ~/lanxin/intel/T2_Central_front/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count22" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 count23=$(ls -lt ~/lanxin/intel/T2_Central_front/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_front/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count23" >> $debug_name "
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 count24=$(ls -lt ~/lanxin/intel/T2_Central_back/ping/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/ping/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/ping/目录下文件数量”执行完成。当前文件夹下数量为：$count24" >> $debug_name "
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 count25=$(ls -lt ~/lanxin/intel/T2_Central_back/rostopic/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/rostopic/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/rostopic/目录下文件数量”执行完成。当前文件夹下数量为：$count25" >> $debug_name "
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 count26=$(ls -lt ~/lanxin/intel/T2_Central_back/wireshark/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/wireshark/目录下文件数量”执行完成。" >> $debug_name "
+debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count26" >> $debug_name "
 fi
 
 debug_cmd " echo "$ttime 查询“目录文件数量”步骤已全部执行完成。" >> $debug_name "
@@ -1140,7 +1147,7 @@ if [ $back_switch -eq 1 ]; then
 if [ "$count1" -gt "$max_box" ];then
  old_count1=$(ls -t ~/lanxin/intel/back/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count1 &
-debug_cmd " echo "$ttime “~/lanxin/intel/back/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/back/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count1" >> $debug_name "
 fi
 fi
 
@@ -1148,33 +1155,33 @@ if [ $front_switch -eq 1 ]; then
 if [ "$count2" -gt "$max_box" ];then
  old_count2=$(ls -t ~/lanxin/intel/front/wireshark/* | tail -n +$max_box | head -n -1)
 xargs rm $old_count2 &
-debug_cmd " echo "$ttime “~/lanxin/intel/front/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/front/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count2" >> $debug_name "
 fi
 fi
 
 if [ "$count3" -gt "$max_ros" ];then
  old_count3=$(ls -t ~/.ros/log/rostopic_*.log | tail -n +$max_ros | head -n -1)
 xargs rm $old_count3 &
-debug_cmd " echo "$ttime “~/.ros/log/rostopic_*.log”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/.ros/log/rostopic_*.log”目录下超过配置数量文件删除已完成。删除文件：$old_count3" >> $debug_name "
 fi
 
 if [ "$count4" -gt "$max_debug" ];then
  old_count4=$(ls -t ~/lanxin/debug/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count4 &
-debug_cmd " echo "$ttime “~/lanxin/debug/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/debug/”目录下超过配置数量文件删除已完成。删除文件：$old_count4" >> $debug_name "
 fi
 
 if [ "$count5" -gt "$max_debug" ];then
  old_count5=$(ls -t ~/lanxin/intel/computer/cpu/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count5 &
-debug_cmd " echo "$ttime “~/lanxin/intel/computer/cpu/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/cpu/”目录下超过配置数量文件删除已完成。删除文件：$old_count5" >> $debug_name "
 fi
 
 if [ $front_switch -eq 1 ]; then
 if [ "$count6" -gt "$max_debug" ];then
  old_count6=$(ls -t ~/lanxin/intel/front/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count6 &
-debug_cmd " echo "$ttime “~/lanxin/intel/front/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/front/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count6" >> $debug_name "
 fi
 fi
 
@@ -1182,7 +1189,7 @@ if [ $back_switch -eq 1 ]; then
 if [ "$count7" -gt "$max_debug" ];then
  old_count7=$(ls -t ~/lanxin/intel/back/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count7 &
-debug_cmd " echo "$ttime “~/lanxin/intel/back/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/back/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count7" >> $debug_name "
 fi
 fi
 
@@ -1190,7 +1197,7 @@ if [ $front_switch -eq 1 ]; then
 if [ "$count8" -gt "$max_debug" ];then
  old_count8=$(ls -t ~/lanxin/intel/front/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count8 &
-debug_cmd " echo "$ttime “~/lanxin/intel/front/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/front/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count8" >> $debug_name "
 fi
 fi
 
@@ -1198,27 +1205,27 @@ if [ $back_switch -eq 1 ]; then
 if [ "$count9" -gt "$max_debug" ];then
  old_count9=$(ls -t ~/lanxin/intel/back/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count9 &
-debug_cmd " echo "$ttime “~/lanxin/intel/back/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/back/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count9" >> $debug_name "
 fi
 fi
 
 if [ "$count10" -gt "$max_debug" ];then
  old_count10=$(ls -t ~/lanxin/intel/computer/memory/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count10 &
-debug_cmd " echo "$ttime “~/lanxin/intel/computer/memory/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/memory/”目录下超过配置数量文件删除已完成。删除文件：$old_count10" >> $debug_name "
 fi
 
 if [ "$count11" -gt "$max_debug" ];then
  old_count11=$(ls -t ~/lanxin/intel/computer/battery/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count11 &
-debug_cmd " echo "$ttime “~/lanxin/intel/computer/battery/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/battery/”目录下超过配置数量文件删除已完成。删除文件：$old_count11" >> $debug_name "
 fi
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$count12" -gt "$max_debug" ];then
  old_count12=$(ls -t ~/lanxin/intel/forklift/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count12 &
-debug_cmd " echo "$ttime “~/lanxin/intel/forklift/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count12" >> $debug_name "
 fi
 fi
 
@@ -1226,7 +1233,7 @@ if [ $forklift_switch -eq 1 ]; then
 if [ "$count13" -gt "$max_debug" ];then
  old_count13=$(ls -t ~/lanxin/intel/forklift/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count13 &
-debug_cmd " echo "$ttime “~/lanxin/intel/forklift/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count13" >> $debug_name "
 fi
 fi
 
@@ -1234,7 +1241,7 @@ if [ $forklift_switch -eq 1 ]; then
 if [ "$count14" -gt "$max_debug" ];then
  old_count14=$(ls -t ~/lanxin/intel/forklift/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count14 &
-debug_cmd " echo "$ttime “~/lanxin/intel/forklift/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count14" >> $debug_name "
 fi
 fi
 
@@ -1242,7 +1249,7 @@ if [ $top_switch -eq 1 ]; then
 if [ "$count15" -gt "$max_debug" ];then
  old_count15=$(ls -t ~/lanxin/intel/top/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count15 &
-debug_cmd " echo "$ttime “~/lanxin/intel/top/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/top/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count15" >> $debug_name "
 fi
 fi
 
@@ -1250,7 +1257,7 @@ if [ $top_switch -eq 1 ]; then
 if [ "$count16" -gt "$max_debug" ];then
  old_count16=$(ls -t ~/lanxin/intel/top/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count16 &
-debug_cmd " echo "$ttime “~/lanxin/intel/top/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/top/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count16" >> $debug_name "
 fi
 fi
 
@@ -1258,7 +1265,7 @@ if [ $top_switch -eq 1 ]; then
 if [ "$count17" -gt "$max_debug" ];then
  old_count17=$(ls -t ~/lanxin/intel/top/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count17 &
-debug_cmd " echo "$ttime “~/lanxin/intel/top/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/top/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count17" >> $debug_name "
 fi
 fi
 
@@ -1266,7 +1273,7 @@ if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$count18" -gt "$max_debug" ];then
  old_count18=$(ls -t ~/lanxin/intel/forklift_scan/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count18 &
-debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count18" >> $debug_name "
 fi
 fi
 
@@ -1274,7 +1281,7 @@ if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$count19" -gt "$max_debug" ];then
  old_count19=$(ls -t ~/lanxin/intel/forklift_scan/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count19 &
-debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count19" >> $debug_name "
 fi
 fi
 
@@ -1282,7 +1289,7 @@ if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$count20" -gt "$max_debug" ];then
  old_count20=$(ls -t ~/lanxin/intel/forklift_scan/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count20 &
-debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/forklift_scan/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count20" >> $debug_name "
 fi
 fi
 
@@ -1290,7 +1297,7 @@ if [ $T2_Central_front_switch -eq 1 ]; then
 if [ "$count21" -gt "$max_debug" ];then
  old_count21=$(ls -t ~/lanxin/intel/T2_Central_front/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count21 &
-debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count21" >> $debug_name "
 fi
 fi
 
@@ -1298,7 +1305,7 @@ if [ $T2_Central_front_switch -eq 1 ]; then
 if [ "$count22" -gt "$max_debug" ];then
  old_count22=$(ls -t ~/lanxin/intel/T2_Central_front/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count22 &
-debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count22" >> $debug_name "
 fi
 fi
 
@@ -1306,7 +1313,7 @@ if [ $T2_Central_front_switch -eq 1 ]; then
 if [ "$count23" -gt "$max_debug" ];then
  old_count23=$(ls -t ~/lanxin/intel/T2_Central_front/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count23 &
-debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_front/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count23" >> $debug_name "
 fi
 fi
 
@@ -1314,7 +1321,7 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 if [ "$count24" -gt "$max_debug" ];then
  old_count24=$(ls -t ~/lanxin/intel/T2_Central_back/ping/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count24 &
-debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/ping/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/ping/”目录下超过配置数量文件删除已完成。删除文件：$old_count24" >> $debug_name "
 fi
 fi
 
@@ -1322,7 +1329,7 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 if [ "$count25" -gt "$max_debug" ];then
  old_count25=$(ls -t ~/lanxin/intel/T2_Central_back/rostopic/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count25 &
-debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/rostopic/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/rostopic/”目录下超过配置数量文件删除已完成。删除文件：$old_count25" >> $debug_name "
 fi
 fi
 
@@ -1330,7 +1337,7 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 if [ "$count26" -gt "$max_debug" ];then
  old_count26=$(ls -t ~/lanxin/intel/T2_Central_back/wireshark/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count26 &
-debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/wireshark/”目录下超过配置数量文件删除已完成。" >> $debug_name "
+debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count26" >> $debug_name "
 fi
 fi
 
