@@ -272,7 +272,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjEwLeWinuWKoOebuOWFs2RlYnVn6LCD6K+V5pel5b+X5L+h5oGv' > $version_logg
+echo '54mI5pys5Y+377yadjExLeabtOaWsHBpbmfljIXml7bmiZPljbDvvIzmiZPljbDmmK/lkKblrZjlnKjov57mjqXmraPluLg=' > $version_logg
 
 #配置开关说明
 
@@ -495,13 +495,19 @@ sleep 0.1
 #网络延迟和上层数据打印
 
 if [ $front_switch -eq 1 ]; then
-    echo $ttime >> $ping_front
-    ping -c 1 -w 1 $front_ip >> $ping_front
+if ! ping -c 1 -w 1 $front_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front
+else
+echo "$ttime ip:$front_ip The network is not disconnected and data printing is abnormal." >> $ping_front
+fi
 fi
 
 if [ $back_switch -eq 1 ]; then
-    echo $ttime >> $ping_back
-    ping -c 1 -w 1 $back_ip >> $ping_back
+if ! ping -c 1 -w 1 $back_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back
+else
+echo "$ttime ip:$back_ip The network is not disconnected and data printing is abnormal." >> $ping_back
+fi
 fi
 
 if [ $front_switch -eq 1 ]; then
@@ -515,8 +521,11 @@ if [ $back_switch -eq 1 ]; then
 fi
 
 if [ $forklift_switch -eq 1 ]; then
-    echo $ttime >> $ping_forklift
-    ping -c 1 -w 1 $forklift_ip >> $ping_forklift
+if ! ping -c 1 -w 1 $forklift_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$forklift_ip The network is not disconnected and data printing is normal." >> $ping_forklift
+else
+echo "$ttime ip:$forklift_ip The network is not disconnected and data printing is abnormal." >> $ping_forklift
+fi
 fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -526,7 +535,11 @@ fi
 
 if [ $top_switch -eq 1 ]; then
     echo $ttime >> $ping_top
-    ping -c 1 -w 1 $top_ip >> $ping_top
+if ! ping -c 1 -w 1 $top_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$top_ip The network is not disconnected and data printing is normal." >> $ping_top
+else
+echo "$ttime ip:$top_ip The network is not disconnected and data printing is abnormal." >> $ping_top
+fi
 fi
 
 if [ $top_switch -eq 1 ]; then
@@ -536,7 +549,11 @@ fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
     echo $ttime >> $ping_forklift_scan
-    ping -c 1 -w 1 $top_ip >> $ping_forklift_scan
+if ! ping -c 1 -w 1 $forklift_scan_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$forklift_scan_ip The network is not disconnected and data printing is normal." >> $ping_forklift_scan
+else
+echo "$ttime ip:$forklift_scan_ip The network is not disconnected and data printing is abnormal." >> $ping_forklift_scan
+fi
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
@@ -545,8 +562,11 @@ if [ $forklift_scan_switch -eq 1 ]; then
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
-    echo $ttime >> $ping_T2_Central_front
-    ping -c 1 -w 1 $T2_Central_front_ip >> $ping_T2_Central_front
+if ! ping -c 1 -w 1 $T2_Central_front_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$T2_Central_front_ip The network is not disconnected and data printing is normal." >> $ping_T2_Central_front
+else
+echo "$ttime ip:$T2_Central_front_ip The network is not disconnected and data printing is abnormal." >> $ping_T2_Central_front
+fi
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
@@ -555,8 +575,11 @@ if [ $T2_Central_front_switch -eq 1 ]; then
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
-    echo $ttime >> $ping_T2_Central_back
-    ping -c 1 -w 1 $T2_Central_back_ip >> $ping_T2_Central_back
+if ! ping -c 1 -w 1 $T2_Central_back_ip | grep -q "100% packet loss";then
+echo "$ttime ip:$T2_Central_back_ip The network is not disconnected and data printing is normal." >> $ping_T2_Central_back
+else
+echo "$ttime ip:$T2_Central_back_ip The network is not disconnected and data printing is abnormal." >> $ping_T2_Central_back
+fi
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
