@@ -272,7 +272,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjExLeabtOaWsHBpbmfljIXml7bmiZPljbDvvIzmiZPljbDmmK/lkKblrZjlnKjov57mjqXmraPluLg=' > $version_logg
+echo '54mI5pys5Y+377yadjEwLeWinuWKoOebuOWFs2RlYnVn6LCD6K+V5pel5b+X5L+h5oGv' > $version_logg
 
 #配置开关说明
 
@@ -455,6 +455,35 @@ debug_cmd " echo "$ttime 读取系统关机时间完毕。" >> $debug_name "
 
 trap 'ctrl_c_flag=1' INT
 
+if [ $front_switch -eq 1 ]; then
+front_msg=$(timeout 1 rostopic echo -n 1 /scan_front & )
+front_msg1=$(timeout 1 rostopic echo -n 1 /scan_front | grep -E 'frame_id:' & )
+fi
+if [ $back_switch -eq 1 ]; then
+back_msg=$(timeout 1 rostopic echo -n 1 /scan_back & )
+back_msg1=$(timeout 1 rostopic echo -n 1 /scan_back | grep -E 'frame_id:' & )
+fi
+if [ $forklift_switch -eq 1 ]; then
+forklift_msg=$(timeout 1 rostopic echo -n 1 /scan_back_forklift & )
+forklift_msg1=$(timeout 1 rostopic echo -n 1 /scan_back_forklift | grep -E 'frame_id:' & )
+fi
+if [ $top_switch -eq 1 ]; then
+top_msg=$(timeout 1 rostopic echo -n 1 /scan_top & )
+top_msg1=$(timeout 1 rostopic echo -n 1 /scan_top | grep -E 'frame_id:' & )	
+fi
+if [ $forklift_scan_switch -eq 1 ]; then
+forklift_scan_msg=$(timeout 1 rostopic echo -n 1 /lidarl/forklift_scan & )
+forklift_scan_msg1=$(timeout 1 rostopic echo -n 1 /lidarl/forklift_scan | grep -E 'frame_id:' & )
+fi
+if [ $T2_Central_front_switch -eq 1 ]; then
+T2_Central_front_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
+T2_Central_front_msg1=$(timeout 1 rostopic echo -n 1  | grep -E 'frame_id:' & ) #topic参数暂未维护
+fi
+if [ $T2_Central_back_switch -eq 1 ]; then
+T2_Central_back_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
+T2_Central_back_msg1=$(timeout 1 rostopic echo -n 1  | grep -E 'frame_id:' & ) #topic参数暂未维护
+fi
+
 #循环开始
 
 while true
@@ -496,28 +525,38 @@ sleep 0.1
 
 if [ $front_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $front_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front
+echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front 
 else
-echo "$ttime ip:$front_ip The network is not disconnected and data printing is abnormal." >> $ping_front
+echo "$ttime ip:$front_ip The network is not disconnected and data printing is abnormal." >> $ping_front 
 fi
 fi
 
 if [ $back_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $back_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back
+echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back 
 else
-echo "$ttime ip:$back_ip The network is not disconnected and data printing is abnormal." >> $ping_back
+echo "$ttime ip:$back_ip The network is not disconnected and data printing is abnormal." >> $ping_back 
 fi
 fi
 
 if [ $front_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_front
-    rostopic echo -n 1 /scan_front --noarr >> $rostopic_front &
+    new_front_msg=$(timeout 1 rostopic echo -n 1 /scan_front & ) 
+	if [ "$new_front_msg" != "$front_msg" ]; then
+    front_msg="$new_front_msg"
+    echo "$ttime $front_msg1 Laser raw data refresh normal." >> $rostopic_front &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_front &
+    fi
 fi
 
 if [ $back_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_back 
-    rostopic echo -n 1 /scan_back --noarr >> $rostopic_back &
+    new_back_msg=$(timeout 1 rostopic echo -n 1 /scan_back & )
+    if [ "$new_back_msg" != "$back_msg" ]; then
+    back_msg="$new_back_msg" 
+    echo "$ttime $back_msg1 Laser raw data refresh normal." >> $rostopic_back &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_back &
+    fi
 fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -529,8 +568,13 @@ fi
 fi
 
 if [ $forklift_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_forklift
-    rostopic echo -n 1 /scan_back_forklift --noarr >> $rostopic_forklift &
+    new_forklift_msg=$(timeout 1 rostopic echo -n 1 /scan_back_forklift & )
+    if [ "$new_forklift_msg" != "$forklift_msg" ]; then
+    forklift_msg="$new_forklift_msg"
+    echo "$ttime $forklift_msg1 Laser raw data refresh normal." >> $rostopic_forklift &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_forklift &
+    fi
 fi
 
 if [ $top_switch -eq 1 ]; then
@@ -543,8 +587,13 @@ fi
 fi
 
 if [ $top_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_top
-    rostopic echo -n 1 /scan_top --noarr >> $rostopic_top &
+    new_top_msg=$(timeout 1 rostopic echo -n 1 /scan_top & )
+    if [ "$new_top_msg" != "$top_msg" ]; then
+    top_msg="$new_top_msg"
+    echo "$ttime $top_msg1 Laser raw data refresh normal." >> $rostopic_top &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_top &
+    fi
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
@@ -557,8 +606,13 @@ fi
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_forklift_scan
-    rostopic echo -n 1 /lidarl/forklift_scan --noarr >> $rostopic_forklift_scan &
+    new_forklift_scan_msg=$(timeout 1 rostopic echo -n 1 /lidarl/forklift_scan & )
+    if [ "$new_forklift_scan_msg" != "$forklift_scan_msg" ]; then
+    forklift_scan_msg="$new_forklift_scan_msg"
+    echo "$ttime $forklift_scan_msg1 Laser raw data refresh normal." >> $rostopic_forklift_scan &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_forklift_scan &
+    fi
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
@@ -570,8 +624,13 @@ fi
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_T2_Central_front
-    rostopic echo -n 1  --noarr >> $rostopic_T2_Central_front & #topic参数暂未维护
+    new_T2_Central_front_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
+    if [ "$new_T2_Central_front_msg" != "$T2_Central_front_msg" ]; then
+    T2_Central_front_msg="$new_T2_Central_front_msg"
+    echo "$ttime $T2_Central_front_msg1 Laser raw data refresh normal." >> $rostopic_T2_Central_front &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_T2_Central_front &
+    fi
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
@@ -583,8 +642,13 @@ fi
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
-    echo $ttime >> $rostopic_T2_Central_back
-    rostopic echo -n 1  --noarr >> $rostopic_T2_Central_back & #topic参数暂未维护
+    new_T2_Central_back_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
+    if [ "$new_T2_Central_back_msg" != "$T2_Central_back_msg" ]; then
+    T2_Central_back_msg="$new_T2_Central_back_msg"
+    echo "$ttime $T2_Central_back_msg1 Laser raw data refresh normal." >> $rostopic_T2_Central_back &
+	else
+	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_T2_Central_back &
+    fi
 fi
 
     echo $ttime >> $rostopic_battery
