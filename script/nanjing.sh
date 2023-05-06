@@ -165,7 +165,9 @@ memory=~/lanxin/intel/computer/memory/memory.log
 ping_front=~/lanxin/intel/front/ping/ping_front.log
 ping_back=~/lanxin/intel/back/ping/ping_back.log
 rostopic_front=~/lanxin/intel/front/rostopic/rostopic_front.log
+rostopic_front_hz=~/lanxin/intel/front/rostopic/rostopic_front_node.log
 rostopic_back=~/lanxin/intel/back/rostopic/rostopic_back.log
+rostopic_back_hz=~/lanxin/intel/back/rostopic/rostopic_back_node.log
 rostopic_battery=~/lanxin/intel/computer/battery/battery.log
 tcpdump_front=~/lanxin/intel/front/wireshark/front_shark.pcap
 tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
@@ -175,18 +177,23 @@ version_logg=~/lanxin/version
 explain=~/lanxin/Explain.md
 ping_forklift=~/lanxin/intel/forklift/ping/ping_forklift.log
 rostopic_forklift=~/lanxin/intel/forklift/rostopic/rostopic_forklift.log
+rostopic_forklift_hz=~/lanxin/intel/forklift/rostopic/rostopic_forklift_node.log
 tcpdump_forklift=~/lanxin/intel/forklift/wireshark/forklift_shark.pcap
 ping_top=~/lanxin/intel/top/ping/ping_top.log
 rostopic_top=~/lanxin/intel/top/rostopic/rostopic_top.log
+rostopic_top_hz=~/lanxin/intel/top/rostopic/rostopic_top_node.log
 tcpdump_top=~/lanxin/intel/top/wireshark/top_shark.pcap
 ping_forklift_scan=~/lanxin/intel/forklift_scan/ping/ping_forklift_scan.log
 rostopic_forklift_scan=~/lanxin/intel/forklift_scan/rostopic/rostopic_forklift_scan.log
+rostopic_forklift_scan_hz=~/lanxin/intel/forklift_scan/rostopic/rostopic_forklift_scan_node.log
 tcpdump_forklift_scan=~/lanxin/intel/forklift_scan/wireshark/forklift_scan_shark.pcap
 ping_T2_Central_front=~/lanxin/intel/T2_Central_front/ping/ping_T2_Central_front.log
 rostopic_T2_Central_front=~/lanxin/intel/T2_Central_front/rostopic/rostopic_T2_Central_front.log
+rostopic_T2_Central_front_hz=~/lanxin/intel/T2_Central_front/rostopic/rostopic_T2_Central_front_node.log
 tcpdump_T2_Central_front=~/lanxin/intel/T2_Central_front/wireshark/shark_T2_Central_front.pcap
 ping_T2_Central_back=~/lanxin/intel/T2_Central_back/ping/ping_T2_Central_back.log
 rostopic_T2_Central_back=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Central_back.log
+rostopic_T2_Central_back_hz=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Central_back_node.log
 tcpdump_T2_Central_back=~/lanxin/intel/T2_Central_back/wireshark/shark_T2_Central_back.pcap
 
 #调试开关
@@ -272,7 +279,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjEwLeWinuWKoOebuOWFs2RlYnVn6LCD6K+V5pel5b+X5L+h5oGv' > $version_logg
+echo '54mI5pys5Y+377yadjEyLeWinuWKoOa/gOWFieiKgueCueaJk+WNsA==' > $version_logg
 
 #配置开关说明
 
@@ -547,6 +554,8 @@ if [ $front_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_front &
     fi
+	echo $ttime >> $rostopic_front_hz
+	timeout 1 rostopic hz /scan_front >> $rostopic_front_hz &
 fi
 
 if [ $back_switch -eq 1 ]; then
@@ -557,6 +566,8 @@ if [ $back_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_back &
     fi
+	echo $ttime >> $rostopic_back_hz
+	timeout 1 rostopic hz /scan_back >> $rostopic_back_hz &
 fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -575,6 +586,8 @@ if [ $forklift_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_forklift &
     fi
+	echo $ttime >> $rostopic_forklift_hz
+	timeout 1 rostopic hz /scan_back_forklift >> $rostopic_forklift_hz &
 fi
 
 if [ $top_switch -eq 1 ]; then
@@ -594,6 +607,8 @@ if [ $top_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_top &
     fi
+	echo $ttime >> $rostopic_top_hz
+	timeout 1 rostopic hz /scan_top >> $rostopic_top_hz &
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
@@ -613,6 +628,8 @@ if [ $forklift_scan_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_forklift_scan &
     fi
+	echo $ttime >> $rostopic_forklift_scan_hz
+	timeout 1 rostopic hz /lidarl/forklift_scan >> $rostopic_forklift_scan_hz &
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
@@ -631,6 +648,8 @@ if [ $T2_Central_front_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_T2_Central_front &
     fi
+	echo $ttime >> $rostopic_T2_Central_front_hz
+	timeout 1 rostopic hz  >> $rostopic_T2_Central_front_hz & #topic参数暂未维护
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
@@ -649,6 +668,8 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_T2_Central_back &
     fi
+	echo $ttime >> $rostopic_T2_Central_back_hz
+	timeout 1 rostopic hz  >> $rostopic_T2_Central_back_hz & #topic参数暂未维护
 fi
 
     echo $ttime >> $rostopic_battery
