@@ -673,7 +673,7 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 fi
 
     echo $ttime >> $rostopic_battery
-    rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 
+    rostopic echo -n 1 /ztexing_node/battery_status  >> $rostopic_battery 
 debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name "
 
 #“Du”查询定义
@@ -699,13 +699,23 @@ size_rostopic_front=$(du -b "$rostopic_front" | awk '{print $1}')
 debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_front:$size_rostopic_front" >> $debug_name "
 fi
 
+if [ $front_switch -eq 1 ]; then
+size_rostopic_front_hz=$(du -b "$rostopic_front_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_front_hz:$size_rostopic_front_hz" >> $debug_name "
+fi
+
 if [ $back_switch -eq 1 ]; then
 size_rostopic_back=$(du -b "$rostopic_back" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_back:$size_rostopic_back" >> $debug_name "
 fi
 
+if [ $back_switch -eq 1 ]; then
+size_rostopic_back_hz=$(du -b "$rostopic_back_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_back_hz:$size_rostopic_back_hz" >> $debug_name "
+fi
+
 size_rostopic_battery=$(du -b "$rostopic_battery" | awk '{print $1}') 
-debug_cmd " echo "$ttime 电池状态日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime 电池状态日志文件大小查询完毕。size_rostopic_battery:$size_rostopic_battery" >> $debug_name "
 
 if [ $front_switch -eq 1 ]; then
 size_tcpdump_front=$(du -b "$tcpdump_front" | awk '{print $1}') 
@@ -731,6 +741,11 @@ debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日�
 fi
 
 if [ $forklift_switch -eq 1 ]; then
+size_rostopic_forklift_hz=$(du -b "$rostopic_forklift_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_forklift_hz:$size_rostopic_forklift_hz" >> $debug_name "
+fi
+
+if [ $forklift_switch -eq 1 ]; then
 size_tcpdump_forklift=$(du -b "$tcpdump_forklift" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_forklift:$size_tcpdump_forklift" >> $debug_name "
 fi
@@ -743,6 +758,11 @@ fi
 if [ $top_switch -eq 1 ]; then
 size_rostopic_top=$(du -b "$rostopic_top" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_top:$size_rostopic_top" >> $debug_name "
+fi
+
+if [ $top_switch -eq 1 ]; then
+size_rostopic_top_hz=$(du -b "$rostopic_top_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_top_hz:$size_rostopic_top_hz" >> $debug_name "
 fi
 
 if [ $top_switch -eq 1 ]; then
@@ -761,6 +781,11 @@ debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数�
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
+size_rostopic_forklift_scan_hz=$(du -b "$rostopic_forklift_scan_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_forklift_scan_hz:$size_rostopic_forklift_scan_hz" >> $debug_name "
+fi
+
+if [ $forklift_scan_switch -eq 1 ]; then
 size_tcpdump_forklift_scan=$(du -b "$tcpdump_forklift_scan" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_forklift_scan:$size_tcpdump_forklift_scan" >> $debug_name "
 fi
@@ -773,6 +798,11 @@ fi
 if [ $T2_Central_front_switch -eq 1 ]; then
 size_rostopic_T2_Central_front=$(du -b "$rostopic_T2_Central_front" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_T2_Central_front:$size_rostopic_T2_Central_front" >> $debug_name "
+fi
+
+if [ $T2_Central_front_switch -eq 1 ]; then
+size_rostopic_T2_Central_front_hz=$(du -b "$rostopic_T2_Central_front_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_T2_Central_front_hz:$size_rostopic_T2_Central_front_hz" >> $debug_name "
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
@@ -791,6 +821,11 @@ debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光topic原始数
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
+size_rostopic_T2_Central_back_hz=$(du -b "$rostopic_T2_Central_back_hz" | awk '{print $1}') 
+debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光节点日志文件大小查询完毕。size_rostopic_T2_Central_back_hz:$size_rostopic_T2_Central_back_hz" >> $debug_name "
+fi
+
+if [ $T2_Central_back_switch -eq 1 ]; then
 size_tcpdump_T2_Central_back=$(du -b "$tcpdump_T2_Central_back" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_T2_Central_back:$size_tcpdump_T2_Central_back" >> $debug_name "
 fi
@@ -800,6 +835,7 @@ debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕。"
 
 #确定文件是否超过配置的大小并执行相关操作
 
+if [ "$DEBUG_executions_number" = true ]; then
 if [ "$size_debug_name" -gt "$max_size_all" ];then
 back_file0="$debug_name-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$debug_name" "$back_file0"
@@ -879,10 +915,13 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 echo "T2_Central_back_ip:$T2_Central_back_ip" >> $debug_name
 sleep 0.1
 fi
+debug_cmd " echo "$ttime debug日志备份完成，备份日志名称：$back_file0" >> $debug_name "
+fi
 fi
 
 debug_cmd " echo "$ttime 调试信息打印完毕。" >> $debug_name "
 
+sleep 0.01
 if [ "$size_cpu" -gt "$max_size_all" ];then
 back_file1="$cpu-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$cpu" "$back_file1"
@@ -916,6 +955,15 @@ fi
 fi
 sleep 0.01
 if [ $front_switch -eq 1 ]; then
+if [ "$size_rostopic_front_hz" -gt "$max_size_all" ];then
+back_file51="$rostopic_front_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_front_hz" "$back_file51"
+touch "$rostopic_front_hz"
+debug_cmd " echo "$ttime ip:$front_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file51" >> $debug_name "
+fi
+fi
+sleep 0.01
+if [ $front_switch -eq 1 ]; then
 if [ "$size_rostopic_front" -gt "$max_size_all" ];then
 back_file5="$rostopic_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_front" "$back_file5"
@@ -933,6 +981,15 @@ debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光topic原始数据日志�
 fi
 fi
 sleep 0.01
+if [ $back_switch -eq 1 ]; then
+if [ "$size_rostopic_back_hz" -gt "$max_size_all" ];then
+back_file61="$rostopic_back_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_back_hz" "$back_file61"
+touch "$rostopic_back_hz"
+debug_cmd " echo "$ttime ip:$back_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file61" >> $debug_name "
+fi
+fi
+sleep 0.01
 if [ "$size_rostopic_battery" -gt "$max_size_all" ];then
 back_file7="$rostopic_battery-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_battery" "$back_file7"
@@ -946,6 +1003,15 @@ back_file10="$rostopic_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_forklift" "$back_file10"
 touch "$rostopic_forklift"
 debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file10" >> $debug_name "
+fi
+fi
+sleep 0.01
+if [ $forklift_switch -eq 1 ]; then
+if [ "$size_rostopic_forklift_hz" -gt "$max_size_all" ];then
+back_file71="$rostopic_forklift_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_forklift_hz" "$back_file71"
+touch "$rostopic_forklift_hz"
+debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file71" >> $debug_name "
 fi
 fi
 sleep 0.01
@@ -1007,7 +1073,15 @@ touch "$rostopic_top"
 debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file13" >> $debug_name "
 fi
 fi
-
+sleep 0.01
+if [ $top_switch -eq 1 ]; then
+if [ "$size_rostopic_top_hz" -gt "$max_size_all" ];then
+back_file81="$rostopic_top_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_top_hz" "$back_file81"
+touch "$rostopic_top_hz"
+debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file81" >> $debug_name "
+fi
+fi
 if [ $top_switch -eq 1 ]; then
 if [ "$size_ping_top" -gt "$max_size_all" ];then
 back_file14="$ping_top-$(date +"%Y-%m-%d-%H-%M-%S")"
@@ -1038,7 +1112,15 @@ touch "$rostopic_forklift_scan"
 debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file16" >> $debug_name "
 fi
 fi
-
+sleep 0.01
+if [ $forklift_scan_switch -eq 1 ]; then
+if [ "$size_rostopic_forklift_scan_hz" -gt "$max_size_all" ];then
+back_file91="$rostopic_forklift_scan_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_forklift_scan_hz" "$back_file91"
+touch "$rostopic_forklift_scan_hz"
+debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file91" >> $debug_name "
+fi
+fi
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$size_ping_forklift_scan" -gt "$max_size_all" ];then
 back_file17="$ping_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
@@ -1056,7 +1138,15 @@ touch "$rostopic_T2_Central_front"
 debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file18" >> $debug_name "
 fi
 fi
-
+sleep 0.01
+if [ $T2_Central_front_switch -eq 1 ]; then
+if [ "$size_rostopic_T2_Central_front_hz" -gt "$max_size_all" ];then
+back_file101="$rostopic_T2_Central_front_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_T2_Central_front_hz" "$back_file101"
+touch "$rostopic_T2_Central_front_hz"
+debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file101" >> $debug_name "
+fi
+fi
 if [ $T2_Central_front_switch -eq 1 ]; then
 if [ "$size_ping_T2_Central_front" -gt "$max_size_all" ];then
 back_file19="$ping_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
@@ -1087,7 +1177,15 @@ touch "$rostopic_T2_Central_back"
 debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file21" >> $debug_name "
 fi
 fi
-
+sleep 0.01
+if [ $T2_Central_back_switch -eq 1 ]; then
+if [ "$size_rostopic_T2_Central_back_hz" -gt "$max_size_all" ];then
+back_file111="$rostopic_T2_Central_back_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_T2_Central_back_hz" "$back_file111"
+touch "$rostopic_T2_Central_back_hz"
+debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 所绑定的激光节点数据日志备份完成，备份日志名称：$back_file111" >> $debug_name "
+fi
+fi
 if [ $T2_Central_back_switch -eq 1 ]; then
 if [ "$size_ping_T2_Central_back" -gt "$max_size_all" ];then
 back_file22="$ping_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
@@ -1448,6 +1546,8 @@ xargs rm $old_count26 &
 debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count26" >> $debug_name "
 fi
 fi
+
+debug_cmd " echo "$ttime 各级目录高于配置文件数量已检测并删除完毕！" >> $debug_name "
 
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
