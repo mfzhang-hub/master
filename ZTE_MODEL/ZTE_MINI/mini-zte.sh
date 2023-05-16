@@ -63,51 +63,66 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /charge_command "0" 
-elif [ $1 -eq 22 ] #Rear docking laser
+elif [ $1 -eq 15 ] #Rear docking laser
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic echo /scan_back_forklift
-elif [ $1 -eq 23 ] #Top navigation laser
+elif [ $1 -eq 16 ] #Top navigation laser
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic echo /scan_top
-elif [ $1 -eq 24 ] #Left limit trigger
+elif [ $1 -eq 17 ] #Left limit trigger
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rosparam get /forklift/left_arm_cargo
-elif [ $1 -eq 25 ] #Right limit trigger
+elif [ $1 -eq 18 ] #Right limit trigger
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rosparam get /forklift/right_arm_cargo
-elif [ $1 -eq 26 ] #Fork arm height
+elif [ $1 -eq 19 ] #Fork arm height
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rosparam get /forklift/height
-elif [ $1 -eq 27 ] #Lift the inserting arm to 0
+elif [ $1 -eq 20 ] #Lift the inserting arm to 0
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 0"
-elif [ $1 -eq 28 ] #Lift the inserting arm to 2300
+elif [ $1 -eq 21 ] #Lift the inserting arm to 2300
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2300"   
-elif [ $1 -eq 29 ] #Lift the inserting arm to 2500
+elif [ $1 -eq 22 ] #Lift the inserting arm to 2500
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2500"
-elif [ $1 -eq 30 ] #Lift the inserting arm to 2200
+elif [ $1 -eq 23 ] #Lift the inserting arm to 2200
 then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2400"
+elif [ $1 -eq 24 ] #Left lamp independent test
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /light_command std_msgs/UInt8 "data: 6"
+elif [ $1 -eq 25 ] #Right lamp independent test
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /light_command std_msgs/UInt8 "data: 7"
+elif [ $1 -eq 26 ] #Blue Ocean Laser
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic echo /lidarl/forklift_scan
 else
    echo "less param"
 fi
