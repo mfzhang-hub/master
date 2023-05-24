@@ -11,7 +11,9 @@ top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
 T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关,topic未维护
 T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关，topic未维护
+odom=0 #里程计数据打印开关
 
+sleep 10
 
 #文件夹创建判断
 
@@ -65,6 +67,10 @@ if [ ! -d "~/lanxin/intel/computer/cpu" ];then
 
 if [ ! -d "~/lanxin/intel/computer/battery" ];then
 	mkdir -p ~/lanxin/intel/computer/battery
+	fi
+
+if [ ! -d "~/lanxin/intel/computer/power" ];then
+	mkdir -p ~/lanxin/intel/computer/power
 	fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -156,6 +162,13 @@ if [ ! -d "~/lanxin/intel/T2_Central_back/ping" ];then
 	mkdir -p ~/lanxin/intel/T2_Central_back/ping
 	fi
 fi
+
+if [ $odom -eq 1 ]; then
+if [ ! -d "~/lanxin/agv/odom/" ];then
+	mkdir -p ~/lanxin/agv/odom/
+	fi
+fi
+
 sleep 1
 
 #文件路径定义
@@ -169,6 +182,7 @@ rostopic_front_hz=~/lanxin/intel/front/rostopic/rostopic_front_node.log
 rostopic_back=~/lanxin/intel/back/rostopic/rostopic_back.log
 rostopic_back_hz=~/lanxin/intel/back/rostopic/rostopic_back_node.log
 rostopic_battery=~/lanxin/intel/computer/battery/battery.log
+rostopic_power=~/lanxin/intel/computer/power/power_trigger.log
 tcpdump_front=~/lanxin/intel/front/wireshark/front_shark.pcap
 tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
 debug_name=~/lanxin/debug/debug.log
@@ -195,6 +209,7 @@ ping_T2_Central_back=~/lanxin/intel/T2_Central_back/ping/ping_T2_Central_back.lo
 rostopic_T2_Central_back=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Central_back.log
 rostopic_T2_Central_back_hz=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Central_back_node.log
 tcpdump_T2_Central_back=~/lanxin/intel/T2_Central_back/wireshark/shark_T2_Central_back.pcap
+rostopic_odom=~/lanxin/agv/odom/encoder_odom.log
 
 #调试开关
 debug_cmd(){
@@ -279,7 +294,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjEyLeWinuWKoOa/gOWFieiKgueCueaJk+WNsA==' > $version_logg
+echo '54mI5pys5Y+377yadjEzLeWinuWKoG9kb23miZPljbDlj4rovabovoblvIDlhbPnlLXmupDnirbmgIHml6Xlv5fmiZPljbDvvIjlhbPmnLrkvJrlrZjlnKgq5Y+377yM5q+r56eS6Kem5Y+R5peg5rOV5q2j5bi45oqT5Y+W77yJ' > $version_logg
 
 #配置开关说明
 
@@ -306,11 +321,11 @@ forklift_switch：“叉车叉根激光所有日志打印开关，当开关为1�
 top_switch： “叉车顶部导航激光所有日志打印开关，当开关为1时则启用叉车顶部导航激光相关的配置文件，当为0时则关闭执行-默认0”
 forklift_scan_switch： “叉车蓝海激光所有日志打印开关，当开关为1时则启用叉车蓝海激光相关的配置文件，当为0时则关闭执行-默认0”  
 T2_Central_front_switch：“T2全向AGV前中雷达日志打印开关，当开关为1时则启用T2前中激光相关的配置文件，当为0时则关闭执行-默认0”
-T2_Central_back_switch：“T2全向AGV后中雷达日志打印开关，当开关为1时则启用T2后中激光相关的配置文件，当为0时则关闭执行-默认0” " > $explain
+T2_Central_back_switch：“T2全向AGV后中雷达日志打印开关，当开关为1时则启用T2后中激光相关的配置文件，当为0时则关闭执行-默认0” 
+odom：“里程计打印开关，当开关为1时启动车辆里程计数据打印，当开关为0时关闭车辆里程计数据打印，默认0，不要开！！！” " > $explain
 #终止tcpdump进程
 
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
-
 #功能开关
 
 DEBUG=true
@@ -422,12 +437,19 @@ echo "T2_Central_back_ip:$T2_Central_back_ip" >> $debug_name
 sleep 0.1
 fi
 
+if [ $odom -eq 1 ]; then
+echo "odom:$odom" >> $debug_name
+sleep 0.1
+fi
+
+
 #开始网络数据包捕获
 
 if [ $front_switch -eq 1 ]; then
 tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
 sleep 0.1
 fi
+
 
 if [ $back_switch -eq 1 ]; then
 tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
@@ -437,6 +459,7 @@ if [ $forklift_switch -eq 1 ]; then
 tcpdump -i eno1 src net $forklift_ip -w $tcpdump_forklift &
 fi
 
+
 if [ $top_switch -eq 1 ]; then
 tcpdump -i eno1 src net $top_ip -w $tcpdump_top &
 fi
@@ -445,6 +468,7 @@ if [ $forklift_scan_switch -eq 1 ]; then
 tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
 fi
 
+
 if [ $T2_Central_front_switch -eq 1 ]; then
 tcpdump -i eno1 src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
 fi
@@ -452,6 +476,7 @@ fi
 if [ $T2_Central_back_switch -eq 1 ]; then
 tcpdump -i eno1 src net $T2_Central_back_ip -w $tcpdump_T2_Central_back &
 fi
+
 
 sleep 0.1
 
@@ -489,6 +514,10 @@ fi
 if [ $T2_Central_back_switch -eq 1 ]; then
 T2_Central_back_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
 T2_Central_back_msg1=$(timeout 1 rostopic echo -n 1  | grep -E 'frame_id:' & ) #topic参数暂未维护
+fi
+if [ $odom -eq 1 ]; then
+odom_msg=$(timeout 1 rostopic echo -n 1 /encoder_odom & ) 
+odom_msg1=$(timeout 1 rostopic echo -n 1 /encoder_odom  | grep -E 'frame_id:' & ) 
 fi
 
 #循环开始
@@ -534,7 +563,7 @@ if [ $front_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $front_ip | grep -q "100% packet loss";then
 echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front 
 else
-echo "$ttime ip:$front_ip The network is not disconnected and data printing is abnormal." >> $ping_front 
+echo "$ttime ip:$front_ip The network is disconnected and data printing is abnormal." >> $ping_front 
 fi
 fi
 
@@ -542,8 +571,14 @@ if [ $back_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $back_ip | grep -q "100% packet loss";then
 echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back 
 else
-echo "$ttime ip:$back_ip The network is not disconnected and data printing is abnormal." >> $ping_back 
+echo "$ttime ip:$back_ip The network is disconnected and data printing is abnormal." >> $ping_back 
 fi
+fi
+
+if ! rostopic echo -n 1 /ztexing_node/power_trigger | grep -q "data: True";then
+echo "$ttime The AGV power button has not been triggered." >> $rostopic_power 
+else
+echo "$ttime The AGV power button has been triggered." >> $rostopic_power 
 fi
 
 if [ $front_switch -eq 1 ]; then
@@ -556,6 +591,16 @@ if [ $front_switch -eq 1 ]; then
     fi
 	echo $ttime >> $rostopic_front_hz
 	timeout 1 rostopic hz /scan_front >> $rostopic_front_hz &
+fi
+
+if [ $odom -eq 1 ]; then
+    new_odom_msg=$(timeout 1 rostopic echo -n 1 /encoder_odom & ) 
+	if [ "$new_odom_msg" != "$odom_msg" ]; then
+    odom_msg="$new_odom_msg"
+    echo "$ttime $odom_msg1 Odometer data is being refreshed normally." >> $rostopic_odom &
+	else
+	echo "$ttime ERROR: Odometer data is being refreshed abnormally." >> $rostopic_odom &
+    fi
 fi
 
 if [ $back_switch -eq 1 ]; then
@@ -673,7 +718,8 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 fi
 
     echo $ttime >> $rostopic_battery
-    rostopic echo -n 1 /ztexing_node/battery_status  >> $rostopic_battery 
+    cd /mnt && source devel_isolated/setup.bash
+    rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery #/ztexing_node/dev_status or /ztexing_node/battery_status
 debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name "
 
 #“Du”查询定义
@@ -735,6 +781,7 @@ size_ping_forklift=$(du -b "$ping_forklift" | awk '{print $1}')
 debug_cmd " echo "$ttime ip:$forklift_ip 网络延迟日志文件大小查询完毕。size_ping_forklift:$size_ping_forklift" >> $debug_name "
 fi
 
+
 if [ $forklift_switch -eq 1 ]; then
 size_rostopic_forklift=$(du -b "$rostopic_forklift" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$forklift_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_forklift:$size_rostopic_forklift" >> $debug_name "
@@ -795,6 +842,7 @@ size_ping_T2_Central_front=$(du -b "$ping_T2_Central_front" | awk '{print $1}')
 debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络延迟日志文件大小查询完毕。size_ping_T2_Central_front:$size_ping_T2_Central_front" >> $debug_name "
 fi
 
+
 if [ $T2_Central_front_switch -eq 1 ]; then
 size_rostopic_T2_Central_front=$(du -b "$rostopic_T2_Central_front" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_T2_Central_front:$size_rostopic_T2_Central_front" >> $debug_name "
@@ -815,6 +863,7 @@ size_ping_T2_Central_back=$(du -b "$ping_T2_Central_back" | awk '{print $1}')
 debug_cmd " echo "$ttime ip:$T2_Central_back_ip 网络延迟日志文件大小查询完毕。size_ping_T2_Central_back:$size_ping_T2_Central_back" >> $debug_name "
 fi
 
+
 if [ $T2_Central_back_switch -eq 1 ]; then
 size_rostopic_T2_Central_back=$(du -b "$rostopic_T2_Central_back" | awk '{print $1}') 
 debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光topic原始数据日志文件大小查询完毕。size_rostopic_T2_Central_back:$size_rostopic_T2_Central_back" >> $debug_name "
@@ -830,12 +879,19 @@ size_tcpdump_T2_Central_back=$(du -b "$tcpdump_T2_Central_back" | awk '{print $1
 debug_cmd " echo "$ttime ip:$T2_Central_back_ip 所绑定的激光网络抓包数据包大小查询完毕。size_tcpdump_T2_Central_back:$size_tcpdump_T2_Central_back" >> $debug_name "
 fi
 
+if [ $odom -eq 1 ]; then
+size_rostopic_odom=$(du -b "$rostopic_odom" | awk '{print $1}') 
+debug_cmd " echo "$ttime 车辆里程计数据日志包大小查询完毕。size_rostopic_odom:$size_rostopic_odom" >> $debug_name "
+fi
+
+size_rostopic_power=$(du -b "$rostopic_power" | awk '{print $1}') 
+debug_cmd " echo "$ttime 车辆电源开关触发日志文件大小查询完毕。size_rostopic_power:$size_rostopic_power" >> $debug_name "
+
 
 debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕。" >> $debug_name "
 
 #确定文件是否超过配置的大小并执行相关操作
 
-if [ "$DEBUG_executions_number" = true ]; then
 if [ "$size_debug_name" -gt "$max_size_all" ];then
 back_file0="$debug_name-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$debug_name" "$back_file0"
@@ -915,8 +971,13 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 echo "T2_Central_back_ip:$T2_Central_back_ip" >> $debug_name
 sleep 0.1
 fi
-debug_cmd " echo "$ttime debug日志备份完成，备份日志名称：$back_file0" >> $debug_name "
+
+if [ $odom -eq 1 ]; then
+echo "odom:$odom" >> $debug_name
+sleep 0.1
 fi
+
+debug_cmd " echo "$ttime debug日志备份完成，备份日志名称：$back_file0" >> $debug_name "
 fi
 
 debug_cmd " echo "$ttime 调试信息打印完毕。" >> $debug_name "
@@ -934,6 +995,12 @@ back_file2="$memory-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$memory" "$back_file2"
 touch "$memory" &
 debug_cmd " echo "$ttime 系统内存信息日志备份完成，备份日志名称：$back_file2" >> $debug_name "
+fi
+if [ "$size_rostopic_power" -gt "$max_size_all" ];then
+back_file221="$rostopic_power-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_power" "$back_file221"
+touch "$rostopic_power" &
+debug_cmd " echo "$ttime 电池电源触发日志备份完成，备份日志名称：$back_file221" >> $debug_name "
 fi
 sleep 0.01
 if [ $front_switch -eq 1 ]; then
@@ -953,6 +1020,16 @@ touch "$ping_back"
 debug_cmd " echo "$ttime ip:$back_ip 网络延迟日志备份完成，备份日志名称：$back_file4" >> $debug_name "
 fi
 fi
+
+if [ $odom -eq 1 ]; then
+if [ "$size_rostopic_odom" -gt "$max_size_all" ];then
+back_file44="$rostopic_odom-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$rostopic_odom" "$back_file44"
+touch "$rostopic_odom"
+debug_cmd " echo "$ttime 车辆里程计日志备份完成，备份日志名称：$back_file44" >> $debug_name "
+fi
+fi
+
 sleep 0.01
 if [ $front_switch -eq 1 ]; then
 if [ "$size_rostopic_front_hz" -gt "$max_size_all" ];then
@@ -1039,6 +1116,7 @@ debug_cmd " echo "$ttime Tcpdump ip:$front_ip 网络数据抓包进程开始。"
 fi
 fi
 
+
 if [ $back_switch -eq 1 ]; then
 if [ "$size_tcpdump_back" -gt "$max_size" ];then
 ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
@@ -1051,6 +1129,7 @@ tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
 debug_cmd " echo "$ttime Tcpdump ip:$back_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
+
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$size_tcpdump_forklift" -gt "$max_size" ];then
@@ -1065,6 +1144,7 @@ debug_cmd " echo "$ttime Tcpdump ip:$forklift_ip 网络数据抓包进程开始�
 fi
 fi
 
+
 if [ $top_switch -eq 1 ]; then
 if [ "$size_rostopic_top" -gt "$max_size_all" ];then
 back_file13="$rostopic_top-$(date +"%Y-%m-%d-%H-%M-%S")"
@@ -1073,6 +1153,7 @@ touch "$rostopic_top"
 debug_cmd " echo "$ttime ip:$top_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file13" >> $debug_name "
 fi
 fi
+
 sleep 0.01
 if [ $top_switch -eq 1 ]; then
 if [ "$size_rostopic_top_hz" -gt "$max_size_all" ];then
@@ -1112,6 +1193,7 @@ touch "$rostopic_forklift_scan"
 debug_cmd " echo "$ttime ip:$forklift_scan_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file16" >> $debug_name "
 fi
 fi
+
 sleep 0.01
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$size_rostopic_forklift_scan_hz" -gt "$max_size_all" ];then
@@ -1138,6 +1220,7 @@ touch "$rostopic_T2_Central_front"
 debug_cmd " echo "$ttime ip:$T2_Central_front_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file18" >> $debug_name "
 fi
 fi
+
 sleep 0.01
 if [ $T2_Central_front_switch -eq 1 ]; then
 if [ "$size_rostopic_T2_Central_front_hz" -gt "$max_size_all" ];then
@@ -1177,6 +1260,7 @@ touch "$rostopic_T2_Central_back"
 debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 所绑定的激光topic原始数据日志备份完成，备份日志名称：$back_file21" >> $debug_name "
 fi
 fi
+
 sleep 0.01
 if [ $T2_Central_back_switch -eq 1 ]; then
 if [ "$size_rostopic_T2_Central_back_hz" -gt "$max_size_all" ];then
@@ -1344,6 +1428,16 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 count26=$(ls -lt ~/lanxin/intel/T2_Central_back/wireshark/ | grep "^-" | wc -l)
 debug_cmd " echo "$ttime “查询~/lanxin/intel/T2_Central_back/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count26" >> $debug_name "
 fi
+
+if [ $odom -eq 1 ]; then
+count34=$(ls -lt ~/lanxin/agv/odom/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/agv/odom/目录下文件数量”执行完成。当前文件夹下数量为：$count34" >> $debug_name "
+fi
+
+
+count35=$(ls -lt ~/lanxin/intel/computer/power/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/power/目录下文件数量”执行完成。当前文件夹下数量为：$count35" >> $debug_name "
+
 
 debug_cmd " echo "$ttime 查询“目录文件数量”步骤已全部执行完成。" >> $debug_name "
 
@@ -1547,7 +1641,21 @@ debug_cmd " echo "$ttime “~/lanxin/intel/T2_Central_back/wireshark/”目录�
 fi
 fi
 
-debug_cmd " echo "$ttime 各级目录高于配置文件数量已检测并删除完毕！" >> $debug_name "
+if [ $odom -eq 1 ]; then
+if [ "$count34" -gt "$max_debug" ];then
+ old_count34=$(ls -t ~/lanxin/agv/odom/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count34 &
+debug_cmd " echo "$ttime “~/lanxin/agv/odom/”目录下超过配置数量文件删除已完成。删除文件：$old_count34" >> $debug_name "
+fi
+fi
+
+
+if [ "$count35" -gt "$max_debug" ];then
+ old_count35=$(ls -t ~/lanxin/intel/computer/power/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count35 &
+debug_cmd " echo "$ttime “~/lanxin/intel/computer/power/”目录下超过配置数量文件删除已完成。删除文件：$old_count35" >> $debug_name "
+fi
+
 
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
