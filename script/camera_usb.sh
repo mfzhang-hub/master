@@ -140,7 +140,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjEyLeWinuWKoOa/gOWFieiKgueCueaJk+WNsA==' > $version_logg
+echo '54mI5pys5Y+377yadjIt55u45py6dXNi5pWw5o2u5YiG5p6Q5omT5Y2w' > $version_logg
 
 #配置开关说明
 
