@@ -229,6 +229,7 @@ ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
 #功能开关
 
 DEBUG=true
+DEBUG_executions_number=false
 max_size_all=10000000
 max_box=200
 max_ros=15
