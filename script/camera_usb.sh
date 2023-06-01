@@ -11,7 +11,7 @@ camera_up_hand=0 #上视二维码相机手动开启开关；
 camera_down_hand=0 #下视二维码相机手动开启开关；
 camputer_var=1 #计算机指定日志复制开关；
 camera_tcp=1 #计算机USB信号数据包录取开关；
-
+sleep 10
 #文件夹创建判断
 
 if [ $up_switch -eq 1 ]; then
