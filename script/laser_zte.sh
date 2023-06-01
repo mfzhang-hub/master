@@ -4,8 +4,8 @@
 
 #全局激光器配置开关
 
-front_switch=1 #前激光配置开关；也可用作叉车左前激光配置，但需修改此处绑定的ip地址！！！
-back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，但需修改此处绑定的ip地址！！！
+front_switch=1 #前激光配置开关；也可用作叉车左前激光配置，但需修改此处绑定的ip地址：front_ip！！！
+back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，但需修改此处绑定的ip地址：back_ip！！！
 forklift_switch=0 #叉根激光配置开关
 top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
@@ -210,6 +210,7 @@ rostopic_T2_Central_back=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Cen
 rostopic_T2_Central_back_hz=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_Central_back_node.log
 tcpdump_T2_Central_back=~/lanxin/intel/T2_Central_back/wireshark/shark_T2_Central_back.pcap
 rostopic_odom=~/lanxin/agv/odom/encoder_odom.log
+interface_network=~/lanxin/interface.txt
 
 #调试开关
 debug_cmd(){
@@ -219,6 +220,11 @@ debug_cmd(){
 }
 
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+
+interface=$(ip addr | grep "inet 192.168.100.201" | awk '{print $NF}')
+echo $interface > $interface_network
+debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+
 
 #判断tcpdump执行文件是否存在，存在则重命名防止pcap文件信息覆盖
 
@@ -446,35 +452,35 @@ fi
 #开始网络数据包捕获
 
 if [ $front_switch -eq 1 ]; then
-tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
+tcpdump -i $interface src net $front_ip -w $tcpdump_front &
 sleep 0.1
 fi
 
 
 if [ $back_switch -eq 1 ]; then
-tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
+tcpdump -i $interface src net $back_ip -w $tcpdump_back &
 fi
 
 if [ $forklift_switch -eq 1 ]; then
-tcpdump -i eno1 src net $forklift_ip -w $tcpdump_forklift &
+tcpdump -i $interface src net $forklift_ip -w $tcpdump_forklift &
 fi
 
 
 if [ $top_switch -eq 1 ]; then
-tcpdump -i eno1 src net $top_ip -w $tcpdump_top &
+tcpdump -i $interface src net $top_ip -w $tcpdump_top &
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
-tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
+tcpdump -i $interface src net $forklift_scan_ip -w $tcpdump_forklift_scan &
 fi
 
 
 if [ $T2_Central_front_switch -eq 1 ]; then
-tcpdump -i eno1 src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
+tcpdump -i $interface src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
 fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
-tcpdump -i eno1 src net $T2_Central_back_ip -w $tcpdump_T2_Central_back &
+tcpdump -i $interface src net $T2_Central_back_ip -w $tcpdump_T2_Central_back &
 fi
 
 
@@ -576,9 +582,9 @@ fi
 fi
 
 if ! rostopic echo -n 1 /ztexing_node/power_trigger | grep -q "data: True";then
-echo "$ttime The AGV power button has not been triggered." >> $rostopic_power 
+echo "$ttime The AGV power button has not been triggered." >> $rostopic_power &
 else
-echo "$ttime The AGV power button has been triggered." >> $rostopic_power 
+echo "$ttime The AGV power button has been triggered." >> $rostopic_power &
 fi
 
 if [ $front_switch -eq 1 ]; then
@@ -1105,13 +1111,13 @@ sleep 0.01
 
 if [ $front_switch -eq 1 ]; then
 if [ "$size_tcpdump_front" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$front_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file9="$tcpdump_front-$(date +"%Y-%m-%d-%H-%M-%S")" 
 mv "$tcpdump_front" "$back_file9"
 debug_cmd " echo "$ttime ip:$front_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file9" >> $debug_name "
 touch "$tcpdump_front" 
-tcpdump -i eno1 src net $front_ip -w $tcpdump_front &
+tcpdump -i $interface src net $front_ip -w $tcpdump_front &
 debug_cmd " echo "$ttime Tcpdump ip:$front_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
@@ -1119,13 +1125,13 @@ fi
 
 if [ $back_switch -eq 1 ]; then
 if [ "$size_tcpdump_back" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$back_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file8="$tcpdump_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_back" "$back_file8"
 debug_cmd " echo "$ttime ip:$back_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file8" >> $debug_name "
 touch "$tcpdump_back" 
-tcpdump -i eno1 src net $back_ip -w $tcpdump_back &
+tcpdump -i $interface src net $back_ip -w $tcpdump_back &
 debug_cmd " echo "$ttime Tcpdump ip:$back_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
@@ -1133,13 +1139,13 @@ fi
 
 if [ $forklift_switch -eq 1 ]; then
 if [ "$size_tcpdump_forklift" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $forklift_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $forklift_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$forklift_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file12="$tcpdump_forklift-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_forklift" "$back_file12"
 debug_cmd " echo "$ttime ip:$forklift_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file12" >> $debug_name "
 touch "$tcpdump_forklift" 
-tcpdump -i eno1 src net $forklift_ip -w $tcpdump_forklift &
+tcpdump -i $interface src net $forklift_ip -w $tcpdump_forklift &
 debug_cmd " echo "$ttime Tcpdump ip:$forklift_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
@@ -1174,13 +1180,13 @@ fi
 
 if [ $top_switch -eq 1 ]; then
 if [ "$size_tcpdump_top" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $top_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $top_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$top_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file15="$tcpdump_top-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_top" "$back_file15"
 debug_cmd " echo "$ttime ip:$top_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file15" >> $debug_name "
 touch "$tcpdump_top" 
-tcpdump -i eno1 src net $top_ip -w $tcpdump_top &
+tcpdump -i $interface src net $top_ip -w $tcpdump_top &
 debug_cmd " echo "$ttime Tcpdump ip:$top_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
@@ -1241,13 +1247,13 @@ fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 if [ "$size_tcpdump_T2_Central_front" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $T2_Central_front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $T2_Central_front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$T2_Central_front_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file20="$tcpdump_T2_Central_front-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_T2_Central_front" "$back_file20"
 debug_cmd " echo "$ttime ip:$T2_Central_front_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file20" >> $debug_name "
 touch "$tcpdump_T2_Central_front" 
-tcpdump -i eno1 src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
+tcpdump -i $interface src net $T2_Central_front_ip -w $tcpdump_T2_Central_front &
 debug_cmd " echo "$ttime Tcpdump ip:$T2_Central_front_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
@@ -1281,26 +1287,26 @@ fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 if [ "$size_tcpdump_T2_Central_back" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $T2_Central_bakc_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $T2_Central_bakc_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$T2_Central_bakc_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file23="$tcpdump_T2_Central_back-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_T2_Central_back" "$back_file23"
 debug_cmd " echo "$ttime ip:$T2_Central_bakc_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file23" >> $debug_name "
 touch "$tcpdump_T2_Central_back" 
-tcpdump -i eno1 src net $T2_Central_bakc_ip -w $tcpdump_T2_Central_back &
+tcpdump -i $interface src net $T2_Central_bakc_ip -w $tcpdump_T2_Central_back &
 debug_cmd " echo "$ttime Tcpdump ip:$T2_Central_bakc_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
 if [ "$size_tcpdump_forklift_scan" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止ip:$forklift_scan_ip 网络数据抓包进程完成。" >> $debug_name "
 back_file24="$tcpdump_forklift_scan-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_forklift_scan" "$back_file17"
 debug_cmd " echo "$ttime ip:$forklift_scan_ip 网络抓包日志文件备份已完成，备份日志名称：$back_file24" >> $debug_name "
 touch "$tcpdump_forklift_scan" 
-tcpdump -i eno1 src net $forklift_scan_ip -w $tcpdump_forklift_scan &
+tcpdump -i $interface src net $forklift_scan_ip -w $tcpdump_forklift_scan &
 debug_cmd " echo "$ttime Tcpdump ip:$forklift_scan_ip 网络数据抓包进程开始。" >> $debug_name "
 fi
 fi
@@ -1656,35 +1662,30 @@ xargs rm $old_count35 &
 debug_cmd " echo "$ttime “~/lanxin/intel/computer/power/”目录下超过配置数量文件删除已完成。删除文件：$old_count35" >> $debug_name "
 fi
 
-
-echo -e "\033[32m end$End_Initial_Count \033[0m"
-End_Initial_Count=$((End_Initial_Count+1))
-debug_cmd " echo " $ttime "End $End_Initial_Count Cycles."" >> $debug_name "
-
 #判断定时打印开关是否打开并执行相关操作
 
 if [ "$DEBUG_executions_number" = true ]; then
 if [[ $End_Initial_Count -ge $Circulate ]];then 
 if [ $front_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 if [ $back_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 if [ $forklift_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $forklift_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $forklift_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 if [ $top_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $top_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $top_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 if [ $forklift_scan_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $forklift_scan_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 if [ $T2_Central_front_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $T2_Central_front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $T2_Central_front_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 if [ $T2_Central_back_switch -eq 1 ]; then
-ps -ef | grep "tcpdump -i eno1 src net $T2_Central_back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i $interface src net $T2_Central_back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
 debug_cmd " echo "$ttime 当循环次数达到判断阈值，结束打印。" >> $debug_name "
 debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
@@ -1692,6 +1693,10 @@ kill -s SIGINT $$
 break
 fi
 fi
+
+echo -e "\033[32m end$End_Initial_Count \033[0m"
+End_Initial_Count=$((End_Initial_Count+1))
+debug_cmd " echo " $ttime "End $End_Initial_Count Cycles."" >> $debug_name "
 
 done
 trap - INT

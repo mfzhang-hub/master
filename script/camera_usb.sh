@@ -10,6 +10,7 @@ usb_devices=1 #设备所有usb信号抓取开关；
 camera_up_hand=0 #上视二维码相机手动开启开关；
 camera_down_hand=0 #下视二维码相机手动开启开关；
 camputer_var=1 #计算机指定日志复制开关；
+camera_tcp=1 #计算机USB信号数据包录取开关；
 
 #文件夹创建判断
 
@@ -24,6 +25,19 @@ if [ ! -d "~/lanxin/intel/camera_down/rostopic/" ];then
 	mkdir -p ~/lanxin/intel/camera_down/rostopic/
 	fi
 fi
+
+if [ $camera_tcp -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/usb1/wireshark/" ];then
+	mkdir -p ~/lanxin/intel/usb1/wireshark/
+	fi
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+if [ ! -d "~/lanxin/intel/usb2/wireshark/" ];then
+	mkdir -p ~/lanxin/intel/usb2/wireshark/
+	fi
+fi
+
 
 if [ ! -d "~/lanxin/debug" ];then
 	mkdir -p ~/lanxin/debug
@@ -91,6 +105,9 @@ roslaunch_up=~/lanxin/intel/camera_up/roslaunch_up/roslaunch_cameraup.log
 roslaunch_down=~/lanxin/intel/camera_down/roslaunch_down/roslaunch_cameradown.log
 camputer_varlog=~/lanxin/intel/computer/var/
 usb_up_hz=~/lanxin/intel/computer/connection/usb_data.log
+tcpdump_usb1=~/lanxin/intel/usb1/wireshark/usb1.pcap
+tcpdump_usb2=~/lanxin/intel/usb2/wireshark/usb2.pcap
+
 
 #调试开关
 debug_cmd(){
@@ -101,6 +118,25 @@ debug_cmd(){
 
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 
+if [ $camera_tcp -eq 1 ]; then
+if [ -f "$tcpdump_usb1" ]; then
+new_name1="$tcpdump_usb1-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_usb1" "$new_name1"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_usb1”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_usb1”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+if [ -f "$tcpdump_usb2" ]; then
+new_name2="$tcpdump_usb2-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_usb2" "$new_name2"
+debug_cmd " echo "$ttime 文件已存在，重命名“tcpdump_usb2”定义的文件名称!" >> $debug_name "
+else
+debug_cmd " echo "$ttime 该“tcpdump_usb2”定义的文件不存在，正常执行时新建!" >> $debug_name "
+fi
+fi
 
 #版本号输出
 
@@ -110,12 +146,14 @@ echo '54mI5pys5Y+377yadjEyLeWinuWKoOa/gOWFieiKgueCueaJk+WNsA==' > $version_logg
 
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
+DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常2秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
 max_size_all： 除网络数据包之外其他的日志文件单个保存大小（单位：字节，10000000=10mb）；
 max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包（正常两个包的数据间隔是3分钟）；
 max_ros： 系统./ros/log下面的rostopic开头的文件所在文件夹下的循环保存数量，因为下述脚本循环执行topic指令会导致很多数据包生成；
 max_debug： 作为debug日志及computer的相关日志的存储限制数量参数；
 Start_Initial_Count： 计数器初始值-默认1，请勿修改；
 End_Initial_Count： 计数器结束值-默认1，请勿修改；
+Circulate： 当“DEBUG_executions_number”参数改为true时会自动调用此参数-参数配置*2为循环打印输出的时间点；
 forklift_scan_ip： 激光Ip-此处默认配置叉车叉尖蓝海激光ip;
 ctrl_c_flag： “ctrl+c”终端信号检测的判定值-默认0，请勿修改; 
 up_switch：上视二维码相机数据开关-默认1，请勿修改;
@@ -123,7 +161,8 @@ down_switch：下视二维码相机数据开关-默认1，请勿修改;
 usb_devices：设备所有usb信号抓取开关-默认1，请勿修改；
 camera_up_hand：上视二维码相机手动开启开关-默认0，请勿修改；
 camera_down_hand：下视二维码相机手动开启开关-默认0，请勿修改；
-camputer_var：计算机指定文件复制开关-默认1，请勿修改；" > $explain
+camputer_var：计算机指定文件复制开关-默认1，请勿修改；
+camera_tcp: 计算机USB信号数据包录取开关；" > $explain
 
 #设备Usb信息分析说明
 
@@ -196,6 +235,7 @@ max_ros=15
 max_debug=50
 Start_Initial_Count=1 
 End_Initial_Count=1 
+Circulate=150000
 start_start=$Start_Initial_Count
 end_end=$End_Initial_Count
 ctrl_c_flag=0
@@ -204,6 +244,7 @@ ctrl_c_flag=0
 
 echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
+echo "DEBUG_executions_number:$DEBUG_executions_number" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
@@ -211,12 +252,21 @@ echo "Start_Initial_Count:$start_start" >> $debug_name
 echo "End_Initial_Count:$end_end" >> $debug_name
 echo "Start_Initial_Count_initial:$Start_Initial_Count" >> $debug_name
 echo "End_Initial_Count_initial:$End_Initial_Count" >> $debug_name
+echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
 echo "usb_devices:$usb_devices" >> $debug_name
 echo "camera_up_hand:$camera_up_hand" >> $debug_name
 echo "camera_down_hand:$camera_down_hand" >> $debug_name
 echo "camputer_var:$camputer_var" >> $debug_name
+echo "camera_tcp:$camera_tcp" >> $debug_name
+
+if [ $camera_tcp -eq 1 ]; then
+tcpdump -i usbmon1 -w $tcpdump_usb1 &
+tcpdump -i usbmon2 -w $tcpdump_usb2 &
+sleep 0.1
+fi
+
 
 #手动开启二维码相机
 if [ $camera_up_hand -eq 1 ]; then
@@ -382,19 +432,30 @@ size_roslaunch_down=$(du -b "$roslaunch_down" | awk '{print $1}')
 debug_cmd " echo "$ttime 手动执行下视二维码相机打印日志大小查询完毕。size_roslaunch_down:$size_roslaunch_down" >> $debug_name "
 fi
 
+if [ $camera_tcp -eq 1 ]; then
+size_camera_usb1=$(du -b "$tcpdump_usb1" | awk '{print $1}') 
+debug_cmd " echo "$ttime usb1信道数据包日志大小查询完毕。size_camera_usb1:$size_camera_usb1" >> $debug_name "
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+size_camera_usb2=$(du -b "$tcpdump_usb2" | awk '{print $1}') 
+debug_cmd " echo "$ttime usb2信道数据包日志大小查询完毕。size_camera_usb2:$size_camera_usb2" >> $debug_name "
+fi
+
+
 debug_cmd " size_debug_name=$(du -b "$debug_name" | awk '{print $1}') "
 debug_cmd " echo "$ttime 调试日志文件大小查询完毕。size_debug_name:$size_debug_name" >> $debug_name "
 sleep 0.1
 debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕。" >> $debug_name "
 
 #确定文件是否超过配置的大小并执行相关操作
-if [ "$DEBUG_executions_number" = true ]; then
 if [ "$size_debug_name" -gt "$max_size_all" ];then
 back_file0="$debug_name-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$debug_name" "$back_file0"
 touch "$debug_name"
 echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
+echo "DEBUG_executions_number:$DEBUG_executions_number" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
@@ -402,6 +463,7 @@ echo "Start_Initial_Count:$start_start" >> $debug_name
 echo "End_Initial_Count:$end_end" >> $debug_name
 echo "Start_Initial_Count_initial:$Start_Initial_Count" >> $debug_name
 echo "End_Initial_Count_initial:$End_Initial_Count" >> $debug_name
+echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
 echo "up_switch:$up_switch" >> $debug_name
@@ -410,8 +472,9 @@ echo "usb_devices:$usb_devices" >> $debug_name
 echo "camera_up_hand:$camera_up_hand" >> $debug_name
 echo "camera_down_hand:$camera_down_hand" >> $debug_name
 echo "camputer_var:$camputer_var" >> $debug_name
+echo "camera_tcp:$camera_tcp" >> $debug_name
 fi
-fi
+
 debug_cmd " echo "$ttime 调试信息打印完毕。" >> $debug_name "
 
 if [ "$size_cpu" -gt "$max_size_all" ];then
@@ -507,6 +570,33 @@ touch "$usb_up_hz"
 debug_cmd " echo "$ttime usb连接节点日志备份完成，备份日志名称：$back_file13" >> $debug_name "
 fi
 fi
+
+if [ $camera_tcp -eq 1 ]; then
+if [ "$size_camera_usb1" -gt "$max_size" ];then
+ps -ef | grep "tcpdump -i usbmon1 -w $tcpdump_usb1" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime 终止usb1信道数据抓包进程完成。" >> $debug_name "
+back_file14="$tcpdump_usb1-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_usb1" "$back_file14"
+debug_cmd " echo "$ttime usb1信道抓包日志文件备份已完成，备份日志名称：$back_file14" >> $debug_name "
+touch "$tcpdump_usb1" 
+tcpdump -i usbmon1 -w $tcpdump_usb1 &
+debug_cmd " echo "$ttime usb1信道数据抓包开始" >> $debug_name "
+fi
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+if [ "$size_camera_usb2" -gt "$max_size" ];then
+ps -ef | grep "tcpdump -i usbmon2 -w $tcpdump_usb2" |grep -v grep |awk '{print $2}'| xargs kill -9 
+debug_cmd " echo "$ttime 终止usb2信道数据抓包进程完成。" >> $debug_name "
+back_file15="$tcpdump_usb2-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$tcpdump_usb2" "$back_file15"
+debug_cmd " echo "$ttime usb2信道抓包日志文件备份已完成，备份日志名称：$back_file15" >> $debug_name "
+touch "$tcpdump_usb2" 
+tcpdump -i usbmon2 -w $tcpdump_usb2 &
+debug_cmd " echo "$ttime usb2信道数据抓包开始" >> $debug_name "
+fi
+fi
+
 
 debug_cmd " echo "$ttime 判断文件是否大于阈值并执行相关操作流程循环完毕。" >> $debug_name "
 
@@ -635,6 +725,23 @@ debug_cmd " echo "$ttime “~/lanxin/intel/computer/connection/”目录下超�
 fi
 fi
 
+if [ $camera_tcp -eq 1 ]; then
+if [ "$count13" -gt "$max_box" ];then
+ old_count13=$(ls -t ~/lanxin/intel/usb1/wireshark/* | tail -n +$max_box | head -n -1)
+xargs rm $old_count13 &
+debug_cmd " echo "$ttime “~/lanxin/intel/usb1/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count13" >> $debug_name "
+fi
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+if [ "$count14" -gt "$max_box" ];then
+ old_count14=$(ls -t ~/lanxin/intel/usb2/wireshark/* | tail -n +$max_box | head -n -1)
+xargs rm $old_count14 &
+debug_cmd " echo "$ttime “~/lanxin/intel/usb2/wireshark/”目录下超过配置数量文件删除已完成。删除文件：$old_count14" >> $debug_name "
+fi
+fi
+
+
 debug_cmd " echo "$ttime 各级目录高于配置文件数量已检测并删除完毕！" >> $debug_name "
 
 if [ $camputer_var -eq 1 ]; then
@@ -642,6 +749,23 @@ cp /var/log/syslog $camputer_varlog &
 cp /var/log/syslog.* $camputer_varlog &
 cp /var/log/kern.* $camputer_varlog &
 debug_cmd " echo " $ttime 系统相关日志复制完毕！" >> $debug_name "
+fi
+
+#判断定时打印开关是否打开并执行相关操作
+
+if [ "$DEBUG_executions_number" = true ]; then
+if [[ $End_Initial_Count -ge $Circulate ]];then 
+if [ $camera_tcp -eq 1 ]; then
+ps -ef | grep "tcpdump -i usbmon1 -w $tcpdump_usb1" |grep -v grep |awk '{print $2}'| xargs kill -9 
+fi
+if [ $back_switch -eq 1 ]; then
+ps -ef | grep "tcpdump -i usbmon2 -w $tcpdump_usb2" |grep -v grep |awk '{print $2}'| xargs kill -9 
+fi
+debug_cmd " echo "$ttime 当循环次数达到判断阈值，结束打印。" >> $debug_name "
+debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
+kill -s SIGINT $$
+break
+fi
 fi
 
 echo -e "\033[32m end$End_Initial_Count \033[0m"
