@@ -230,6 +230,7 @@ ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
 
 DEBUG=true
 DEBUG_executions_number=false
+max_size=400000000
 max_size_all=10000000
 max_box=200
 max_ros=15
@@ -247,6 +248,7 @@ echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
 echo "DEBUG_executions_number:$DEBUG_executions_number" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
+echo "max_size:$max_size" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
 echo "Start_Initial_Count:$start_start" >> $debug_name
@@ -261,6 +263,16 @@ echo "camera_up_hand:$camera_up_hand" >> $debug_name
 echo "camera_down_hand:$camera_down_hand" >> $debug_name
 echo "camputer_var:$camputer_var" >> $debug_name
 echo "camera_tcp:$camera_tcp" >> $debug_name
+
+#判断是否加载usbmon内核模块，执行相关操作
+mod=$(lsmod | grep usbmon)
+if [ $camera_tcp -eq 1 ]; then
+if ! lsmod | grep -q "usbmon";then
+sudo modprobe -r usbmon &
+else
+debug_cmd " echo "$ttime $mod " >> $debug_name "
+fi
+fi
 
 if [ $camera_tcp -eq 1 ]; then
 tcpdump -i usbmon1 -w $tcpdump_usb1 &
@@ -457,6 +469,7 @@ touch "$debug_name"
 echo $ttime >> $debug_name
 echo "debug:$DEBUG" >> $debug_name
 echo "DEBUG_executions_number:$DEBUG_executions_number" >> $debug_name
+echo "max_size:$max_size" >> $debug_name
 echo "max_size_all:$max_size_all" >> $debug_name
 echo "max_box:$max_box" >> $debug_name
 echo "max_ros:$max_ros" >> $debug_name
@@ -574,7 +587,7 @@ fi
 
 if [ $camera_tcp -eq 1 ]; then
 if [ "$size_camera_usb1" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i usbmon1 -w $tcpdump_usb1" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i usbmon1" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止usb1信道数据抓包进程完成。" >> $debug_name "
 back_file14="$tcpdump_usb1-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_usb1" "$back_file14"
@@ -587,7 +600,7 @@ fi
 
 if [ $camera_tcp -eq 1 ]; then
 if [ "$size_camera_usb2" -gt "$max_size" ];then
-ps -ef | grep "tcpdump -i usbmon2 -w $tcpdump_usb2" |grep -v grep |awk '{print $2}'| xargs kill -9 
+ps -ef | grep "tcpdump -i usbmon2" |grep -v grep |awk '{print $2}'| xargs kill -9 
 debug_cmd " echo "$ttime 终止usb2信道数据抓包进程完成。" >> $debug_name "
 back_file15="$tcpdump_usb2-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_usb2" "$back_file15"
@@ -646,6 +659,16 @@ fi
 if [ $up_switch -eq 1 ]; then
 count12=$(ls -lt ~/lanxin/intel/computer/connection/ | grep "^-" | wc -l)
 debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/connection/目录下文件数量”执行完成。当前文件夹下数量为：$count12" >> $debug_name "
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+count13=$(ls -lt ~/lanxin/intel/usb1/wireshark/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/usb1/wireshark/*目录下文件数量”执行完成。当前文件夹下数量为：$count13" >> $debug_name "
+fi
+
+if [ $camera_tcp -eq 1 ]; then
+count14=$(ls -lt ~/lanxin/intel/usb2/wireshark/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/intel/usb2/wireshark/目录下文件数量”执行完成。当前文件夹下数量为：$count14" >> $debug_name "
 fi
 
 debug_cmd " echo "$ttime 查询“目录文件数量”步骤已全部执行完成。" >> $debug_name "

@@ -556,6 +556,9 @@ debug_cmd " echo "$ttime "" 数据循环打印开始！！！" >> $debug_name "
 sleep 0.1
     echo $ttime >> $cpu 
     sensors  >> $cpu
+	top -bn 1 -i -c | head -6 >> $cpu
+    ps -eo pid,user,%cpu,%mem,args --sort -%mem | head -8 >> $cpu
+    ps -eo pid,user,%cpu,%mem,args --sort -%cpu | head -8 >> $cpu
 
     echo $ttime >> $memory
     free -m >> $memory
