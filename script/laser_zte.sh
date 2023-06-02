@@ -6,7 +6,7 @@
 
 front_switch=1 #前激光配置开关；也可用作叉车左前激光配置，但需修改此处绑定的ip地址：front_ip！！！
 back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，但需修改此处绑定的ip地址：back_ip！！！
-forklift_switch=0 #叉根激光配置开关
+forklift_switch=0 #叉根激光配置开关：存在新老ip,样机ip:106，新车型定款102！！！
 top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
 T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关,topic未维护
@@ -352,7 +352,7 @@ front_ip=192.168.100.104
 fi
 
 if [ $back_switch -eq 1 ]; then
-back_ip=192.168.100.108
+back_ip=192.168.100.107
 fi
 
 if [ $forklift_switch -eq 1 ]; then
