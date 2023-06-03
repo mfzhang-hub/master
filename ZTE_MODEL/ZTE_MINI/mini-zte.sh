@@ -122,7 +122,7 @@ elif [ $1 -eq 26 ] #Blue Ocean Laser
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /lidarl/forklift_scan
+   rostopic echo /forklift_top_scan
 else
    echo "less param"
 fi

@@ -18,7 +18,7 @@ ip配置(正对车头)：
     右前激光: rostopic echo /scan_back
     叉根避障激光: rostopic echo /scan_back_forklift
     顶部激光: rostopic echo /scan_top
-    叉尖对接激光（蓝海）：rostopic echo /lidarl/forklift_scan
+    叉尖对接激光（蓝海）：rostopic echo /forklift_top_scan
 }
 ]
 
