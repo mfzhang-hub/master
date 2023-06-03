@@ -12,17 +12,17 @@ elif [ $1 -eq 3 ] #imu
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/imu_cali std_msgs/Bool "data: true" 
-elif [ $1 -eq 4 ] #sick 581
+   rostopic pub /ztexing_node/imu_cali std_msgs/Bool "data: true" #imu校验指令
+elif [ $1 -eq 4 ]
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /scan_front
-elif [ $1 -eq 5 ] #sick 240
+   rostopic echo /scan_front #叉车左前激光topic数据
+elif [ $1 -eq 5 ]
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /scan_back
+   rostopic echo /scan_back #叉车右前激光topic数据
 elif [ $1 -eq 6 ] #encode odom
 then
    cd /mnt/
@@ -52,7 +52,7 @@ elif [ $1 -eq 11 ] #power trigger
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic echo /ztexing_node/power_trigger 
+   rostopic echo /ztexing_node/power_trigger #电源按键工控机端监听测试
 elif [ $1 -eq 12 ] #shut down
 then
    cd /mnt/
@@ -117,12 +117,12 @@ elif [ $1 -eq 24 ] #Left limit trigger
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rosparam get /forklift/left_arm_cargo
+   rosparam get /forklift/left_arm_cargo #左灯闪烁测试
 elif [ $1 -eq 25 ] #Right limit trigger
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rosparam get /forklift/right_arm_cargo
+   rosparam get /forklift/right_arm_cargo #右灯闪烁测试
 elif [ $1 -eq 26 ] #Fork arm height
 then
    cd /mnt/
