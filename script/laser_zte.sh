@@ -306,7 +306,7 @@ echo '54mI5pys5Y+377yadjE0LeWinuWKoHBpbmfljIXml6Xlv5fmiZPljbDigJxFcnJvcuKAneS/oe
 
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
-DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常2秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
+DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常4秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
 max_size： 网络数据包的单包保存大小（单位：字节，10000000=10mb）；
 max_size_all： 除网络数据包之外其他的日志文件单个保存大小（单位：字节，10000000=10mb）；
 max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包（正常两个包的数据间隔是3分钟）；
