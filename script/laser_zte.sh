@@ -300,7 +300,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjEzLeWinuWKoG9kb23miZPljbDlj4rovabovoblvIDlhbPnlLXmupDnirbmgIHml6Xlv5fmiZPljbDvvIjlhbPmnLrkvJrlrZjlnKgq5Y+377yM5q+r56eS6Kem5Y+R5peg5rOV5q2j5bi45oqT5Y+W77yJ' > $version_logg
+echo '54mI5pys5Y+377yadjE0LeWinuWKoHBpbmfljIXml6Xlv5fmiZPljbDigJxFcnJvcuKAneS/oeaBrw==' > $version_logg
 
 #配置开关说明
 
@@ -572,7 +572,7 @@ if [ $front_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $front_ip | grep -q "100% packet loss";then
 echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front 
 else
-echo "$ttime ip:$front_ip The network is disconnected and data printing is abnormal." >> $ping_front 
+echo "$ttime ip:$front_ip ERROR: The network is disconnected and data printing is abnormal." >> $ping_front 
 fi
 fi
 
@@ -580,7 +580,7 @@ if [ $back_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $back_ip | grep -q "100% packet loss";then
 echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back 
 else
-echo "$ttime ip:$back_ip The network is disconnected and data printing is abnormal." >> $ping_back 
+echo "$ttime ip:$back_ip ERROR: The network is disconnected and data printing is abnormal." >> $ping_back 
 fi
 fi
 
