@@ -11,7 +11,7 @@ top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
 T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关,topic未维护
 T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关，topic未维护
-odom=0 #里程计数据打印开关
+odom=1 #里程计数据打印开关
 
 sleep 10
 
@@ -300,13 +300,13 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjE0LeWinuWKoHBpbmfljIXml6Xlv5fmiZPljbDigJxFcnJvcuKAneS/oeaBrw==' > $version_logg
+echo '54mI5pys5Y+377yadjE1LeWinuWKoOezu+e7n+iuvuWkh3VzYuiuvuWkh+aJk+WNsOS/oeaBr++8jG9kb23mlbDmja7lvIDlhbPpu5jorqTkuLox' > $version_logg
 
 #配置开关说明
 
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
-DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循环界面打印耗时正常4秒），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
+DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循时间约为4秒：计时打印公式：Circulate配置的参数*4），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
 max_size： 网络数据包的单包保存大小（单位：字节，10000000=10mb）；
 max_size_all： 除网络数据包之外其他的日志文件单个保存大小（单位：字节，10000000=10mb）；
 max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包（正常两个包的数据间隔是3分钟）；
@@ -352,7 +352,7 @@ front_ip=192.168.100.104
 fi
 
 if [ $back_switch -eq 1 ]; then
-back_ip=192.168.100.107
+back_ip=192.168.100.108
 fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -510,8 +510,8 @@ top_msg=$(timeout 1 rostopic echo -n 1 /scan_top & )
 top_msg1=$(timeout 1 rostopic echo -n 1 /scan_top | grep -E 'frame_id:' & )	
 fi
 if [ $forklift_scan_switch -eq 1 ]; then
-forklift_scan_msg=$(timeout 1 rostopic echo -n 1 /lidarl/forklift_scan & )
-forklift_scan_msg1=$(timeout 1 rostopic echo -n 1 /lidarl/forklift_scan | grep -E 'frame_id:' & )
+forklift_scan_msg=$(timeout 1 rostopic echo -n 1 /forklift_top_scan & )
+forklift_scan_msg1=$(timeout 1 rostopic echo -n 1 /forklift_top_scan | grep -E 'frame_id:' & )
 fi
 if [ $T2_Central_front_switch -eq 1 ]; then
 T2_Central_front_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
@@ -566,21 +566,24 @@ sleep 0.1
     echo $ttime >> $memory
     df -hl >> $memory
 
+	echo $ttime >> $cpu
+	lsusb >> $cpu 
+
 #网络延迟和上层数据打印
 
 if [ $front_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $front_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front 
+echo "$ttime ip:$front_ip The network is not disconnected and data printing is normal." >> $ping_front &
 else
-echo "$ttime ip:$front_ip ERROR: The network is disconnected and data printing is abnormal." >> $ping_front 
+echo "$ttime ip:$front_ip ERROR: The network is disconnected and data printing is abnormal." >> $ping_front &
 fi
 fi
 
 if [ $back_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $back_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back 
+echo "$ttime ip:$back_ip The network is not disconnected and data printing is normal." >> $ping_back &
 else
-echo "$ttime ip:$back_ip ERROR: The network is disconnected and data printing is abnormal." >> $ping_back 
+echo "$ttime ip:$back_ip ERROR: The network is disconnected and data printing is abnormal." >> $ping_back & 
 fi
 fi
 
@@ -594,7 +597,7 @@ if [ $front_switch -eq 1 ]; then
     new_front_msg=$(timeout 1 rostopic echo -n 1 /scan_front & ) 
 	if [ "$new_front_msg" != "$front_msg" ]; then
     front_msg="$new_front_msg"
-    echo "$ttime $front_msg1 Laser raw data refresh normal." >> $rostopic_front &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_front &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_front &
     fi
@@ -606,7 +609,7 @@ if [ $odom -eq 1 ]; then
     new_odom_msg=$(timeout 1 rostopic echo -n 1 /encoder_odom & ) 
 	if [ "$new_odom_msg" != "$odom_msg" ]; then
     odom_msg="$new_odom_msg"
-    echo "$ttime $odom_msg1 Odometer data is being refreshed normally." >> $rostopic_odom &
+    echo "$ttime CORRECT: Odometer data is being refreshed normally." >> $rostopic_odom &
 	else
 	echo "$ttime ERROR: Odometer data is being refreshed abnormally." >> $rostopic_odom &
     fi
@@ -616,7 +619,7 @@ if [ $back_switch -eq 1 ]; then
     new_back_msg=$(timeout 1 rostopic echo -n 1 /scan_back & )
     if [ "$new_back_msg" != "$back_msg" ]; then
     back_msg="$new_back_msg" 
-    echo "$ttime $back_msg1 Laser raw data refresh normal." >> $rostopic_back &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_back &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_back &
     fi
@@ -626,9 +629,9 @@ fi
 
 if [ $forklift_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $forklift_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$forklift_ip The network is not disconnected and data printing is normal." >> $ping_forklift
+echo "$ttime ip:$forklift_ip The network is not disconnected and data printing is normal." >> $ping_forklift &
 else
-echo "$ttime ip:$forklift_ip The network is not disconnected and data printing is abnormal." >> $ping_forklift
+echo "$ttime ip:$forklift_ip ERROR：The network is not disconnected and data printing is abnormal." >> $ping_forklift &
 fi
 fi
 
@@ -636,7 +639,7 @@ if [ $forklift_switch -eq 1 ]; then
     new_forklift_msg=$(timeout 1 rostopic echo -n 1 /scan_back_forklift & )
     if [ "$new_forklift_msg" != "$forklift_msg" ]; then
     forklift_msg="$new_forklift_msg"
-    echo "$ttime $forklift_msg1 Laser raw data refresh normal." >> $rostopic_forklift &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_forklift &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_forklift &
     fi
@@ -647,9 +650,9 @@ fi
 if [ $top_switch -eq 1 ]; then
     echo $ttime >> $ping_top
 if ! ping -c 1 -w 1 $top_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$top_ip The network is not disconnected and data printing is normal." >> $ping_top
+echo "$ttime ip:$top_ip The network is not disconnected and data printing is normal." >> $ping_top &
 else
-echo "$ttime ip:$top_ip The network is not disconnected and data printing is abnormal." >> $ping_top
+echo "$ttime ip:$top_ip ERROR：The network is not disconnected and data printing is abnormal." >> $ping_top & 
 fi
 fi
 
@@ -657,7 +660,7 @@ if [ $top_switch -eq 1 ]; then
     new_top_msg=$(timeout 1 rostopic echo -n 1 /scan_top & )
     if [ "$new_top_msg" != "$top_msg" ]; then
     top_msg="$new_top_msg"
-    echo "$ttime $top_msg1 Laser raw data refresh normal." >> $rostopic_top &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_top &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_top &
     fi
@@ -666,31 +669,30 @@ if [ $top_switch -eq 1 ]; then
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
-    echo $ttime >> $ping_forklift_scan
 if ! ping -c 1 -w 1 $forklift_scan_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$forklift_scan_ip The network is not disconnected and data printing is normal." >> $ping_forklift_scan
+echo "$ttime ip:$forklift_scan_ip The network is not disconnected and data printing is normal." >> $ping_forklift_scan &
 else
-echo "$ttime ip:$forklift_scan_ip The network is not disconnected and data printing is abnormal." >> $ping_forklift_scan
+echo "$ttime ip:$forklift_scan_ip ERROR：The network is not disconnected and data printing is abnormal." >> $ping_forklift_scan &
 fi
 fi
 
 if [ $forklift_scan_switch -eq 1 ]; then
-    new_forklift_scan_msg=$(timeout 1 rostopic echo -n 1 /lidarl/forklift_scan & )
+    new_forklift_scan_msg=$(timeout 1 rostopic echo -n 1 /forklift_top_scan & )
     if [ "$new_forklift_scan_msg" != "$forklift_scan_msg" ]; then
     forklift_scan_msg="$new_forklift_scan_msg"
-    echo "$ttime $forklift_scan_msg1 Laser raw data refresh normal." >> $rostopic_forklift_scan &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_forklift_scan &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_forklift_scan &
     fi
 	echo $ttime >> $rostopic_forklift_scan_hz
-	timeout 1 rostopic hz /lidarl/forklift_scan >> $rostopic_forklift_scan_hz &
+	timeout 1 rostopic hz /forklift_top_scan >> $rostopic_forklift_scan_hz &
 fi
 
 if [ $T2_Central_front_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $T2_Central_front_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$T2_Central_front_ip The network is not disconnected and data printing is normal." >> $ping_T2_Central_front
+echo "$ttime ip:$T2_Central_front_ip The network is not disconnected and data printing is normal." >> $ping_T2_Central_front &
 else
-echo "$ttime ip:$T2_Central_front_ip The network is not disconnected and data printing is abnormal." >> $ping_T2_Central_front
+echo "$ttime ip:$T2_Central_front_ip ERROR：The network is not disconnected and data printing is abnormal." >> $ping_T2_Central_front &
 fi
 fi
 
@@ -698,7 +700,7 @@ if [ $T2_Central_front_switch -eq 1 ]; then
     new_T2_Central_front_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
     if [ "$new_T2_Central_front_msg" != "$T2_Central_front_msg" ]; then
     T2_Central_front_msg="$new_T2_Central_front_msg"
-    echo "$ttime $T2_Central_front_msg1 Laser raw data refresh normal." >> $rostopic_T2_Central_front &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_T2_Central_front &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_T2_Central_front &
     fi
@@ -708,9 +710,9 @@ fi
 
 if [ $T2_Central_back_switch -eq 1 ]; then
 if ! ping -c 1 -w 1 $T2_Central_back_ip | grep -q "100% packet loss";then
-echo "$ttime ip:$T2_Central_back_ip The network is not disconnected and data printing is normal." >> $ping_T2_Central_back
+echo "$ttime ip:$T2_Central_back_ip The network is not disconnected and data printing is normal." >> $ping_T2_Central_back &
 else
-echo "$ttime ip:$T2_Central_back_ip The network is not disconnected and data printing is abnormal." >> $ping_T2_Central_back
+echo "$ttime ip:$T2_Central_back_ip ERROR：The network is not disconnected and data printing is abnormal." >> $ping_T2_Central_back &
 fi
 fi
 
@@ -718,7 +720,7 @@ if [ $T2_Central_back_switch -eq 1 ]; then
     new_T2_Central_back_msg=$(timeout 1 rostopic echo -n 1 & ) #topic参数暂未维护
     if [ "$new_T2_Central_back_msg" != "$T2_Central_back_msg" ]; then
     T2_Central_back_msg="$new_T2_Central_back_msg"
-    echo "$ttime $T2_Central_back_msg1 Laser raw data refresh normal." >> $rostopic_T2_Central_back &
+    echo "$ttime CORRECT: Laser raw data refresh normal." >> $rostopic_T2_Central_back &
 	else
 	echo "$ttime ERROR: Laser raw data refresh abnormal." >> $rostopic_T2_Central_back &
     fi
@@ -1690,7 +1692,7 @@ fi
 if [ $T2_Central_back_switch -eq 1 ]; then
 ps -ef | grep "tcpdump -i $interface net $T2_Central_back_ip" |grep -v grep |awk '{print $2}'| xargs kill -9 
 fi
-debug_cmd " echo "$ttime 当循环次数达到判断阈值，结束打印。" >> $debug_name "
+debug_cmd " echo "$ttime 数据获取循环次数达到判断阈值，结束打印。判断阈值：$Circulate" >> $debug_name "
 debug_cmd " echo "$ttime ------------------------------------------------------------END-------------------------------------------------------------------" >> $debug_name "
 kill -s SIGINT $$
 break

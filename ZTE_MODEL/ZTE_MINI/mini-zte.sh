@@ -93,7 +93,7 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 0" #叉臂下降到0
-elif [ $1 -eq 22 ] #Lift the inserting arm to 2500
+elif [ $1 -eq 22 ] #Lift the inserting arm to 2400
 then
    cd /mnt/
    source devel_isolated/setup.bash
