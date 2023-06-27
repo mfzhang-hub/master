@@ -3,9 +3,9 @@
 # gnome-session-properties : gnome-terminal -x
 
 #全局激光器配置开关
-
-front_switch=1 #前激光配置开关；也可用作叉车左前激光配置，但需修改此处绑定的ip地址：front_ip！！！
-back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，但需修改此处绑定的ip地址：back_ip！！！
+forklift=0 #叉车车型配置开关，当此开关为1时，打开后激光配置开关（back_switch）时，则back_ip自动变为192.168.100.107，叉车右前激光ip自动更新
+front_switch=1 #前激光配置开关；也可用作叉车左前激光配置
+back_switch=1 #后激光配置开关；也可用作叉车右前激光配置，但需配合“forklift”配置使用
 forklift_switch=0 #叉根激光配置开关：存在新老ip,样机ip:106，新车型定款102！！！
 top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
@@ -300,7 +300,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjE1LeWinuWKoOezu+e7n+iuvuWkh3VzYuiuvuWkh+aJk+WNsOS/oeaBr++8jG9kb23mlbDmja7lvIDlhbPpu5jorqTkuLox' > $version_logg
+echo '54mI5pys5Y+377yadjE2LeWinuWKoOWPiei9pui9puWei+ivhuWIq+W8gOWFs++8jOW9k+W8gOWFs+aJk+W8gGJhY2tfaXDoh6rliqjmm7TmlrDkuLrlj4novablj7PliY3mv4DlhYlpcA==' > $version_logg
 
 #配置开关说明
 
@@ -321,7 +321,8 @@ forklift_ip：激光Ip-此处默认配置叉车叉根激光ip;
 top_ip： 激光Ip-此处默认配置叉车顶部导航激光ip;
 forklift_scan_ip： 激光Ip-此处默认配置叉车叉尖蓝海激光ip;
 ctrl_c_flag： “ctrl+c”终端信号检测的判定值-默认0，请勿修改;
-front_switch：“前激光所有日志打印开关，当开关为1时则启用前激光相关的配置文件，当为0时则关闭执行-默认1；
+forklift：“叉车车型配置开关，当此开关为1时，打开后激光配置开关（back_switch）时，则back_ip自动变为192.168.100.107，叉车右前激光ip自动更新”；
+front_switch：“前激光所有日志打印开关，当开关为1时则启用前激光相关的配置文件，当为0时则关闭执行-默认1”；
 back_switch：“潜入式车型后激光/叉车右前激光所有日志打印开关，当开关为1时则启用潜入式车型后激光/叉车右前激光相关的配置文件，当为0时则关闭执行-默认1”；
 forklift_switch：“叉车叉根激光所有日志打印开关，当开关为1时则启用叉车叉根激光相关的配置文件，当为0时则关闭执行-默认0”
 top_switch： “叉车顶部导航激光所有日志打印开关，当开关为1时则启用叉车顶部导航激光相关的配置文件，当为0时则关闭执行-默认0”
@@ -353,6 +354,10 @@ fi
 
 if [ $back_switch -eq 1 ]; then
 back_ip=192.168.100.108
+fi
+
+if [ $back_switch -eq 1 ] && [ $forklift -eq 1 ]; then
+back_ip=192.168.100.107
 fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -393,6 +398,11 @@ echo "End_Initial_Count_initial:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
+
+if [ $forklift -eq 1 ]; then
+echo "forklift:$forklift" >> $debug_name
+echo "此脚本车型配置为叉车车型，下方back_ip自动更新为叉车右前激光ip,请注意！！！" >> $debug_name
+fi
 
 if [ $front_switch -eq 1 ]; then
 echo "front_switch:$front_switch" >> $debug_name
@@ -921,6 +931,11 @@ echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
+
+if [ $forklift -eq 1 ]; then
+echo "forklift:$forklift" >> $debug_name
+echo "此脚本车型配置为叉车车型，下方back_ip自动更新为叉车右前激光ip,请注意！！！" >> $debug_name
+fi
 
 if [ $front_switch -eq 1 ]; then
 echo "front_switch:$front_switch" >> $debug_name
