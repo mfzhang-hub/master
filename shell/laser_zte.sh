@@ -12,6 +12,7 @@ forklift_scan_switch=0 #叉车蓝海激光配置开关
 T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关,topic未维护
 T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关，topic未维护
 odom=1 #里程计数据打印开关
+wifi_switch=1 #当前设备wifi信息打印开关；
 
 sleep 10
 
@@ -169,6 +170,12 @@ if [ ! -d "~/lanxin/agv/odom/" ];then
 	fi
 fi
 
+if [ $wifi_switch -eq 1 ]; then
+if [ ! -d "~/lanxin/agv/wifi/" ];then
+   mkdir -p ~/lanxin/agv/wifi/
+   fi
+fi
+
 sleep 1
 
 #文件路径定义
@@ -211,6 +218,7 @@ rostopic_T2_Central_back_hz=~/lanxin/intel/T2_Central_back/rostopic/rostopic_T2_
 tcpdump_T2_Central_back=~/lanxin/intel/T2_Central_back/wireshark/shark_T2_Central_back.pcap
 rostopic_odom=~/lanxin/agv/odom/encoder_odom.log
 interface_network=~/lanxin/interface.txt
+wifi_network=~/lanxin/agv/wifi/wifi.log
 
 #调试开关
 debug_cmd(){
@@ -224,7 +232,6 @@ ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 interface=$(ip addr | grep "inet 192.168.100.201" | awk '{print $NF}')
 echo $interface > $interface_network
 debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
-
 
 #判断tcpdump执行文件是否存在，存在则重命名防止pcap文件信息覆盖
 
@@ -329,7 +336,8 @@ top_switch： “叉车顶部导航激光所有日志打印开关，当开关为
 forklift_scan_switch： “叉车蓝海激光所有日志打印开关，当开关为1时则启用叉车蓝海激光相关的配置文件，当为0时则关闭执行-默认0”  
 T2_Central_front_switch：“T2全向AGV前中雷达日志打印开关，当开关为1时则启用T2前中激光相关的配置文件，当为0时则关闭执行-默认0”
 T2_Central_back_switch：“T2全向AGV后中雷达日志打印开关，当开关为1时则启用T2后中激光相关的配置文件，当为0时则关闭执行-默认0” 
-odom：“里程计打印开关，当开关为1时启动车辆里程计数据打印，当开关为0时关闭车辆里程计数据打印，默认0，不要开！！！” " > $explain
+odom：“里程计打印开关，当开关为1时启动车辆里程计数据打印，当开关为0时关闭车辆里程计数据打印，默认0，不要开！！！” 
+wifi_switch：“设备wifi信息打印开关，默认1” " > $explain
 #终止tcpdump进程
 
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
@@ -458,6 +466,11 @@ echo "odom:$odom" >> $debug_name
 sleep 0.1
 fi
 
+if [ $wifi_switch -eq 1 ]; then
+echo "wifi_switch:$wifi_switch" >> $debug_name
+sleep 0.1
+fi
+
 
 #开始网络数据包捕获
 
@@ -559,7 +572,23 @@ echo -e "\033[31m start$Start_Initial_Count \033[0m"
 Start_Initial_Count=$((Start_Initial_Count+1))
 
 debug_cmd " echo " $ttime "Start $Start_Initial_Count Cycles."" >> $debug_name "
-debug_cmd " echo "$ttime "" 数据循环打印开始！！！" >> $debug_name "
+debug_cmd " echo "$ttime " 数据循环打印开始！！！"" >> $debug_name "
+
+
+#设备wifi联网信息打印
+wifi_card=$(iwconfig | grep -o '^[^ ]*')
+if [ -z "$wifi_card" ]; then
+    echo "$ttime 未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！" >> $wifi_network
+debug_cmd "	echo "$ttime "未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！"" >> $debug_name " 
+else
+     wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}') 
+     ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}') 
+     signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}') 
+     delay=$(ping -c 1 8.8.8.8 | grep time= | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}') 
+     gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')  #暂不打印网关信息
+     network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}') 
+    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm delay:$delay ms network_card:$network_card " >> $wifi_network 
+fi
 
 #系统信息打印
 
@@ -905,6 +934,11 @@ size_rostopic_odom=$(du -b "$rostopic_odom" | awk '{print $1}')
 debug_cmd " echo "$ttime 车辆里程计数据日志包大小查询完毕。size_rostopic_odom:$size_rostopic_odom" >> $debug_name "
 fi
 
+if [ $wifi_switch -eq 1 ]; then
+size_wifi_network=$(du -b "$wifi_network" | awk '{print $1}') 
+debug_cmd " echo "$ttime 车辆wifi日志包大小查询完毕。size_wifi_network:$size_wifi_network" >> $debug_name "
+fi
+
 size_rostopic_power=$(du -b "$rostopic_power" | awk '{print $1}') 
 debug_cmd " echo "$ttime 车辆电源开关触发日志文件大小查询完毕。size_rostopic_power:$size_rostopic_power" >> $debug_name "
 
@@ -1003,6 +1037,11 @@ echo "odom:$odom" >> $debug_name
 sleep 0.1
 fi
 
+if [ $wifi_switch -eq 1 ]; then
+echo "wifi_switch:$wifi_switch" >> $debug_name
+sleep 0.1
+fi
+
 debug_cmd " echo "$ttime debug日志备份完成，备份日志名称：$back_file0" >> $debug_name "
 fi
 
@@ -1053,6 +1092,15 @@ back_file44="$rostopic_odom-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_odom" "$back_file44"
 touch "$rostopic_odom"
 debug_cmd " echo "$ttime 车辆里程计日志备份完成，备份日志名称：$back_file44" >> $debug_name "
+fi
+fi
+
+if [ $wifi_switch -eq 1 ]; then
+if [ "$size_wifi_network" -gt "$max_size_all" ];then
+back_file45="$wifi_network-$(date +"%Y-%m-%d-%H-%M-%S")"
+mv "$wifi_network" "$back_file45"
+touch "$wifi_network"
+debug_cmd " echo "$ttime 设备wifi日志备份完成，备份日志名称：$back_file45" >> $debug_name "
 fi
 fi
 
@@ -1464,6 +1512,10 @@ fi
 count35=$(ls -lt ~/lanxin/intel/computer/power/ | grep "^-" | wc -l)
 debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/power/目录下文件数量”执行完成。当前文件夹下数量为：$count35" >> $debug_name "
 
+if [ $wifi_switch -eq 1 ]; then
+count36=$(ls -lt ~/lanxin/agv/wifi/ | grep "^-" | wc -l)
+debug_cmd " echo "$ttime “查询~/lanxin/agv/wifi/目录下文件数量”执行完成。当前文件夹下数量为：$count36" >> $debug_name "
+fi
 
 debug_cmd " echo "$ttime 查询“目录文件数量”步骤已全部执行完成。" >> $debug_name "
 
@@ -1680,6 +1732,14 @@ if [ "$count35" -gt "$max_debug" ];then
  old_count35=$(ls -t ~/lanxin/intel/computer/power/* | tail -n +$max_debug | head -n -1)
 xargs rm $old_count35 &
 debug_cmd " echo "$ttime “~/lanxin/intel/computer/power/”目录下超过配置数量文件删除已完成。删除文件：$old_count35" >> $debug_name "
+fi
+
+if [ $wifi_switch -eq 1 ]; then
+if [ "$count36" -gt "$max_debug" ];then
+ old_count36=$(ls -t ~/lanxin/agv/wifi/* | tail -n +$max_debug | head -n -1)
+xargs rm $old_count36 &
+debug_cmd " echo "$ttime “~/lanxin/agv/wifi/”目录下超过配置数量文件删除已完成。删除文件：$old_count36" >> $debug_name "
+fi
 fi
 
 #判断定时打印开关是否打开并执行相关操作
