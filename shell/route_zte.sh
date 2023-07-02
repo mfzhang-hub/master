@@ -20,7 +20,7 @@ if ! ping -c 1 -w 1 192.168.30.1 | grep -q "100% packet loss";then
 echo "$ttime CORRECT：与小镇7幢30网段通讯正常" >> $log 
 else
 
-echo "$ttime ERROR：与小镇7幢30网段通讯异常" >> $log 
+echo "$ttime ERROR：与小镇7幢30网段通讯异常，执行：“ip route add default via 192.168.4.1 metric 60”指令！！！" >> $log 
 ip route add default via 192.168.4.1 metric 60 &
 fi
 
