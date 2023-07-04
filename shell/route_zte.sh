@@ -2,7 +2,7 @@
 
 # gnome-session-properties : gnome-terminal -x
 
-log=~/route_zte.txt
+log=~/route_zte.log
 Start_Initial_Count=1 
 End_Initial_Count=1 
 
@@ -26,5 +26,4 @@ fi
 
 echo -e "\033[32m end$End_Initial_Count \033[0m"
 End_Initial_Count=$((End_Initial_Count+1))
-sleep 1
 done
