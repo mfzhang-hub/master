@@ -293,5 +293,10 @@ then
    rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
 cmd: 0x63
 dmsData: 0"   
+elif [ $1 -eq 64 ]   #自动牵引单元对射光电状态查询
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic echo /ztexing_node/draw_status  
    echo "less param"
 fi
