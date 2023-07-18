@@ -7,7 +7,7 @@ while true
 do
 
 if [ -z "$wifi_card" ]; then
-    echo "no" >> ~/interface.txt
+    echo "$ttime ERROR: No network card information detected.请检查硬件是否正常！！！" >> ~/interface.txt
 else
      wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}')
      ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}')
