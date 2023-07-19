@@ -3,8 +3,7 @@
 192.168.18.218  root    123456     22  
 内容格式：IP User Password Port  
   
-SSH远程修改密码脚本：新密码随机生成  
-https://www.linuxprobe.com/books  
+#SSH远程修改密码脚本：新密码随机生成 
 #!/bin/bash  
 OLD_INFO=old_pass.txt  
 NEW_INFO=new_pass.txt  
