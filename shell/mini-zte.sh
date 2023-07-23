@@ -97,7 +97,7 @@ elif [ $1 -eq 22 ] #Lift the inserting arm to 2400
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2410" #叉臂编码器数据下发2410，实际到位2500
+   rostopic pub /ztexing_node/forklift_height std_msgs/UInt16 "data: 2400" #叉臂编码器数据下发2400，实际到位2490
 elif [ $1 -eq 24 ] #Left lamp independent test
 then
    cd /mnt/

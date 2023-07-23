@@ -581,13 +581,13 @@ if [ -z "$wifi_card" ]; then
     echo "$ttime 未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！" >> $wifi_network
 debug_cmd "	echo "$ttime "未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！"" >> $debug_name " 
 else
-     wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}') 
-     ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}') 
-     signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}') 
-     delay=$(ping -c 1 8.8.8.8 | grep time= | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}') 
-     gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')  #暂不打印网关信息
-     network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}') 
-    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm delay:$delay ms network_card:$network_card " >> $wifi_network 
+     wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}')
+     ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}')
+     signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}')
+     gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
+     delay=$(ping -c 1 "$gateway" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}')
+     network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}')
+    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms network_card:$network_card " >> $wifi_network 
 fi
 
 #系统信息打印
