@@ -6,9 +6,9 @@
 
 up_switch=1 #上视二维码相机数据开关；
 down_switch=1 #下视二维码相机数据开关；
-usb_devices=1 #设备所有usb信号抓取开关；
-camera_up_hand=1 #上视二维码相机手动开启开关；
-camera_down_hand=1 #下视二维码相机手动开启开关；
+usb_devices=0 #设备所有usb信号抓取开关；
+camera_up_hand=0 #上视二维码相机手动开启开关；
+camera_down_hand=0 #下视二维码相机手动开启开关；
 camputer_var=1 #计算机指定日志复制开关；
 camera_tcp=0 #计算机USB信号数据包录取开关；
 sleep 1
