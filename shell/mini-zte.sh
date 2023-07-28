@@ -57,12 +57,12 @@ elif [ $1 -eq 13 ] #charge open
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /charge_command "1" #打开继电器
+   rostopic pub /charge_command std_msgs/UInt8 "data: 1" #打开继电器
 elif [ $1 -eq 14 ] #charge close
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /charge_command "0"  #关闭继电器
+   rostopic pub /charge_command std_msgs/UInt8 "data: 0"  #关闭继电器
 elif [ $1 -eq 15 ] #Rear docking laser
 then
    cd /mnt/

@@ -769,7 +769,7 @@ fi
 
     echo $ttime >> $rostopic_battery
     cd /mnt && source devel_isolated/setup.bash
-    rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery #/ztexing_node/dev_status or /ztexing_node/battery_status
+    rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 2>&1 & #/ztexing_node/dev_status or /ztexing_node/battery_status
 debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name "
 
 #“Du”查询定义
