@@ -7,11 +7,11 @@
 up_switch=1 #上视二维码相机数据开关；
 down_switch=1 #下视二维码相机数据开关；
 usb_devices=1 #设备所有usb信号抓取开关；
-camera_up_hand=0 #上视二维码相机手动开启开关；
-camera_down_hand=0 #下视二维码相机手动开启开关；
+camera_up_hand=1 #上视二维码相机手动开启开关；
+camera_down_hand=1 #下视二维码相机手动开启开关；
 camputer_var=1 #计算机指定日志复制开关；
-camera_tcp=1 #计算机USB信号数据包录取开关；
-sleep 10
+camera_tcp=0 #计算机USB信号数据包录取开关；
+sleep 1
 #文件夹创建判断
 
 if [ $up_switch -eq 1 ]; then
@@ -268,7 +268,7 @@ echo "camera_tcp:$camera_tcp" >> $debug_name
 mod=$(lsmod | grep usbmon)
 if [ $camera_tcp -eq 1 ]; then
 if ! lsmod | grep -q "usbmon";then
-sudo modprobe -r usbmon &
+sudo modprobe usbmon &
 else
 debug_cmd " echo "$ttime $mod " >> $debug_name "
 fi
@@ -283,19 +283,23 @@ fi
 
 #手动开启二维码相机
 if [ $camera_up_hand -eq 1 ]; then
-cameradown_pid=`ps -ef | grep lx_camera_down | grep -v grep | awk '{print $2}'`
-echo "find result: $cameradown_pid " >> $roslaunch_up
-echo "robot" | sudo -S kill -9 $cameradown_pid >> $roslaunch_up
+cameraup_pid=`ps -ef | grep lx_camera_up | grep -v grep | awk '{print $2}'`
+echo "$ttime $cameraup_pid 检测lx_camera_up信息! " >> $roslaunch_up
+ps -ef | grep lx_camera_up |grep -v grep |awk '{print $2}'| xargs kill -9
+echo "$ttime $cameraup_pid 执行lx_camera_up进程杀死完毕！" >> $roslaunch_up
 echo $ttime >> $roslaunch_up 
-roslaunch lx_camera lx_camera_up.launch >> $roslaunch_up &
+cd /mnt && source devel_isolated/setup.bash
+roslaunch lx_camera lx_camera_up.launch >> $roslaunch_up 2>&1 & 
 fi
 sleep 0.1
 if [ $camera_down_hand -eq 1 ]; then
-cameraup_pid=`ps -ef | grep lx_camera_up | grep -v grep | awk '{print $2}'`
-echo "find result: $cameraup_pid " >> $roslaunch_down
-echo "robot" | sudo -S kill -9 $cameraup_pid >> $roslaunch_down
-echo $ctime >> $roslaunch_down
-roslaunch lx_camera lx_camera_down.launch >> $roslaunch_down &
+cameradown_pid=`ps -ef | grep lx_camera_down | grep -v grep | awk '{print $2}'`
+echo "$ttime $cameradown_pid 检测lx_camera_down信息！" >> $roslaunch_down
+ps -ef | grep lx_camera_down |grep -v grep |awk '{print $2}'| xargs kill -9
+echo "$ttime $cameradown_pid 执行lx_camera_down进程杀死完毕！" >> $roslaunch_down
+echo $ttime >> $roslaunch_down
+cd /mnt && source devel_isolated/setup.bash
+roslaunch lx_camera lx_camera_down.launch >> $roslaunch_down 2>&1 & 
 fi
 #启动时间查询
 
@@ -391,7 +395,7 @@ fi
 
 
     echo $ttime >> $rostopic_battery
-    rostopic echo -n 1 /ztexing_node/battery_status  >> $rostopic_battery 
+    rostopic echo -n 1 /ztexing_node/battery_status >> $rostopic_battery 2>&1 & 
 debug_cmd " echo "$ttime topic及系统日志打印完成" >> $debug_name "
 
 #“Du”查询定义
