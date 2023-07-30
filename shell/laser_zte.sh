@@ -308,7 +308,7 @@ fi
 
 #版本号输出
 
-echo '54mI5pys5Y+377yadjE2LeWinuWKoOWPiei9pui9puWei+ivhuWIq+W8gOWFs++8jOW9k+W8gOWFs+aJk+W8gGJhY2tfaXDoh6rliqjmm7TmlrDkuLrlj4novablj7PliY3mv4DlhYlpcA==' > $version_logg
+echo '54mI5pys5Y+377yadjE3LeS8mOWMlue9keWNoeafpeivouaMh+S7pO+8jOWQjOatpeWinuWKoOiwg+W6puezu+e7n2lw572R57uc5bu26L+f5L+h5oGv5omT5Y2w5Yik5pat' > $version_logg
 
 #配置开关说明
 
@@ -583,18 +583,33 @@ debug_cmd " echo "$ttime " 数据循环打印开始！！！"" >> $debug_name "
 
 #设备wifi联网信息打印
 wifi_card=$(iw dev | grep -Po '^\s*Interface\s*\K\w+')
+wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}')
+ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}')
+signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}')
+gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
+delay=$(ping -c 1 "$gateway" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}')
+network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}')
+previous_metric=$current_metric
+current_metric=$(ip route show | grep "default via $target_gateway" | awk '{print $NF}' | sort -n | head -n 1)
+connected_devices=$(iw dev $wifi_card station dump | grep "Station" | wc -l)
+ap_info=$(iwlist $wifi_card scanning 1 essid "$(iwgetid -r)" 2>&1)
+iwlist_ap=$(echo "$ap_info" | grep "IE: IEEE 802.11" | awk -F ':' '{print $2}')
+if [ $wifi_switch -eq 1 ]; then
 if [ -z "$wifi_card" ]; then
     echo "$ttime 未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！" >> $wifi_network
 debug_cmd "	echo "$ttime "未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！"" >> $debug_name " 
 else
-     wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}')
-     ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}')
-     signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}')
-     gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
-     delay=$(ping -c 1 "$gateway" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}')
-     network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}')
     echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms network_card:$network_card " >> $wifi_network 
-	
+fi
+if [[ "$current_metric" != "$previous_metric" ]]; then
+    ip route show | awk -v current="$current_metric" -v previous="$previous_metric" '($NF > previous) && ($NF < current) {print $NF}'
+    echo "$ttime 网关Metric发生变化：$previous_metric -> $current_metric" >> $wifi_network 
+    fi
+    if [[ $iwlist_ap == *"802.11ax"* ]];then
+    echo "$ttime 当前连接网络支持wifi6网卡(Wifi6 can be connected.)！" >> $wifi_network  
+    else
+    echo "$ttime ERROR：当前连接网络不支持wifi6网卡(Wifi6 cannot be connected.)！" >> $wifi_network 
+fi
 fi
 if [ $rcs_network -eq 1 ]; then    
     if timeout 1 ping -c 1 "$rcs_ip" &> /dev/null; then
@@ -604,6 +619,7 @@ if [ $rcs_network -eq 1 ]; then
 	echo "$ttime ERROR：AGV与RCS连接已断开。timeout!!!" >> $wifi_network
 	fi
 fi
+
 #系统信息打印
 
 sleep 0.1
