@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
-wifi_card=$(iwconfig | grep -o '^[^ ]*')
 while true
 do
+ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
+wifi_card=$(iw dev | grep -Po '^\s*Interface\s*\K\w+')
 wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}')
 ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}')
 signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}')
@@ -17,3 +17,5 @@ else
 fi
 
 done
+
+

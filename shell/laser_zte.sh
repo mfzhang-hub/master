@@ -11,8 +11,9 @@ top_switch=0 #叉车顶部激光配置开关
 forklift_scan_switch=0 #叉车蓝海激光配置开关
 T2_Central_front_switch=0 #2T全向车前方中置雷达配置开关,topic未维护
 T2_Central_back_switch=0 #2T全向车后方中置雷达配置开关，topic未维护
-odom=1 #里程计数据打印开关
+odom=0 #里程计数据打印开关
 wifi_switch=1 #当前设备wifi信息打印开关；
+rcs_network=0 #rcs系统ip延迟信息打印开关；
 
 sleep 10
 
@@ -337,7 +338,8 @@ forklift_scan_switch： “叉车蓝海激光所有日志打印开关，当开�
 T2_Central_front_switch：“T2全向AGV前中雷达日志打印开关，当开关为1时则启用T2前中激光相关的配置文件，当为0时则关闭执行-默认0”
 T2_Central_back_switch：“T2全向AGV后中雷达日志打印开关，当开关为1时则启用T2后中激光相关的配置文件，当为0时则关闭执行-默认0” 
 odom：“里程计打印开关，当开关为1时启动车辆里程计数据打印，当开关为0时关闭车辆里程计数据打印，默认0，不要开！！！” 
-wifi_switch：“设备wifi信息打印开关，默认1” " > $explain
+wifi_switch：“设备wifi信息打印开关，默认1” 
+rcs_network：“rcs连接ip延迟信息查询开关，默认0”" > $explain
 #终止tcpdump进程
 
 ps -ef | grep tcpdump |grep -v grep |awk '{print $2}'| xargs kill -9
@@ -355,6 +357,7 @@ End_Initial_Count=1
 Circulate=150000
 start_start=$Start_Initial_Count
 end_end=$End_Initial_Count
+
 
 if [ $front_switch -eq 1 ]; then
 front_ip=192.168.100.104
@@ -388,6 +391,9 @@ if [ $T2_Central_back_switch -eq 1 ]; then
 T2_Central_back_ip=192.168.100.102
 fi
 
+if [ $rcs_network -eq 1 ]; then
+rcs_ip=10.128.62.41
+fi
 ctrl_c_flag=0
 
 #调试信息配置输出
@@ -576,7 +582,7 @@ debug_cmd " echo "$ttime " 数据循环打印开始！！！"" >> $debug_name "
 
 
 #设备wifi联网信息打印
-wifi_card=$(iwconfig | grep -o '^[^ ]*')
+wifi_card=$(iw dev | grep -Po '^\s*Interface\s*\K\w+')
 if [ -z "$wifi_card" ]; then
     echo "$ttime 未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！" >> $wifi_network
 debug_cmd "	echo "$ttime "未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！"" >> $debug_name " 
@@ -588,8 +594,16 @@ else
      delay=$(ping -c 1 "$gateway" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}')
      network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}')
     echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms network_card:$network_card " >> $wifi_network 
+	
 fi
-
+if [ $rcs_network -eq 1 ]; then    
+    if timeout 1 ping -c 1 "$rcs_ip" &> /dev/null; then
+	rcs_delay=$(ping -c 1 "$rcs_ip" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}')
+	echo "$ttime AGV与RCS连接未断开。RCS_data: rcs_delay:$rcs_delay ms " >> $wifi_network
+	else
+	echo "$ttime ERROR：AGV与RCS连接已断开。timeout!!!" >> $wifi_network
+	fi
+fi
 #系统信息打印
 
 sleep 0.1
@@ -626,7 +640,7 @@ echo "$ttime ip:$back_ip ERROR: The network is disconnected and data printing is
 fi
 fi
 
-if ! rostopic echo -n 1 /ztexing_node/power_trigger | grep -q "data: True";then
+if ! rostopic echo -n 1 /ztexing_node/power_trigger | grep -q "data: True"  ; then
 echo "$ttime The AGV power button has not been triggered." >> $rostopic_power &
 else
 echo "$ttime The AGV power button has been triggered." >> $rostopic_power &
@@ -769,7 +783,7 @@ fi
 
     echo $ttime >> $rostopic_battery
     cd /mnt && source devel_isolated/setup.bash
-    rostopic echo -n 1 /ztexing_node/dev_status  >> $rostopic_battery 2>&1 & #/ztexing_node/dev_status or /ztexing_node/battery_status
+    rostopic echo -n 1 /ztexing_node/dev_status >> $rostopic_battery 2>&1 &  #/ztexing_node/dev_status or /ztexing_node/battery_status
 debug_cmd " echo "$ttime topic/ping/及系统日志打印完成" >> $debug_name "
 
 #“Du”查询定义
@@ -1039,6 +1053,16 @@ fi
 
 if [ $wifi_switch -eq 1 ]; then
 echo "wifi_switch:$wifi_switch" >> $debug_name
+sleep 0.1
+fi
+
+if [ $rcs_network -eq 1 ]; then
+echo "rcs_network:$rcs_network" >> $debug_name
+sleep 0.1
+fi
+
+if [ $rcs_network -eq 1 ]; then
+echo "rcs_ip:$rcs_ip" >> $debug_name
 sleep 0.1
 fi
 
