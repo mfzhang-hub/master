@@ -594,12 +594,13 @@ current_metric=$(ip route show | grep "default via $target_gateway" | awk '{prin
 connected_devices=$(iw dev $wifi_card station dump | grep "Station" | wc -l)
 ap_info=$(iwlist $wifi_card scanning 1 essid "$(iwgetid -r)" 2>&1)
 iwlist_ap=$(echo "$ap_info" | grep "IE: IEEE 802.11" | awk -F ':' '{print $2}')
+freq=$(iwconfig $wifi_card | grep -F 'Frequency:' | awk '{print $2}' )
 if [ $wifi_switch -eq 1 ]; then
 if [ -z "$wifi_card" ]; then
     echo "$ttime 未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！" >> $wifi_network
 debug_cmd "	echo "$ttime "未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！"" >> $debug_name " 
 else
-    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms network_card:$network_card " >> $wifi_network 
+    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms $freq GHz network_card:$network_card " >> $wifi_network 
 fi
 if [[ "$current_metric" != "$previous_metric" ]]; then
     ip route show | awk -v current="$current_metric" -v previous="$previous_metric" '($NF > previous) && ($NF < current) {print $NF}'
