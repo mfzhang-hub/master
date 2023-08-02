@@ -15,7 +15,8 @@ odom=0 #里程计数据打印开关
 wifi_switch=1 #当前设备wifi信息打印开关；
 rcs_network=0 #rcs系统ip延迟信息打印开关；
 
-sleep 10
+
+sleep 1
 
 #文件夹创建判断
 
@@ -69,10 +70,6 @@ if [ ! -d "~/lanxin/intel/computer/cpu" ];then
 
 if [ ! -d "~/lanxin/intel/computer/battery" ];then
 	mkdir -p ~/lanxin/intel/computer/battery
-	fi
-
-if [ ! -d "~/lanxin/intel/computer/power" ];then
-	mkdir -p ~/lanxin/intel/computer/power
 	fi
 
 if [ $forklift_switch -eq 1 ]; then
@@ -190,7 +187,6 @@ rostopic_front_hz=~/lanxin/intel/front/rostopic/rostopic_front_node.log
 rostopic_back=~/lanxin/intel/back/rostopic/rostopic_back.log
 rostopic_back_hz=~/lanxin/intel/back/rostopic/rostopic_back_node.log
 rostopic_battery=~/lanxin/intel/computer/battery/battery.log
-rostopic_power=~/lanxin/intel/computer/power/power_trigger.log
 tcpdump_front=~/lanxin/intel/front/wireshark/front_shark.pcap
 tcpdump_back=~/lanxin/intel/back/wireshark/back_shark.pcap
 debug_name=~/lanxin/debug/debug.log
@@ -657,11 +653,6 @@ echo "$ttime ip:$back_ip ERROR: The network is disconnected and data printing is
 fi
 fi
 
-if ! rostopic echo -n 1 /ztexing_node/power_trigger | grep -q "data: True"  ; then
-echo "$ttime The AGV power button has not been triggered." >> $rostopic_power &
-else
-echo "$ttime The AGV power button has been triggered." >> $rostopic_power &
-fi
 
 if [ $front_switch -eq 1 ]; then
     new_front_msg=$(timeout 1 rostopic echo -n 1 /scan_front & ) 
@@ -970,10 +961,6 @@ size_wifi_network=$(du -b "$wifi_network" | awk '{print $1}')
 debug_cmd " echo "$ttime 车辆wifi日志包大小查询完毕。size_wifi_network:$size_wifi_network" >> $debug_name "
 fi
 
-size_rostopic_power=$(du -b "$rostopic_power" | awk '{print $1}') 
-debug_cmd " echo "$ttime 车辆电源开关触发日志文件大小查询完毕。size_rostopic_power:$size_rostopic_power" >> $debug_name "
-
-
 debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕。" >> $debug_name "
 
 #确定文件是否超过配置的大小并执行相关操作
@@ -996,7 +983,7 @@ echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
-
+debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
 if [ $forklift -eq 1 ]; then
 echo "forklift:$forklift" >> $debug_name
 echo "此脚本车型配置为叉车车型，下方back_ip自动更新为叉车右前激光ip,请注意！！！" >> $debug_name
@@ -1102,12 +1089,7 @@ mv "$memory" "$back_file2"
 touch "$memory" &
 debug_cmd " echo "$ttime 系统内存信息日志备份完成，备份日志名称：$back_file2" >> $debug_name "
 fi
-if [ "$size_rostopic_power" -gt "$max_size_all" ];then
-back_file221="$rostopic_power-$(date +"%Y-%m-%d-%H-%M-%S")"
-mv "$rostopic_power" "$back_file221"
-touch "$rostopic_power" &
-debug_cmd " echo "$ttime 电池电源触发日志备份完成，备份日志名称：$back_file221" >> $debug_name "
-fi
+
 sleep 0.01
 if [ $front_switch -eq 1 ]; then
 if [ "$size_ping_front" -gt "$max_size_all" ];then
@@ -1550,8 +1532,6 @@ debug_cmd " echo "$ttime “查询~/lanxin/agv/odom/目录下文件数量”执�
 fi
 
 
-count35=$(ls -lt ~/lanxin/intel/computer/power/ | grep "^-" | wc -l)
-debug_cmd " echo "$ttime “查询~/lanxin/intel/computer/power/目录下文件数量”执行完成。当前文件夹下数量为：$count35" >> $debug_name "
 
 if [ $wifi_switch -eq 1 ]; then
 count36=$(ls -lt ~/lanxin/agv/wifi/ | grep "^-" | wc -l)
@@ -1766,13 +1746,6 @@ if [ "$count34" -gt "$max_debug" ];then
 xargs rm $old_count34 &
 debug_cmd " echo "$ttime “~/lanxin/agv/odom/”目录下超过配置数量文件删除已完成。删除文件：$old_count34" >> $debug_name "
 fi
-fi
-
-
-if [ "$count35" -gt "$max_debug" ];then
- old_count35=$(ls -t ~/lanxin/intel/computer/power/* | tail -n +$max_debug | head -n -1)
-xargs rm $old_count35 &
-debug_cmd " echo "$ttime “~/lanxin/intel/computer/power/”目录下超过配置数量文件删除已完成。删除文件：$old_count35" >> $debug_name "
 fi
 
 if [ $wifi_switch -eq 1 ]; then
