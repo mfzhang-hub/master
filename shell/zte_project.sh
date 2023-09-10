@@ -300,3 +300,19 @@ then
    rostopic echo /ztexing_node/draw_status  
    echo "less param"
 fi
+elif [ $1 -eq 65 ]   #SMT-TK&SMT-GT自动调宽控制1
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+cmd: 0x72
+dmsData: 0" 
+fi
+elif [ $1 -eq 66 ]   #SMT-TK&SMT-GT自动调宽控制2
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
+cmd: 0x73
+dmsData: 0" 
+fi

@@ -154,3 +154,34 @@ namespace zte_id_T2000DS_DS //MINI叉车程序
     };
 } //
 
+namespace zte_id_SMT_GT_DP //SMT-GT底盘程序
+{
+    enum {
+      SMT_GT_DP_01010304014106,  //SMT-GT底盘程序
+
+    };
+} //
+
+namespace zte_id_SMT_GT_DS //SMT-GT执行机构程序
+{
+    enum {
+      SMT_GT_DS_01010301100601,  //SMT-GT执行机构程序
+
+    };
+} //
+
+namespace zte_id_SMT_TK_DP //SMT-TK底盘程序
+{
+    enum {
+      SMT_TK_DP_01010304014206,  //SMT-TK底盘程序
+
+    };
+} //
+
+namespace zte_id_SMT_TK_DS //SMT-TK执行机构程序
+{
+    enum {
+      SMT_GT_TK_01010301100701,  //SMT-TK执行机构程序
+
+    };
+} //
