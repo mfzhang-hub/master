@@ -300,19 +300,39 @@ then
    rostopic echo /ztexing_node/draw_status  
    echo "less param"
 fi
-elif [ $1 -eq 65 ]   #SMT-TK&SMT-GT自动调宽控制1
+elif [ $1 -eq 65 ]   #SMT-GT自动调宽到152mm，平台升高到500mm
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
-cmd: 0x72
-dmsData: 0" 
+   rostopic pub -r 1 /roller_command common_msgs/Roller "roller_task: 8
+cargo_size: 152
+roller_speed: 0.0
+roller_height: 500" 
 fi
-elif [ $1 -eq 66 ]   #SMT-TK&SMT-GT自动调宽控制2
+elif [ $1 -eq 66 ]   #SMT-GT自动调宽到500mm，平台升高到500mm
 then
    cd /mnt/
    source devel_isolated/setup.bash
-   rostopic pub /cmd_roller common_msgs/RollerCtrlTest "num: 0
-cmd: 0x73
-dmsData: 0" 
+   rostopic pub -r 1 /roller_command common_msgs/Roller "roller_task: 8
+cargo_size: 500
+roller_speed: 0.0
+roller_height: 500" 
+fi
+elif [ $1 -eq 67 ]   #SMT-GT自动调宽到152mm，平台升高到500mm指令暂停
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub -r 1 /roller_command common_msgs/Roller "roller_task: 2
+cargo_size: 152
+roller_speed: 0.0
+roller_height: 500" 
+fi
+elif [ $1 -eq 68 ]   #SMT-GT自动调宽到500mm，平台升高到500mm，指令暂停
+then
+   cd /mnt/
+   source devel_isolated/setup.bash
+   rostopic pub -r 1 /roller_command common_msgs/Roller "roller_task: 2
+cargo_size: 500
+roller_speed: 0.0
+roller_height: 500" 
 fi
