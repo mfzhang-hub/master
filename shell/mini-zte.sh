@@ -114,5 +114,5 @@ then
    source devel_isolated/setup.bash
    rostopic echo /forklift_top_scan #叉车后方对接蓝海激光topick数据
 else
-   echo "less param"
+   echo "less param! version:v2.23.02"
 fi
