@@ -308,13 +308,13 @@ debug_cmd " echo "$ttime 读取系统关机时间完毕。" >> $debug_name "
 
 trap 'ctrl_c_flag=1' INT
 
-if [ $up_switch -eq 1 ]; then
-up_msg=$(timeout 1 rostopic echo -n 1 /camera_up/image_raw & )
-fi
+#if [ $up_switch -eq 1 ]; then
+#up_msg=$(timeout 1 rostopic echo -n 1 /camera_up/image_raw & )
+#fi
 
-if [ $down_switch -eq 1 ]; then
-down_msg=$(timeout 1 rostopic echo -n 1 /camera_down/image_raw & )
-fi
+#if [ $down_switch -eq 1 ]; then
+#down_msg=$(timeout 1 rostopic echo -n 1 /camera_down/image_raw & )
+#fi
 
 #循环开始
 
@@ -370,27 +370,27 @@ debug_cmd " echo "$ttime 该设备所有USB设备信息查询完毕！" >> $debu
 fi
 
 if [ $up_switch -eq 1 ]; then
-    new_up_msg=$(timeout 1 rostopic echo -n 1 /camera_up/image_raw & ) 
-	if [ "$new_up_msg" != "$up_msg" ]; then
-    up_msg="$new_up_msg"
-    echo "$ttime Camera data output is normal." >> $rostopic_up &
-	else
-	echo "$ttime ERROR: Camera data output is abnormal." >> $rostopic_up &
-    fi
+    #new_up_msg=$(timeout 1 rostopic echo -n 1 /camera_up/image_raw 2>&1 & ) 
+	#if [ "$new_up_msg" != "$up_msg" ]; then
+    #up_msg="$new_up_msg"
+    #echo "$ttime Camera data output is normal." >> $rostopic_up 2>&1 &
+	#else
+	#echo "$ttime ERROR: Camera data output is abnormal." >> $rostopic_up 2>&1 &
+    #fi
 	echo $ttime >> $rostopic_up_hz
-	timeout 1 rostopic hz /camera_up/image_raw >> $rostopic_up_hz &
+	timeout 1 rostopic hz /camera_up/image_raw >> $rostopic_up_hz 2>&1 &
 fi
 
 if [ $down_switch -eq 1 ]; then
-    new_down_msg=$(timeout 1 rostopic echo -n 1 /camera_down/image_raw & )
-    if [ "$new_down_msg" != "$down_msg" ]; then
-    down_msg="$new_down_msg" 
-    echo "$ttime Camera data output is normal." >> $rostopic_down &
-	else
-	echo "$ttime ERROR: Camera data output is abnormal." >> $rostopic_down &
-    fi
+    #new_down_msg=$(timeout 1 rostopic echo -n 1 /camera_down/image_raw 2>&1 & )
+    #if [ "$new_down_msg" != "$down_msg" ]; then
+    #down_msg="$new_down_msg" 
+    #echo "$ttime Camera data output is normal." >> $rostopic_down 2>&1 &
+	#else
+	#echo "$ttime ERROR: Camera data output is abnormal." >> $rostopic_down 2>&1 &
+    #fi
 	echo $ttime >> $rostopic_down_hz
-	timeout 1 rostopic hz /camera_down/image_raw >> $rostopic_down_hz &
+	timeout 1 rostopic hz /camera_down/image_raw >> $rostopic_down_hz 2>&1 &
 fi
 
 
@@ -401,67 +401,67 @@ debug_cmd " echo "$ttime topic及系统日志打印完成" >> $debug_name "
 #“Du”查询定义
 
 size_cpu=$(du -b "$cpu" | awk '{print $1}') 
-debug_cmd " echo "$ttime cpu系统日志保存文件大小查询完毕。size_cpu:$size_cpu" >> $debug_name "
+debug_cmd " echo "$ttime cpu系统日志保存文件大小查询完毕。size_cpu:$size_cpu" >> $debug_name 2>&1 & "
 
 size_memory=$(du -b "$memory" | awk '{print $1}') 
-debug_cmd " echo "$ttime 系统内存日志文件大小查询完毕。size_memory:$size_memory" >> $debug_name "
+debug_cmd " echo "$ttime 系统内存日志文件大小查询完毕。size_memory:$size_memory" >> $debug_name 2>&1 & "
 
 if [ $up_switch -eq 1 ]; then
 size_rostopic_up=$(du -b "$rostopic_up" | awk '{print $1}') 
-debug_cmd " echo "$ttime 上视二维码相机原始数据日志文件大小查询完毕。size_rostopic_up:$size_rostopic_up" >> $debug_name "
+debug_cmd " echo "$ttime 上视二维码相机原始数据日志文件大小查询完毕。size_rostopic_up:$size_rostopic_up" >> $debug_name 2>&1 & "
 fi
 
 if [ $up_switch -eq 1 ]; then
 size_rostopic_up_hz=$(du -b "$rostopic_up_hz" | awk '{print $1}') 
-debug_cmd " echo "$ttime 上视二维码相机驱动节点日志文件大小查询完毕。size_rostopic_up_hz:$size_rostopic_up_hz" >> $debug_name "
+debug_cmd " echo "$ttime 上视二维码相机驱动节点日志文件大小查询完毕。size_rostopic_up_hz:$size_rostopic_up_hz" >> $debug_name 2>&1 & "
 fi
 
 if [ $down_switch -eq 1 ]; then
 size_rostopic_down=$(du -b "$rostopic_down" | awk '{print $1}') 
-debug_cmd " echo "$ttime 下视二维码相机原始数据日志文件大小查询完毕。size_rostopic_down:$size_rostopic_down" >> $debug_name "
+debug_cmd " echo "$ttime 下视二维码相机原始数据日志文件大小查询完毕。size_rostopic_down:$size_rostopic_down" >> $debug_name 2>&1 & "
 fi
 
 if [ $down_switch -eq 1 ]; then
 size_rostopic_down_hz=$(du -b "$rostopic_down_hz" | awk '{print $1}') 
-debug_cmd " echo "$ttime 上视二维码相机驱动节点日志文件大小查询完毕。size_rostopic_down_hz:$size_rostopic_down_hz" >> $debug_name "
+debug_cmd " echo "$ttime 上视二维码相机驱动节点日志文件大小查询完毕。size_rostopic_down_hz:$size_rostopic_down_hz" >> $debug_name 2>&1 & "
 fi
 
 size_rostopic_battery=$(du -b "$rostopic_battery" | awk '{print $1}') 
-debug_cmd " echo "$ttime 电池状态日志文件大小查询完毕。" >> $debug_name "
+debug_cmd " echo "$ttime 电池状态日志文件大小查询完毕。" >> $debug_name 2>&1 & "
 
 if [ $usb_devices -eq 1 ]; then
 size_usb_devices_data=$(du -b "$usb_devices_data" | awk '{print $1}') 
-debug_cmd " echo "$ttime 设备USB信号日志大小查询完毕。size_usb_devices_data:$size_usb_devices_data" >> $debug_name "
+debug_cmd " echo "$ttime 设备USB信号日志大小查询完毕。size_usb_devices_data:$size_usb_devices_data" >> $debug_name 2>&1 & "
 fi
 
 if [ $camera_up_hand -eq 1 ]; then
 size_roslaunch_up=$(du -b "$roslaunch_up" | awk '{print $1}') 
-debug_cmd " echo "$ttime 手动执行上视二维码相机打印日志大小查询完毕。size_roslaunch_up:$size_roslaunch_up" >> $debug_name "
+debug_cmd " echo "$ttime 手动执行上视二维码相机打印日志大小查询完毕。size_roslaunch_up:$size_roslaunch_up" >> $debug_name 2>&1 & "
 fi
 
 if [ $up_switch -eq 1 ]; then
 size_usb_up_hz=$(du -b "$usb_up_hz" | awk '{print $1}') 
-debug_cmd " echo "$ttime 上视二维码相机usb连接驱动节点日志文件大小查询完毕。size_usb_up_hz:$size_usb_up_hz" >> $debug_name "
+debug_cmd " echo "$ttime 上视二维码相机usb连接驱动节点日志文件大小查询完毕。size_usb_up_hz:$size_usb_up_hz" >> $debug_name 2>&1 & "
 fi
 
 if [ $camera_down_hand -eq 1 ]; then
 size_roslaunch_down=$(du -b "$roslaunch_down" | awk '{print $1}') 
-debug_cmd " echo "$ttime 手动执行下视二维码相机打印日志大小查询完毕。size_roslaunch_down:$size_roslaunch_down" >> $debug_name "
+debug_cmd " echo "$ttime 手动执行下视二维码相机打印日志大小查询完毕。size_roslaunch_down:$size_roslaunch_down" >> $debug_name 2>&1 & "
 fi
 
 if [ $camera_tcp -eq 1 ]; then
 size_camera_usb1=$(du -b "$tcpdump_usb1" | awk '{print $1}') 
-debug_cmd " echo "$ttime usb1信道数据包日志大小查询完毕。size_camera_usb1:$size_camera_usb1" >> $debug_name "
+debug_cmd " echo "$ttime usb1信道数据包日志大小查询完毕。size_camera_usb1:$size_camera_usb1" >> $debug_name 2>&1 & "
 fi
 
 if [ $camera_tcp -eq 1 ]; then
 size_camera_usb2=$(du -b "$tcpdump_usb2" | awk '{print $1}') 
-debug_cmd " echo "$ttime usb2信道数据包日志大小查询完毕。size_camera_usb2:$size_camera_usb2" >> $debug_name "
+debug_cmd " echo "$ttime usb2信道数据包日志大小查询完毕。size_camera_usb2:$size_camera_usb2" >> $debug_name 2>&1 & "
 fi
 
 
 debug_cmd " size_debug_name=$(du -b "$debug_name" | awk '{print $1}') "
-debug_cmd " echo "$ttime 调试日志文件大小查询完毕。size_debug_name:$size_debug_name" >> $debug_name "
+debug_cmd " echo "$ttime 调试日志文件大小查询完毕。size_debug_name:$size_debug_name" >> $debug_name 2>&1 & "
 sleep 0.1
 debug_cmd " echo "$ttime 查询日志文件大小流程执行循环已完毕。" >> $debug_name "
 
@@ -499,14 +499,14 @@ if [ "$size_cpu" -gt "$max_size_all" ];then
 back_file1="$cpu-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$cpu" "$back_file1"
 touch "$cpu" 
-debug_cmd " echo "$ttime cpu系统日志备份完成，备份日志名称：$back_file1" >> $debug_name "
+debug_cmd " echo "$ttime cpu系统日志备份完成，备份日志名称：$back_file1" >> $debug_name 2>&1 & "
 fi
 sleep 0.01
 if [ "$size_memory" -gt "$max_size_all" ];then
 back_file2="$memory-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$memory" "$back_file2"
 touch "$memory" &
-debug_cmd " echo "$ttime 系统内存信息日志备份完成，备份日志名称：$back_file2" >> $debug_name "
+debug_cmd " echo "$ttime 系统内存信息日志备份完成，备份日志名称：$back_file2" >> $debug_name 2>&1 & "
 fi
 sleep 0.01
 if [ $up_switch -eq 1 ]; then
@@ -514,7 +514,7 @@ if [ "$size_rostopic_up_hz" -gt "$max_size_all" ];then
 back_file4="$rostopic_up_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_up_hz" "$back_file4"
 touch "$rostopic_up_hz"
-debug_cmd " echo "$ttime 上视二维码相机驱动节点日志备份完成，备份日志名称：$back_file4" >> $debug_name "
+debug_cmd " echo "$ttime 上视二维码相机驱动节点日志备份完成，备份日志名称：$back_file4" >> $debug_name 2>&1 & "
 fi
 fi
 if [ $up_switch -eq 1 ]; then
@@ -522,7 +522,7 @@ if [ "$size_rostopic_up" -gt "$max_size_all" ];then
 back_file5="$rostopic_up-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_up" "$back_file5"
 touch "$rostopic_up"
-debug_cmd " echo "$ttime 上视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file5" >> $debug_name "
+debug_cmd " echo "$ttime 上视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file5" >> $debug_name 2>&1 & "
 fi
 fi
 sleep 0.01
@@ -531,7 +531,7 @@ if [ "$size_rostopic_down" -gt "$max_size_all" ];then
 back_file6="$rostopic_down-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_down" "$back_file6"
 touch "$rostopic_down"
-debug_cmd " echo "$ttime 下视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file6" >> $debug_name "
+debug_cmd " echo "$ttime 下视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file6" >> $debug_name 2>&1 &"
 fi
 fi
 sleep 0.01
@@ -540,7 +540,7 @@ if [ "$size_rostopic_down_hz" -gt "$max_size_all" ];then
 back_file3="$rostopic_down_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_down_hz" "$back_file3"
 touch "$rostopic_down_hz"
-debug_cmd " echo "$ttime 下视二维码相机驱动节点日志备份完成，备份日志名称：$back_file3" >> $debug_name "
+debug_cmd " echo "$ttime 下视二维码相机驱动节点日志备份完成，备份日志名称：$back_file3" >> $debug_name 2>&1 & "
 fi
 fi
 sleep 0.01
@@ -549,7 +549,7 @@ if [ "$size_rostopic_battery" -gt "$max_size_all" ];then
 back_file7="$rostopic_battery-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$rostopic_battery" "$back_file7"
 touch "$rostopic_battery"
-debug_cmd " echo "$ttime 电池日志文件备份已完成，备份日志名称：$back_file7" >> $debug_name "
+debug_cmd " echo "$ttime 电池日志文件备份已完成，备份日志名称：$back_file7" >> $debug_name 2>&1 & "
 fi
 sleep 0.01
 
@@ -558,7 +558,7 @@ if [ "$size_usb_devices_data" -gt "$max_size_all" ];then
 back_file8="$usb_devices_data-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$usb_devices_data" "$back_file8"
 touch "$usb_devices_data"
-debug_cmd " echo "$ttime 设备所有USB数据详文日志文件备份已完成，备份日志名称：$back_file8" >> $debug_name "
+debug_cmd " echo "$ttime 设备所有USB数据详文日志文件备份已完成，备份日志名称：$back_file8" >> $debug_name 2>&1 & "
 fi
 fi
 
@@ -567,7 +567,7 @@ if [ "$size_roslaunch_up" -gt "$max_size_all" ];then
 back_file11="$roslaunch_up-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$roslaunch_up" "$back_file11"
 touch "$roslaunch_up"
-debug_cmd " echo "$ttime 手动执行上视二维码相机打印日志文件备份已完成，备份日志名称：$back_file11" >> $debug_name "
+debug_cmd " echo "$ttime 手动执行上视二维码相机打印日志文件备份已完成，备份日志名称：$back_file11" >> $debug_name 2>&1 & "
 fi
 fi
 
@@ -576,7 +576,7 @@ if [ "$size_roslaunch_down" -gt "$max_size_all" ];then
 back_file12="$roslaunch_down-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$roslaunch_down" "$back_file12"
 touch "$roslaunch_down"
-debug_cmd " echo "$ttime 手动执行下视二维码相机打印日志文件备份已完成，备份日志名称：$back_file12" >> $debug_name "
+debug_cmd " echo "$ttime 手动执行下视二维码相机打印日志文件备份已完成，备份日志名称：$back_file12" >> $debug_name 2>&1 & "
 fi
 fi
 
@@ -585,7 +585,7 @@ if [ "$size_usb_up_hz" -gt "$max_size_all" ];then
 back_file13="$usb_up_hz-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$usb_up_hz" "$back_file13"
 touch "$usb_up_hz"
-debug_cmd " echo "$ttime usb连接节点日志备份完成，备份日志名称：$back_file13" >> $debug_name "
+debug_cmd " echo "$ttime usb连接节点日志备份完成，备份日志名称：$back_file13" >> $debug_name 2>&1 & "
 fi
 fi
 
@@ -595,7 +595,7 @@ ps -ef | grep "tcpdump -i usbmon1" |grep -v grep |awk '{print $2}'| xargs kill -
 debug_cmd " echo "$ttime 终止usb1信道数据抓包进程完成。" >> $debug_name "
 back_file14="$tcpdump_usb1-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_usb1" "$back_file14"
-debug_cmd " echo "$ttime usb1信道抓包日志文件备份已完成，备份日志名称：$back_file14" >> $debug_name "
+debug_cmd " echo "$ttime usb1信道抓包日志文件备份已完成，备份日志名称：$back_file14" >> $debug_name 2>&1 & "
 touch "$tcpdump_usb1" 
 tcpdump -i usbmon1 -w $tcpdump_usb1 &
 debug_cmd " echo "$ttime usb1信道数据抓包开始" >> $debug_name "
@@ -608,7 +608,7 @@ ps -ef | grep "tcpdump -i usbmon2" |grep -v grep |awk '{print $2}'| xargs kill -
 debug_cmd " echo "$ttime 终止usb2信道数据抓包进程完成。" >> $debug_name "
 back_file15="$tcpdump_usb2-$(date +"%Y-%m-%d-%H-%M-%S")"
 mv "$tcpdump_usb2" "$back_file15"
-debug_cmd " echo "$ttime usb2信道抓包日志文件备份已完成，备份日志名称：$back_file15" >> $debug_name "
+debug_cmd " echo "$ttime usb2信道抓包日志文件备份已完成，备份日志名称：$back_file15" >> $debug_name 2>&1 & "
 touch "$tcpdump_usb2" 
 tcpdump -i usbmon2 -w $tcpdump_usb2 &
 debug_cmd " echo "$ttime usb2信道数据抓包开始" >> $debug_name "
@@ -616,7 +616,7 @@ fi
 fi
 
 
-debug_cmd " echo "$ttime 判断文件是否大于阈值并执行相关操作流程循环完毕。" >> $debug_name "
+debug_cmd " echo "$ttime 判断文件是否大于阈值并执行相关操作流程循环完毕。" >> $debug_name 2>&1 & "
 
 #查询文件夹下指定文件的数量
 
