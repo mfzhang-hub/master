@@ -4,7 +4,7 @@
 
 #usb配置开关
 
-up_switch=1 #上视二维码相机数据开关；
+up_switch=0 #上视二维码相机数据开关；
 down_switch=1 #下视二维码相机数据开关；
 usb_devices=0 #设备所有usb信号抓取开关；
 camera_up_hand=0 #上视二维码相机手动开启开关；
@@ -406,20 +406,20 @@ debug_cmd " echo "$ttime cpu系统日志保存文件大小查询完毕。size_cp
 size_memory=$(du -b "$memory" | awk '{print $1}') 
 debug_cmd " echo "$ttime 系统内存日志文件大小查询完毕。size_memory:$size_memory" >> $debug_name 2>&1 & "
 
-if [ $up_switch -eq 1 ]; then
-size_rostopic_up=$(du -b "$rostopic_up" | awk '{print $1}') 
-debug_cmd " echo "$ttime 上视二维码相机原始数据日志文件大小查询完毕。size_rostopic_up:$size_rostopic_up" >> $debug_name 2>&1 & "
-fi
+#if [ $up_switch -eq 1 ]; then
+#size_rostopic_up=$(du -b "$rostopic_up" | awk '{print $1}') 
+#debug_cmd " echo "$ttime 上视二维码相机原始数据日志文件大小查询完毕。size_rostopic_up:$size_rostopic_up" >> $debug_name 2>&1 & "
+#fi
 
 if [ $up_switch -eq 1 ]; then
 size_rostopic_up_hz=$(du -b "$rostopic_up_hz" | awk '{print $1}') 
 debug_cmd " echo "$ttime 上视二维码相机驱动节点日志文件大小查询完毕。size_rostopic_up_hz:$size_rostopic_up_hz" >> $debug_name 2>&1 & "
 fi
 
-if [ $down_switch -eq 1 ]; then
-size_rostopic_down=$(du -b "$rostopic_down" | awk '{print $1}') 
-debug_cmd " echo "$ttime 下视二维码相机原始数据日志文件大小查询完毕。size_rostopic_down:$size_rostopic_down" >> $debug_name 2>&1 & "
-fi
+#if [ $down_switch -eq 1 ]; then
+#size_rostopic_down=$(du -b "$rostopic_down" | awk '{print $1}') 
+#debug_cmd " echo "$ttime 下视二维码相机原始数据日志文件大小查询完毕。size_rostopic_down:$size_rostopic_down" >> $debug_name 2>&1 & "
+#fi
 
 if [ $down_switch -eq 1 ]; then
 size_rostopic_down_hz=$(du -b "$rostopic_down_hz" | awk '{print $1}') 
@@ -517,23 +517,23 @@ touch "$rostopic_up_hz"
 debug_cmd " echo "$ttime 上视二维码相机驱动节点日志备份完成，备份日志名称：$back_file4" >> $debug_name 2>&1 & "
 fi
 fi
-if [ $up_switch -eq 1 ]; then
-if [ "$size_rostopic_up" -gt "$max_size_all" ];then
-back_file5="$rostopic_up-$(date +"%Y-%m-%d-%H-%M-%S")"
-mv "$rostopic_up" "$back_file5"
-touch "$rostopic_up"
-debug_cmd " echo "$ttime 上视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file5" >> $debug_name 2>&1 & "
-fi
-fi
+#if [ $up_switch -eq 1 ]; then
+#if [ "$size_rostopic_up" -gt "$max_size_all" ];then
+#back_file5="$rostopic_up-$(date +"%Y-%m-%d-%H-%M-%S")"
+#mv "$rostopic_up" "$back_file5"
+#touch "$rostopic_up"
+#debug_cmd " echo "$ttime 上视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file5" >> $debug_name 2>&1 & "
+#fi
+#fi
 sleep 0.01
-if [ $down_switch -eq 1 ]; then
-if [ "$size_rostopic_down" -gt "$max_size_all" ];then
-back_file6="$rostopic_down-$(date +"%Y-%m-%d-%H-%M-%S")"
-mv "$rostopic_down" "$back_file6"
-touch "$rostopic_down"
-debug_cmd " echo "$ttime 下视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file6" >> $debug_name 2>&1 &"
-fi
-fi
+#if [ $down_switch -eq 1 ]; then
+#if [ "$size_rostopic_down" -gt "$max_size_all" ];then
+#back_file6="$rostopic_down-$(date +"%Y-%m-%d-%H-%M-%S")"
+#mv "$rostopic_down" "$back_file6"
+#touch "$rostopic_down"
+#debug_cmd " echo "$ttime 下视二维码相机topic原始数据日志备份完成，备份日志名称：$back_file6" >> $debug_name 2>&1 &"
+#fi
+#fi
 sleep 0.01
 if [ $down_switch -eq 1 ]; then
 if [ "$size_rostopic_down_hz" -gt "$max_size_all" ];then
