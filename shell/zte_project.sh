@@ -298,8 +298,6 @@ then
    cd /mnt/
    source devel_isolated/setup.bash
    rostopic echo /ztexing_node/draw_status  
-   echo "less param"
-fi
 elif [ $1 -eq 65 ]   #SMT-GT自动调宽到152mm，平台升高到500mm
 then
    cd /mnt/
@@ -308,7 +306,6 @@ then
 cargo_size: 152
 roller_speed: 0.0
 roller_height: 500" 
-fi
 elif [ $1 -eq 66 ]   #SMT-GT自动调宽到500mm，平台升高到500mm
 then
    cd /mnt/
@@ -317,7 +314,6 @@ then
 cargo_size: 500
 roller_speed: 0.0
 roller_height: 500" 
-fi
 elif [ $1 -eq 67 ]   #SMT-GT自动调宽到152mm，平台升高到500mm指令暂停
 then
    cd /mnt/
@@ -326,7 +322,6 @@ then
 cargo_size: 152
 roller_speed: 0.0
 roller_height: 500" 
-fi
 elif [ $1 -eq 68 ]   #SMT-GT自动调宽到500mm，平台升高到500mm，指令暂停
 then
    cd /mnt/
@@ -335,4 +330,6 @@ then
 cargo_size: 500
 roller_speed: 0.0
 roller_height: 500" 
+else
+echo "less param"
 fi
