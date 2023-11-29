@@ -114,7 +114,7 @@ namespace zte_id_T660SGT //T660SGT车型
     };
 } //
 
-namespace zte_id_SMT_NJ //SMT车型
+namespace zte_id_SMT_NJ //SMT手动调宽车型底盘程序
 {
     enum {
       SMT_01010304014006,  //
@@ -122,10 +122,10 @@ namespace zte_id_SMT_NJ //SMT车型
     };
 } //
 
-namespace zte_id_SMT_DOUBLE //SMT辊筒模块车型
+namespace zte_id_SMT_DOUBLE //SMT手动调宽平台型号
 {
     enum {
-      SMT_01010301100501,  //辊筒模块
+      SMT_01010301100501,  //SMT手动调宽平台型号
 
     };
 } //
