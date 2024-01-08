@@ -1,5 +1,0 @@
-<launch>
-
-  <include file="$(find lxi2_25_camera)/launch/includes/lxi2_25_camera.launch.xml" />
-  
-</launch>

@@ -1,9 +1,0 @@
-[rospy.client][INFO] 2022-03-14 13:23:57,546: init_node, name[/rostopic_334_1647235437487], pid[334]
-[xmlrpc][INFO] 2022-03-14 13:23:57,546: XML-RPC server binding to 0.0.0.0:0
-[xmlrpc][INFO] 2022-03-14 13:23:57,547: Started XML-RPC server [http://robot:42103/]
-[rospy.init][INFO] 2022-03-14 13:23:57,547: ROS Slave URI: [http://robot:42103/]
-[rospy.impl.masterslave][INFO] 2022-03-14 13:23:57,547: _ready: http://robot:42103/
-[rospy.registration][INFO] 2022-03-14 13:23:57,548: Registering with master node http://localhost:11311
-[xmlrpc][INFO] 2022-03-14 13:23:57,548: xml rpc node: starting XML-RPC server
-[rospy.init][INFO] 2022-03-14 13:23:57,647: registered with master
-[rospy.internal][INFO] 2022-03-14 13:23:57,909: topic[/jack_command] adding connection to [/ztexing_node], count 0

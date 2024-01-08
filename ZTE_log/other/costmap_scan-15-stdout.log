@@ -1,8 +1,0 @@
-[0m[ INFO] [2022-3-14 9:14:11]: Using plugin "static_layer"[0m
-[0m[ INFO] [2022-3-14 9:14:11]: Requesting the map...[0m
-[0m[ INFO] [2022-3-14 9:14:11]: Resizing costmap to 779 X 423 at 0.050000 m/pix[0m
-[0m[ INFO] [2022-3-14 9:14:11]: Received a 779 X 423 map at 0.050000 m/pix[0m
-[0m[ INFO] [2022-3-14 9:14:12]: Loading from pre-hydro parameter style[0m
-[0m[ INFO] [2022-3-14 9:14:12]: Using plugin "obstacle_layer"[0m
-[0m[ INFO] [2022-3-14 9:14:12]:     Subscribed to Topics: [0m
-[0m[ INFO] [2022-3-14 9:14:12]: Using plugin "inflation_layer"[0m
