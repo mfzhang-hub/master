@@ -590,7 +590,7 @@ wifi_name=$(iwconfig $wifi_card | grep ESSID | awk -F '"' '{print $2}')
 ap_name=$(iwconfig $wifi_card | grep Access | awk -F ' ' '{print $6}')
 signal_strength=$(iwconfig $wifi_card | grep Signal | awk -F '=' '{print $3}' | awk '{print $1}')
 gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
-delay=$(ping -c 1 "$gateway" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}')
+delay=$(ping -c 1 "$gateway" | grep 'time=' | awk -F '=' '{print $4}' | awk -F ' ' '{print $1}' 2>&1)
 network_card=$(lspci | grep -i network | awk -F 'Network controller: ' '{print $2}')
 previous_metric=$current_metric
 current_metric=$(ip route show | grep "default via $target_gateway" | awk '{print $NF}' | sort -n | head -n 1)
@@ -602,6 +602,9 @@ if [ $wifi_switch -eq 1 ]; then
 if [ -z "$wifi_card" ]; then
     echo "$ttime 未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！" >> $wifi_network
 debug_cmd "	echo "$ttime "未获取到wifi网卡信息，请检查wifi网卡是否正常连接！！！"" >> $debug_name " 
+fi
+if [ -z "$wifi_name" ]; then
+echo "$ttime ERROR:未连接到网络！！！请检查网络连接状态！！！" >> $wifi_network
 else
     echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms $freq GHz network_card:$network_card " >> $wifi_network 
 fi
@@ -609,10 +612,12 @@ if [[ "$current_metric" != "$previous_metric" ]]; then
     ip route show | awk -v current="$current_metric" -v previous="$previous_metric" '($NF > previous) && ($NF < current) {print $NF}'
     echo "$ttime 网关Metric发生变化：$previous_metric -> $current_metric" >> $wifi_network 
     fi
+if [ -n "$wifi_name" ]; then
     if [[ $iwlist_ap != *"IEEE 802.11"* ]];then
     echo "$ttime 当前连接网络支持wifi6网卡(Wifi6 can be connected.)！" >> $wifi_network  
     else
     echo "$ttime ERROR：当前连接网络不支持wifi6网卡(Wifi6 cannot be connected.)！" >> $wifi_network 
+fi
 fi
 fi
 if [ $rcs_network -eq 1 ]; then    

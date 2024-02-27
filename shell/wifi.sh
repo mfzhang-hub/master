@@ -17,9 +17,11 @@ iwlist_ap=$(echo "$ap_info" | grep -F 'IEEE 802.11' | awk -F ':' '{print $2}')
 freq=$(iwconfig $wifi_card | grep -F 'Frequency:' | awk '{print $2}' )
 if [ -z "$wifi_card" ]; then
     echo "$ttime ERROR: No network card information detected.请检查硬件是否正常！！！" >> ~/interface.txt 
+fi
+if [ -z "$wifi_name" ]; then
+    echo "$ttime ERROR:未连接到网络！！！请检查网络连接状态！！！" >> ~/interface.txt 
 else
-    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms connected_devices:$connected_devices $freq GHz network_card:$network_card " >> ~/interface.txt &
-
+    echo "$ttime wifi_card:$wifi_card wifi_name:$wifi_name ap_name:$ap_name signal_strength:$signal_strength dbm gateway:$gateway delay:$delay ms connected_devices:$connected_devices $freq GHz network_card:$network_card " >> ~/interface.txt 
 fi
 
 if [[ "$current_metric" != "$previous_metric" ]]; then
@@ -27,10 +29,12 @@ ip route show | awk -v current="$current_metric" -v previous="$previous_metric" 
     echo "$ttime 网关Metric发生变化：$previous_metric -> $current_metric" >> ~/interface.txt 
 fi
 
-if [[ $iwlist_ap != *"IEEE 802.11"* ]];then
+if [ -n "$wifi_name" ]; then
+if [[ $iwlist_ap != *"IEEE 802.11"* ]]; then
 echo "$ttime 当前连接网络支持wifi6网卡(Wifi6 can be connected.)！" >> ~/interface.txt 
 else
 echo "$ttime ERROR：当前连接网络不支持wifi6网卡(Wifi6 cannot be connected.)！" >> ~/interface.txt 
+fi
 fi
 
 sleep 0.1
