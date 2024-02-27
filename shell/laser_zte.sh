@@ -227,8 +227,12 @@ debug_cmd(){
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 
 interface=$(ip addr | grep "inet 192.168.100.201" | awk '{print $NF}')
+if [ -n "$interface" ];then
 echo $interface > $interface_network
-debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+debug_cmd " echo "$ttime 车辆系统"192.168.100.201"IP地址归属网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+else
+debug_cmd " echo "$ttime "192.168.100.201"IP地址无网卡配置不存在！！！" >> $debug_name "
+fi
 
 #判断tcpdump执行文件是否存在，存在则重命名防止pcap文件信息覆盖
 
@@ -995,7 +999,12 @@ echo "End_Initial_Count:$End_Initial_Count" >> $debug_name
 echo "Circulate:$Circulate" >> $debug_name
 echo "ctrl_c_flag:$ctrl_c_flag" >> $debug_name
 echo "max_debug:$max_debug" >> $debug_name
-debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+if [ -n "$interface" ];then
+echo $interface > $interface_network
+debug_cmd " echo "$ttime 车辆系统"192.168.100.201"IP地址归属网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+else
+debug_cmd " echo "$ttime "192.168.100.201"IP地址无网卡配置不存在！！！" >> $debug_name "
+fi
 if [ $forklift -eq 1 ]; then
 echo "forklift:$forklift" >> $debug_name
 echo "此脚本车型配置为叉车车型，下方back_ip自动更新为叉车右前激光ip,请注意！！！" >> $debug_name

@@ -304,8 +304,12 @@ debug_cmd(){
 ttime=`date +"%Y-%m-%d %H:%M:%S.%3N"`
 
 interface=$(ip addr | grep "inet 192.168.100.201" | awk '{print $NF}')
+if [ -n "$interface" ];then
 echo $interface > $interface_network
-debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+debug_cmd " echo "$ttime 车辆系统"192.168.100.201"IP地址归属网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+else
+debug_cmd " echo "$ttime "192.168.100.201"IP地址无网卡配置不存在！！！" >> $debug_name "
+fi
 
 #文件保存
 
@@ -1314,7 +1318,12 @@ echo "camera_up_hand:$camera_up_hand" >> $debug_name
 echo "camera_down_hand:$camera_down_hand" >> $debug_name
 echo "camputer_var:$camputer_var" >> $debug_name
 echo "camera_tcp:$camera_tcp" >> $debug_name
-debug_cmd " echo "$ttime 车辆系统"192.168.100.201"网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+if [ -n "$interface" ];then
+echo $interface > $interface_network
+debug_cmd " echo "$ttime 车辆系统"192.168.100.201"IP地址归属网卡名称获取完毕，网卡名称为：$interface" >> $debug_name "
+else
+debug_cmd " echo "$ttime "192.168.100.201"IP地址无网卡配置不存在！！！" >> $debug_name "
+fi
 if [ $forklift -eq 1 ]; then
 echo "forklift:$forklift" >> $debug_name
 echo "此脚本车型配置为叉车车型，下方back_ip自动更新为叉车右前激光ip,请注意！！！" >> $debug_name
