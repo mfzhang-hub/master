@@ -1,0 +1,9 @@
+1. sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4.1_amd64.deb
+
+2. sudo dpkg -i *.deb  安装剩余
+
+3. sudo update-grub
+解压iwlwifi-cc-46.3cfab8da.0.tgz 进入文件夹
+4.sudo cp *.ucode /lib/firmware
+
+5. reboot

@@ -1,0 +1,8 @@
+<launch>
+   <node name="lxi2_25_node" pkg="lxi2_25_camera" type="lxi2_25_node" output="screen">
+        <param name="param_file_path" value="$(find lxi2_25_camera)/param/" />
+        <param name="frame_id_base" value="LXTOF" />
+	<param name="ip" value="192.168.100.22:9800" />
+   </node>
+
+</launch>

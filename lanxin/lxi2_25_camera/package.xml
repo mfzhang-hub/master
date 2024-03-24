@@ -1,0 +1,17 @@
+<package>
+	<name>lxi2_25_camera</name>
+	<version>1.0.0</version>
+	<description>i2_25 camera ros driver 2.0</description>
+	<maintainer email="xlguo@robvision.cn">xlguo</maintainer>
+	<license>MIT</license>
+	
+	<!-- DEPENDENT-->
+	<buildtool_depend>catkin</buildtool_depend>
+	
+	<build_depend>roscpp</build_depend>
+	<build_depend>sensor_msgs</build_depend>
+
+	<run_depend>roscpp</run_depend>
+	<run_depend>sensor_msgs</run_depend>
+
+</package>
