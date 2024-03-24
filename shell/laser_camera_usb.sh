@@ -430,10 +430,10 @@ echo '54mI5pys5Y+377yadjE3LeS8mOWMlue9keWNoeafpeivouaMh+S7pO+8jOWQjOatpeWinuWKoO
 
 echo "
 DEBUG: debug开关，当此参数改为true时则打印下述相关执行顺序日志；
-DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循时间约为4秒：计时打印公式：Circulate配置的参数*4），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
+DEBUG_executions_number： 此脚本循环打印时间（单位：秒-注意：计数是start1/end1每次循时间：计时打印公式：Circulate配置的参数*4），当达到配置的数值“Circulate”时，停止打印脚本且输出“---end---”信息；
 max_size： 网络数据包的单包保存大小（单位：字节，10000000=10mb）；
 max_size_all： 除网络数据包之外其他的日志文件单个保存大小（单位：字节，10000000=10mb）；
-max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包（正常两个包的数据间隔是3分钟）；
+max_box： 网络数据包的所在文件夹下的循环保存数量，超过这个数值会自动覆盖最早生成的文件包；
 max_ros： 系统./ros/log下面的rostopic开头的文件所在文件夹下的循环保存数量，因为下述脚本循环执行topic指令会导致很多数据包生成；
 max_debug： 作为debug日志及computer的相关日志的存储限制数量参数；
 Start_Initial_Count： 计数器初始值-默认1，请勿修改；
@@ -463,12 +463,12 @@ rcs_network：“rcs连接ip延迟信息查询开关，默认0”
     叉根避障激光:192.168.100.102
     顶部激光:192.168.100.109
     叉尖对接激光（蓝海）：192.168.100.108 
-up_switch：上视二维码相机数据开关-默认1，请勿修改;
-down_switch：下视二维码相机数据开关-默认1，请勿修改;
-usb_devices：设备所有usb信号抓取开关-默认1，请勿修改；
-camera_up_hand：上视二维码相机手动开启开关-默认0，请勿修改；
-camera_down_hand：下视二维码相机手动开启开关-默认0，请勿修改；
-camputer_var：计算机指定文件复制开关-默认1，请勿修改；
+up_switch：上视二维码相机数据开关;
+down_switch：下视二维码相机数据开关;
+usb_devices：设备所有usb信号抓取开关；
+camera_up_hand：上视二维码相机手动开启开关；
+camera_down_hand：下视二维码相机手动开启开关；
+camputer_var：计算机指定文件复制开关；
 camera_tcp: 计算机USB信号数据包录取开关；" > $explain
 
 #设备Usb信息分析说明
