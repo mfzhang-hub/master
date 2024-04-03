@@ -1,7 +1,0 @@
--- creat table 2021/4/20 jhh
-DROP TABLE IF EXISTS `user_area_conf`;
-CREATE TABLE `user_area_conf`(
-  `id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'ID',
-  `user_id` BIGINT NOT NULL COMMENT '用户ID',
-  `area_id` BIGINT NOT NULL COMMENT '区域ID'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户区域关联表';
