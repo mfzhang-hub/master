@@ -752,7 +752,7 @@ sleep 0.1
 #启动时间查询
 
 uptime -s >> $shutdown_time 
-debug_cmd " echo "$ttime 读取系统关机时间完毕。" >> $debug_name "
+debug_cmd " echo "$ttime 读取系统关机时间完毕。存放路径:$shutdown_time " >> $debug_name " &
 
 trap 'ctrl_c_flag=1' INT
 
