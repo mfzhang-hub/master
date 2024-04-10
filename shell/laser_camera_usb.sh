@@ -319,7 +319,7 @@ fi
 script_path="$(realpath "$0")"
 
 # 指定目标路径
-destination_directory="/root/lanxin/agv"
+destination_directory="~/lanxin/agv"
 
 # 指定保存的文件名
 backup_filename="nanjing.sh"
